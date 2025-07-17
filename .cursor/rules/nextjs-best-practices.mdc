@@ -1,0 +1,75 @@
+# Next.js Best Practices & SOLID Principles
+
+## 1. File & Folder Structure
+- Use the `/app` directory for all routing, layouts, and pages (App Router).
+- Organize code by domain: `/components`, `/controllers`, `/models`, `/middleware`, `/store`, `/lib`, `/tests`.
+- Use route groups (e.g., `(public)`, `(protected)`) for clear separation of public and protected content.
+- Place business logic in `/controllers/`, data types in `/models/`, and UI in `/components/`.
+
+## 2. Component Design
+- Keep components small, focused, and reusable (Single Responsibility Principle).
+- Use functional components and React hooks.
+- Prefer composition over inheritance.
+- Co-locate component styles (e.g., Tailwind, CSS modules) with the component file.
+- Use shadcn/ui or similar libraries for accessible, consistent UI primitives.
+
+## 3. State Management
+- Use local state for UI concerns; use Zustand or similar for global state.
+- Keep state logic in `/store/` and avoid prop drilling.
+- Do not store sensitive data in client state.
+
+## 4. Data Fetching & Performance
+- Use server components and server-side data fetching where possible.
+- Use React Suspense and streaming for fast, intentional loading states.
+- Avoid client-side data waterfalls; prefer server data aggregation.
+- Use Next.js Image and Font components for built-in optimizations.
+- Code split large components/pages automatically via file-based routing.
+- Memoize expensive computations and avoid unnecessary re-renders.
+
+## 5. Middleware & Security
+- Place all middleware logic in `/middleware/` and compose in root `middleware.ts`.
+- Use middleware for authentication, A/B testing, and internationalization.
+- Validate all user input and route params.
+- Never expose secrets or sensitive logic to the client.
+
+## 6. Clean Code & SOLID Principles
+- **Single Responsibility:** Each file/class/function does one thing.
+- **Open/Closed:** Add new features by adding new files, not modifying existing ones unless necessary.
+- **Liskov Substitution:** Use interfaces/types for extensibility.
+- **Interface Segregation:** Keep interfaces small and focused.
+- **Dependency Inversion:** Controllers depend on abstractions, not concrete implementations.
+- Use clear, descriptive names for files, functions, and variables.
+- Add comments and JSDoc for complex logic.
+- Remove dead code and unused imports.
+
+## 7. Accessibility & UX
+- Use semantic HTML and ARIA attributes.
+- Ensure all interactive elements are keyboard accessible.
+- Test with screen readers and color contrast tools.
+- Use Tailwind or CSS variables for consistent theming and spacing.
+
+## 8. Testing & Quality
+- Add unit and integration tests in `/tests/` for all business logic and critical components.
+- Use Jest and React Testing Library for frontend tests.
+- Run `npm run lint` and `npx prettier --write .` before every commit.
+- Use ESLint and Prettier for code quality and formatting.
+
+## 9. Scalability & Extensibility
+- Design for feature growth: add new domains as new folders/files.
+- Use environment variables for config and secrets.
+- Document all architectural decisions and patterns in the README.
+
+## 10. Performance for High Traffic
+- Use server-side rendering and static generation for fast initial loads.
+- Cache data at the edge where possible.
+- Avoid blocking the main thread with heavy computations.
+- Monitor and optimize bundle size.
+- Use CDN for static assets.
+
+---
+
+**Follow these rules to ensure your Next.js frontend is clean, maintainable, and ready to scale to 100k+ users.**
+description:
+globs:
+alwaysApply: false
+---

@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Starter Boilerplate
 
-## Getting Started
+This is a modern, scalable, and extensible Next.js starter project, ready for production and team collaboration.
 
-First, run the development server:
+## Features
+- **Next.js (App Router, TypeScript) — Views**
+- **Tailwind CSS** for utility-first styling
+- **shadcn/ui** for beautiful, accessible UI components
+- **Zustand** for state management
+- **Jest** for unit and integration testing
+- **ESLint & Prettier** for code quality and formatting
+- **File-based routing** with `/app` directory
+- **Authentication with NextAuth.js** (GitHub provider sample, easily extendable)
+- **Middleware-based route protection**
+- **MVC-inspired structure** for maintainability
+- **SOLID principles** for extensibility
+- **Example pages and components**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## File Structure
+```
+app/            # Next.js app directory (routing, layouts, pages — Views)
+  (public)/     # Public pages (home, about, sign-in)
+  (protected)/  # Protected pages (dashboard, etc.)
+components/     # Reusable UI components (shadcn/ui)
+controllers/    # Business logic, request handlers (Controllers)
+models/         # Data models, types, validation schemas (Models)
+middleware/     # Modular middleware functions
+store/          # Zustand stores
+lib/            # Utility functions
+styles/         # Tailwind and global styles
+public/         # Static assets
+tests/          # Jest test files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## For New Developers / Interns
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Welcome! This project is designed for easy onboarding and collaboration. Follow these steps to get started and contribute effectively:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Setup
+- Clone the repository and run `npm install` to install dependencies.
+- Create a `.env.local` file in the root with:
+  ```env
+  GITHUB_ID=your_github_client_id
+  GITHUB_SECRET=your_github_client_secret
+  NEXTAUTH_URL=http://localhost:3000
+  ```
+- Start the dev server: `npm run dev` (visit [http://localhost:3000](http://localhost:3000))
 
-## Learn More
+### 2. Adding New Features
+- **New Page/View:** Add a new file in `app/(public)` or `app/(protected)` (e.g., `app/(protected)/profile/page.tsx`).
+- **New Component:** Add a new file in `components/` (e.g., `components/MyButton.tsx`).
+- **New Controller:** Add a new file in `controllers/` (e.g., `controllers/userController.ts`) and move business logic here.
+- **New Model:** Add a new file in `models/` (e.g., `models/user.ts`) for data types, validation, or ORM models.
+- **New Middleware:** Add a new file in `middleware/` and compose it in the root `middleware.ts`.
+- **New Zustand Store:** Add a new file in `store/` for state management.
+- **New Utility:** Add a new file in `lib/` for helper functions.
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Committing Code
+- Use clear, descriptive commit messages (e.g., `feat: add user profile controller` or `fix: correct auth redirect logic`).
+- Follow the [conventional commits](https://www.conventionalcommits.org/) style if possible.
+- Run `npm run lint` and `npx prettier --write .` before committing.
+- Add and commit your changes:
+  ```bash
+  git add .
+  git commit -m "feat: your message here"
+  git push
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Testing
+- Add tests in `tests/` for new features or logic.
+- Run tests with `npm test`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Extending Authentication
+- Add new providers in `controllers/authController.ts`.
+- Add new user fields/types in `models/user.ts`.
 
-## Deploy on Vercel
+### 6. General Guidelines
+- **Single Responsibility:** Each file/folder should have one clear purpose.
+- **Open/Closed:** Add new features by creating new files, not modifying existing ones unless necessary.
+- **Use interfaces/types** for extensibility.
+- **Keep code clean and modular.**
+- **Ask for code reviews** if unsure about your changes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Authentication & Protected Routes
+- **Sign in** at `/signin` (or `/api/auth/signin` for NextAuth default page).
+- **Protected routes** are under `/dashboard` (or any route in `/app/(protected)`).
+- **Middleware** (`middleware.ts`) automatically redirects unauthenticated users to sign-in.
+- **Session** is managed by NextAuth.js using cookies.
+- **Add more providers** in `controllers/authController.ts` as needed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+This project is ready to deploy on platforms like **Vercel** or **Netlify**. For Vercel:
+1. Push your repo to GitHub.
+2. Go to [vercel.com](https://vercel.com/) and import your repo.
+3. Set the same environment variables in Vercel dashboard.
+4. Click "Deploy".
+
+## Customization
+- Add new pages in `app/(public)` or `app/(protected)`
+- Add new components in `components/`
+- Add new Zustand stores in `store/`
+- Add more NextAuth providers in `controllers/authController.ts`
+- Add new models in `models/`
+- Add new middleware in `middleware/`
+- Add new controllers in `controllers/`
+
+## Credits
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Jest](https://jestjs.io/)
+- [NextAuth.js](https://next-auth.js.org/)
+
+---
+
+Happy hacking! 🚀
