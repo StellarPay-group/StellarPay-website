@@ -32,9 +32,20 @@ public/         # Static assets
 tests/          # Jest test files
 ```
 
-## For New Developers / Interns
+## For New Developers
 
 Welcome! This project is designed for easy onboarding and collaboration. Follow these steps to get started and contribute effectively:
+
+### Git Workflow (IMPORTANT)
+- **Always create a new feature branch for every new feature or bugfix.**
+  - Example: `git checkout -b your-feature-name`
+- **Never push directly to `main` or `dev`.**
+- When your feature is complete:
+  1. Push your branch to GitHub: `git push -u origin your-feature-name`
+  2. Open a Pull Request (PR) on GitHub to merge your feature branch into the `dev` branch.
+  3. Request a code review if required.
+  4. Only merge after review/approval.
+- The `main` branch is for production only. All development happens in feature branches and is merged into `dev` via PRs.
 
 ### 1. Setup
 - Clone the repository and run `npm install` to install dependencies.
