@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# mcp add on
+.cursor/mcp.json
+.cursor/rules/general-guidelines.mdc
