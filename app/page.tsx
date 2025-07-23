@@ -40,11 +40,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center px-4 md:px-0 py-20 md:py-32 bg-white text-center">
         <div className="aspect-[1098/269] max-w-[1098px] w-full flex items-center justify-center mx-auto ">
-          <h1 className="font-black leading-tight text-center text-[91.9px] max-w-full">
+          <h1 className="font-black text-center text-[91.9px] leading-[1.05] max-w-full">
             MONEY THAT MOVES<br />AT THE SPEED OF NOW
           </h1>
         </div>
-        <p className="text-lg md:text-2xl text-gray-700 mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
           Send and receive globally.<br/>Move money where it matters — from splitting dinner with friends to sending to family overseas. Instant, simple and ultra-secure.
         </p>
         <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-12">
