@@ -50,7 +50,7 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-12">
           <a href="#get-started" className="px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition">Get The App</a>
         </div>
-        {/* Hero Illustration Placeholder */}
+        {/* Hero Illustration */}
         <div className="w-full flex justify-center mt-8">
           <Image src="/images/hero-illustration.png" alt="StellarPay Hero Illustration" width={600} height={400} />
         </div>
@@ -420,10 +420,6 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
-
-
-
-
 
     </main>
   );
