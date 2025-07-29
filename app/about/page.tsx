@@ -43,9 +43,9 @@ export default function AboutPage() {
 
 
       {/* Hero Section */}
-        <section className="bg-[#0e0f0c] text-white py-40 px-6">
+        <section className="bg-[#0e0f0c] text-white py-30 px-6">
           <div className="max-w-xl mx-auto flex items-center -translate-x-24">
-            <h2 className="text-[150px] font-bold leading-tight">
+            <h2 className="text-[130px] font-bold leading-tight">
               Meet.<br />StellarPay.
             </h2>
           </div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 mb-10">
               <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-3 rounded-full text-lg font-medium">
                 Contact Us
               </Button>
@@ -85,7 +85,7 @@ export default function AboutPage() {
       </div>
 
       {/* 3 Traits Section */}
-      <div className="bg-[#0065ff] py-20 px-8">
+      <div className="bg-[#0065ff] py-36 px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-15">
             {/* Lightning-fast Card */}
