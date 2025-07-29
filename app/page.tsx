@@ -7,60 +7,61 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 export default function HomePage() {
-  
-const responsive = {
-  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 3 },
-  tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 2 },
-  mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
-};
 
-type ArrowProps = {
-  next?: () => void;
-  previous?: () => void;
-  carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
-};
+  // React Multi Carousel implementation source: https://www.npmjs.com/package/react-multi-carousel
+  const responsive = {
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 3 },
+    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 2 },
+    mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
+  };
+
+  type ArrowProps = {
+    next?: () => void;
+    previous?: () => void;
+    carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
+  };
 
 
-const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => {
-  if (!carouselState) return null;
-  const leftDisabled = carouselState?.currentSlide === 0;
-  const rightDisabled = carouselState?.currentSlide + carouselState?.slidesToShow >= carouselState?.totalItems;
-  return (
-    <div className="flex justify-center gap-4 mt-6">
-      <button
-        onClick={previous}
-        className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
-          leftDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
-        }`}
-        aria-label="Previous"
-        disabled={leftDisabled}
-      >
-      <Image
-          src="/images/leftArrow.png" // Make sure this path is correct
-          alt="Previous"
-          width={50}
-          height={50}
-        />
-        
-      </button>
-      <button
-        onClick={next}
-        className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
-          rightDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
-        }`}
-        aria-label="Next"
-        disabled={rightDisabled}
-      >
-      <Image
-          src="/images/rightArrow.png" // Make sure this path is correct
-          alt="Previous"
-          width={50}
-          height={50}
-        />
-      </button>
-    </div>
-  );
-};
+  const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => {
+    if (!carouselState) return null;
+    const leftDisabled = carouselState?.currentSlide === 0;
+    const rightDisabled = carouselState?.currentSlide + carouselState?.slidesToShow >= carouselState?.totalItems;
+    return (
+      <div className="flex justify-center gap-4 mt-20">
+        <button
+          onClick={previous}
+          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+            leftDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+          }`}
+          aria-label="Previous"
+          disabled={leftDisabled}
+        >
+        <Image
+            src="/images/leftArrow.png"
+            alt="Previous"
+            width={50}
+            height={50}
+          />
+          
+        </button>
+        <button
+          onClick={next}
+          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+            rightDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+          }`}
+          aria-label="Next"
+          disabled={rightDisabled}
+        >
+        <Image
+            src="/images/rightArrow.png"
+            alt="Previous"
+            width={50}
+            height={50}
+          />
+        </button>
+      </div>
+    );
+  };
 
   return (
 
@@ -359,7 +360,7 @@ const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => 
           A new way to money. 
         </p>
 
-        <div className="w-full flex justify-center mb-12">
+        <div className="w-full flex justify-center mb-24">
           <a href="https://apps.apple.com/ca/app/george/id6743195041">
         <Image src="/images/appleStore.png" alt="apple" width={150} height={70} style={{marginRight: 20}} />
         </a>
@@ -372,40 +373,35 @@ const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => 
 
 
         <div >
-
-          <Carousel
-  showDots={false}
-  responsive={responsive}
-  ssr={false} // means to render carousel on server-side.
-  infinite={false}
-  autoPlay={false}
-  containerClass={`w-[1000px] md:w-[1400px]`}
-  dotListClass="mt-8"
-  itemClass="px-4"  
-  customButtonGroup={<ButtonGroup />}
-  renderButtonGroupOutside={true}
-  arrows={false}
->
-  <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
-  <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
-    </div>
-    <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
-  <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
-    </div>
-    <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
-  <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
-    </div>
-    <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
-  <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
-    </div>
-</Carousel>
+        <Carousel
+        showDots={false}
+        responsive={responsive}
+        ssr={false} 
+        infinite={false}
+        autoPlay={false}
+        containerClass={`w-[1000px] md:w-[1000px] lg:w-[1400px]`}
+        dotListClass="mt-8"
+        itemClass="px-4"  
+        customButtonGroup={<ButtonGroup />}
+        renderButtonGroupOutside={true}
+        arrows={false}
+      >
+        <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+        <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
+          </div>
+          <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+        <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
+          </div>
+          <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+        <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
+          </div>
+          <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+        <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
+          </div>
+      </Carousel>
         </div>
 
-
-        {/* I am not sure how to do the slider thing... */}
       </section>
-
-
       {/* Meet George section */}
       <section className="w-full px-4 sm:px-8 md:px-12 lg:px-[112px] xl:px-[120px] 2xl:px-[128px] py-20">
         <div className="aspect-[1225/472] max-w-[1470px] w-full mx-auto bg-[#0065ff] rounded-3xl p-12">

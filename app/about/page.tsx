@@ -3,9 +3,66 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight} from 'lucide-react';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 
 export default function AboutPage() {
+
+  const responsive = {
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 3 },
+    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 2 },
+    mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
+  };
+
+  // needed for blog component
+  type ArrowProps = {
+    next?: () => void;
+    previous?: () => void;
+    onClick?: () => void;
+    carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
+  };
+  const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => {
+    if (!carouselState) return null;
+    const leftDisabled = carouselState?.currentSlide === 0;
+    const rightDisabled = carouselState?.currentSlide + carouselState?.slidesToShow >= carouselState?.totalItems;
+    return (
+      <div className="flex justify-center gap-4 mt-0">
+        <button
+          onClick={previous}
+          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+            leftDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+          }`}
+          aria-label="Previous"
+          disabled={leftDisabled}
+        >
+        <Image
+            src="/images/leftArrow.png"
+            alt="Previous"
+            width={50}
+            height={50}
+          />
+          
+        </button>
+        <button
+          onClick={next}
+          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+            rightDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+          }`}
+          aria-label="Next"
+          disabled={rightDisabled}
+        >
+        <Image
+            src="/images/rightArrow.png"
+            alt="Previous"
+            width={50}
+            height={50}
+          />
+        </button>
+      </div>
+    );
+  };
+
   return (
     <main>
 
@@ -207,6 +264,81 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Blog Section */}
+      <div className="w-full max-w-7xl mx-auto px-4 py-16">
+        {/* Header */}
+        <h2 className="text-4xl font-bold text-[#000000] mb-16 text-left">StellarPay Articles</h2>
+        {/* Blog Cards Container */}
+        <div className="relative ml-[-20]">
+            <Carousel
+            showDots={false}
+            responsive={responsive}
+            ssr={false} 
+            infinite={false}
+            autoPlay={false}
+            containerClass={`w-[1000px] md:w-[1000px] lg:w-[1300px]`}
+            dotListClass="mt-8"
+            itemClass="px-4"  
+            customButtonGroup={<ButtonGroup />}
+            renderButtonGroupOutside={true}
+            arrows={false}
+          >
+            <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#0065ff] h-96 flex items-center justify-center">
+              <Image src="/images/blog1.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-12 py-8">
+                <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+                <p className="text-[#000000] text-2xl leading-[1.05]">
+                  StellarPay empower
+                </p>
+              </div>
+            </div>
+              </div>
+              <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#0065ff] h-96 flex items-center justify-center">
+              <Image src="/images/blog2.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-12 py-8">
+                <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+                <p className="text-[#000000] text-2xl leading-[1.05]">
+                  Coming soon
+                </p>
+              </div>
+            </div>
+              </div>
+              <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#0065ff] h-96 flex items-center justify-center">
+              <Image src="/images/blog3.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-12 py-8">
+                <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+                <p className="text-[#000000] text-2xl leading-[1.05]">
+                  Coming soon
+                </p>
+              </div>
+            </div>
+              </div>
+              <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#0065ff] h-96 flex items-center justify-center">
+              <Image src="/images/blog4.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-12 py-8">
+                <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+                <p className="text-[#000000] text-2xl leading-[1.05]">
+                  Coming soon
+                </p>
+              </div>
+            </div>
+              </div>
+          </Carousel>
+      </div>
       </div>
       
 
