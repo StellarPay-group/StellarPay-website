@@ -1,10 +1,69 @@
+"use client";
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Shield, CheckCircle, Landmark } from 'lucide-react';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export default function HomePage() {
+  
+const responsive = {
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 3 },
+  tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 2 },
+  mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
+};
+
+type ArrowProps = {
+  next?: () => void;
+  previous?: () => void;
+  carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
+};
+
+
+const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => {
+  if (!carouselState) return null;
+  const leftDisabled = carouselState?.currentSlide === 0;
+  const rightDisabled = carouselState?.currentSlide + carouselState?.slidesToShow >= carouselState?.totalItems;
   return (
+    <div className="flex justify-center gap-4 mt-6">
+      <button
+        onClick={previous}
+        className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+          leftDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+        }`}
+        aria-label="Previous"
+        disabled={leftDisabled}
+      >
+      <Image
+          src="/images/leftArrow.png" // Make sure this path is correct
+          alt="Previous"
+          width={50}
+          height={50}
+        />
+        
+      </button>
+      <button
+        onClick={next}
+        className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+          rightDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+        }`}
+        aria-label="Next"
+        disabled={rightDisabled}
+      >
+      <Image
+          src="/images/rightArrow.png" // Make sure this path is correct
+          alt="Previous"
+          width={50}
+          height={50}
+        />
+      </button>
+    </div>
+  );
+};
+
+  return (
+
     <main>
 
       {/* Navigation/Header */}
@@ -292,7 +351,7 @@ export default function HomePage() {
 
 
       {/* Meet StellarPay section */}
-      <section className="flex flex-col items-center justify-center px-4 md:px-0 py-20 md:py-32 bg-white text-center">
+      <section className="flex flex-col items-center justify-center px-4 md:px-0 py-4 md:py-4 bg-white text-center">
         <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 max-w-4xl mx-auto">
           Meet StellarPay
         </h1>
@@ -300,7 +359,7 @@ export default function HomePage() {
           A new way to money. 
         </p>
 
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center mb-12">
           <a href="https://apps.apple.com/ca/app/george/id6743195041">
         <Image src="/images/appleStore.png" alt="apple" width={150} height={70} style={{marginRight: 20}} />
         </a>
@@ -308,6 +367,41 @@ export default function HomePage() {
         <Image src="/images/googleStore.png" alt="google" width={167} height={70} />
         </a>
         </div>
+
+
+
+
+        <div >
+
+          <Carousel
+  showDots={false}
+  responsive={responsive}
+  ssr={false} // means to render carousel on server-side.
+  infinite={false}
+  autoPlay={false}
+  containerClass={`w-[1000px] md:w-[1400px]`}
+  dotListClass="mt-8"
+  itemClass="px-4"  
+  customButtonGroup={<ButtonGroup />}
+  renderButtonGroupOutside={true}
+  arrows={false}
+>
+  <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+  <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
+    </div>
+    <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+  <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
+    </div>
+    <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+  <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
+    </div>
+    <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+  <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
+    </div>
+</Carousel>
+        </div>
+
+
         {/* I am not sure how to do the slider thing... */}
       </section>
 
