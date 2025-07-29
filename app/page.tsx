@@ -58,6 +58,15 @@ export default function HomePage() {
         <div className="w-full flex justify-center mt-8">
           <Image src="/images/hero-illustration.png" alt="StellarPay Hero Illustration" width={600} height={400} />
         </div>
+
+        <div className="w-full flex justify-center mt-16">
+          <a href="https://apps.apple.com/ca/app/george/id6743195041">
+        <Image src="/images/appleStore.png" alt="apple" width={150} height={70} style={{marginRight: 20}} />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
+        <Image src="/images/googleStore.png" alt="google" width={167} height={70} />
+        </a>
+        </div>
       </section>
      
      
@@ -290,6 +299,15 @@ export default function HomePage() {
         <p className="text-lg md:text-2xl text-gray-700 mb-10 max-w-2xl mx-auto">
           A new way to money. 
         </p>
+
+        <div className="w-full flex justify-center">
+          <a href="https://apps.apple.com/ca/app/george/id6743195041">
+        <Image src="/images/appleStore.png" alt="apple" width={150} height={70} style={{marginRight: 20}} />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
+        <Image src="/images/googleStore.png" alt="google" width={167} height={70} />
+        </a>
+        </div>
         {/* I am not sure how to do the slider thing... */}
       </section>
 

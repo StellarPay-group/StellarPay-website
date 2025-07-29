@@ -211,13 +211,21 @@ export default function AboutPage() {
       
 
       {/* Store Badges */}
-      <div className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-60">
+      <div className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-50">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           {/* Main heading */}
           <h1 className="text-[#fffffe] text-8xl font-bold tracking-tight">StellarPay</h1>
 
           {/* Subtitle */}
           <p className="text-[#fffffe] text-xl md:text-2xl lg:text-3xl font-semibold">A new way to money</p>
+        </div>
+        <div className="w-full flex justify-center mt-12">
+          <a href="https://apps.apple.com/ca/app/george/id6743195041">
+        <Image src="/images/appleStore.png" alt="apple" width={175} height={90} style={{marginRight: 20}} />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
+        <Image src="/images/googleStore.png" alt="google" width={193} height={95} />
+        </a>
         </div>
       </div>
      
