@@ -10,8 +10,8 @@ import "react-multi-carousel/lib/styles.css";
 export default function AboutPage() {
 
   const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 3 },
-    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 2 },
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 1 },
+    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 1 },
     mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
   };
 
@@ -285,25 +285,27 @@ export default function AboutPage() {
             renderButtonGroupOutside={true}
             arrows={false}
           >
+            <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
             <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
-              <Image src="/images/blog1.png" alt="" width={400} height={400} />
+              <Image src="/images/flagright-square.png" alt="" width={400} height={400} />
               </div>
-              <div className="px-12 py-8">
-                <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+              <div className="px-12 py-8 h-40">
+                <h3 className="text-2xl font-bold text-[#000000] mb-2">July 2025</h3>
                 <p className="text-[#000000] text-2xl leading-[1.05]">
-                  StellarPay empower
+                StellarPay announces partnership with Flagright
                 </p>
               </div>
             </div>
               </div>
+              </a>
               <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
               <Image src="/images/blog2.png" alt="" width={400} height={400} />
               </div>
-              <div className="px-12 py-8">
+              <div className="px-12 py-8 h-40">
                 <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
                 <p className="text-[#000000] text-2xl leading-[1.05]">
                   Coming soon
@@ -316,7 +318,7 @@ export default function AboutPage() {
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
               <Image src="/images/blog3fixed.png" alt="" width={400} height={400} />
               </div>
-              <div className="px-12 py-8">
+              <div className="px-12 py-8 h-40">
                 <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
                 <p className="text-[#000000] text-2xl leading-[1.05]">
                   Coming soon
@@ -329,7 +331,7 @@ export default function AboutPage() {
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
               <Image src="/images/blog4.png" alt="" width={400} height={400} />
               </div>
-              <div className="px-12 py-8">
+              <div className="px-12 py-8 h-40">
                 <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
                 <p className="text-[#000000] text-2xl leading-[1.05]">
                   Coming soon
