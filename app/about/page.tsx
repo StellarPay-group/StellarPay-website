@@ -314,7 +314,7 @@ export default function AboutPage() {
               <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
-              <Image src="/images/blog3.png" alt="" width={400} height={400} />
+              <Image src="/images/blog3fixed.png" alt="" width={400} height={400} />
               </div>
               <div className="px-12 py-8">
                 <h3 className="text-2xl font-bold text-[#000000] mb-2">October 2007</h3>

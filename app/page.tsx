@@ -10,8 +10,8 @@ export default function HomePage() {
 
   // React Multi Carousel implementation source: https://www.npmjs.com/package/react-multi-carousel
   const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 3 },
-    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 2 },
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 1 },
+    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 1 },
     mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
   };
 
@@ -387,16 +387,19 @@ export default function HomePage() {
         arrows={false}
       >
         <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
-          </div>
-          <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
+        <Image src="/images/carousel_7.png" alt="" layout="fill" objectFit='cover'/>
           </div>
           <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
         <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
           </div>
           <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
         <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
+          </div>
+          <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+        <Image src="/images/carousel_6.png" alt="" layout="fill" objectFit='cover'/>
+          </div>
+          <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
+        <Image src="/images/carousel_5.png" alt="" layout="fill" objectFit='cover'/>
           </div>
       </Carousel>
         </div>
