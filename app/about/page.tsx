@@ -78,7 +78,9 @@ export default function AboutPage() {
               <nav className="flex items-center space-x-1">
                 <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-6 py-2 text-sm font-medium font-semibold">Personal</Button>
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-6 py-2 text-sm font-medium font-semibold">Business</Button>
+                <Link href="https://www.meetgeorge.app/">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-6 py-2 text-sm font-medium font-semibold">George</Button>
+                </Link>
               </nav>
             </div>
 

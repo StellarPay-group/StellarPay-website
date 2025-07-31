@@ -16,10 +16,8 @@ export const metadata: Metadata = {
   title: "StellarPay | Send money & spend anywhere in just a few taps",
   description: "StellarPay | Send money & spend anywhere in just a few taps",
   icons: {
-    icon: [
-      { url: '/public/images/stellarbanking_logo.png'}
-    ]
-  }
+    icon: "/images/stellarbanking_logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -79,7 +79,9 @@ export default function HomePage() {
               <nav className="flex items-center space-x-1">
                 <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-6 py-2 text-sm font-medium font-semibold">Personal</Button>
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-6 py-2 text-sm font-medium font-semibold">Business</Button>
+                <Link href="https://www.meetgeorge.app/">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-6 py-2 text-sm font-medium font-semibold">George</Button>
+                </Link>
               </nav>
             </div>
 
@@ -108,10 +110,10 @@ export default function HomePage() {
             MONEY THAT MOVES<br />AT THE SPEED OF NOW
           </h1>
         </div>
-        <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+        <p className="text-lg md:text-[24px] font-[600] text-gray-700 mb-10 max-w-3xl mx-auto">
           Send and receive globally.<br/>Move money where it matters — from splitting dinner with friends to sending to family overseas. Instant, simple and ultra-secure.
         </p>
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-12">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-4 mb-12">
           <a href="#get-started" className="px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition">Get The App</a>
         </div>
         {/* Hero Illustration */}
