@@ -302,6 +302,7 @@ export default function AboutPage() {
             </div>
               </div>
               </a>
+              <a href="/news">
               <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
@@ -315,6 +316,8 @@ export default function AboutPage() {
               </div>
             </div>
               </div>
+              </a>
+              <a href="/news">
               <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
@@ -328,6 +331,8 @@ export default function AboutPage() {
               </div>
             </div>
               </div>
+              </a>
+              <a href="/news">
               <div className="relative w-[400px] h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-96 flex items-center justify-center">
@@ -341,9 +346,27 @@ export default function AboutPage() {
               </div>
             </div>
               </div>
+              </a>
           </Carousel>
       </div>
       </div>
+
+      <section className="bg-white flex items-center mb-20">
+        <div className="max-w-6xl mx-auto px-6 py-16 w-full items-center justify-center">
+          <div className="space-y-8">
+            <h1 className="text-[#000000] text-5xl font-bold leading-tight text-center">
+              Connecting the world through finance
+            </h1>
+          </div>
+          <div className="mt-10 flex items-center justify-center">
+            <Link href="/news">
+              <Button className="bg-[#1877f2] hover:bg-[#0052cc] text-white px-10 py-7 rounded-[4px] text-xl font-medium">
+                News & media
+              </Button>
+              </Link>
+          </div>
+        </div>
+      </section>
       
 
       {/* Store Badges */}
