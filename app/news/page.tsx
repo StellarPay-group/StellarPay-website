@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function AboutPage() {
+export default function NewsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation/Header */}
@@ -63,7 +63,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          About StellarPay
+          News & Media
         </motion.h1>
         <motion.p 
           className="text-lg md:text-2xl text-gray-700 mb-10 max-w-2xl mx-auto"
@@ -71,11 +71,11 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          Revolutionizing global money transfers with speed, security, and simplicity.
+          Stay updated with the latest news and developments from StellarPay.
         </motion.p>
       </motion.section>
 
-      {/* Content Section */}
+      {/* News Content Section */}
       <motion.section 
         className="max-w-4xl mx-auto px-4 py-16"
         initial={{ opacity: 0, y: 50 }}
@@ -90,25 +90,66 @@ export default function AboutPage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
+          <h2 className="text-3xl font-bold mb-6">Latest News</h2>
           <p className="text-lg text-gray-700 mb-8">
-            At StellarPay, we believe that money should move as freely as information. 
-            Our mission is to make global money transfers instant, secure, and accessible to everyone.
+            Read about our latest partnerships, product updates, and company milestones.
           </p>
 
-          <h2 className="text-3xl font-bold mb-6">What We Do</h2>
-          <p className="text-lg text-gray-700 mb-8">
-            We provide a comprehensive money transfer platform that connects people across borders. 
-            Whether you're sending money to family overseas or making international business payments, 
-            StellarPay ensures your funds reach their destination quickly and securely.
-          </p>
+          <div className="grid gap-8 mt-12">
+            <motion.article 
+              className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-4">StellarPay Announces Partnership with Flagright</h3>
+              <p className="text-gray-600 mb-4">July 2025</p>
+              <p className="text-lg text-gray-700 mb-4">
+                StellarPay has announced a strategic partnership with Flagright, a leading 
+                compliance and transaction monitoring platform. This partnership will enhance 
+                our security and compliance capabilities.
+              </p>
+              <a 
+                href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening"
+                className="text-blue-600 hover:text-blue-800 font-semibold"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read More →
+              </a>
+            </motion.article>
 
-          <h2 className="text-3xl font-bold mb-6">Our Technology</h2>
-          <p className="text-lg text-gray-700 mb-8">
-            Built on cutting-edge blockchain technology and traditional banking infrastructure, 
-            StellarPay combines the best of both worlds to deliver lightning-fast transfers 
-            with enterprise-grade security.
-          </p>
+            <motion.article 
+              className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-4">Coming Soon: New Features</h3>
+              <p className="text-gray-600 mb-4">October 2025</p>
+              <p className="text-lg text-gray-700 mb-4">
+                We're working on exciting new features that will make money transfers 
+                even faster and more convenient. Stay tuned for updates.
+              </p>
+            </motion.article>
+
+            <motion.article 
+              className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-4">Expanding Global Reach</h3>
+              <p className="text-gray-600 mb-4">October 2025</p>
+              <p className="text-lg text-gray-700 mb-4">
+                StellarPay is expanding its services to new countries and regions, 
+                making global money transfers accessible to more people worldwide.
+              </p>
+            </motion.article>
+          </div>
         </motion.div>
 
         {/* Download Section */}
@@ -116,21 +157,21 @@ export default function AboutPage() {
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold mb-6">Get Started Today</h3>
+          <h3 className="text-2xl font-bold mb-6">Experience StellarPay</h3>
           <p className="text-lg text-gray-700 mb-8">
-            Download the StellarPay app and experience the future of money transfers.
+            Download the app and start sending money globally with speed and security.
           </p>
           <motion.div 
             className="w-full flex justify-center mt-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <a href="https://apps.apple.com/ca/app/george/id6743195041">
+          <a href="https://apps.apple.com/ca/app/george/id6743195041">
         <Image src="/images/appleStore.png" alt="apple" width={175} height={90} className="mr-5" style={{height: 'auto'}} />
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">

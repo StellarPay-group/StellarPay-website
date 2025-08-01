@@ -120,3 +120,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.white-border {
+  border: 2px solid white;
+  padding: 10px;
+}
