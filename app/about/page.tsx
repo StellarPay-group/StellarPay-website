@@ -90,33 +90,39 @@ export default function AboutPage() {
         animate={navAnimation.animate}
         transition={navAnimation.transition}
       >
-        <div className="px-4 py-4">
+         <div className="px-4 py-4">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
             <div className="flex items-center space-x-2 md:space-x-8">
               <Link href="/">
-                <Button variant="ghost" className="text-xl md:text-2xl font-bold text-[#191c1f]">StellarPay</Button>
+                <Button variant="ghost" className="text-xl md:text-[24px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
               </Link>
               <nav className="hidden md:flex items-center space-x-1">
-                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-4 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">Personal</Button>
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">Business</Button>
+              <Link href="/">
+              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semi">Personal</Button>
+              </Link>
+              <Link href="/news">
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Business</Button>
+              </Link>
                 <Link href="https://www.meetgeorge.app/">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">George</Button>
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">George</Button>
                 </Link>
               </nav>
             </div>
 
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-6">
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-sm font-medium font-semibold">About us</Button>
+              <Link href="\about" className="hidden sm:block">
+                <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-bold">About us</Button>
+              </Link>
               <div className="hidden md:flex items-center space-x-2">
-                <div className="w-5 h-5 bg-red-500 relative overflow-hidden rounded-full">
+                <div className="w-5 h-5 bg-green-500 relative overflow-hidden rounded-full">
                   {/* Put flag img here later */}
                 </div>
-                <span className="text-[#191c1f] text-xs md:text-sm font-medium font-semibold">EN</span>
+                    <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-sm font-medium font-semibold">Log in</Button>
-              <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">Sign Up</Button>
+              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">Log in</Button>
+              <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
             </div>
           </div>
         </div>
@@ -663,8 +669,7 @@ export default function AboutPage() {
               <Link href="#" className="underline hover:no-underline">
                 most states
               </Link>
-              . In other states, the program is sponsored by Community Federal Savings Bank, to which we're a service
-              provider.
+              .
             </p>
           </div>
         </div>
