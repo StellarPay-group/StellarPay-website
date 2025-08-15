@@ -3,11 +3,59 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Shield, CheckCircle, Landmark } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Shield, CheckCircle, Landmark, ChevronDown, ChevronUp } from 'lucide-react';
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
+import { useState } from 'react';
+import { countries } from '@/components/conversion/country_data';
+
+
+const getConvertedAmount = (amount: number, fromCountry: string, toCountry: string) => {
+  const fromCurrencyData = countries.find(country => country.currency_code === fromCountry);
+  const toCurrencyData = countries.find(country => country.currency_code === toCountry);
+  if (!fromCurrencyData || !toCurrencyData) return 0;
+  return (amount * toCurrencyData.convert_factor) / fromCurrencyData.convert_factor;
+}
+
+const getArrivalDay = () => {
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+  const arrivalDay = days[dayOfWeek + 1];
+  return arrivalDay;
+}
+
+const getSavings = (amount: number) => {
+  return Math.round((amount * 0.040387) * 100) / 100;
+}
+
+const getFees = (amount: number, fromCurrency: string): {
+  ACHFee: number;
+  ourFee: number;
+  totalFee: number;
+  amountWeWillConvert: number;
+} => {
+  const amountInUSD = getConvertedAmount(amount, fromCurrency, 'USD');
+  if (!amount || amount <= 0) return {
+    ACHFee: 0,
+    ourFee: 0,
+    totalFee: 0,
+    amountWeWillConvert: 0
+  };
+  const ACHFee = Math.round(amountInUSD * 0.00279 * 100) / 100;
+  const ourFee = Math.round(amountInUSD * 0.00427 * 100) / 100;
+  const totalFee = Math.round((ACHFee + ourFee) * 100) / 100;
+  const amountWeWillConvert = Math.round((amountInUSD - totalFee) * 100) / 100;
+  return {
+    ACHFee,
+    ourFee,
+    totalFee,
+    amountWeWillConvert
+  };
+}
 
 export default function HomePage() {
 
@@ -17,6 +65,7 @@ export default function HomePage() {
     tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 1 },
     mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
   };
+  
 
   type ArrowProps = {
     next?: () => void;
@@ -82,6 +131,16 @@ export default function HomePage() {
   const meetAnimation = useScrollAnimation(0.3);
   const georgeAnimation = useScrollAnimation(0.2);
   const footerAnimation = useScrollAnimation(0.1);
+
+  const [fromCountry, setFromCountry] = useState(countries[0] || null);
+  const [toCountry, setToCountry] = useState(countries[0] || null);
+  const [query, setQuery] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [amountMinusFees, setAmountMinusFees] = useState(0);
+  const [receivedAmount, setReceivedAmount] = useState(0);
+  const filteredCountries = query === '' ? countries : countries.filter((country) => {
+    return country.name.toLowerCase().includes(query.toLowerCase()) || country.currency_code.toLowerCase().includes(query.toLowerCase());
+  });
 
   return (
 
@@ -240,13 +299,120 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <Image
-                src="/images/stellarpay-calculator.png"
-                alt="StellarPay Calculator UI"
-                width={500}
-                height={600}
-                className="rounded-2xl shadow-xl w-full max-w-[500px] h-auto"
-              />
+                <div
+                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[650px] bg-white"
+                  >
+                    <div className="mx-[25px] my-[25px]">
+                
+                  <div className="items-center p-1 rounded-md border border-gray-300">
+                  <div className="flex flex-row justify-between items-center">
+                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md" defaultValue={amount} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
+                      const value = e.target.value.replace(/[^0-9.]/g, '');
+                      const parts = value.split('.');
+                      e.target.value = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : value;
+                      setAmount(parseFloat(value));
+                    }} placeholder="0" />
+                    <div className="relative">
+                    <Combobox value={fromCountry} onChange={(value) => value && setFromCountry(value)}>
+                      <ComboboxInput
+                        className="max-w-[70px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold"
+                        defaultValue={fromCountry?.currency_code}
+                          placeholder={fromCountry?.currency_code}
+                        onChange={(event) => setQuery(event.target.value)}
+                      />
+                      <ComboboxButton>
+                        <p className="text-gray-300 text-[20px] mr-[10px] font-bold">▼</p>
+                      </ComboboxButton>
+                          <ComboboxOptions className="max-h-[200px] overflow-x-hidden overflow-y-auto absolute top-full right-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                        {filteredCountries.map((country) => (
+                          <ComboboxOption className="px-3 py-2 text-black text-[14px] hover:bg-gray-100 cursor-pointer" key={country.id} value={country}>
+                            {country.name} ({country.currency_code})
+                          </ComboboxOption>
+                        ))}
+                      </ComboboxOptions>
+                    </Combobox>
+                    </div>
+</div>
+
+                  </div>
+                  <p className="text-[#454745] text-[16px]">You send exactly</p>
+                  <div className="flex flex-row justify-between items-center mt-[10px]">
+                    <div className="flex flex-row items-center mb-[5px]">
+                      <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).ACHFee} {fromCountry?.currency_code}</p>
+                    </div>
+                  <p className="text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
+                  </div>
+                  <div className="flex flex-row justify-between items-center">
+                    <div className="flex flex-row items-center mb-[5px]">
+                      <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).ourFee} {fromCountry?.currency_code}</p>
+                    </div>
+                  <p className="text-[18px] text-[#454745]">Our fee</p>
+                  </div>
+                  <div className="flex flex-row justify-between items-center">
+                    <div className="flex flex-row items-center mb-[5px]">
+                    <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">-</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).totalFee} {fromCountry?.currency_code}</p>
+                    </div>
+                  <p className="text-[18px] text-[#454745]">Total fees</p>
+                  </div>
+                  <div className="flex flex-row justify-between items-center">
+                    <div className="flex flex-row items-center mb-[5px]">
+                    <p className="text-gray-600 mr-[5px] text-[18px] font-semibold">=</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).amountWeWillConvert} {fromCountry?.currency_code}</p>
+                    </div>
+                  <p className="text-[18px] text-[#454745]">Total amount we'll convert</p>
+                  </div>
+                  <div className="flex flex-row justify-between items-center">
+                    <div className="flex flex-row items-center mb-[5px]">
+                      <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">*</p>
+                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(getFees(amount, fromCountry?.currency_code).amountWeWillConvert * 0.9319 * 100) / 100} {fromCountry?.currency_code}</p>
+                    </div>
+                  <p className="text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
+                  </div>
+                  
+                  <p className="text-[#454745] text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
+                
+                  <div className="items-center p-1 rounded-md border border-gray-300">
+                  <div className="flex flex-row justify-between items-center">
+                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(getConvertedAmount(getFees(amount, fromCountry?.currency_code).amountWeWillConvert * 0.9319, fromCountry?.currency_code, toCountry?.currency_code) * 100) / 100}</p>
+                    <div className="relative">
+                    <Combobox value={toCountry} onChange={(value) => value && setToCountry(value)}>
+                      <ComboboxInput
+                        className="max-w-[70px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold"
+                        defaultValue={toCountry?.currency_code}
+                          placeholder={toCountry?.currency_code}
+                        onChange={(event) => setQuery(event.target.value)}
+                      />
+                      <ComboboxButton>
+                        <p className="text-gray-300 text-[20px] mr-[10px] font-bold">▼</p>
+                      </ComboboxButton>
+                          <ComboboxOptions className="max-h-[200px] overflow-x-hidden overflow-y-auto absolute top-full right-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                        {filteredCountries.map((country) => (
+                          <ComboboxOption className="px-3 py-2 text-black text-[14px] hover:bg-gray-100 cursor-pointer" key={country.id} value={country}>
+                            {country.name} ({country.currency_code})
+                          </ComboboxOption>
+                        ))}
+                      </ComboboxOptions>
+                    </Combobox>
+                    </div>
+</div>
+                  </div>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(getFees(amount, fromCountry?.currency_code).amountWeWillConvert * 0.9319)} {fromCountry?.currency_code}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
+                  </div>
+                  <div className="flex items-center justify-center">
+                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-3 text-xs md:text-[18px] font-medium font-semibold w-[80%]">
+                    Compare price
+                  </button>
+                  </div>
+                  <div className="flex items-center justify-center">
+                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-3 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]">
+                    Send money now
+                  </button>
+                  </div>
+                </div>
             </motion.div>
           </div>
         </div>
