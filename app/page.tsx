@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Shield, CheckCircle, Landmark, ChevronDown, ChevronUp } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Shield, CheckCircle, Landmark, ChevronDown, ChevronUp, Linkedin } from 'lucide-react';
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -413,7 +413,7 @@ export default function HomePage() {
                   </button>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-3 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]">
+                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-3 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
                     Send money now
                   </button>
                   </div>
@@ -588,7 +588,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex justify-center md:justify-start">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
+              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
                 Try your first transfer
               </button>
             </div>
@@ -660,7 +660,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex justify-center md:justify-start">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
+              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
                 Send to mobile money
               </button>
             </div>
@@ -866,17 +866,21 @@ export default function HomePage() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Follow us</h3>
               <div className="flex justify-center sm:justify-start space-x-4">
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
                   <Facebook className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Facebook</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
                   <Twitter className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Twitter</span>
+                  <span className="sr-only">X</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Instagram</span>
+                </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
+                  <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+                  <span className="sr-only">Linkedin</span>
                 </Link>
               </div>
             </div>

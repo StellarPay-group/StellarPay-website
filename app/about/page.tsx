@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight} from 'lucide-react';
+import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight, Linkedin} from 'lucide-react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
@@ -604,18 +604,22 @@ export default function AboutPage() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Follow us</h3>
               <div className="flex justify-center sm:justify-start space-x-4">
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
                   <Facebook className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Facebook</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
                   <Twitter className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Twitter</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Instagram</span>
                 </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
+                  <Linkedin className="w-6 h-6" />
+                  <span className="sr-only">Linkedin</span>
+                </Link>   
               </div>
             </div>
           </div>
