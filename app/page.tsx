@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { useState } from 'react';
 import { countries } from '@/components/conversion/country_data';
+import GetTheApp from '@/components/popup/getTheApp';
 
 
 const getConvertedAmount = (amount: number, fromCountry: string, toCountry: string) => {
@@ -58,6 +59,8 @@ const getFees = (amount: number, fromCurrency: string): {
 }
 
 export default function HomePage() {
+
+  const [showPopup, setShowPopup] = useState(false);
 
   // React Multi Carousel implementation source: https://www.npmjs.com/package/react-multi-carousel
   const responsive = {
@@ -219,14 +222,16 @@ export default function HomePage() {
         >
           Send and receive globally.<br/>Move money where it matters — from splitting dinner with friends to sending to family overseas. Instant, simple and ultra-secure.
         </motion.p>
+        
         <motion.div 
           className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 mb-14 md:mb-20 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <a href="#get-started" className="px-8 sm:px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition text-sm sm:text-base">Get The App</a>
+          <a onClick={() => setShowPopup(true)} className="px-8 sm:px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition text-sm sm:text-base">Get The App</a>
         </motion.div>
+        {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
         {/* Hero Illustration */}
         <motion.div 
           className="w-full flex justify-center mt-8 px-4"
