@@ -291,7 +291,7 @@ export default function NewsPage() {
               </div>
 
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline">
                   Privacy policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">

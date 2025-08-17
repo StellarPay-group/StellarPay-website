@@ -646,7 +646,7 @@ export default function AboutPage() {
               </div>
 
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Privacy policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
