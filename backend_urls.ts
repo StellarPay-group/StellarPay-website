@@ -1,0 +1,1 @@
+export const SERVER = 'https://q8snsnjcwb.execute-api.us-east-1.amazonaws.com/'

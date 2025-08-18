@@ -9,16 +9,22 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { countries } from '@/components/conversion/country_data';
 import GetTheApp from '@/components/popup/getTheApp';
+import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
 
-
-const getConvertedAmount = (amount: number, fromCountry: string, toCountry: string) => {
-  const fromCurrencyData = countries.find(country => country.currency_code === fromCountry);
-  const toCurrencyData = countries.find(country => country.currency_code === toCountry);
-  if (!fromCurrencyData || !toCurrencyData) return 0;
-  return (amount * toCurrencyData.convert_factor) / fromCurrencyData.convert_factor;
+function useConvertedAmount(fromCountry: any, toCountry: any, debouncedAmount: any) {
+  const { data: conversionReceive } = useCurrencyConversion(
+    fromCountry?.currency_code,
+    debouncedAmount.toString(),
+    toCountry?.currency_code,
+    true
+  );
+  
+  if (!conversionReceive || !toCountry?.currency_code) return 0.00;
+  const converted = conversionReceive[toCountry.currency_code]["amount"];
+  return parseFloat(converted.toFixed(2)) || 0.00;
 }
 
 const getArrivalDay = () => {
@@ -29,18 +35,18 @@ const getArrivalDay = () => {
   return arrivalDay;
 }
 
-const getSavings = (amount: number) => {
-  return Math.round((amount * 0.040387) * 100) / 100;
+const getSavings = (inputAmount: number) => {
+  return Math.round((inputAmount * 0.040387) * 100) / 100;
 }
 
-const getFees = (amount: number, fromCurrency: string): {
+const getFees = (inputAmount: number, fromCountry: any, toCountry: any): {
   ACHFee: number;
   ourFee: number;
   totalFee: number;
   amountWeWillConvert: number;
 } => {
-  const amountInUSD = getConvertedAmount(amount, fromCurrency, 'USD');
-  if (!amount || amount <= 0) return {
+  const amountInUSD = useConvertedAmount(fromCountry, toCountry, inputAmount);
+  if (!inputAmount || inputAmount <= 0) return {
     ACHFee: 0,
     ourFee: 0,
     totalFee: 0,
@@ -139,15 +145,23 @@ export default function HomePage() {
   const [toCountry, setToCountry] = useState(countries[0] || null);
   const [query, setQuery] = useState('');
   const [amount, setAmount] = useState(0);
-  const [amountMinusFees, setAmountMinusFees] = useState(0);
-  const [receivedAmount, setReceivedAmount] = useState(0);
+  const [debouncedAmount, setDebouncedAmount] = useState(0);
   const filteredCountries = query === '' ? countries : countries.filter((country) => {
     return country.name.toLowerCase().includes(query.toLowerCase()) || country.currency_code.toLowerCase().includes(query.toLowerCase());
   });
 
-  return (
 
-    <main>
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedAmount(amount);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [amount]);
+
+
+
+  return (
+      <main>
 
       {/* Navigation/Header */}
       <motion.section 
@@ -348,35 +362,35 @@ export default function HomePage() {
                   <div className="flex flex-row justify-between items-center mt-[10px]">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).ACHFee} {fromCountry?.currency_code}</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code, toCountry?.currency_code).ACHFee} {fromCountry?.currency_code}</p>
                     </div>
                   <p className="text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).ourFee} {fromCountry?.currency_code}</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code, toCountry?.currency_code).ourFee} {fromCountry?.currency_code}</p>
                     </div>
                   <p className="text-[18px] text-[#454745]">Our fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                     <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">-</p>
-                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).totalFee} {fromCountry?.currency_code}</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code, toCountry?.currency_code).totalFee} {fromCountry?.currency_code}</p>
                     </div>
                   <p className="text-[18px] text-[#454745]">Total fees</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                     <p className="text-gray-600 mr-[5px] text-[18px] font-semibold">=</p>
-                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code).amountWeWillConvert} {fromCountry?.currency_code}</p>
+                      <p className="text-black font-semibold text-[18px]">{getFees(amount, fromCountry?.currency_code, toCountry?.currency_code).amountWeWillConvert} {fromCountry?.currency_code}</p>
                     </div>
                   <p className="text-[18px] text-[#454745]">Total amount we'll convert</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">*</p>
-                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(getFees(amount, fromCountry?.currency_code).amountWeWillConvert * 0.9319 * 100) / 100} {fromCountry?.currency_code}</p>
+                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(getFees(amount, fromCountry?.currency_code, toCountry?.currency_code).amountWeWillConvert * 0.9319 * 100) / 100} {fromCountry?.currency_code}</p>
                     </div>
                   <p className="text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
                   </div>
@@ -385,7 +399,7 @@ export default function HomePage() {
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(getConvertedAmount(getFees(amount, fromCountry?.currency_code).amountWeWillConvert * 0.9319, fromCountry?.currency_code, toCountry?.currency_code) * 100) / 100}</p>
+                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCountry, toCountry, debouncedAmount) * 100) / 100}</p>
                     <div className="relative">
                     <Combobox value={toCountry} onChange={(value) => value && setToCountry(value)}>
                       <ComboboxInput
@@ -403,12 +417,12 @@ export default function HomePage() {
                             {country.name} ({country.currency_code})
                           </ComboboxOption>
                         ))}
-                      </ComboboxOptions>
-                    </Combobox>
+                        </ComboboxOptions>
+                        </Combobox>
+                      </div>
                     </div>
-</div>
                   </div>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(getFees(amount, fromCountry?.currency_code).amountWeWillConvert * 0.9319)} {fromCountry?.currency_code}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(getFees(amount, fromCountry?.currency_code, toCountry?.currency_code).amountWeWillConvert * 0.9319)} {fromCountry?.currency_code}</p>
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
@@ -946,7 +960,6 @@ export default function HomePage() {
           </div>
         </div>
       </motion.footer>
-
-    </main>
+      </main>
   );
 }
