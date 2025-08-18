@@ -899,10 +899,10 @@ export default function HomePage() {
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
                   Legal
                 </Link>
-                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
                   Complaints
                 </Link>
               </div>
@@ -911,8 +911,8 @@ export default function HomePage() {
                 <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Privacy policy
                 </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Country site map
+                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                  Terms of service
                 </Link>
               </div>
 
@@ -921,7 +921,7 @@ export default function HomePage() {
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Modern slavery statement
+                  Country site map
                 </Link>
               </div>
             </div>
@@ -932,7 +932,7 @@ export default function HomePage() {
             <p className="text-[#000000] text-xs md:text-sm">© Stellar Technologies Inc 2025</p>
             <p className="text-[#000000] max-w-4xl mx-auto text-xs md:text-sm px-4">
               StellarPay is a Money Service Business authorized to operate in{" "}
-              <Link href="#" className="underline hover:no-underline">
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
               .

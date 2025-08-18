@@ -282,10 +282,10 @@ export default function NewsPage() {
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-2">
-                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline">
                   Legal
                 </Link>
-                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline">
                   Complaints
                 </Link>
               </div>
@@ -294,8 +294,8 @@ export default function NewsPage() {
                 <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline">
                   Privacy policy
                 </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
-                  Country site map
+                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline">
+                  Terms of service
                 </Link>
               </div>
 
@@ -304,7 +304,7 @@ export default function NewsPage() {
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">
-                  Modern slavery statement
+                  Country site map
                 </Link>
               </div>
             </div>
@@ -315,7 +315,7 @@ export default function NewsPage() {
             <p className="text-[#000000]">© Stellar Technologies Inc 2025</p>
             <p className="text-[#000000] max-w-4xl mx-auto">
               StellarPay is a Money Service Business authorized to operate in{" "}
-              <Link href="#" className="underline hover:no-underline">
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
               .

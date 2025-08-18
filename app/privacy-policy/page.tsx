@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
               <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semi">Personal</Button>
               </Link>
               <Link href="/news">
-                <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-bold">Business</Button>
+                <Button variant="ghost" className="text-[#191c1f] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semi">Business</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">George</Button>
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
 
       <section className="bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-10">
-          <h1 className="mt-[100px] text-[#191c1f] text-4xl font-bold text-center">StellarPay Privacy Policy</h1>
+          <h1 className="mt-[100px] text-[#191c1f] text-4xl font-bold text-center">Privacy Policy</h1>
 
 
         <p className="text-[#191c1f] text-xl font-medium mt-[20px] font-bold">Stellar Technologies, Inc. (doing business as “StellarPay”) 
@@ -428,7 +428,7 @@ Please note that while we take robust steps to protect your account, you are res
 keeping your login credentials secure. If you suspect your account has been compromised, 
 contact us at support@stellarpay.app. <br /><br /><br />
         </p>
-
+<section id="us-state-privacy-rights"></section>
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">U.S. State Privacy Rights</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         Residents of certain U.S. states have specific privacy rights under applicable legislation, such 
@@ -489,6 +489,164 @@ while helping you make smarter financial decisions.
         </p>
         <br /><br />
         </section>
+
+<hr className="border-t-2 border-gray-300 my-8" />
+<br /><br />
+<h2 className="text-[#191c1f] text-center text-4xl font-bold mt-[10px]">StellarPay Record Retention Policy</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+The purpose of this policy is to establish a consistent approach to the creation, retention, and disposal of 
+records at StellarPay, ensuring compliance with applicable laws and regulations, reducing organizational 
+risk, and preserving essential business information. 
+</p>
+<br /><br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Scope</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+This policy applies to all employees, contractors, and departments of StellarPay that create, access, 
+manage, or store corporate records, whether physical or electronic. It encompasses all record types, 
+including but not limited to operational, legal, financial, compliance, HR, and customer-related 
+documentation.
+</p>
+<br /><br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Definition of a Record</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+A “record” includes any tangible or digital document or file created, received, or maintained by 
+StellarPay in the course of its business activities. This includes but is not limited to: <br />
+<span className="ml-4">●  Email communications </span> <br />
+<span className="ml-4">●  Financial statements </span> <br />
+<span className="ml-4">●  Regulatory filings </span> <br />
+<span className="ml-4">●  Customer onboarding records (e.g., KYC documents) </span> <br />
+<span className="ml-4">●  Contracts and agreements </span> <br />
+<span className="ml-4">●  Internal policies and procedures </span> <br />
+<span className="ml-4">●  Audit reports </span> <br />
+<span className="ml-4">●  Transaction logs </span> <br />
+<span className="ml-4">●  Board meeting minutes </span> <br /><br />
+</p>
+<br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Record Creation and Classification</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+Employees must ensure that all records created are: <br />
+<span className="ml-4">●  Accurate, complete, and truthful </span> <br />
+<span className="ml-4">●  Properly categorized (e.g., Compliance, Operations, Transaction Logs, etc.) </span> <br />
+<span className="ml-4">●  Clearly named and stored using standardized naming conventions </span> <br />
+<span className="ml-4">●  Marked confidential if appropriate </span> <br />
+<span className="ml-4">●  Shared only with those who are authorized to access them </span> <br />
+<br />
+    Team members are encouraged to create records for decisions, processes, and activities that have 
+business, legal, or regulatory significance. <br /><br />
+</p>
+<br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Authorization</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+Access to records is determined by classification: <br />
+<span className="ml-4">●  Confidential records (e.g., customer KYC data, employee records, audit results) require 
+restricted access and must only be accessible by authorized personnel. </span> <br />
+<span className="ml-4">●  Internal records (e.g., internal policies, performance metrics) are available to relevant teams 
+and employees on a need-to-know basis. </span> <br />
+<span className="ml-4">●  Public records may be shared externally as required by law or business need, under 
+appropriate authorization. </span> <br />
+Access permissions must be reviewed periodically and enforced through physical or technical controls
+</p>
+<br />
+<br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Retaining records</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+Unless otherwise dictated by law or regulation, StellarPay will retain records for a minimum of five (5) 
+years. The following categories of records below are subject to longer or indefinite retention. Any 
+updates to applicable law will supersede the retention period outlined above. <br />
+</p>
+
+<table className="text-[#191c1f] text-xl font-normal border-2 border-gray-300 mt-[20px] border-collapse w-full text-center">
+  <thead>
+    <tr>
+      <th className="border border-gray-300 p-2">Record Type</th>
+      <th className="border border-gray-300 p-2">Minimum Retention Period</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="border border-gray-300 p-2">Tax Returns and Financial Statements</td>
+      <td className="border border-gray-300 p-2">Permanent</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Employment Agreements & HR Files</td>
+      <td className="border border-gray-300 p-2">7 years after termination</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">KYC & AML Documentation</td>
+      <td className="border border-gray-300 p-2">5 years after account closure</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Legal and Regulatory Filings</td>
+      <td className="border border-gray-300 p-2">Permanent</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Contracts & Agreements</td>
+      <td className="border border-gray-300 p-2">7 years after expiration</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Transaction Records</td>
+      <td className="border border-gray-300 p-2">6 years</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Internal Policies</td>
+      <td className="border border-gray-300 p-2">Permanent</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Customer Support Logs</td>
+      <td className="border border-gray-300 p-2">3 years</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Marketing Campaign Data</td>
+      <td className="border border-gray-300 p-2">2 years</td>
+    </tr>
+    <tr>
+      <td className="border border-gray-300 p-2">Audit Reports</td>
+      <td className="border border-gray-300 p-2">7 years</td>
+    </tr>
+  </tbody>
+</table>
+<br /><br /><br />
+
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Security of Records</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+Physical records must be stored in secure, access-controlled locations. Confidential documents 
+must not be left in open or shared spaces. <br />
+<span className="ml-4">●  Electronic records must be encrypted, password-protected, and stored on secure servers or 
+approved cloud platforms with appropriate access control. </span> <br />
+<span className="ml-4">●  Employees accessing records remotely must use secure networks and company-issued devices 
+where possible. </span> <br />
+</p>
+<br /><br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Discarding or Destruction of Records</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+Once the retention period has expired, records may be destroyed only under the supervision of 
+authorized personnel. Destruction methods include: <br />
+ 
+ 
+<span className="ml-4">●  <b>Shredding</b> for physical records </span> <br />
+<span className="ml-4">●  <b>Secure deletion</b> for electronic records, ensuring data is permanently removed </span> <br />
+<span className="ml-4">●  Disposal must be documented and reviewed for compliance</span> <br />
+</p>
+<br />
+<h2 className="text-[#191c1f] text-xl font-normal mt-[10px]">  Records may also be discarded upon request from a stakeholder. For example, a customer or partner 
+may ask us to delete their information from our databases. In this case, managers should authorize 
+employees to discard relevant records. </h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+We expect our employees to always respect our confidentiality policy. When files need to be discarded, 
+employees must not create copies or store information on their devices. This may constitute a security 
+breach and warrant disciplinary action. </p>
+
+<br />
+<h2 className="text-[#191c1f] text-4xl font-bold mt-[10px]">Policy Review and Oversight</h2>
+<p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+The Chief Operating Officer (COO) and Chief Executive Officer (CEO) are jointly responsible for 
+overseeing record retention practices and ensuring compliance with this policy. Team members are 
+individually responsible for implementing retention schedules within their separate teams.
+</p>
+
+<br /><br />
+<br /><br />
+
 
 
 
@@ -586,10 +744,10 @@ while helping you make smarter financial decisions.
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-2">
-                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline">
                   Legal
                 </Link>
-                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline">
                   Complaints
                 </Link>
               </div>
@@ -598,8 +756,8 @@ while helping you make smarter financial decisions.
                 <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline">
                   Privacy policy
                 </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
-                  Country site map
+                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline">
+                  Terms of service
                 </Link>
               </div>
 
@@ -608,7 +766,7 @@ while helping you make smarter financial decisions.
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">
-                  Modern slavery statement
+                  Country site map
                 </Link>
               </div>
             </div>
@@ -619,7 +777,7 @@ while helping you make smarter financial decisions.
             <p className="text-[#000000]">© Stellar Technologies Inc 2025</p>
             <p className="text-[#000000] max-w-4xl mx-auto">
               StellarPay is a Money Service Business authorized to operate in{" "}
-              <Link href="#" className="underline hover:no-underline">
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
               .
