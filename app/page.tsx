@@ -292,7 +292,7 @@ export default function HomePage() {
                 payments or putting down deposits — over half our transfers get there in under 20 seconds. Use it
                 to believe it.
               </p>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base">
+              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base" onClick={() => setShowPopup(true)}>
                 Learn how to send money
               </button>
             </motion.div>
@@ -311,7 +311,7 @@ export default function HomePage() {
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md" defaultValue={amount} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
+                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
                       const value = e.target.value.replace(/[^0-9.]/g, '');
                       const parts = value.split('.');
                       e.target.value = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : value;
@@ -321,8 +321,8 @@ export default function HomePage() {
                     <Combobox value={fromCountry} onChange={(value) => value && setFromCountry(value)}>
                       <ComboboxInput
                         className="max-w-[70px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold"
-                        defaultValue={fromCountry?.currency_code}
-                          placeholder={fromCountry?.currency_code}
+                        defaultValue={fromCountry?.currency_code || 'USD'}
+                          placeholder={fromCountry?.currency_code || 'USD'}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
@@ -408,7 +408,7 @@ export default function HomePage() {
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-3 text-xs md:text-[18px] font-medium font-semibold w-[80%]">
+                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-3 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
                     Compare price
                   </button>
                   </div>
@@ -798,6 +798,7 @@ export default function HomePage() {
             >
               <div className="bg-[#000000] text-[#ffffff] px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-medium white-border">Artificial Intelligence | 01</div>
             </motion.div>
+            <Link href="https://www.meetgeorge.app">
             <motion.div 
               className="space-y-3 md:space-y-4"
               initial={{ opacity: 0, y: 20 }}
@@ -807,6 +808,7 @@ export default function HomePage() {
               <h1 className="text-[#ffffff] text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">Meet George</h1>
               <p className="text-[#ffffff] text-base md:text-lg">Money talks - George listens.</p>
             </motion.div>
+            </Link>
             <motion.div 
               className="space-y-4 md:space-y-6 max-w-2xl"
               initial={{ opacity: 0, y: 20 }}
