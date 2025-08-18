@@ -163,38 +163,39 @@ The information collected in any of the stages above may include:<br /><br />
 <span className="ml-4">●  Payment and top-up method information</span> <br /><br />
  
 <b>Transaction Data</b><br />
-<b className="ml-4">●  Transaction dates, amounts, currencies, exchange rates</b> <br />
-<b className="ml-4">●  Sender and recipient details</b> <br />
-<b className="ml-4">●  Messages sent or received with transfers</b> <br />
-<b className="ml-4">●  Remittance purpose and notes</b> <br />
-<b className="ml-4">●  Source of funds and destination country</b> <br /><br />
+<span className="ml-4">●  Transaction dates, amounts, currencies, exchange rates</span> <br />
+<span className="ml-4">●  Sender and recipient details</span> <br />
+<span className="ml-4">●  Messages sent or received with transfers</span> <br />
+<span className="ml-4">●  Remittance purpose and notes</span> <br />
+<span className="ml-4">●  Source of funds and destination country</span> <br /><br />
  
 <b>Communication & Support Interactions</b><br />
-<b className="ml-4">●  Emails, messages, and transcripts from chat support</b> <br />
-<b className="ml-4">●  Audio (if phone support is used), feedback, and correspondence</b> <br /><br />
+<span className="ml-4">●  Emails, messages, and transcripts from chat support</span> <br />
+<span className="ml-4">●  Audio (if phone support is used), feedback, and correspondence</span> <br /><br />
  
 <b>Information We Collect Automatically</b><br />
 When you access or use StellarPay’s Services—whether via our app, website, or APIs—we<br /> 
 automatically collect certain technical and usage data:<br /><br />
  
 <b>Device & Network Information</b><br />
-<b className="ml-4"> ●  Device model and type (e.g. iOS/Android)</b> <br />
-<b className="ml-4">●  Operating system and browser details</b> <br />
-<b className="ml-4">●  IP address and geolocation (based on IP)</b> <br />
-<b className="ml-4">●  Device ID and language settings</b> <br />
-<b className="ml-4">●  Mobile carrier and network information</b> <br /><br />
+<span className="ml-4"> ●  Device model and type (e.g. iOS/Android)</span> <br />
+<span className="ml-4">●  Operating system and browser details</span> <br />
+<span className="ml-4">●  IP address and geolocation (based on IP)</span> <br />
+<span className="ml-4">●  Device ID and language settings</span> <br />
+<span className="ml-4">●  Mobile carrier and network information</span> <br /><br />
  
 <b>Usage and Activity Data</b><br />
-<b className="ml-4">●  Features used and interaction logs</b> <br />
-<b className="ml-4">●  Session duration, click behavior, and navigation paths</b> <br />
-<b className="ml-4">●  Date/time stamps of access and activity</b> <br />
-<b className="ml-4">●  Error logs and crash reports</b> <br /><br />
+<span className="ml-4">●  Features used and interaction logs</span> <br />
+<span className="ml-4">●  Session duration, click behavior, and navigation paths</span> <br />
+<span className="ml-4">●  Date/time stamps of access and activity</span> <br />
+<span className="ml-4">●  Error logs and crash reports</span> <br /><br />
  
+
 <b>Cookies & Tracking Technologies</b><br />
 We use cookies and similar technologies to:<br />
-<b className="ml-4">●  Remember your login</b> <br />
-<b className="ml-4">●  Analyze behavior for service improvements</b> <br />
-<b className="ml-4">●  Enable fraud detection and session security</b>  <br /><br />
+<span className="ml-4">●  Remember your login</span> <br />
+<span className="ml-4">●  Analyze behavior for service improvements</span> <br />
+<span className="ml-4">●  Enable fraud detection and session security</span>  <br /><br />
 </p>
 
 <h2 className="text-[#191c1f] text-2xl font-bold mt-[20px]">Sensitive Personal Information</h2>
@@ -212,9 +213,9 @@ necessary and permitted by law.<br /><br />
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         If you opt to connect your account with a third-party service or provide access via your device, 
 we may collect:<br />
-<b className="ml-4">●  Contacts (to enable sending money to saved recipients)</b> <br />
-<b className="ml-4">●  Device camera (for ID or document upload)</b> <br />
-<b className="ml-4">●  Push notifications (to alert you of transfers or important activity)</b> <br /><br />
+<span className="ml-4">●  <b>Contacts</b> (to enable sending money to saved recipients)</span> <br />
+<span className="ml-4">●  <b>Device camera</b> (for ID or document upload)</span> <br />
+<span className="ml-4">●  <b>Push notifications</b> (to alert you of transfers or important activity)</span> <br /><br />
  
 You can revoke permissions at any time via your device settings.<br /><br />
         </p>
@@ -234,7 +235,7 @@ fulfilling a contract with you, meeting a legal obligation, or when you have giv
 through KYC/AML procedures, process financial transactions such as international transfers or 
 account top-ups, and send you important service communications. We also process your data to 
 deliver customer support, evaluate service performance, and build product features that improve 
-the platform over time. <br /><br />
+the platform over time. <br />
         </p>
 
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
@@ -260,16 +261,16 @@ your data and who comply with applicable privacy and data protection laws.
 </p>
 <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
 Our current vendors include:<br />
-<b className="ml-4">●  <b>LinkIO</b>: For payment initiation, financial data aggregation, and facilitating seamless bank 
-account connectivity and transfers within regulated environments.</b> <br />
-<b className="ml-4">●  <b>Yellow Card</b>: For cross-border crypto-to-fiat on- and off-ramp services, enabling 
-compliant currency exchange in African markets.</b> <br />
-<b className="ml-4">●  <b>Persona</b>: For real-time identity verification (KYC), document validation, and fraud 
-prevention in line with financial regulations.</b> <br />
-<b className="ml-4">●  <b>Amazon Web Services (AWS)</b>: For secure cloud hosting, data infrastructure, and 
-scalable compute capacity with ISO 27001, SOC 2, and GDPR-compliant architecture.</b> <br />
-<b className="ml-4">●  <b>Google Analytics</b>: For aggregated and anonymized performance tracking, user 
-behavior insights, and product usage metrics.</b> <br />
+<span className="ml-4">●  <b>LinkIO</b>: For payment initiation, financial data aggregation, and facilitating seamless bank 
+account connectivity and transfers within regulated environments.</span> <br />
+<span className="ml-4">●  <b>Yellow Card</b>: For cross-border crypto-to-fiat on- and off-ramp services, enabling 
+compliant currency exchange in African markets.</span> <br />
+<span className="ml-4">●  <b>Persona</b>: For real-time identity verification (KYC), document validation, and fraud 
+prevention in line with financial regulations.</span> <br />
+<span className="ml-4">●  <b>Amazon Web Services (AWS)</b>: For secure cloud hosting, data infrastructure, and 
+scalable compute capacity with ISO 27001, SOC 2, and GDPR-compliant architecture.</span> <br />
+<span className="ml-4">●  <b>Google Analytics</b>: For aggregated and anonymized performance tracking, user 
+behavior insights, and product usage metrics.</span> <br />
 </p>
 
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
@@ -292,26 +293,23 @@ its lifecycle.
         </p>
 
 <br /><br />
-
+<section id="your-rights"></section>
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">The Security of Your Personal Information</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         At StellarPay, we take your privacy seriously and are committed to securing your personal 
 information through rigorous organizational and technical safeguards. We implement industry 
 best practices to help ensure the confidentiality, integrity, and availability of your data throughout 
-its lifecycle.
-        </p>  
-
-        <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
-        <b className="ml-4">  ●  <b>Encryption</b>: All personal data is encrypted both in transit and at rest using modern 
-cryptographic protocols.</b> <br />
-<b className="ml-4">●  <b>Role-Based Access Controls</b>: Access to sensitive information is strictly limited to 
-authorized personnel based on job responsibilities.</b> <br />
-<b className="ml-4">●  <b>Infrastructure Compliance</b>: Our systems are hosted on AWS cloud infrastructure that 
-complies with ISO 27001, SOC 2, and GDPR standards.</b> <br />
-<b className="ml-4">●  <b>Regular Security Audits</b>: We conduct vulnerability assessments, penetration testing, 
-and ongoing system monitoring to identify and mitigate potential risks.</b> <br />
-<b className="ml-4">●  <b>Secure Integrations</b>: All third-party integrations are managed through secure API 
-gateways and utilize encrypted SSL/TLS connections to protect data in transit.</b> <br /><br />
+its lifecycle.<br />
+        <span className="ml-4">  ●  <b>Encryption</b>: All personal data is encrypted both in transit and at rest using modern 
+cryptographic protocols.</span> <br />
+<span className="ml-4">●  <b>Role-Based Access Controls</b>: Access to sensitive information is strictly limited to 
+authorized personnel based on job responsibilities.</span> <br />
+<span className="ml-4">●  <b>Infrastructure Compliance</b>: Our systems are hosted on AWS cloud infrastructure that 
+complies with ISO 27001, SOC 2, and GDPR standards.</span> <br />
+<span className="ml-4">●  <b>Regular Security Audits</b>: We conduct vulnerability assessments, penetration testing, 
+and ongoing system monitoring to identify and mitigate potential risks.</span> <br />
+<span className="ml-4">●  <b>Secure Integrations</b>: All third-party integrations are managed through secure API 
+gateways and utilize encrypted SSL/TLS connections to protect data in transit.</span> <br />
         </p>
 
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
@@ -320,27 +318,26 @@ gateways and utilize encrypted SSL/TLS connections to protect data in transit.</
         </p>
 
 <br /><br />
-
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">Your Rights</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
-        You have the following rights in relation to your personal data:
-        <b className="ml-4">●  <b>Right of Access</b>: You can request a copy of the personal information we hold about you 
-to verify that we are lawfully processing it.</b> <br />
-<b className="ml-4">●  <b>Right to Correction</b>: You may request correction of incomplete or inaccurate 
-information we hold about you.</b> <br />
-<b className="ml-4">●  <b>Right to Erasure</b>: You can request the deletion or removal of your personal information 
+        You have the following rights in relation to your personal data:<br />
+        <span className="ml-4">●  <b>Right of Access</b>: You can request a copy of the personal information we hold about you 
+to verify that we are lawfully processing it.</span> <br />
+<span className="ml-4">●  <b>Right to Correction</b>: You may request correction of incomplete or inaccurate 
+information we hold about you.</span> <br />
+<span className="ml-4">●  <b>Right to Erasure</b>: You can request the deletion or removal of your personal information 
 where there is no legitimate reason for us to keep it. Please note that we may not be 
-able to comply with your request for erasure for legal reasons.</b>  <br />
-<b className="ml-4">●  <b>Right to Object</b>: You may object to processing of your personal data where we are 
+able to comply with your request for erasure for legal reasons.</span>  <br />
+<span className="ml-4">●  <b>Right to Object</b>: You may object to processing of your personal data where we are 
 relying on a legitimate interest and where it affects your fundamental rights and 
-freedoms.</b> <br />
-<b className="ml-4">●  <b>Right to Restrict Processing</b>: You may request that we suspend the processing of your 
+freedoms.</span> <br />
+<span className="ml-4">●  <b>Right to Restrict Processing</b>: You may request that we suspend the processing of your 
 personal information, for example to establish its accuracy or the reason for processing 
-it.</b> <br />
-<b className="ml-4">●  <b>Right to Data Portability</b>: You may request the transfer of your personal data to you or 
-another provider in a machine-readable format, where applicable.</b> <br />
-<b className="ml-4">●  <b>Right to Withdraw Consent</b>: If we rely on your consent to process personal information, 
-you may withdraw that consent at any time.</b> <br />
+it.</span> <br />
+<span className="ml-4">●  <b>Right to Data Portability</b>: You may request the transfer of your personal data to you or 
+another provider in a machine-readable format, where applicable.</span> <br />
+<span className="ml-4">●  <b>Right to Withdraw Consent</b>: If we rely on your consent to process personal information, 
+you may withdraw that consent at any time.</span> <br />
         </p>
 
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
@@ -371,6 +368,9 @@ retention is required by law—we will delete your data within a commercially re
 timeframe.
         </p>
 
+        <br /><br />
+
+        <section id="cookies-and-tracking-technologies"></section>
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">Our Use of Cookies</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         Our website uses cookies to distinguish you from other users of our site. This helps us improve 
@@ -391,6 +391,7 @@ trusted third parties for the same purpose. You can manage cookie preferences in
 settings. Blocking all cookies may impact your ability to access certain features of our services.
         </p>
 
+        <br /><br />
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">Children’s Privacy</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         StellarPay is not intended for or directed to individuals under the age of 18. We do not knowingly 
@@ -406,25 +407,26 @@ settings. Blocking all cookies may impact your ability to access certain feature
         so we can take appropriate action.
         </p>
 
-
+        <br /><br />
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">Customer Protection Measures</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         Protecting our users goes beyond safeguarding data—we’re equally committed to ensuring the 
 security of your financial activity. To support this, we have implemented a Customer Protection 
 Policy that includes:<br />
-<b className="ml-4">●  <b>Transaction Monitoring</b>: We use automated systems to monitor transactions for 
-suspicious activity, fraud, or unauthorized use.</b> <br />
-<b className="ml-4">●  <b>Account Alerts</b>: We notify users of key account activities (e.g., logins from new devices, 
-changes to security settings, large transfers).</b> <br />
-<b className="ml-4">●  <b>Dispute Resolution</b>: If you believe a transaction was unauthorized or incorrect, you may 
+<span className="ml-4">●  <b>Transaction Monitoring</b>: We use automated systems to monitor transactions for 
+suspicious activity, fraud, or unauthorized use.</span> <br />
+<span className="ml-4">●  <b>Account Alerts</b>: We notify users of key account activities (e.g., logins from new devices, 
+changes to security settings, large transfers).</span> <br />
+<span className="ml-4">●  <b>Dispute Resolution</b>: If you believe a transaction was unauthorized or incorrect, you may 
 file a dispute within 30 days of the transaction date by contacting us at 
-support@stellarpay.app.</b> <br />
-<b className="ml-4">●  <b>Encryption and Identity Verification</b>: We use strong encryption and multi-step identity 
+support@stellarpay.app.</span> <br />
+<span className="ml-4">●  <b>Encryption and Identity Verification</b>: We use strong encryption and multi-step identity 
 verification (e.g., biometric login, 2FA) to ensure only authorized users access your 
-account.</b> <br />
+account.</span> <br />
+<br />
 Please note that while we take robust steps to protect your account, you are responsible for 
 keeping your login credentials secure. If you suspect your account has been compromised, 
-contact us at support@stellarpay.app. <br /><br />
+contact us at support@stellarpay.app. <br /><br /><br />
         </p>
 
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">U.S. State Privacy Rights</h2>
@@ -438,26 +440,28 @@ as the California Consumer Privacy Act (CCPA), Virginia Consumer Data Protection
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         We may collect the following categories of personal information noted below. We never sell your 
 personal information. : <br />
-<b className="ml-4">●  <b>Identifiers</b> (e.g., name, email, phone number)</b> <br />
-<b className="ml-4">●  <b>Personal records</b> (e.g., billing address, financial data)</b> <br />
-<b className="ml-4">●  <b>Biometric data</b> (e.g., facial ID for KYC)</b> <br />
-<b className="ml-4">●  <b>Geolocation data</b> (e.g., IP-based location)</b> <br />
-<b className="ml-4">●  <b>Sensitive data</b> (e.g., government-issued IDs, bank account credentials)</b> <br />
+<span className="ml-4">●  <b>Identifiers</b> (e.g., name, email, phone number)</span> <br />
+<span className="ml-4">●  <b>Personal records</b> (e.g., billing address, financial data)</span> <br />
+<span className="ml-4">●  <b>Biometric data</b> (e.g., facial ID for KYC)</span> <br />
+<span className="ml-4">●  <b>Geolocation data</b> (e.g., IP-based location)</span> <br />
+<span className="ml-4">●  <b>Sensitive data</b> (e.g., government-issued IDs, bank account credentials)</span> <br />
         </p>
 
         <p className="text-[#191c1f] text-2xl font-bold mt-[20px]">Your State-Specific Rights May Include</p>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
-<b className="ml-4">●  The right to access, correct, or delete personal data</b> <br />
-<b className="ml-4">●  The right to opt out of targeted advertising or profiling</b> <br />
-<b className="ml-4">●  The right to limit the use of sensitive personal information</b> <br />
-<b className="ml-4">●  The right to appeal a denied privacy request (where applicable)</b> <br />
+<span className="ml-4">●  The right to access, correct, or delete personal data</span> <br />
+<span className="ml-4">●  The right to opt out of targeted advertising or profiling</span> <br />
+<span className="ml-4">●  The right to limit the use of sensitive personal information</span> <br />
+<span className="ml-4">●  The right to appeal a denied privacy request (where applicable)</span> <br />
+<br />
 To exercise the rights noted above, please email us at support@stellarpay.app, or submit a 
 request via our website or your StellarPay account.We may verify your identity or request written 
-authorization if you're acting on behalf of another individual. <br />
+authorization if you're acting on behalf of another individual. <br /><br />
 For California residents, you may also invoke your rights by requesting details on how we share 
-information with third parties for direct marketing.
+information with third parties for direct marketing.<br /><br />
         </p>
 <br /><br />
+<section id="contact-us">
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">Privacy Policy Updates</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         We may update this Privacy Policy as required by law.  If we change the Policy and collect more 
@@ -471,18 +475,20 @@ Privacy Policy each time you access our Services to stay informed of our privacy
         This policy applies to all of StellarPay’s functionalities. If you do not accept this policy, you may 
 not use the service.
         </p>
+<br /><br />
 
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">Contact Us</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
         If you have any questions, concerns, or requests related to this Privacy Policy or your personal 
             data, please reach out to: <br />
-<b className="ml-4">●  Email: support@stellarpay.app</b>  <br />
-<b className="ml-4">●  Website: Use the "Contact Us" option on our website</b> <br />
+<span className="ml-4">●  <b>Email</b>: support@stellarpay.app</span>  <br />
+<span className="ml-4">●  <b>Website</b>: Use the "Contact Us" option on our website</span> <br />
+<br />
 Thank you for trusting StellarPay with your data. We are committed to safeguarding your privacy 
 while helping you make smarter financial decisions. 
         </p>
         <br /><br />
-
+        </section>
 
 
 
@@ -580,10 +586,10 @@ while helping you make smarter financial decisions.
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff]">
                   Legal
                 </Link>
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff]">
                   Complaints
                 </Link>
               </div>
@@ -598,7 +604,7 @@ while helping you make smarter financial decisions.
               </div>
 
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline">
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">

@@ -899,10 +899,10 @@ export default function HomePage() {
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
                   Legal
                 </Link>
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
                   Complaints
                 </Link>
               </div>
@@ -917,7 +917,7 @@ export default function HomePage() {
               </div>
 
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">

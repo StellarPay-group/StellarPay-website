@@ -282,10 +282,10 @@ export default function NewsPage() {
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff]">
                   Legal
                 </Link>
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff]">
                   Complaints
                 </Link>
               </div>
@@ -300,7 +300,7 @@ export default function NewsPage() {
               </div>
 
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline">
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">
