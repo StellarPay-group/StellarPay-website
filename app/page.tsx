@@ -189,8 +189,12 @@ export default function HomePage() {
                 </div>
                     <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">Log in</Button>
-              <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
+              <Link href="/signin">
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">Log in</Button>
+              </Link>
+              <Link href="/signup">
+                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
+              </Link>
             </div>
           </div>
         </div>
