@@ -28,7 +28,7 @@ export async function fetchCurrencyConversion(params: {
       });
 
   try {
-    const response = await axios.get(`${SERVER}dev/conversion/convert`, {
+    let response = await axios.get(`${SERVER}dev/conversion/convert`, {
       headers: {
         'x-request-id': Date.now().toString(),
         'x-auth-token': `Bearer ${ADMIN_TOKEN}`
@@ -39,6 +39,22 @@ export async function fetchCurrencyConversion(params: {
         targets: targets.join(','),
       },
     });
+
+    // WORKAROUND: eventually, we do not want to have this if statement 
+    // This is temporary to prevent undefined response data due to ngrok
+    if (!response.data.data || response.data.data === undefined) {
+        response = await axios.get(`http://localhost:3001/dev/conversion/convert`, {
+        headers: {
+          'x-request-id': Date.now().toString(),
+          'x-auth-token': `Bearer ${ADMIN_TOKEN}`
+        },
+        params: {
+          base,
+          amount,
+          targets: targets.join(','),
+        },
+      });
+    }
 
     return response.data.data;
   } catch (error: any) {
