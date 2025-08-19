@@ -165,10 +165,11 @@ export default function HomePage() {
       setAmountWeWillConvert(fees.amountWeWillConvert);
       setFromCurrency(fromCurrencyInput || {code: 'USD', symbol: '$'});
       setToCurrency(toCurrencyInput || {code: 'USD', symbol: '$'});
-      setGuaranteedRate(amountWeWillConvert * 0.9319);
+      setGuaranteedRate(fees.amountWeWillConvert * 0.9319);
     }
-
-    fetchFees();
+    if (amount && amount > 0) {
+      fetchFees();
+    }
   }, [amount, fromCountry?.code, toCountry?.code]);
 
 
@@ -420,7 +421,7 @@ export default function HomePage() {
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, debouncedAmount) * 100) / 100}</p>
+                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
                     <div className="relative">
                     <Combobox value={toCountry} onChange={(value) => value && setToCountry(value)}>
                       <ComboboxInput
