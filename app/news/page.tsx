@@ -161,24 +161,79 @@ export default function NewsPage() {
         {/* Timeline Cards Container */}
         <div className="relative">
           {/* Cards Grid */}
-          <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Card 1 - June 2024 */}
+            <a href="https://substack.com/inbox/post/171660194?r=95wx4&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false&triedRedirect=true">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-96 flex items-center justify-center">
-              <Image src="/images/stellarbanking_cover.png" alt="" width={400} height={400} />
+              <div className="bg-[#010e32] h-72 flex items-center justify-center">
+              <Image src="/images/genius-act-article-cover.png" alt="" width={400} height={400} />
               </div>
-              <div className="px-8 py-8">
-                <h3 className="text-2xl font-[700] text-[#000000] mb-2">StellarPay announces partnership with Flagright</h3>
-                <h3 className="text-lg font-[500] text-gray-500 text-[#000000] mb-2">July 17, 2025</h3>
+              <div className="px-8 py-8 h-96">
+              <h3 className="text-lg font-[500] text-gray-500 text-[#000000] mb-4">Aug 22, 2025</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">One Big Beautiful Bill and the GENIUS Act: A New Era for Cross-Border Payments</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05] mb-8">Author: Tommy Ruggles</h3>
                 <p className="text-[#000000] text-xl leading-[1.05]">
-                StellarPay partners with Flagright to launch with real-time AML screening, transaction monitoring, and case management across its crypto-fiat payments platform.
+                The landscape for cross-border payments just changed overnight.
                 </p>
               </div>
             </div>
+            </a>
+
+
+            <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#010e32] h-73 flex items-center justify-center">
+              <Image src="/images/flagright-square.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-8 py-8 h-96">
+              <h3 className="text-lg font-[500] text-gray-500 text-[#000000] mb-4">Jul 17, 2025</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">StellarPay announces partnership with Flagright</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05] mb-8">Author: Joseph Ibitola</h3>
+                <p className="text-[#000000] text-xl leading-[1.05]">
+                StellarPay Chooses Flagright for Transaction Monitoring & AML Screening.
+                </p>
+              </div>
+            </div>
+            </a>
+
+
+            <a href="https://substack.com/@catangana/p-161829302">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#010e32] h-72 flex items-center justify-center">
+              <Image src="/images/reflections-square.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-8 py-8 h-96">
+              <h3 className="text-lg font-[500] text-gray-500 text-[#000000] mb-4">Apr 21, 2025</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">StellarPay: Reflections as we near launch</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05] mb-8">Author: Christian Atangana</h3>
+                <p className="text-[#000000] text-xl leading-[1.05]">
+                The journey of a thousand miles starts with the first step.
+                </p>
+              </div>
+            </div>
+            </a>
+
+            <a href="https://substack.com/home/post/p-152662510">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#010e32] h-72 flex items-center justify-center">
+              <Image src="/images/financial-innovation-square.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-8 py-8 h-96">
+              <h3 className="text-lg font-[500] text-gray-500 text-[#000000] mb-4">Dec 06, 2024</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">Rethinking Financial Innovation for the African Continent</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05] mb-8">Author: Christian Atangana</h3>
+                <p className="text-[#000000] text-xl leading-[1.05]">
+                Over the years, Africa has become synonymous with untapped potential.
+                </p>
+              </div>
+            </div>
+            </a>
 
           </div>
-          </a>
+
+
         </div>
       </div>
       

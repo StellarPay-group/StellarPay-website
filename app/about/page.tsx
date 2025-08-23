@@ -424,13 +424,29 @@ export default function AboutPage() {
             renderButtonGroupOutside={true}
             arrows={false}
           >
+            <a href="https://substack.com/inbox/post/171660194?r=95wx4&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false&triedRedirect=true">
+              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
+              <Image src="/images/genius-act-article-cover.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
+              </div>
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">August 2025</h3>
+                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
+                One Big Beautiful Bill and the GENIUS Act: A New Era for Cross-Border Payments
+                </p>
+              </div>
+            </div>
+              </div>
+              </a>
+
             <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
             <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
               <Image src="/images/flagright-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
                 <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">July 2025</h3>
                 <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
                 StellarPay announces partnership with Flagright
@@ -439,51 +455,39 @@ export default function AboutPage() {
             </div>
               </div>
               </a>
-              <a href="/news">
+              
+              <a href="https://substack.com/@catangana/p-161829302">
               <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/blog2.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
+              <Image src="/images/reflections-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">April 2025</h3>
                 <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Coming soon
+                StellarPay: Reflections as we near launch
                 </p>
               </div>
             </div>
               </div>
               </a>
-              <a href="/news">
+
+              <a href="https://substack.com/home/post/p-152662510">
               <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/blog3fixed.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
+              <Image src="/images/financial-innovation-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">Dec 2024</h3>
                 <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Coming soon
+                Rethinking Financial Innovation for the African Continent
                 </p>
               </div>
             </div>
               </div>
               </a>
-              <a href="/news">
-              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/blog4.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Coming soon
-                </p>
-              </div>
-            </div>
-              </div>
-              </a>
+
           </Carousel>
       </div>
       </motion.div>
