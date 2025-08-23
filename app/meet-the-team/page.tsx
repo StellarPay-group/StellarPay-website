@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 
 
-export default function AboutPage() {
+export default function MeetTheTeam() {
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 1 },
@@ -143,7 +143,7 @@ export default function AboutPage() {
       >
         <div className="max-w-xl mx-auto flex items-center -translate-x-12 md:-translate-x-24">
           <h2 className="text-6xl md:text-8xl lg:text-[130px] font-bold leading-tight">
-            Meet.<br />StellarPay.
+            The team
           </h2>
         </div>
       </motion.section>  
