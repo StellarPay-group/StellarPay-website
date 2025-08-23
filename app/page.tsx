@@ -881,7 +881,7 @@ export default function HomePage() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Company and team</h3>
               <div className="space-y-1 md:space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Company and team
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">

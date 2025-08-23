@@ -67,12 +67,12 @@ export default function SignInPage() {
       </main>
 
 
-      <footer className="flex flex-row mb-[100px] ml-[40px]">
+      <div className="absolute flex flex-row left-[40px] bottom-[10px]">
         <p className="mr-[60px] text-sm md:text-md">English (United States)</p>
         <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline text-sm md:text-md">
           Privacy policy
         </Link>
-      </footer>
+      </div>
 
     </div>
   );

@@ -196,9 +196,11 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
             >
+              <a href="/meet-the-team">
               <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-6 md:px-8 py-4 md:py-7 rounded-full text-base md:text-xl font-medium">
                 Meet the Team
               </Button>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -586,7 +588,7 @@ export default function AboutPage() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Company and team</h3>
               <div className="space-y-1 md:space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Company and team
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">

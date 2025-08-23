@@ -689,7 +689,7 @@ individually responsible for implementing retention schedules within their separ
             <div>
               <h3 className="font-medium mb-4">Company and team</h3>
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline">
                   Company and team
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">

@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
+import { ExpandCard } from "@/components/ui/expandCard";
 
 
 export default function MeetTheTeam() {
@@ -36,46 +37,7 @@ export default function MeetTheTeam() {
     onClick?: () => void;
     carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
   };
-  const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => {
-    if (!carouselState) return null;
-    const leftDisabled = carouselState?.currentSlide === 0;
-    const rightDisabled = carouselState?.currentSlide + carouselState?.slidesToShow >= carouselState?.totalItems;
-    return (
-      <div className="flex justify-center gap-4 mt-0">
-        <button
-          onClick={previous}
-          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
-            leftDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
-          }`}
-          aria-label="Previous"
-          disabled={leftDisabled}
-        >
-        <Image
-            src="/images/leftArrow.png"
-            alt="Previous"
-            width={50}
-            height={50}
-          />
-          
-        </button>
-        <button
-          onClick={next}
-          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
-            rightDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
-          }`}
-          aria-label="Next"
-          disabled={rightDisabled}
-        >
-        <Image
-            src="/images/rightArrow.png"
-            alt="Previous"
-            width={50}
-            height={50}
-          />
-        </button>
-      </div>
-    );
-  };
+  
 
   return (
     <main>
@@ -113,7 +75,7 @@ export default function MeetTheTeam() {
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-6">
               <Link href="\about" className="hidden sm:block">
-                <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-bold">About us</Button>
+                <Button variant="ghost" className="text-[#191c1f] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">About us</Button>
               </Link>
               <div className="hidden md:flex items-center space-x-2">
               <div>
@@ -135,127 +97,65 @@ export default function MeetTheTeam() {
 
       {/* Hero Section */}
       <motion.section 
-        className="bg-[#0e0f0c] text-white py-16 md:py-30 px-4 md:px-6"
+        className="bg-[#0065ff] text-white py-16 md:py-30 px-4 md:px-6"
         ref={heroAnimation.ref}
         initial={heroAnimation.initial}
         animate={heroAnimation.animate}
         transition={heroAnimation.transition}
       >
-        <div className="max-w-xl mx-auto flex items-center -translate-x-12 md:-translate-x-24">
-          <h2 className="text-6xl md:text-8xl lg:text-[130px] font-bold leading-tight">
+        <div className="max-w-2xl mx-auto flex items-center -translate-x-12 md:-translate-x-24">
+          <h2 className="text-6xl md:text-8xl lg:text-[130px] py-20 font-bold leading-tight">
             The team
           </h2>
         </div>
       </motion.section>  
 
-      {/* About Us Section */}
+  
+
       <motion.div 
-        className="bg-white flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-16"
-        ref={aboutAnimation.ref}
-        initial={aboutAnimation.initial}
-        animate={aboutAnimation.animate}
-        transition={aboutAnimation.transition}
-      >
-        <div className="max-w-[140rem] mx-auto">
-          <motion.h1 
-            className="font-inter text-[#000000] text-3xl md:text-4xl font-bold mb-6 md:mb-10"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            About Us
-          </motion.h1>
-
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-0">
-            <motion.div
-              className="font-inter text-[#000000] text-base md:text-xl font-semibold leading-relaxed max-w-5xl lg:pr-54"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <p>Money shouldn't be this complicated.</p>
-              <p>
-                Whether you're sending cash abroad, balancing your family's budget, or scaling your business — we've all
-                felt how broken and frustrating finances can be.
-              </p>
-              <p>That's exactly why we're here.</p>
-
-              <p>
-                Our goal is simple. To eliminate the friction that stands between you and your intentions with your money.
-              </p>
-
-              <p>
-                Whether it's sending money, spending money, or managing money, our mission is to make faster and
-                affordable transactions anywhere you are - your new reality.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="flex-shrink-0 mb-6 lg:mb-10"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-6 md:px-8 py-4 md:py-7 rounded-full text-base md:text-xl font-medium">
-                Meet the Team
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* 3 Traits Section */}
-      <motion.div 
-        className="bg-[#0065ff] py-20 md:py-36 px-4 md:px-8"
+        className="py-20 md:py-36 px-4 md:px-8"
         ref={traitsAnimation.ref}
         initial={traitsAnimation.initial}
         animate={traitsAnimation.animate}
         transition={traitsAnimation.transition}
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-15">
-            {/* Lightning-fast Card */}
-            <motion.div 
-              className="bg-[#ffffff] rounded-2xl p-6 md:p-8"
+        <div className="max-w-7xl mx-auto border px-10 py-10 rounded-2xl shadow-xl border-gray-200">
+        <motion.h1 
+              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-10 font-semibold leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="mb-4 md:mb-6">
-                <Zap className="w-6 h-6 md:w-8 md:h-8 text-[#000000]" />
-              </div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0e0f0c] mb-3 md:mb-4 text-left">Lightning-fast.</h3>
-              <p className="text-[#433b3b] text-lg md:text-xl font-semibold leading-relaxed text-left">Transact at the speed of light</p>
-            </motion.div>
+              Meet Our Team
+            </motion.h1>
+          <motion.h2
+            className="text-gray-500 max-w-4xl text-sm md:text-lg lg:text-xl xl:text-xl mb-10 font-semibold leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            Our team brings experience from global fintech, banking, technology, and driving innovation to make money move seamlessly worldwide. Stay tuned for more announcements.
+          </motion.h2>
+          <motion.div
+  className="flex flex-row gap-8"
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+>
+    <ExpandCard
+      name="Christan Atangana"
+      position="CEO AND CO-FOUNDER, STELLARPAY"
+      defaultOpen={true}
+    />
 
-            {/* Effortless Card */}
-            <motion.div 
-              className="bg-[#ffffff] rounded-2xl p-6 md:p-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <div className="mb-4 md:mb-6">
-                <Send className="w-6 h-6 md:w-8 md:h-8 text-[#000000]" />
-              </div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0e0f0c] mb-3 md:mb-4 text-left">Effortless.</h3>
-              <p className="text-[#433b3b] text-lg md:text-xl font-semibold leading-relaxed text-left">Send, Request or Spend Effortlessly</p>
-            </motion.div>
+    <ExpandCard
+      name="Hamza Hussain"
+      position="CEO AND CO-FOUNDER, STELLARPAY"
+    />
 
-            {/* Honest Card */}
-            <motion.div 
-              className="bg-[#ffffff] rounded-2xl p-6 md:p-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <div className="mb-4 md:mb-6 h-6 md:h-8">{/* Empty div to maintain alignment with other cards */}</div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0e0f0c] mb-3 md:mb-4 text-left">Honest.</h3>
-              <p className="text-[#433b3b] text-lg md:text-xl font-semibold leading-relaxed text-left">
-                See, Track or Monitor Money Transparently
-              </p>
-            </motion.div>
-          </div>
+    <ExpandCard name="Arkel Monghomaya" position="HEAD ENGINEER" />
+
+    <ExpandCard name="Tommy Ruggles" position="HEAD OF OPERATIONS" />
+</motion.div>
         </div>
       </motion.div>
 
@@ -267,31 +167,46 @@ export default function MeetTheTeam() {
         animate={betterAnimation.animate}
         transition={betterAnimation.transition}
       >
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 w-full">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10 w-full">
           <div className="space-y-6 md:space-y-8">
             <motion.h1 
-              className="text-[#000000] text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight text-center"
+              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Getting better and better
+              Our Mission
             </motion.h1>
 
             <motion.div 
-              className="max-w-2xl mx-auto"
+              className="max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-[#000000] text-lg md:text-xl leading-relaxed font-semibold">
+                <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mt-10 mb-8">
                 {
-                  "We're creating a platform so intuitive, so smooth, so versatile that you'll never need another financial app again."
+                  "We’re here to empower people and businesses everywhere to move money freely across the world — instantly, securely, and right from their fingertips."
                 }
               </p>
-              <p className="text-[#000000] text-lg md:text-xl leading-relaxed font-semibold mt-4">
+              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-8">
                 {
-                  "How? by doing what we do best: consistently building faster, superior, smarter solutions all while making every transfer cheaper than the last to reach our goal of driving costs toward zero."
+                  "The world is changing fast. From Lagos to Hong Kong, Nairobi to Toronto, modern entrepreneurs, workers, and global families are more connected than ever before. They’re building across borders, moving capital, and fueling economies in ways traditional financial systems were never built to support."
+                }
+              </p>
+              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-8">
+                {
+                  "Yet while the way we live, work, and trade has accelerated, most financial providers have remained the same — slow, fragmented, and exclusionary. Traditional systems weren’t designed for the next billion users or for businesses that operate across continents."
+                }
+              </p>
+              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-8">
+                {
+                  "That’s where StellarPay comes in. We’re creating the first truly global financial platform — one that unifies fiat, crypto, and stablecoins in seamless, intuitive ways — giving individuals, families, teams, and enterprises the tools they need to move money faster and grow with confidence."
+                }
+              </p>
+              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-30">
+                {
+                  "As the world builds the future, StellarPay will provide the rails, the wallets, and the artificial intelligence to power it — helping people everywhere send, spend, and transact without borders."
                 }
               </p>
             </motion.div>
@@ -299,232 +214,6 @@ export default function MeetTheTeam() {
         </div>
       </motion.section>
 
-      {/* Timeline Section */}
-      <motion.div 
-        className="w-full max-w-7xl mx-auto px-4 py-12 md:py-16"
-        ref={timelineAnimation.ref}
-        initial={timelineAnimation.initial}
-        animate={timelineAnimation.animate}
-        transition={timelineAnimation.transition}
-      >
-        {/* Header */}
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-[#000000] mb-12 md:mb-16 text-left"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          What we've done so far
-        </motion.h2>
-        {/* Timeline Cards Container */}
-        <div className="relative">
-            {/* Navigation Arrows */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
-            >
-              <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
-            >
-              <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
-            </Button>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {/* Card 1 - June 2024 */}
-            <motion.div 
-              className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-                <span className="text-white text-4xl md:text-6xl font-bold">2024</span>
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">June 2024</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Survey website reaches 70k signups validating our idea
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2 - August 2024 */}
-            <motion.div 
-              className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <div className="bg-[#005b13] h-64 md:h-96 flex items-center justify-center">
-                <span className="text-white text-4xl md:text-6xl font-bold">2024</span>
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">August 2024</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Our founders Christian Atangana and Hamza Hussain begin building
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 3 - July 2025 */}
-            <motion.div 
-              className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="bg-[#9747ff] h-64 md:h-96 flex items-center justify-center">
-                <span className="text-white text-4xl md:text-6xl font-bold">2025</span>
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">July 2025</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">Launch of StellarPay & George</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Blog Section */}
-      <motion.div 
-        className="w-full max-w-7xl mx-auto px-4 py-12 md:py-16"
-        ref={blogAnimation.ref}
-        initial={blogAnimation.initial}
-        animate={blogAnimation.animate}
-        transition={blogAnimation.transition}
-      >
-        {/* Header */}
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-[#000000] mb-12 md:mb-16 text-left"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          StellarPay Articles
-        </motion.h2>
-        {/* Blog Cards Container */}
-        <div className="relative ml-[-20]">
-            <Carousel
-            showDots={false}
-            responsive={responsive}
-            ssr={false} 
-            infinite={false}
-            autoPlay={false}
-            containerClass="w-full max-w-[1000px] lg:max-w-[1300px] mx-auto"
-            dotListClass="mt-8"
-            itemClass="px-2 md:px-4"  
-            customButtonGroup={<ButtonGroup />}
-            renderButtonGroupOutside={true}
-            arrows={false}
-          >
-            <a href="https://substack.com/inbox/post/171660194?r=95wx4&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false&triedRedirect=true">
-              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/genius-act-article-cover.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">August 2025</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                One Big Beautiful Bill and the GENIUS Act: A New Era for Cross-Border Payments
-                </p>
-              </div>
-            </div>
-              </div>
-              </a>
-
-            <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
-            <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/flagright-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">July 2025</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                StellarPay announces partnership with Flagright
-                </p>
-              </div>
-            </div>
-              </div>
-              </a>
-              
-              <a href="https://substack.com/@catangana/p-161829302">
-              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/reflections-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">April 2025</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                StellarPay: Reflections as we near launch
-                </p>
-              </div>
-            </div>
-              </div>
-              </a>
-
-              <a href="https://substack.com/home/post/p-152662510">
-              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/financial-innovation-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">Dec 2024</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                Rethinking Financial Innovation for the African Continent
-                </p>
-              </div>
-            </div>
-              </div>
-              </a>
-
-          </Carousel>
-      </div>
-      </motion.div>
-
-      <motion.section 
-        className="bg-white flex items-center mb-12 md:mb-20"
-        ref={connectAnimation.ref}
-        initial={connectAnimation.initial}
-        animate={connectAnimation.animate}
-        transition={connectAnimation.transition}
-      >
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 w-full items-center justify-center">
-          <div className="space-y-6 md:space-y-8">
-            <motion.h1 
-              className="text-[#000000] text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              Connecting the world through finance
-            </motion.h1>
-          </div>
-          <motion.div 
-            className="mt-8 md:mt-10 flex items-center justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Link href="/news">
-              <Button className="bg-[#1877f2] hover:bg-[#0052cc] text-white px-6 md:px-10 py-3 md:py-7 rounded-[4px] text-lg md:text-xl font-medium">
-                News & media
-              </Button>
-              </Link>
-          </motion.div>
-        </div>
-      </motion.section>
-      
 
       {/* Store Badges */}
       <motion.div 
@@ -586,7 +275,7 @@ export default function MeetTheTeam() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Company and team</h3>
               <div className="space-y-1 md:space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Company and team
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
