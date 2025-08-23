@@ -116,9 +116,9 @@ export default function AboutPage() {
                 <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-bold">About us</Button>
               </Link>
               <div className="hidden md:flex items-center space-x-2">
-                <div className="w-5 h-5 bg-green-500 relative overflow-hidden rounded-full">
-                  {/* Put flag img here later */}
-                </div>
+              <div>
+                  <Image src="/images/english_flag_logo-2.png" alt='EN' width={20} height={20} />
+                  </div>
                     <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
               <Link href="/signin">
@@ -158,7 +158,7 @@ export default function AboutPage() {
       >
         <div className="max-w-[140rem] mx-auto">
           <motion.h1 
-            className="text-[#000000] text-3xl md:text-4xl font-bold mb-6 md:mb-10"
+            className="font-inter text-[#000000] text-3xl md:text-4xl font-bold mb-6 md:mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -167,8 +167,8 @@ export default function AboutPage() {
           </motion.h1>
 
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-0">
-            <motion.div 
-              className="text-[#000000] text-base md:text-lg leading-relaxed max-w-6xl lg:pr-96"
+            <motion.div
+              className="font-inter text-[#000000] text-base md:text-xl font-semibold leading-relaxed max-w-5xl lg:pr-54"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -196,8 +196,8 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
             >
-              <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-medium">
-                Contact Us
+              <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-6 md:px-8 py-4 md:py-7 rounded-full text-base md:text-xl font-medium">
+                Meet the Team
               </Button>
             </motion.div>
           </div>

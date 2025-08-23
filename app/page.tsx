@@ -220,9 +220,9 @@ export default function HomePage() {
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">About us</Button>
               </Link>
               <div className="hidden md:flex items-center space-x-2">
-                <div className="w-5 h-5 bg-green-500 relative overflow-hidden rounded-full">
-                  {/* Put flag img here later */}
-                </div>
+              <div>
+                  <Image src="/images/english_flag_logo-2.png" alt='EN' width={20} height={20} />
+                  </div>
                     <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
               <Link href="/signin">
@@ -828,15 +828,15 @@ export default function HomePage() {
         animate={georgeAnimation.animate}
         transition={georgeAnimation.transition}
       >
-        <div className="aspect-[1225/472] max-w-[1470px] w-full mx-auto bg-[#0065ff] rounded-2xl md:rounded-3xl p-6 md:p-12">
-          <div className="space-y-6 md:space-y-8">
+        <div className="aspect-[1225/380] max-w-[1470px] w-full mx-auto bg-[#4239ed] rounded-2xl md:rounded-3xl p-6 md:p-12 content-center">
+          <div className="space-y-3 md:space-y-4">
             <motion.div 
               className="inline-flex"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <div className="bg-[#000000] text-[#ffffff] px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-medium white-border">Artificial Intelligence | 01</div>
+              <div className="font-inter bg-[#000000] text-[#ffffff] px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-lg font-medium ">Artificial Intelligence | 01</div>
             </motion.div>
             <Link href="https://www.meetgeorge.app">
             <motion.div 
@@ -845,8 +845,8 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h1 className="text-[#ffffff] text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">Meet George</h1>
-              <p className="text-[#ffffff] text-base md:text-lg">Money talks - George listens.</p>
+              <h1 className="font-inter text-[#ffffff] text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">Meet George</h1>
+              <p className="font-inter text-[#ffffff] text-base md:text-xl">Money talks - George listens.</p>
             </motion.div>
             </Link>
             <motion.div 
@@ -855,8 +855,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
             >
-              <p className="text-[#ffffff] text-base md:text-lg leading-relaxed">Unlock financial clarity with an intelligent financial companion.</p>
-              <p className="text-[#ffffff] text-base md:text-lg leading-relaxed">
+              <p className="font-inter text-[#ffffff] text-base md:text-xl leading-relaxed mt-3 md:mt-4">Unlock financial clarity with an intelligent financial companion.<br />
                 Understand your transactions, set goals and identify your unique needs with a seamlessly
                 integrated AI solution.
               </p>

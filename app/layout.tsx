@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
+
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +18,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StellarPay | Send money & spend anywhere in just a few taps",
   description: "StellarPay | Send money & spend anywhere in just a few taps",
-  icons: {
-    icon: "/images/stellarbanking_logo.png",
-  },
 };
 
 export default function RootLayout({
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
         <Providers>
           {children}

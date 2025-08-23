@@ -41,9 +41,9 @@ export default function PrivacyPolicy() {
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">About us</Button>
               </Link>
               <div className="hidden md:flex items-center space-x-2">
-                <div className="w-5 h-5 bg-green-500 relative overflow-hidden rounded-full">
-                  {/* Put flag img here later */}
-                </div>
+              <div>
+                  <Image src="/images/english_flag_logo-2.png" alt='EN' width={20} height={20} />
+                  </div>
                     <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
               <Link href="/signin">
