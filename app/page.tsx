@@ -727,7 +727,9 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0E0F0C] mb-4 md:mb-8">Security you can feel. Protection you can trust.</h2>
             <p className="text-[#454745] text-base md:text-lg mb-4 md:mb-8">Your peace of mind is built into every transfer. We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
             <p className="text-[#454745] text-base md:text-lg mb-6">No shady conversions. No surprise fees. Just total transparency.</p>
+            <a href="/security">
             <Button className="text-white px-8 md:px-16 py-4 md:py-6 rounded-full text-sm md:text-lg font-semibold bg-black mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
+            </a>
           </motion.div>
           <motion.div 
             className="flex-1 flex justify-center"

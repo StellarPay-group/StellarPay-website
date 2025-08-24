@@ -135,13 +135,13 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <motion.section 
-        className="bg-[#0e0f0c] text-white py-16 md:py-30 px-4 md:px-6"
+        className="bg-[#0e0f0c] text-white py-16 md:py-30 px-12 md:px-6"
         ref={heroAnimation.ref}
         initial={heroAnimation.initial}
         animate={heroAnimation.animate}
         transition={heroAnimation.transition}
       >
-        <div className="max-w-xl mx-auto flex items-center -translate-x-12 md:-translate-x-24">
+        <div className="max-w-xl mx-auto flex items-center md:-translate-x-24">
           <h2 className="text-6xl md:text-8xl lg:text-[130px] font-bold leading-tight">
             Meet.<br />StellarPay.
           </h2>

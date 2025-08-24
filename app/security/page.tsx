@@ -20,15 +20,10 @@ export default function MeetTheTeam() {
 
   // Animation hooks
   const navAnimation = useScrollAnimation(0);
-  const heroAnimation = useScrollAnimation(0.3);
-  const aboutAnimation = useScrollAnimation(0.6);
-  const traitsAnimation = useScrollAnimation(0.9);
-  const betterAnimation = useScrollAnimation(1.2);
-  const timelineAnimation = useScrollAnimation(1.5);
-  const blogAnimation = useScrollAnimation(1.8);
-  const connectAnimation = useScrollAnimation(2.1);
-  const storeAnimation = useScrollAnimation(2.4);
-  const footerAnimation = useScrollAnimation(2.7);
+  const heroAnimation = useScrollAnimation(0);
+  const traitsAnimation = useScrollAnimation(0);
+  const storeAnimation = useScrollAnimation(0);
+  const footerAnimation = useScrollAnimation(0);
 
   // needed for blog component
   type ArrowProps = {
@@ -157,7 +152,7 @@ export default function MeetTheTeam() {
         transition={traitsAnimation.transition}
       >
         <div className="flex flex-col md:flex-row items-center justify-center">
-        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mr-20">
+        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mr-20 mb-20">
         <Image src="/images/two-step.png" alt="two-step" width={400} height={400} className="w-full h-full" />
         <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-180px]" >
           <h3 className="font-semibold text-4xl mb-2">
@@ -169,9 +164,9 @@ export default function MeetTheTeam() {
         </div>
         </div>
 
-        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mr-20">
-        <Image src="/images/two-step.png" alt="two-step" width={400} height={400} className="w-full h-full" />
-        <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-180px]" >
+        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mr-20 mb-20">
+        <Image src="/images/biometrics.png" alt="two-step" width={400} height={400} className="w-full h-full" />
+        <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-210px]" >
           <h3 className="font-semibold text-4xl mb-2">
           Biometrics and ecryption
           </h3>
@@ -180,9 +175,9 @@ export default function MeetTheTeam() {
           </p>
         </div>
         </div>
-        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px]">
-        <Image src="/images/two-step.png" alt="two-step" width={400} height={400} className="w-full h-full" />
-        <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-180px]" >
+        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mb-20">
+        <Image src="/images/personalize.png" alt="two-step" width={400} height={400} className="w-full h-full mb-[20px] rounded-2xl" />
+        <div className="bg-gray-200 rounded-2xl px-11 py-12 md:mt-[-260px]" >
           <h3 className="font-semibold text-4xl mb-2">
           Personalize your experience
           </h3>
@@ -199,12 +194,28 @@ export default function MeetTheTeam() {
 
       {/* Store Badges */}
       <motion.div 
-        className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-16 md:py-50"
+        className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-20"
         ref={storeAnimation.ref}
         initial={storeAnimation.initial}
         animate={storeAnimation.animate}
         transition={storeAnimation.transition}
       >
+
+      <motion.div 
+            className="bg-[#ffffff] flex flex-col items-center justify-center px-4 py-16 rounded-2xl max-w-5xl"
+            ref={storeAnimation.ref}
+            initial={storeAnimation.initial}
+            animate={storeAnimation.animate}
+            transition={storeAnimation.transition}
+          >
+
+            <h1 className="text-center text-6xl xl:text-7xl font-bold mb-15 mx-20 mt-5">Thousands of security experts protecting your money 24/7</h1>
+
+            <p className="text-center text-xl font-semibold mx-30 mb-15">We’re building the best way to move and manage the world’s money. Min fees. Max ease. Full speed. Full security.</p>
+
+            <a href="/meet-the-team#mission" className="px-8 sm:px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition text-sm sm:text-base mb-20">Learn about our mission</a>
+            
+          </motion.div>
         
       </motion.div>
      

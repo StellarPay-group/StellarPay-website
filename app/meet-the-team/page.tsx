@@ -97,13 +97,13 @@ export default function MeetTheTeam() {
 
       {/* Hero Section */}
       <motion.section 
-        className="bg-[#0065ff] text-white py-16 md:py-30 px-4 md:px-6"
+        className="bg-[#0065ff] text-white py-16 md:py-30 px-8 md:px-6"
         ref={heroAnimation.ref}
         initial={heroAnimation.initial}
         animate={heroAnimation.animate}
         transition={heroAnimation.transition}
       >
-        <div className="max-w-2xl mx-auto flex items-center -translate-x-12 md:-translate-x-24">
+        <div className="max-w-2xl mx-auto flex items-center">
           <h2 className="text-6xl md:text-8xl lg:text-[130px] py-20 font-bold leading-tight">
             The team
           </h2>
@@ -161,6 +161,7 @@ export default function MeetTheTeam() {
 
       {/* Getting Better Section */}
       <motion.section 
+        id="mission"
         className="bg-white flex items-center"
         ref={betterAnimation.ref}
         initial={betterAnimation.initial}
