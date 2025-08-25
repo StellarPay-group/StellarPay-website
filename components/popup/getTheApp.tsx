@@ -24,7 +24,7 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
         <h1 className="text-black text-[24px] md:text-[32px] lg:text-[40px] mb-[10px] font-bold">Get the StellarPay App</h1>
         <p className="text-black text-[16px] md:text-[18px] lg:text-[20px]">Scan the QR code to download the app</p>
         <div className="flex items-center justify-center w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] ">
-          <Image src="/images/qr-code.png" alt="QR Code" className="w-full h-full" width={400} height={400} />
+          <Image src="/images/qr-code-2.png" alt="QR Code" className="w-full h-full" width={400} height={400} />
         </div>
         <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or get a download link via SMS</p>
         <div className="flex flex-row items-center justify-center">
