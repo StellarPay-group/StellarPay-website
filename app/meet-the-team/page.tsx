@@ -8,7 +8,7 @@ import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
-
+import { useState } from "react";
 
 export default function MeetTheTeam() {
 
@@ -20,15 +20,13 @@ export default function MeetTheTeam() {
 
   // Animation hooks
   const navAnimation = useScrollAnimation(0);
-  const heroAnimation = useScrollAnimation(0.3);
-  const aboutAnimation = useScrollAnimation(0.6);
-  const traitsAnimation = useScrollAnimation(0.9);
-  const betterAnimation = useScrollAnimation(1.2);
-  const timelineAnimation = useScrollAnimation(1.5);
-  const blogAnimation = useScrollAnimation(1.8);
-  const connectAnimation = useScrollAnimation(2.1);
-  const storeAnimation = useScrollAnimation(2.4);
-  const footerAnimation = useScrollAnimation(2.7);
+  const heroAnimation = useScrollAnimation(0.1);
+  const traitsAnimation = useScrollAnimation(0.2);
+  const betterAnimation = useScrollAnimation(0.3);
+  const storeAnimation = useScrollAnimation(0.5);
+  const footerAnimation = useScrollAnimation(0.5);
+
+  const [open, setOpen] = useState(1);
 
   // needed for blog component
   type ArrowProps = {
@@ -61,9 +59,9 @@ export default function MeetTheTeam() {
               </Link>
               <nav className="hidden md:flex items-center space-x-1">
               <Link href="/">
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Personal</Button>
+              <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-bold">Personal</Button>
               </Link>
-              <Link href="/news">
+              <Link href="/business">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Business</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
@@ -121,7 +119,7 @@ export default function MeetTheTeam() {
       >
         <div className="max-w-7xl mx-auto border px-10 py-10 rounded-2xl shadow-xl border-gray-200">
         <motion.h1 
-              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-10 font-semibold leading-tight"
+              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-2 font-semibold leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -129,7 +127,7 @@ export default function MeetTheTeam() {
               Meet Our Team
             </motion.h1>
           <motion.h2
-            className="text-gray-500 max-w-4xl text-sm md:text-lg lg:text-xl xl:text-xl mb-10 font-semibold leading-tight"
+            className="text-gray-500 max-w-4xl text-base md:text-lg lg:text-xl xl:text-xl mb-10 font-semibold leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -144,17 +142,46 @@ export default function MeetTheTeam() {
     <ExpandCard
       name="Christan Atangana"
       position="CEO AND CO-FOUNDER, STELLARPAY"
-      defaultOpen={true}
+      defaultOpen={open === 1}
+      onOpen={() => {if (open === 1) {
+        setOpen(0); 
+      } else {
+        setOpen(1)
+      }
+    }}
     />
 
     <ExpandCard
       name="Hamza Hussain"
       position="CEO AND CO-FOUNDER, STELLARPAY"
+      defaultOpen={open === 2}
+      onOpen={() => {if (open === 2) {
+        setOpen(0); 
+      } else {
+        setOpen(2)
+      }
+    }}
     />
 
-    <ExpandCard name="Arkel Monghomaya" position="HEAD ENGINEER" />
+    <ExpandCard name="Arkel Monghomaya" position="HEAD ENGINEER"
+          defaultOpen={open === 3}
+          onOpen={() => {if (open === 3) {
+            setOpen(0); 
+          } else {
+            setOpen(3)
+          }
+        }}
+    />
 
-    <ExpandCard name="Tommy Ruggles" position="HEAD OF OPERATIONS" />
+    <ExpandCard name="Tommy Ruggles" position="HEAD OF OPERATIONS"
+          defaultOpen={open === 4}
+          onOpen={() => {if (open === 4) {
+            setOpen(0); 
+          } else {
+            setOpen(4)
+          }
+        }}
+           />
 </motion.div>
         </div>
       </motion.div>

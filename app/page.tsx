@@ -205,7 +205,7 @@ export default function HomePage() {
               <Link href="/">
               <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-bold">Personal</Button>
               </Link>
-              <Link href="/news">
+              <Link href="/business">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Business</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
@@ -255,7 +255,7 @@ export default function HomePage() {
           </h1>
         </motion.div>
         <motion.p 
-          className="text-base sm:text-lg md:text-xl lg:text-2xl font-[600] text-gray-700 mb-4 md:mb-4 max-w-3xl mx-auto px-4"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 mb-4 md:mb-10 max-w-4xl mx-auto px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -264,7 +264,7 @@ export default function HomePage() {
         </motion.p>
         
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 mb-14 md:mb-20 px-4"
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 mb-14 md:mb-12 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
@@ -289,7 +289,7 @@ export default function HomePage() {
         </motion.div>
 
         <motion.div 
-          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 md:mb-24 px-4 mt-8 md:mt-12"
+          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 px-4 mt-8 md:mt-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -545,7 +545,7 @@ export default function HomePage() {
         animate={appAnimation.animate}
         transition={appAnimation.transition}
       >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 max-w-5xl py-8 md:py-12 pb-4 md:pb-8 mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 max-w-6xl py-8 md:py-12 pb-4 md:pb-8 mx-auto">
           {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -572,24 +572,26 @@ export default function HomePage() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               One app. Money transfers. Anywhere.
             </h2>
-            <p className="text-gray-600 text-base md:text-lg mb-2">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
               Send money to friends across the street or family across the ocean —
               all from one StellarPay account.
             </p>
-            <p className="text-gray-600 text-base md:text-lg mb-2">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
               Connect your account and make peer-to-peer or international payments
               in seconds.
             </p>
-            <p className="text-gray-600 text-base md:text-lg mb-2">No paperwork.</p>
-            <p className="text-gray-600 text-base md:text-lg mb-6 md:mb-8">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">No paperwork.</p>
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-10">
               No hidden fees. Just fast, connected money.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
+              <a href="/signup">
               <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
                 Open an account
               </button>
-              <a href="#how-it-works" className="underline hover:text-blue-800 font-semibold text-sm md:text-base">
+              </a>
+              <a href="about" className="underline hover:text-blue-800 font-semibold text-sm md:text-base">
                 See how it works
               </a>
             </div>
@@ -617,20 +619,22 @@ export default function HomePage() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               Instant availability, everywhere.
             </h2>
-            <p className="text-gray-600 text-base md:text-lg mb-2">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
               When you send money with StellarPay, it's there — right away. 
             </p>
-            <p className="text-gray-600 text-base md:text-lg mb-2">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-20">
               No waiting, no agents, and no guessing. Just tap, send, track, and done. 
             </p>
-            <p className="text-gray-600 text-base md:text-lg mb-6">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-20">
               Whether it's $5 for takeout or $500 for school fees, we move at the speed of life. 
             </p>
 
             <div className="flex justify-center md:justify-start">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
+              <a onClick={() => setShowPopup(true)}>
+              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
                 Try your first transfer
               </button>
+              </a>
             </div>
           </motion.div>
 
@@ -661,7 +665,7 @@ export default function HomePage() {
         animate={mobileAnimation.animate}
         transition={mobileAnimation.transition}
       >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 max-w-5xl w-full py-8 md:py-12">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-12 max-w-6xl w-full py-8 md:py-16">
           {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -672,9 +676,9 @@ export default function HomePage() {
             <Image
               src="/images/mobile-money-included.png" 
               alt="People eating outside"
-              width={480}
+              width={400}
               height={360}
-              className="w-full max-w-[480px] h-auto mx-auto"
+              className="w-full max-w-[440px] h-auto mx-auto"
             />
           </motion.div>
 
@@ -688,14 +692,15 @@ export default function HomePage() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               Mobile money included. Just like it should be.
             </h2>
-            <p className="text-gray-600 text-base md:text-lg mb-4">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-2">
               Connecting you directly with leading mobile money platforms like MTN Mobile Money, 
               Orange Money, and others — so your loved ones can revieve funds instantly, no matter 
-              where they are or what device they use. Whether it's sending money to a village in 
+              where they are or what device they use.</p>
+              <p className="font-medium text-gray-700 text-base md:text-lg mb-2"> Whether it's sending money to a village in 
               Cameroon, paying school fees in Accra, or topping up a phone in Nairobi — StellarPay 
               works where real life happens.
             </p>
-            <p className="text-gray-600 text-base md:text-lg mb-6 md:mb-8">
+            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-10">
               No banks required. No complicated steps. Just tap, send, recieve — all on your phone.
             </p>
 
@@ -852,7 +857,7 @@ export default function HomePage() {
             </motion.div>
             </Link>
             <motion.div 
-              className="space-y-4 md:space-y-6 max-w-2xl"
+              className="space-y-4 md:space-y-6 max-w-6xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}

@@ -101,7 +101,7 @@ export default function AboutPage() {
               <Link href="/">
               <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Personal</Button>
               </Link>
-              <Link href="/news">
+              <Link href="/business">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Business</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
