@@ -2,15 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-
-
-const validateCountryCode = (countryCode: string) => {
-  return countryCode.match(/^\+[0-9](?:[0-9]{0,2})$/);
-}
-
-const validatePhoneNumber = (phoneNumber: string) => {
-  return phoneNumber.match(/^[0-9]*$/) && phoneNumber.length === 10;
-}
+import { sendAppLink, validateCountryCode, validatePhoneNumber } from "@/lib/message";
 
 export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, onSubmit: (phoneNumber: string) => void }) {
   const [countryCode, setCountryCode] = useState("+1");
@@ -30,12 +22,11 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
         <div className="flex flex-row items-center justify-center">
           <input type="text" placeholder="+1" className="bg-[#e2edff] w-[60px] h-[40px] md:w-[60px] md:h-[50px] lg:w-[60px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setCountryCode(e.target.value)} maxLength={4} />
           <input type="text" placeholder="Mobile number" className="bg-[#e2edff] w-[150px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[250px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setPhoneNumber(e.target.value)} maxLength={10} />
-          <button className="bg-[#aacaff] hover:bg-[#aacaff] text-black font-bold text-[24px] px-4 h-[40px] md:h-[50px] lg:h-[60px] rounded-full" onClick={() => {
+          <button className="bg-[#aacaff] hover:bg-[#aacaff] text-black font-bold text-[24px] px-4 h-[40px] md:h-[50px] lg:h-[60px] rounded-full" onClick={async () => {
             if (validateCountryCode(countryCode) && validatePhoneNumber(phoneNumber)) {
-              alert("Link sent to " + countryCode + " "+ phoneNumber);
-              onSubmit(countryCode + phoneNumber);
-              setCountryCode("+1");
+              setCountryCode(countryCode);
               setPhoneNumber("");
+              await sendAppLink(countryCode, phoneNumber, 'sms');
               onClose();
             } else {
               alert("Please enter a valid country code and phone number");

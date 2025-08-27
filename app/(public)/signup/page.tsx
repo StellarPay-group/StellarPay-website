@@ -4,19 +4,14 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
 import GetTheApp from "@/components/popup/getTheApp";
-
-const validateCountryCode = (countryCode: string) => {
-          return countryCode.match(/^\+[0-9](?:[0-9]{0,2})$/);
-}
-
-const validatePhoneNumber = (phoneNumber: string) => {
-          return phoneNumber.match(/^[0-9]*$/) && phoneNumber.length === 10;
-}
+import { sendAppLink } from "@/lib/message";
 
 
 export default function SignUpPage() {
 
       const [showPopup, setShowPopup] = useState(false);    
+      const [countryCode, setCountryCode] = useState('');
+      const [phoneNumber, setPhoneNumber] = useState('');
 
           return (
             <div className="flex flex-col min-h-screen">
@@ -40,10 +35,10 @@ export default function SignUpPage() {
                   <p className="text-md text-gray-700 mb-[40px]">Enter your phone number</p>
                   </div>
                   <div className="flex flex-row">
-                    <input type="text" placeholder="+1" className="mb-[20px] w-[60px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px] mr-[20px]" onChange={(e) => { }} maxLength={4} />
-                    <input type="text" placeholder="Mobile number" className="w-[340px] h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px]" onChange={(e) => { }} maxLength={10} />
+                    <input type="text" placeholder="+1" className="mb-[20px] w-[60px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px] mr-[20px]" onChange={(e) => {setCountryCode(e.target.value)}} maxLength={4} />
+                    <input type="text" placeholder="Mobile number" className="w-[340px] h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
                   </div>
-                  <a onClick={() => setShowPopup(true)}>
+                  <a onClick={() => sendAppLink(countryCode, phoneNumber, 'sms')}>
                     <button className="bg-[#000000] text-white px-4 py-2 rounded-[10px] border border-gray-300 h-[60px] w-[420px] text-[20px] mt-[5px]">Continue</button>
                     </a>
                   <p className="text-center text-md text-[#191c1f] mt-[20px] mr-[20px]">OR</p>

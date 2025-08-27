@@ -16,7 +16,6 @@ import { Country_List } from '@/lib/country.types';
 import { fetchCountryCurrency } from '@/lib/country_fetch';
 import type { Currency } from '@/lib/country.types';
 import { useAllCountry_List } from '@/lib/country_query';
-import { countries } from '@/components/conversion/country_data';
 
 
 function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedAmount: any) {
