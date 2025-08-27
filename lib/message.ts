@@ -2,6 +2,7 @@ import { SERVER } from '@/backend_urls';
 import axios, { isAxiosError } from 'axios';
 import { ADMIN_TOKEN } from '@/middleware/adminToken';
 import { count } from 'console';
+import { TWILIO_PHONE_NUMBER } from '@/middleware/twilioPhoneNumber';
 
 const API_BASE_URL = `${SERVER}dev/conversion/`;
 
@@ -28,7 +29,7 @@ export async function sendAppLink(
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({
                               to,
-                              from: "",
+                              from: TWILIO_PHONE_NUMBER,
                               body: "Your money moves with you 🌍. Download StellarPay now and start sending in seconds. https://www.c2s.app/q/hXL6WV7"
                               })
                     });
@@ -63,7 +64,7 @@ export async function sendLoginLink(
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({
                               to,
-                              from: "",
+                              from: TWILIO_PHONE_NUMBER,
                               body: "Welcome back 👋. Tap below to log in and get moving with StellarPay. https://www.c2s.app/q/hXL6WV7"
                               })
                     });
