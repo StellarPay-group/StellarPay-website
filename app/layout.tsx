@@ -6,8 +6,8 @@ import Providers from "./providers";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "StellarPay | Send money & spend anywhere in just a few taps",
-  description: "StellarPay | Send money & spend anywhere in just a few taps",
+  title: "StellarPay - The app for moving money without limits",
+  description: "StellarPay | The app for moving money without limits",
 };
 
 export default function RootLayout({

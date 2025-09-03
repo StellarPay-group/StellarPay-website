@@ -12,10 +12,8 @@ import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { useEffect, useMemo, useState } from 'react';
 import GetTheApp from '@/components/popup/getTheApp';
 import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
-import { Country_List } from '@/lib/country.types';
-import { fetchCountryCurrency } from '@/lib/country_fetch';
-import type { Currency } from '@/lib/country.types';
-import { useAllCountry_List } from '@/lib/country_query';
+import type { CurrencyListOption } from '@/lib/country.types';
+import { currencies } from '@/lib/country.types';
 
 
 function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedAmount: any) {
@@ -133,43 +131,44 @@ export default function HomePage() {
   const georgeAnimation = useScrollAnimation(0.2);
   const footerAnimation = useScrollAnimation(0.1);
 
-  const [fromCountry, setFromCountry] = useState({name: 'United States', code: 'US', flag: 'https://flagcdn.com/w320/us.png'});
-  const [toCountry, setToCountry] = useState({name: 'United States', code: 'US', flag: 'https://flagcdn.com/w320/us.png'});
   const [query, setQuery] = useState('');
   const [amount, setAmount] = useState(0);
-  const {data: countries, isLoading} = useAllCountry_List();
   const [debouncedAmount, setDebouncedAmount] = useState(0);
   const [achFee, setAchFee] = useState(0);
   const [ourFee, setOurFee] = useState(0);
   const [totalFee, setTotalFee] = useState(0);
   const [amountWeWillConvert, setAmountWeWillConvert] = useState(0);
   const [guaranteedRate, setGuaranteedRate] = useState(0);
-  const [fromCurrency, setFromCurrency] = useState({code: 'USD', symbol: '$'});
-  const [toCurrency, setToCurrency] = useState({code: 'USD', symbol: '$'});
+  const [fromCurrency, setFromCurrency] = useState({ code: "USD", display_code: "USD", name: "United States Dollar" });
+  const [toCurrency, setToCurrency] = useState({ code: "XAF", display_code: "FCFA", name: "Central Africa" });
   
-  const filtered = useMemo(() => countries.filter(
-    (c): c is Required<Pick<Country_List, 'name' | 'flag'>> & Country_List =>
-        !!c.name && !!c.flag && (c.name.toLowerCase().includes(query.toLowerCase()) || c.code.toLowerCase().includes(query.toLowerCase()))
-  ), [countries, query]);
+  const filtered = useMemo(() => {
+    if (!query) return currencies;
+  
+    const lowerQuery = query.toLowerCase();
+  
+    return currencies.filter(
+      (c) =>
+        c.code.toLowerCase().includes(lowerQuery) ||
+        c.display_code.toLowerCase().includes(lowerQuery) ||
+        c.name.toLowerCase().includes(lowerQuery)
+    );
+  }, [currencies, query]);
 
   useEffect(() => {
     async function fetchFees() {
-      const fromCurrencyInput = (await fetchCountryCurrency(fromCountry?.code));
-      const toCurrencyInput = (await fetchCountryCurrency(toCountry?.code));
 
       const fees = getFees(amount);
       setAchFee(fees.ACHFee);
       setOurFee(fees.ourFee);
       setTotalFee(fees.totalFee);
       setAmountWeWillConvert(fees.amountWeWillConvert);
-      setFromCurrency(fromCurrencyInput || {code: 'USD', symbol: '$'});
-      setToCurrency(toCurrencyInput || {code: 'USD', symbol: '$'});
       setGuaranteedRate(fees.amountWeWillConvert * 0.9319);
     }
     if (amount && amount > 0) {
       fetchFees();
     }
-  }, [amount, fromCountry?.code, toCountry?.code]);
+  }, [amount, fromCurrency, toCurrency]);
 
 
   useEffect(() => {
@@ -331,7 +330,7 @@ export default function HomePage() {
                 payments or putting down deposits — over half our transfers get there in under 20 seconds. Use it
                 to believe it.
               </p>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base" onClick={() => setShowPopup(true)}>
+              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => setShowPopup(true)}>
                 Learn how to send money
               </button>
             </motion.div>
@@ -357,11 +356,11 @@ export default function HomePage() {
                       setAmount(parseFloat(value));
                     }} placeholder="0" />
                     <div className="relative">
-                    <Combobox value={fromCountry} onChange={(value) => value && setFromCountry(value)}>
+                    <Combobox value={fromCurrency} onChange={(value) => value && setFromCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[70px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold"
-                        defaultValue={fromCountry?.code || 'USD'}
-                          placeholder={fromCountry?.code || 'USD'}
+                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold text-right"
+                        defaultValue={fromCurrency?.display_code || 'USD'}
+                          placeholder={fromCurrency?.display_code || 'USD'}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
@@ -383,35 +382,35 @@ export default function HomePage() {
                   <div className="flex flex-row justify-between items-center mt-[10px]">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-black font-semibold text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
                   <p className="text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-black font-semibold text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
                   <p className="text-[18px] text-[#454745]">Our fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                     <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">-</p>
-                      <p className="text-black font-semibold text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-black font-semibold text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
                   <p className="text-[18px] text-[#454745]">Total fees</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                     <p className="text-gray-600 mr-[5px] text-[18px] font-semibold">=</p>
-                      <p className="text-black font-semibold text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-black font-semibold text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
                   <p className="text-[18px] text-[#454745]">Total amount we'll convert</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">*</p>
-                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.code}</p>
+                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
                     </div>
                   <p className="text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
                   </div>
@@ -422,11 +421,11 @@ export default function HomePage() {
                   <div className="flex flex-row justify-between items-center">
                     <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
                     <div className="relative">
-                    <Combobox value={toCountry} onChange={(value) => value && setToCountry(value)}>
+                    <Combobox value={toCurrency} onChange={(value) => value && setToCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[70px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold"
-                        defaultValue={toCountry?.code}
-                          placeholder={toCountry?.code}
+                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold text-right"
+                        defaultValue={toCurrency?.display_code}
+                          placeholder={toCurrency?.display_code}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
@@ -443,16 +442,16 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCountry?.code}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCurrency?.display_code}</p>
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-3 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
+                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
                     Compare price
                   </button>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-3 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
+                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
                     Send money now
                   </button>
                   </div>
@@ -586,7 +585,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
               <a href="/signup">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
+              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base font-semi">
                 Open an account
               </button>
               </a>
@@ -630,7 +629,7 @@ export default function HomePage() {
 
             <div className="flex justify-center md:justify-start">
               <a onClick={() => setShowPopup(true)}>
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
+              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
                 Try your first transfer
               </button>
               </a>
@@ -704,7 +703,7 @@ export default function HomePage() {
             </p>
 
             <div className="flex justify-center md:justify-start">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
+              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
                 Send to mobile money
               </button>
             </div>
@@ -723,16 +722,16 @@ export default function HomePage() {
       >
         <div className="aspect-[1225/664] max-w-[1470px] w-full mx-auto rounded-[30px] md:rounded-[60px] bg-blue-50 p-4 md:p-8 py-12 md:py-20 flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">
           <motion.div 
-            className="pl-4 md:pl-8 flex-1 max-w-lg text-center md:text-left"
+            className="pl-4 md:pl-8 flex-1 max-w-2xl text-center md:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0E0F0C] mb-4 md:mb-8">Security you can feel. Protection you can trust.</h2>
-            <p className="text-[#454745] text-base md:text-lg mb-4 md:mb-8">Your peace of mind is built into every transfer. We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
-            <p className="text-[#454745] text-base md:text-lg mb-6">No shady conversions. No surprise fees. Just total transparency.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0E0F0C] mb-4 md:mb-8">Security you can feel. <br />Protection you can trust.</h2>
+            <p className="text-[#0e0f0c] font-semibold text-base md:text-xl mb-4 md:mb-8 max-w-lg">Your peace of mind is built into every transfer. We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
+            <p className="text-[#0e0f0c] font-semibold text-base md:text-xl mb-4 md:mb-8 max-w-lg">No shady conversions. No surprise fees. Just total transparency.</p>
             <a href="/security">
-            <Button className="text-white px-8 md:px-16 py-4 md:py-6 rounded-full text-sm md:text-lg font-semibold bg-black mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
+            <Button className="text-white px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-black mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
             </a>
           </motion.div>
           <motion.div 
@@ -758,7 +757,7 @@ export default function HomePage() {
         transition={meetAnimation.transition}
       >
         <motion.h1 
-          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 md:mb-6 max-w-4xl mx-auto"
+          className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl text-[#0363fe] font-bold leading-tight mb-4 md:mb-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -766,7 +765,7 @@ export default function HomePage() {
           Meet StellarPay
         </motion.h1>
         <motion.p 
-          className="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto"
+          className="text-base md:text-lg lg:text-xl xl:text-3xl text-black font-semibold mb-8 md:mb-10 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
