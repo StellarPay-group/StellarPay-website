@@ -38,7 +38,7 @@ export default function TermsOfService() {
               </Link>
               <div className="hidden md:flex items-center space-x-2">
               <div>
-                  <Image src="/images/english_flag_logo-2.png" alt='EN' width={20} height={20} />
+                  <Image src="/images/us-flag.png" alt='EN' width={20} height={20} />
                   </div>
                     <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>

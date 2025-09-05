@@ -132,7 +132,7 @@ export default function HomePage() {
   const footerAnimation = useScrollAnimation(0.1);
 
   const [query, setQuery] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(100);
   const [debouncedAmount, setDebouncedAmount] = useState(0);
   const [achFee, setAchFee] = useState(0);
   const [ourFee, setOurFee] = useState(0);
@@ -219,7 +219,7 @@ export default function HomePage() {
               </Link>
               <div className="hidden md:flex items-center space-x-2">
               <div>
-                  <Image src="/images/english_flag_logo-2.png" alt='EN' width={20} height={20} />
+                  <Image src="/images/us-flag.png" alt='EN' width={20} height={20} />
                   </div>
                     <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
@@ -272,17 +272,17 @@ export default function HomePage() {
         {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
         {/* Hero Illustration */}
         <motion.div 
-          className="w-full flex justify-center mt-8 px-4"
+          className="w-full flex justify-center mt-0 px-4"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
           <Image 
-            src="/images/hero-illustration.png" 
+            src="/images/main-intro-new.png" 
             alt="StellarPay Hero Illustration" 
-            width={600} 
-            height={400}
-            className="w-full max-w-[600px] h-auto"
+            width={1200} 
+            height={800}
+            className="w-400px md:w-700px lg:w-[1100px] h-auto"
           />
         </motion.div>
 
@@ -304,7 +304,7 @@ export default function HomePage() {
      
       {/* === StellarPay Section === */}
       <motion.section 
-        className="bg-white py-8 md:py-12 pb-1 px-4"
+        className="bg-white py-0 pb-1 px-4"
         ref={calculatorAnimation.ref}
         initial={calculatorAnimation.initial}
         animate={calculatorAnimation.animate}
@@ -552,7 +552,7 @@ export default function HomePage() {
             className="w-full md:w-auto"
           >
             <Image
-              src="/images/money-transfer.png" 
+              src="/images/oneapp.png" 
               alt="Person with money and heart glasses"
               width={470}
               height={590}
@@ -606,7 +606,7 @@ export default function HomePage() {
         animate={instantAnimation.animate}
         transition={instantAnimation.transition}
       >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl w-full py-8 md:py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl w-full">
           {/* Left - Text Section */}
           <motion.div 
             className="flex-1 text-center md:text-left"
@@ -644,11 +644,11 @@ export default function HomePage() {
             className="w-full md:w-auto"
           >
             <Image
-              src="/images/instant-availability.png" 
-              alt="People eating outside"
-              width={400}
-              height={300}
-              className="w-full max-w-[400px] h-auto mx-auto"
+              src="/images/instant.png" 
+              alt="Peole eating outside"
+              width={450}
+              height={330}
+              className="w-full max-w-[450px] h-auto mx-auto"
             />
           </motion.div>
         </div>
@@ -657,13 +657,13 @@ export default function HomePage() {
 
       {/* Mobile money section */}
       <motion.section 
-        className="bg-white px-4 md:px-6 py-8 md:py-5 flex items-center justify-center"
+        className="bg-white px-4 md:px-6 py-6 md:py-3 flex items-center justify-center"
         ref={mobileAnimation.ref}
         initial={mobileAnimation.initial}
         animate={mobileAnimation.animate}
         transition={mobileAnimation.transition}
       >
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-12 max-w-6xl w-full py-8 md:py-16">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-12 max-w-6xl w-full py-2 md:py-2">
           {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -672,7 +672,7 @@ export default function HomePage() {
             className="w-full md:w-auto"
           >
             <Image
-              src="/images/mobile-money-included.png" 
+              src="/images/mobile.png" 
               alt="People eating outside"
               width={400}
               height={360}
@@ -682,7 +682,7 @@ export default function HomePage() {
 
           {/* Right - Text Section */}
           <motion.div 
-            className="flex-1 text-center md:text-left"
+            className="flex-1 text-center md:text-left mt-10"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -720,7 +720,7 @@ export default function HomePage() {
         animate={securitySectionAnimation.animate}
         transition={securitySectionAnimation.transition}
       >
-        <div className="aspect-[1225/664] max-w-[1470px] w-full mx-auto rounded-[30px] md:rounded-[60px] bg-blue-50 p-4 md:p-8 py-12 md:py-20 flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">
+        <div className="aspect-[1225/584] max-w-[1470px] w-full mx-auto rounded-[30px] md:rounded-[60px] bg-blue-50 p-4 md:p-8 py-12 md:py-20 flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">
           <motion.div 
             className="pl-4 md:pl-8 flex-1 max-w-2xl text-center md:text-left"
             initial={{ opacity: 0, x: -50 }}
@@ -740,7 +740,7 @@ export default function HomePage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Image src="/images/security-illustration.png" alt="Security Illustration" width={310} height={449} className="shadow-lg w-full max-w-[310px] h-auto"
+            <Image src="/images/security2.png" alt="Security Illustration" width={310} height={449} className="w-full ml-13 md:ml-0 max-w-[450px] h-auto"
             />
           </motion.div>
         </div>
@@ -750,14 +750,14 @@ export default function HomePage() {
 
       {/* Meet StellarPay section */}
       <motion.section 
-        className="flex flex-col items-center justify-center px-4 md:px-0 py-8 md:py-4 bg-white text-center"
+        className="bg-[#0363fe] flex flex-col items-center justify-center px-4 md:px-0 py-8 md:py-20 text-center"
         ref={meetAnimation.ref}
         initial={meetAnimation.initial}
         animate={meetAnimation.animate}
         transition={meetAnimation.transition}
       >
         <motion.h1 
-          className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl text-[#0363fe] font-bold leading-tight mb-4 md:mb-6 max-w-4xl mx-auto"
+          className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl text-white font-bold leading-tight mb-4 md:mb-6 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -765,7 +765,7 @@ export default function HomePage() {
           Meet StellarPay
         </motion.h1>
         <motion.p 
-          className="text-base md:text-lg lg:text-xl xl:text-3xl text-black font-semibold mb-8 md:mb-10 max-w-2xl mx-auto"
+          className="text-base md:text-lg lg:text-xl xl:text-3xl text-white font-semibold mb-8 md:mb-10 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -774,7 +774,7 @@ export default function HomePage() {
         </motion.p>
 
         <motion.div 
-          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 md:mb-24 px-4"
+          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-5 md:mb-5 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
@@ -787,86 +787,34 @@ export default function HomePage() {
           </a>
         </motion.div>
 
-        <motion.div 
-          className="w-full overflow-hidden px-4"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
-        <Carousel
-        showDots={false}
-        responsive={responsive}
-        ssr={false} 
-        infinite={false}
-        autoPlay={false}
-        containerClass="w-full max-w-[1000px] lg:max-w-[1400px] mx-auto"
-        dotListClass="mt-8"
-        itemClass="px-2 md:px-4"  
-        customButtonGroup={<ButtonGroup />}
-        renderButtonGroupOutside={true}
-        arrows={false}
-      >
-        <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_7.png" alt="" layout="fill" objectFit='cover'/>
-          </div>
-          <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_2.png" alt="" layout="fill" objectFit='cover'/>
-          </div>
-          <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_3.png" alt="" layout="fill" objectFit='cover'/>
-          </div>
-          <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_6.png" alt="" layout="fill" objectFit='cover'/>
-          </div>
-          <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-        <Image src="/images/carousel_5.png" alt="" layout="fill" objectFit='cover'/>
-          </div>
-      </Carousel>
-        </motion.div>
-
+      
       </motion.section>
       {/* Meet George section */}
       <motion.section 
-        className="w-full px-4 sm:px-8 md:px-12 lg:px-[112px] xl:px-[120px] 2xl:px-[128px] py-12 md:py-20"
+        className="flex flex-col md:flex-row w-full px-4 sm:px-8 md:px-12 lg:px-[112px] xl:px-[120px] 2xl:px-[128px] py-12 md:py-20"
         ref={georgeAnimation.ref}
         initial={georgeAnimation.initial}
         animate={georgeAnimation.animate}
         transition={georgeAnimation.transition}
       >
-        <div className="aspect-[1225/380] max-w-[1470px] w-full mx-auto bg-[#4239ed] rounded-2xl md:rounded-3xl p-6 md:p-12 content-center">
-          <div className="space-y-3 md:space-y-4">
-            <motion.div 
-              className="inline-flex"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="font-inter bg-[#000000] text-[#ffffff] px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-lg font-medium ">Artificial Intelligence | 01</div>
-            </motion.div>
-            <Link href="https://www.meetgeorge.app">
-            <motion.div 
-              className="space-y-3 md:space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <h1 className="font-inter text-[#ffffff] text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">Meet George</h1>
-              <p className="font-inter text-[#ffffff] text-base md:text-xl">Money talks - George listens.</p>
-            </motion.div>
-            </Link>
-            <motion.div 
-              className="space-y-4 md:space-y-6 max-w-6xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-            >
-              <p className="font-inter text-[#ffffff] text-base md:text-xl leading-relaxed mt-3 md:mt-4">Unlock financial clarity with an intelligent financial companion.<br />
-                Understand your transactions, set goals and identify your unique needs with a seamlessly
-                integrated AI solution.
-              </p>
-            </motion.div>
-          </div>
-        </div>
+         <div>
+          <a href='http://www.meetgeorge.app'>
+         <Image
+            src="/images/george.png"
+            alt="Previous"
+            width={1000}
+            height={750}
+            className="w-[500px] md:w-[800px] h-[375px] md:h-[600px]"
+          />
+          </a>
+         </div>
+         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[400px] h-[300px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
+                        <h2 className='text-[26px] text-white font-bold'>Contact our Stellar team</h2>
+                        <h2 className='text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
+                        <a href='/meet-the-team'>
+                        <div className='flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[45px]'><p className='text-white text-[18px] font-semibold'>Get in touch</p></div>
+                        </a>
+         </div>
       </motion.section>
 
 
