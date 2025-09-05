@@ -10,7 +10,7 @@ import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
 import { useState } from "react";
 
-export default function MeetTheTeam() {
+export default function Features() {
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 1 },
@@ -38,7 +38,7 @@ export default function MeetTheTeam() {
   
 
   return (
-    <main>
+    <main className="bg-[#f5f5f7]">
 
       {/* Navigation/Header */}
       <motion.section 
@@ -59,10 +59,10 @@ export default function MeetTheTeam() {
               </Link>
               <nav className="hidden md:flex items-center space-x-1">
               <Link href="/">
-              <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-bold">Personal</Button>
+              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Personal</Button>
               </Link>
               <Link href="/features">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Features</Button>
+                <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-bold">Features</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
                 <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">George</Button>
@@ -95,150 +95,153 @@ export default function MeetTheTeam() {
 
       {/* Hero Section */}
       <motion.section 
-        className="bg-[#0065ff] text-white py-16 md:py-30 px-8 md:px-6"
+        className="bg-[#0065ff] text-white pt-10 md:pt-30 px-8 md:px-6"
         ref={heroAnimation.ref}
         initial={heroAnimation.initial}
         animate={heroAnimation.animate}
         transition={heroAnimation.transition}
       >
-        <div className="max-w-2xl mx-auto flex items-center">
-          <h2 className="text-6xl md:text-8xl lg:text-[130px] py-20 font-bold leading-tight">
-            The team
+        <div className="max-w-2xl mx-auto flex flex-col items-center">
+          <h2 className="text-6xl text-[40px] md:text-[60px] lg:text-[60px] py-10 font-bold leading-tight">
+            Features
           </h2>
+          <Image src="/images/featuresHeader.png" alt="features" width={700} height={360} className="w-[250px] md:w-[600px] h-auto ml-[20px] md:ml-[50px]" />
         </div>
       </motion.section>  
 
-  
-
-      <motion.div 
-        className="py-20 md:py-36 px-4 md:px-8"
-        ref={traitsAnimation.ref}
-        initial={traitsAnimation.initial}
-        animate={traitsAnimation.animate}
-        transition={traitsAnimation.transition}
-      >
-        <div className="max-w-7xl mx-auto border px-10 py-10 rounded-2xl shadow-xl border-gray-200">
-        <motion.h1 
-              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-2 font-semibold leading-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              Meet Our Team
-            </motion.h1>
-          <motion.h2
-            className="text-gray-500 max-w-4xl text-base md:text-lg lg:text-xl xl:text-xl mb-10 font-semibold leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Our team brings experience from global fintech, banking, technology, and driving innovation to make money move seamlessly worldwide. Stay tuned for more announcements.
-          </motion.h2>
-          <motion.div
-  className="flex flex-row gap-8"
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
->
-    <ExpandCard
-      name="Christan Atangana"
-      position="CEO AND CO-FOUNDER, STELLARPAY"
-      defaultOpen={open === 1}
-      onOpen={() => {if (open === 1) {
-        setOpen(0); 
-      } else {
-        setOpen(1)
-      }
-    }}
-    />
-
-    <ExpandCard
-      name="Hamza Hussain"
-      position="CEO AND CO-FOUNDER, STELLARPAY"
-      defaultOpen={open === 2}
-      onOpen={() => {if (open === 2) {
-        setOpen(0); 
-      } else {
-        setOpen(2)
-      }
-    }}
-    />
-
-    <ExpandCard name="Arkel Monghomaya" position="HEAD ENGINEER"
-          defaultOpen={open === 3}
-          onOpen={() => {if (open === 3) {
-            setOpen(0); 
-          } else {
-            setOpen(3)
-          }
-        }}
-    />
-
-    <ExpandCard name="Tommy Ruggles" position="HEAD OF OPERATIONS"
-          defaultOpen={open === 4}
-          onOpen={() => {if (open === 4) {
-            setOpen(0); 
-          } else {
-            setOpen(4)
-          }
-        }}
-           />
-</motion.div>
-        </div>
-      </motion.div>
 
       {/* Getting Better Section */}
       <motion.section 
         id="mission"
-        className="bg-white flex items-center"
+        className="bg-[#f5f5f7] flex items-center"
         ref={betterAnimation.ref}
         initial={betterAnimation.initial}
         animate={betterAnimation.animate}
         transition={betterAnimation.transition}
       >
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10 w-full">
-          <div className="space-y-6 md:space-y-8">
+          <div className="">
             <motion.h1 
-              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center"
+              className="text-[#000000] text-2xl md:text-[32px] lg:text-[36px] xl:text-[42px] mt-[20px] font-bold"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Our Mission
+              Built For People Who Move Money Across Borders
             </motion.h1>
 
-            <motion.div 
-              className="max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-                <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mt-10 mb-8">
+                <p className="text-gray-700 text-lg md:text-xl leading-relaxed font-bold my-[20px]">
                 {
-                  "We’re here to empower people and businesses everywhere to move money freely across the world — instantly, securely, and right from their fingertips."
+                  "Send. Receive. Relax."
                 }
               </p>
-              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-8">
+
+              <p className="text-gray-700 text-lg md:text-lg leading-relaxed font-semi my-[20px] mr-[50px]">
                 {
-                  "The world is changing fast. From Lagos to Hong Kong, Nairobi to Toronto, modern entrepreneurs, workers, and global families are more connected than ever before. They’re building across borders, moving capital, and fueling economies in ways traditional financial systems were never built to support."
+                  "Moving money should feel simple. With StellarPay you can send cash home, split with friends, or get paid in seconds — all with bank-level security."
                 }
               </p>
-              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-8">
-                {
-                  "Yet while the way we live, work, and trade has accelerated, most financial providers have remained the same — slow, fragmented, and exclusionary. Traditional systems weren’t designed for the next billion users or for businesses that operate across continents."
-                }
-              </p>
-              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-8">
-                {
-                  "That’s where StellarPay comes in. We’re creating the first truly global financial platform — one that unifies fiat, crypto, and stablecoins in seamless, intuitive ways — giving individuals, families, teams, and enterprises the tools they need to move money faster and grow with confidence."
-                }
-              </p>
-              <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mb-30">
-                {
-                  "As the world builds the future, StellarPay will provide the rails, the wallets, and the artificial intelligence to power it — helping people everywhere send, spend, and transact without borders."
-                }
-              </p>
-            </motion.div>
+
+              <div className="flex flex-col md:flex-row mt-[50px]">
+                <div className="rounded-2xl bg-white w-[360px] h-[525px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">StellarTags</h2>
+                    <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">No long account numbers. Just send to @james or @aisha</p>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]">
+                  <h2 className="font-bold text-white text-lg text-center">P2P</h2>
+                </div>
+                </div>
+                <Image src="/images/stellartags.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
+                </div>
+
+                <div className="rounded-2xl bg-white w-[630px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Send home. Send abroad. Send anywhere.</h2>
+                    <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px] md:mb-[18px]">North America ↔ Africa money transfers in seconds.</p>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]">
+                  <h2 className="font-bold text-white text-lg text-center">Global</h2>
+                </div>
+                </div>
+                <Image src="/images/sendhome.png" alt="features" width={700} height={360} className="h-auto mb-0 w-[550px]" />
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row mt-[40px]">
+                <div className="rounded-2xl bg-white w-[530px] h-[450px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Deposit how they need</h2>
+                    <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px] mb-[60px]">Straight to mobile money, a bank account, their StellarPay Wallet and more.</p>
+                </div>
+                <div className="flex flex-row items-center justify-between mb-0">
+                <Image src="/images/deposit.png" alt="features" width={350} height={180} className="h-auto w-[300px]" />
+                <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]">
+                  <h2 className="font-bold text-white text-lg text-center">Try it out!</h2>
+                </div>
+                </div>
+                </div>
+
+                <div className="rounded-2xl bg-white w-[430px] h-[450px] mt-[40px] md:mt-[0px] md:ml-[60px]">
+                <Image src="/images/featuresBody.png" alt="features" width={500} height={500} className="h-auto mb-0 w-full" />
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row mt-[40px]">
+                <div className="rounded-2xl bg-white w-[580px] h-[525px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">It's all social</h2>
+                    <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Share a note, add an emoji, or keep it discreet with private mode.</p>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[-10px]">
+                  <h2 className="font-bold text-white text-lg text-center">@Friends and Family</h2>
+                </div>
+                </div>
+                <Image src="/images/socialwithpopup.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
+                </div>
+
+                <div className="rounded-2xl bg-white w-[400px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Security You Can Trust</h2>
+                    <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Every transaction is protected with AES-256 and SSL/TLS encryption. 24/7.</p>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[40px] justify-center items-center mt-[25px] mx-[25px]">
+                  <h2 className="font-bold text-white text-lg text-center">Learn More</h2>
+                </div>
+                </div>
+                <Image src="/images/security.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row mt-[40px]">
+                <div className="rounded-2xl bg-white w-[400px] h-[550px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Top up easily</h2>
+                    <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Link your bank, mobile money wallet or debit card and you're ready to go.</p>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]">
+                  <h2 className="font-bold text-white text-[16px] text-center">Learn more</h2>
+                </div>
+                </div>
+                <Image src="/images/top-up.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
+                </div>
+
+                <div className="rounded-2xl bg-white w-[400px] h-[550px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                  <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Best in-class support</h2>
+                    <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Whether you want to browse our Help Centre for solutions or chat to us directly, we’ve got you — even on a Sunday.</p>
+                </div>
+                </div>
+
+                <div className="rounded-2xl bg-white w-[400px] h-[550px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                <div className="flex flex-col">
+                    <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Spend abroad like a local</h2>
+                    <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Use your Stellar card around the world with no hidden fees. Hold, transfer, and spend money in 10+ currencies</p>
+                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]">
+                  <h2 className="font-bold text-white text-[16px] text-center">Coming soon</h2>
+                </div>
+                </div>
+                <Image src="/images/stellarcard.png" alt="features" width={700} height={360} className="h-auto mb-0 w-[300px]" />
+                </div>
+              </div>
+              
           </div>
+
         </div>
       </motion.section>
 
