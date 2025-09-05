@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
 import { useState } from "react";
+import GetTheApp from "@/components/popup/getTheApp";
 
 export default function Features() {
 
@@ -26,7 +27,8 @@ export default function Features() {
   const storeAnimation = useScrollAnimation(0.5);
   const footerAnimation = useScrollAnimation(0.5);
 
-  const [open, setOpen] = useState(1);
+  const [showPopup, setShowPopup] = useState(false);
+
 
   // needed for blog component
   type ArrowProps = {
@@ -147,18 +149,18 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">StellarTags</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">No long account numbers. Just send to @james or @aisha</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]">
+                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-lg text-center">P2P</h2>
                 </div>
                 </div>
                 <Image src="/images/stellartags.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
                 </div>
 
-                <div className="rounded-2xl bg-white w-[630px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
+                <div className="rounded-2xl bg-white w-[400px]  md:w-[630px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Send home. Send abroad. Send anywhere.</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px] md:mb-[18px]">North America ↔ Africa money transfers in seconds.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]">
+                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-lg text-center">Global</h2>
                 </div>
                 </div>
@@ -174,7 +176,7 @@ export default function Features() {
                 </div>
                 <div className="flex flex-row items-center justify-between mb-0">
                 <Image src="/images/deposit.png" alt="features" width={350} height={180} className="h-auto w-[300px]" />
-                <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]">
+                <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-lg text-center">Try it out!</h2>
                 </div>
                 </div>
@@ -186,11 +188,11 @@ export default function Features() {
               </div>
 
               <div className="flex flex-col md:flex-row mt-[40px]">
-                <div className="rounded-2xl bg-white w-[580px] h-[525px]">
+                <div className="rounded-2xl bg-white w-[400px] md:w-[580px] h-[525px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">It's all social</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Share a note, add an emoji, or keep it discreet with private mode.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[-10px]">
+                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[-10px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-lg text-center">@Friends and Family</h2>
                 </div>
                 </div>
@@ -201,7 +203,7 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Security You Can Trust</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Every transaction is protected with AES-256 and SSL/TLS encryption. 24/7.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[40px] justify-center items-center mt-[25px] mx-[25px]">
+                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[40px] justify-center items-center mt-[25px] mx-[25px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-lg text-center">Learn More</h2>
                 </div>
                 </div>
@@ -214,17 +216,31 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Top up easily</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Link your bank, mobile money wallet or debit card and you're ready to go.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]">
+                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-[16px] text-center">Learn more</h2>
                 </div>
                 </div>
                 <Image src="/images/top-up.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
                 </div>
 
-                <div className="rounded-2xl bg-white w-[400px] h-[550px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                <div className="flex flex-col">
+                <div className="rounded-2xl bg-white w-[350px] h-[225px] mt-[40px] md:mt-[0px] md:ml-[20px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Best in-class support</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Whether you want to browse our Help Centre for solutions or chat to us directly, we’ve got you — even on a Sunday.</p>
+                </div>
+                </div>
+                <div>
+                <Image src="/images/trustpilot.png" alt="features" width={350} height={360} className="h-auto w-full" />
+                </div>
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/images/review.png"
+                    alt="features"
+                    width={300}
+                    height={100}
+                    className="h-auto mb-0 w-[300px] ml-[20px]"
+                  />
                 </div>
                 </div>
 
@@ -232,7 +248,7 @@ export default function Features() {
                 <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Spend abroad like a local</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Use your Stellar card around the world with no hidden fees. Hold, transfer, and spend money in 10+ currencies</p>
-                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]">
+                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]" onClick={() => setShowPopup(true)}>
                   <h2 className="font-bold text-white text-[16px] text-center">Coming soon</h2>
                 </div>
                 </div>
@@ -248,7 +264,7 @@ export default function Features() {
 
       {/* Store Badges */}
       <motion.div 
-        className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-16 md:py-50"
+        className="bg-[#0065ff] flex flex-col items-center justify-center px-4 mt-[50px] py-16 md:py-50"
         ref={storeAnimation.ref}
         initial={storeAnimation.initial}
         animate={storeAnimation.animate}
@@ -406,6 +422,8 @@ export default function Features() {
           </div>
         </div>
       </motion.footer>
+
+      {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
 
     </main>
   );
