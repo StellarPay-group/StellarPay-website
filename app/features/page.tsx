@@ -212,7 +212,7 @@ export default function Features() {
               </div>
 
               <div className="flex flex-col md:flex-row mt-[40px]">
-                <div className="rounded-2xl bg-white w-[400px] h-[550px]">
+                <div className="rounded-2xl bg-white w-[330px] h-[550px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Top up easily</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Link your bank, mobile money wallet or debit card and you're ready to go.</p>
@@ -224,16 +224,16 @@ export default function Features() {
                 </div>
 
                 <div className="flex flex-col">
-                <div className="rounded-2xl bg-white w-[350px] h-[225px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                <div className="rounded-2xl bg-white w-[310px] h-[225px] mt-[40px] md:mt-[0px] md:ml-[20px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Best in-class support</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Whether you want to browse our Help Centre for solutions or chat to us directly, we’ve got you — even on a Sunday.</p>
                 </div>
                 </div>
                 <div>
-                <Image src="/images/trustpilot.png" alt="features" width={350} height={360} className="h-auto w-full" />
+                <Image src="/images/trustpilot.png" alt="features" width={320} height={200} className="w-[330px] h-auto " />
                 </div>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center" onClick={() => setShowPopup(true)}>
                   <Image
                     src="/images/review.png"
                     alt="features"
@@ -244,7 +244,7 @@ export default function Features() {
                 </div>
                 </div>
 
-                <div className="rounded-2xl bg-white w-[400px] h-[550px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                <div className="rounded-2xl bg-white w-[350px] h-[550px] mt-[40px] md:mt-[0px] md:ml-[20px]">
                 <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Spend abroad like a local</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Use your Stellar card around the world with no hidden fees. Hold, transfer, and spend money in 10+ currencies</p>
