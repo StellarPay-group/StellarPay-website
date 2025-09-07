@@ -262,42 +262,50 @@ export default function HomePage() {
         </motion.p>
         
         <motion.div 
-          className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 mb-14 md:mb-12 px-4"
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 mb-9 xl:mb-0 px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <a onClick={() => setShowPopup(true)} className="px-8 sm:px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition text-sm sm:text-base">Get The App</a>
+          <a onClick={() => setShowPopup(true)} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
         </motion.div>
         {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
         {/* Hero Illustration */}
         <motion.div 
-          className="w-full flex justify-center mt-0 px-4"
+          className="w-full flex justify-center mt-0 px-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
+        <div className="relative hidden lg:block w-[calc(100%-20px)] overflow-hidden">
           <Image 
+            src="/images/Picture27.png" 
+            alt="StellarPay Hero Illustration" 
+            width={1800} 
+            height={1200}
+            className="w-400px md:w-full lg:w-full h-auto relative right-[-40px]"
+          />
+        </div>
+        <div className="relative block lg:hidden">
+        <Image 
             src="/images/main-intro-new.png" 
             alt="StellarPay Hero Illustration" 
             width={1200} 
             height={800}
             className="w-400px md:w-700px lg:w-[1100px] h-auto"
           />
+        </div>
         </motion.div>
 
         <motion.div 
-          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 px-4 mt-8 md:mt-12"
+          className="w-full flex flex-row justify-center items-center gap-5 px-4 mt-[30px] lg:mt-[-50px] xl:mt-[-110px]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-          <a href="https://apps.apple.com/ca/app/george/id6743195041">
-            <Image src="/images/appleStore.png" alt="apple" width={150} height={70} className="w-[120px] sm:w-[150px] h-auto" />
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
-            <Image src="/images/googleStore.png" alt="google" width={167} height={70} className="w-[134px] sm:w-[167px] h-auto" />
-          </a>
+                    <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
+                    <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
+                    <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
         </motion.div>
       </motion.section>
      
@@ -714,43 +722,26 @@ export default function HomePage() {
       
       {/* Security Section */}
       <motion.section 
-        className="w-full px-4 sm:px-8 md:px-12 lg:px-[112px] xl:px-[120px] 2xl:px-[128px] py-12 md:py-20"
+        className="bg-black w-full px-4 sm:px-8 md:px-12 lg:px-[15%] xl:px-[20%] py-12 md:py-30"
         ref={securitySectionAnimation.ref}
         initial={securitySectionAnimation.initial}
         animate={securitySectionAnimation.animate}
         transition={securitySectionAnimation.transition}
       >
-        <div className="aspect-[1225/584] max-w-[1470px] w-full mx-auto rounded-[30px] md:rounded-[60px] bg-blue-50 p-4 md:p-8 py-12 md:py-20 flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">
-          <motion.div 
-            className="pl-4 md:pl-8 flex-1 max-w-2xl text-center md:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#0E0F0C] mb-4 md:mb-8">Security you can feel. <br />Protection you can trust.</h2>
-            <p className="text-[#0e0f0c] font-semibold text-base md:text-xl mb-4 md:mb-8 max-w-lg">Your peace of mind is built into every transfer. We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
-            <p className="text-[#0e0f0c] font-semibold text-base md:text-xl mb-4 md:mb-8 max-w-lg">No shady conversions. No surprise fees. Just total transparency.</p>
+            <h2 className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-200 mb-[10px]">Security you can feel.</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-200 mb-4 md:mb-8">Protection you can trust.</h2>
+            <p className="text-gray-200 font-semibold text-base md:text-xl xl:text-2xl mb-4 md:mb-8 max-w-3xl xl:max-w-4xl">Your peace of mind is built into every transfer.<br /> We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
+            <p className="text-gray-200 font-semibold text-base md:text-xl xl:text-2xl mb-4 md:mb-12 max-w-3xl xl:max-w-4xl">No shady conversions. No surprise fees. Just total transparency.</p>
             <a href="/security">
-            <Button className="text-white px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-black mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
+            <Button className="text-black px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-gray-200 mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
             </a>
-          </motion.div>
-          <motion.div 
-            className="flex-1 flex justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Image src="/images/security2.png" alt="Security Illustration" width={310} height={449} className="w-full ml-13 md:ml-0 max-w-[450px] h-auto"
-            />
-          </motion.div>
-        </div>
       </motion.section>
 
 
 
       {/* Meet StellarPay section */}
       <motion.section 
-        className="bg-[#0363fe] flex flex-col items-center justify-center px-4 md:px-0 py-8 md:py-20 text-center"
+        className="bg-[#0363fe] flex flex-col items-center justify-center px-4 md:px-0 py-8 md:py-30 text-center"
         ref={meetAnimation.ref}
         initial={meetAnimation.initial}
         animate={meetAnimation.animate}
@@ -866,16 +857,16 @@ export default function HomePage() {
                 </Link>
                 <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
                   <Twitter className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">X</span>
+                  <span className="sr-only">Twitter</span>
                 </Link>
                 <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Instagram</span>
                 </Link>
                 <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
-                  <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+                  <Linkedin className="w-6 h-6" />
                   <span className="sr-only">Linkedin</span>
-                </Link>
+                </Link>   
               </div>
             </div>
           </div>
