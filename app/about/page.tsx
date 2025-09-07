@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight} from 'lucide-react';
+import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight, Linkedin} from 'lucide-react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
@@ -90,33 +90,43 @@ export default function AboutPage() {
         animate={navAnimation.animate}
         transition={navAnimation.transition}
       >
-        <div className="px-4 py-4">
+         <div className="px-4 py-4">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
             <div className="flex items-center space-x-2 md:space-x-8">
               <Link href="/">
-                <Button variant="ghost" className="text-xl md:text-2xl font-bold text-[#191c1f]">StellarPay</Button>
+                <Button variant="ghost" className="text-xl md:text-[24px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
               </Link>
               <nav className="hidden md:flex items-center space-x-1">
-                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-4 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">Personal</Button>
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">Business</Button>
+              <Link href="/">
+              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Personal</Button>
+              </Link>
+              <Link href="/features">
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Features</Button>
+              </Link>
                 <Link href="https://www.meetgeorge.app/">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">George</Button>
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">George</Button>
                 </Link>
               </nav>
             </div>
 
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-6">
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-sm font-medium font-semibold">About us</Button>
+              <Link href="\about" className="hidden sm:block">
+                <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-bold">About us</Button>
+              </Link>
               <div className="hidden md:flex items-center space-x-2">
-                <div className="w-5 h-5 bg-red-500 relative overflow-hidden rounded-full">
-                  {/* Put flag img here later */}
-                </div>
-                <span className="text-[#191c1f] text-xs md:text-sm font-medium font-semibold">EN</span>
+              <div>
+                  <Image src="/images/us-flag.png" alt='EN' width={20} height={20} />
+                  </div>
+                    <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-sm font-medium font-semibold">Log in</Button>
-              <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-sm font-medium font-semibold">Sign Up</Button>
+              <Link href="/signin">
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">Log in</Button>
+              </Link>
+              <Link href="/signup">
+                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -125,13 +135,13 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <motion.section 
-        className="bg-[#0e0f0c] text-white py-16 md:py-30 px-4 md:px-6"
+        className="bg-[#0e0f0c] text-white py-16 md:py-30 px-12 md:px-6"
         ref={heroAnimation.ref}
         initial={heroAnimation.initial}
         animate={heroAnimation.animate}
         transition={heroAnimation.transition}
       >
-        <div className="max-w-xl mx-auto flex items-center -translate-x-12 md:-translate-x-24">
+        <div className="max-w-xl mx-auto flex items-center md:-translate-x-24">
           <h2 className="text-6xl md:text-8xl lg:text-[130px] font-bold leading-tight">
             Meet.<br />StellarPay.
           </h2>
@@ -148,7 +158,7 @@ export default function AboutPage() {
       >
         <div className="max-w-[140rem] mx-auto">
           <motion.h1 
-            className="text-[#000000] text-3xl md:text-4xl font-bold mb-6 md:mb-10"
+            className="font-inter text-[#000000] text-3xl md:text-4xl font-bold mb-6 md:mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -157,8 +167,8 @@ export default function AboutPage() {
           </motion.h1>
 
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-0">
-            <motion.div 
-              className="text-[#000000] text-base md:text-lg leading-relaxed max-w-6xl lg:pr-96"
+            <motion.div
+              className="font-inter text-[#000000] text-base md:text-xl font-semibold leading-relaxed max-w-5xl lg:pr-54"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -186,9 +196,11 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
             >
-              <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-6 md:px-8 py-2 md:py-3 rounded-full text-base md:text-lg font-medium">
-                Contact Us
+              <a href="/meet-the-team">
+              <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-6 md:px-8 py-4 md:py-7 rounded-full text-base md:text-xl font-medium">
+                Meet the Team
               </Button>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -414,13 +426,29 @@ export default function AboutPage() {
             renderButtonGroupOutside={true}
             arrows={false}
           >
+            <a href="https://substack.com/inbox/post/171660194?r=95wx4&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false&triedRedirect=true">
+              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
+              <Image src="/images/genius-act-article-cover.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
+              </div>
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">August 2025</h3>
+                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
+                One Big Beautiful Bill and the GENIUS Act: A New Era for Cross-Border Payments
+                </p>
+              </div>
+            </div>
+              </div>
+              </a>
+
             <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
             <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
               <Image src="/images/flagright-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
                 <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">July 2025</h3>
                 <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
                 StellarPay announces partnership with Flagright
@@ -429,51 +457,39 @@ export default function AboutPage() {
             </div>
               </div>
               </a>
-              <a href="/news">
+              
+              <a href="https://substack.com/@catangana/p-161829302">
               <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/blog2.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
+              <Image src="/images/reflections-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">April 2025</h3>
                 <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Coming soon
+                StellarPay: Reflections as we near launch
                 </p>
               </div>
             </div>
               </div>
               </a>
-              <a href="/news">
+
+              <a href="https://substack.com/home/post/p-152662510">
               <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
               <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/blog3fixed.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
+              <Image src="/images/financial-innovation-square.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
+              <div className="px-6 md:px-12 py-6 md:py-8 h-40 md:h-48">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">Dec 2024</h3>
                 <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Coming soon
+                Rethinking Financial Innovation for the African Continent
                 </p>
               </div>
             </div>
               </div>
               </a>
-              <a href="/news">
-              <div className="relative w-[300px] md:w-[400px] h-[450px] md:h-[600px] overflow-hidden rounded-lg">
-            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-64 md:h-96 flex items-center justify-center">
-              <Image src="/images/blog4.png" alt="" width={400} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div className="px-6 md:px-12 py-6 md:py-8 h-32 md:h-40">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">October 2007</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
-                  Coming soon
-                </p>
-              </div>
-            </div>
-              </div>
-              </a>
+
           </Carousel>
       </div>
       </motion.div>
@@ -572,7 +588,7 @@ export default function AboutPage() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Company and team</h3>
               <div className="space-y-1 md:space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Company and team
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
@@ -598,18 +614,22 @@ export default function AboutPage() {
             <div className="text-center sm:text-left">
               <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Follow us</h3>
               <div className="flex justify-center sm:justify-start space-x-4">
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
                   <Facebook className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Facebook</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
                   <Twitter className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Twitter</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                   <span className="sr-only">Instagram</span>
                 </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
+                  <Linkedin className="w-6 h-6" />
+                  <span className="sr-only">Linkedin</span>
+                </Link>   
               </div>
             </div>
           </div>
@@ -627,29 +647,29 @@ export default function AboutPage() {
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
                   Legal
                 </Link>
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff] text-xs md:text-sm">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
                   Complaints
                 </Link>
               </div>
 
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Privacy policy
                 </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Country site map
+                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                  Terms of service
                 </Link>
               </div>
 
               <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Modern slavery statement
+                  Country site map
                 </Link>
               </div>
             </div>
@@ -660,11 +680,10 @@ export default function AboutPage() {
             <p className="text-[#000000] text-xs md:text-sm">© Stellar Technologies Inc 2025</p>
             <p className="text-[#000000] max-w-4xl mx-auto text-xs md:text-sm px-4">
               StellarPay is a Money Service Business authorized to operate in{" "}
-              <Link href="#" className="underline hover:no-underline">
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
-              . In other states, the program is sponsored by Community Federal Savings Bank, to which we're a service
-              provider.
+              .
             </p>
           </div>
         </div>

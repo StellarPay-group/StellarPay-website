@@ -2,12 +2,16 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight} from 'lucide-react';
+import { Facebook, Twitter, Instagram, Zap, Send, ChevronLeft, ChevronRight, Linkedin} from 'lucide-react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useState } from "react";
+import GetTheApp from "@/components/popup/getTheApp";
 
 
 export default function NewsPage() {
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 1 },
@@ -68,35 +72,43 @@ export default function NewsPage() {
 
       {/* Navigation/Header */}
       <section className="w-full bg-[#ffffff]" role="banner" aria-label="Main navigation">
-        <div className="px-4 py-4">
+      <div className="px-4 py-4">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-2 md:space-x-8">
               <Link href="/">
-                <Button variant="ghost" className="text-2xl font-bold text-[#191c1f]">StellarPay</Button>
+                <Button variant="ghost" className="text-xl md:text-[24px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
               </Link>
-              <nav className="flex items-center space-x-1">
-                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-6 py-2 text-sm font-medium font-semibold">Personal</Button>
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-6 py-2 text-sm font-medium font-semibold">Business</Button>
+              <nav className="hidden md:flex items-center space-x-1">
+              <Link href="/">
+              <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-bold">Personal</Button>
+              </Link>
+              <Link href="/features">
+                <Button variant="ghost" className="text-[#191c1f] hover:text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-semibold font-bold">Features</Button>
+              </Link>
                 <Link href="https://www.meetgeorge.app/">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-6 py-2 text-sm font-medium font-semibold">George</Button>
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">George</Button>
                 </Link>
               </nav>
             </div>
 
             {/* Right side - About us, language, auth */}
-            <div className="flex items-center space-x-6">
-              <Link href="\about">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-sm font-medium font-semibold">About us</Button>
+            <div className="flex items-center space-x-2 md:space-x-6">
+              <Link href="\about" className="hidden sm:block">
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">About us</Button>
               </Link>
-              <div className="flex items-center space-x-2">
-                <div className="w-5 h-5 bg-red-500 relative overflow-hidden rounded-full">
-                  {/* Put flag img here later */}
-                </div>
-                <span className="text-[#191c1f] text-sm font-medium font-semibold">EN</span>
+              <div className="hidden md:flex items-center space-x-2">
+              <div>
+                  <Image src="/images/us-flag.png" alt='EN' width={20} height={20} />
+                  </div>
+                    <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-sm font-medium font-semibold">Log in</Button>
-              <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-6 py-2 text-sm font-medium font-semibold">Sign Up</Button>
+              <Link href="/signin">
+                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">Log in</Button>
+              </Link>
+              <Link href="/signup">
+                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -132,7 +144,7 @@ export default function NewsPage() {
             <p className="text-[#000000] text-xl font-[400] mb-4 text-center">Got a media enquiry? Get in touch with us at discovery@stellarpay.app. </p>
             <p className="text-[#000000] text-xl font-[400] mb-8 text-center">
             Please note this email can’t respond to customer requests.</p>
-            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-5 rounded-full text-lg font-medium mx-auto block leading-none flex items-center justify-center">Get in touch</Button>
+            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-5 rounded-full text-lg font-medium mx-auto block leading-none flex items-center justify-center" onClick={() => setShowPopup(true)}>Get in touch</Button>
           </div>
         </div>
         </div>
@@ -149,24 +161,87 @@ export default function NewsPage() {
         {/* Timeline Cards Container */}
         <div className="relative">
           {/* Cards Grid */}
-          <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Card 1 - June 2024 */}
+            <a href="https://substack.com/inbox/post/171660194?r=95wx4&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false&triedRedirect=true">
             <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
-              <div className="bg-[#0065ff] h-96 flex items-center justify-center">
-              <Image src="/images/stellarbanking_cover.png" alt="" width={400} height={400} />
+              <div className="bg-[#010e32] flex items-center justify-center">
+              <Image src="/images/genius-act-article-cover.png" alt="" width={400} height={400} />
               </div>
-              <div className="px-8 py-8">
-                <h3 className="text-2xl font-[700] text-[#000000] mb-2">StellarPay announces partnership with Flagright</h3>
-                <h3 className="text-lg font-[500] text-gray-500 text-[#000000] mb-2">July 17, 2025</h3>
-                <p className="text-[#000000] text-xl leading-[1.05]">
-                StellarPay partners with Flagright to launch with real-time AML screening, transaction monitoring, and case management across its crypto-fiat payments platform.
+              <div className="px-8 py-8 h-97 flex flex-col">
+                <div>
+              <h3 className="text-lg font-[500] text-[#000000] mb-2">Aug 22, 2025</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">One Big Beautiful Bill and the GENIUS Act: A New Era for Cross-Border Payments</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05] mb-8">Author: Tommy Ruggles</h3>
+                </div>
+                <p className="text-[#000000] text-xl leading-[1.05] mt-auto mb-[1px]">
+                The landscape for cross-border payments just changed overnight.
                 </p>
               </div>
             </div>
+            </a>
+
+
+            <a href="https://www.flagright.com/post/stellarpay-chooses-flagright-for-transaction-monitoring-aml-screening">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#010e32] flex items-center justify-center">
+              <Image src="/images/flagright-square-2.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-8 py-8 h-99 flex flex-col">
+                <div>
+              <h3 className="text-lg font-[500] text-[#000000] mb-2">Jul 17, 2025</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">StellarPay announces partnership with Flagright</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05] mb-8">Author: Joseph Ibitola</h3>
+                </div>
+                <p className="text-[#000000] text-xl leading-[1.05] mt-auto mb-[1px]">
+                StellarPay Chooses Flagright for Transaction Monitoring & AML Screening.
+                </p>
+              </div>
+            </div>
+            </a>
+
+
+            <a href="https://substack.com/@catangana/p-161829302">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#010e32] flex items-center justify-center">
+              <Image src="/images/reflections-square.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-8 py-8 h-96 flex flex-col">
+              <div>
+              <h3 className="text-lg font-[500] text-[#000000] mb-2">Apr 21, 2025</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">StellarPay: Reflections as we near launch</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05]">Author: Christian Atangana</h3>
+                </div>
+                <p className="text-[#000000] text-xl leading-[1.05] mt-auto mb-[1px]">
+                The journey of a thousand miles starts with the first step.
+                </p>
+              </div>
+            </div>
+            </a>
+
+            <a href="https://substack.com/home/post/p-152662510">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden">
+              <div className="bg-[#010e32] flex items-center justify-center">
+              <Image src="/images/financial-innovation-square.png" alt="" width={400} height={400} />
+              </div>
+              <div className="px-8 py-8 h-96 flex flex-col">
+                <div>
+              <h3 className="text-lg font-[500] text-[#000000] mb-2">Dec 06, 2024</h3>
+                <h3 className="text-2xl font-[700] text-[#000000] mb-2">Rethinking Financial Innovation for the African Continent</h3>
+                <h3 className="text-gray-500 text-xl leading-[1.05]">Author: Christian Atangana</h3>
+                </div>
+                <p className="text-[#000000] text-xl leading-[1.05] mt-auto mb-[1px]">
+                Over the years, Africa has become synonymous with untapped potential.
+                </p>
+              </div>
+            </div>
+            </a>
 
           </div>
-          </a>
+
+
         </div>
       </div>
       
@@ -185,7 +260,7 @@ export default function NewsPage() {
               </p>
             </div>
 
-            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-7 rounded-full text-lg font-medium mx-auto block leading-none mb-10 flex items-center justify-center">Get StellarPay</Button>
+            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-7 rounded-full text-lg font-medium mx-auto block leading-none mb-10 flex items-center justify-center" onClick={() => setShowPopup(true)}>Get StellarPay</Button>
           </div>
         </div>
       </section>
@@ -219,7 +294,7 @@ export default function NewsPage() {
             <div>
               <h3 className="font-medium mb-4">Company and team</h3>
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline">
                   Company and team
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">
@@ -245,17 +320,21 @@ export default function NewsPage() {
             <div>
               <h3 className="font-medium mb-4">Follow us</h3>
               <div className="flex space-x-4">
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
                   <Facebook className="w-6 h-6" />
                   <span className="sr-only">Facebook</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
                   <Twitter className="w-6 h-6" />
                   <span className="sr-only">Twitter</span>
                 </Link>
-                <Link href="#" className="text-[#000000] hover:text-[#0065ff]">
+                <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
                   <Instagram className="w-6 h-6" />
                   <span className="sr-only">Instagram</span>
+                </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
+                  <Linkedin className="w-6 h-6" />
+                  <span className="sr-only">Linkedin</span>
                 </Link>
               </div>
             </div>
@@ -274,29 +353,29 @@ export default function NewsPage() {
             {/* Legal links columns */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline">
                   Legal
                 </Link>
-                <Link href="#" className="block text-[#000000] hover:text-[#0065ff]">
+                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline">
                   Complaints
                 </Link>
               </div>
 
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline">
                   Privacy policy
                 </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
-                  Country site map
+                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline">
+                  Terms of service
                 </Link>
               </div>
 
               <div className="space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline">
                   Cookie Policy
                 </Link>
                 <Link href="#" className="block text-[#000000] underline hover:no-underline">
-                  Modern slavery statement
+                  Country site map
                 </Link>
               </div>
             </div>
@@ -307,15 +386,16 @@ export default function NewsPage() {
             <p className="text-[#000000]">© Stellar Technologies Inc 2025</p>
             <p className="text-[#000000] max-w-4xl mx-auto">
               StellarPay is a Money Service Business authorized to operate in{" "}
-              <Link href="#" className="underline hover:no-underline">
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
-              . In other states, the program is sponsored by Community Federal Savings Bank, to which we're a service
-              provider.
+              .
             </p>
           </div>
         </div>
       </footer>
+
+      {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
 
     </main>
   );
