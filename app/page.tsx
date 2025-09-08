@@ -319,7 +319,7 @@ export default function HomePage() {
         transition={calculatorAnimation.transition}
       >
         <div className="bg-black text-white mx-auto py-8 md:py-16 px-4 md:px-10 w-full max-w-none">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Left Content */}
             <motion.div 
               className='pt-4 md:pt-6 pl-4 md:pl-6 lg:pl-12'
@@ -351,13 +351,13 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
                 <div
-                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[650px] bg-white"
+                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[600px] md:h-[650px] bg-white"
                   >
                     <div className="mx-[25px] my-[25px]">
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
+                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
                       const value = e.target.value.replace(/[^0-9.]/g, '');
                       const parts = value.split('.');
                       e.target.value = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : value;
@@ -366,13 +366,13 @@ export default function HomePage() {
                     <div className="relative">
                     <Combobox value={fromCurrency} onChange={(value) => value && setFromCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold text-right"
+                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[18px] md:text-[24px] rounded-md font-bold text-right"
                         defaultValue={fromCurrency?.display_code || 'USD'}
                           placeholder={fromCurrency?.display_code || 'USD'}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
-                        <p className="text-gray-300 text-[20px] mr-[10px] font-bold">▼</p>
+                        <p className="text-gray-300 text-[10px] md:text-[20px] mr-[10px] font-bold">▼</p>
                       </ComboboxButton>
                           <ComboboxOptions className="max-h-[200px] overflow-x-hidden overflow-y-auto absolute top-full right-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
                         {filtered.map((item) => (
@@ -386,58 +386,58 @@ export default function HomePage() {
 </div>
 
                   </div>
-                  <p className="text-[#454745] text-[16px]">You send exactly</p>
+                  <p className="text-[#454745] text-[13px] md:text-[16px]">You send exactly</p>
                   <div className="flex flex-row justify-between items-center mt-[10px]">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
+                  <p className="text-[10px] md:text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#454745]">Our fee</p>
+                  <p className="text-[14px] md:text-[18px] text-[#454745]">Our fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                    <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">-</p>
-                      <p className="text-black font-semibold text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                    <p className="text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">-</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#454745]">Total fees</p>
+                  <p className="text-[14px] md:text-[18px] text-[#454745]">Total fees</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                    <p className="text-gray-600 mr-[5px] text-[18px] font-semibold">=</p>
-                      <p className="text-black font-semibold text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                    <p className="text-gray-600 mr-[5px] text-[14px] md:text-[18px] font-semibold">=</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#454745]">Total amount we'll convert</p>
+                  <p className="text-[12px] md:text-[18px] text-[#454745]">Total amount we'll convert</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">*</p>
-                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">*</p>
+                      <p className="text-[#0065ff] font-semibold text-[14px] md:text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
                     </div>
-                  <p className="text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
+                  <p className="text-[10px] md:text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
                   </div>
                   
-                  <p className="text-[#454745] text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
+                  <p className="text-[#454745] text-[13px] md:text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
+                    <p className="w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
                     <div className="relative">
                     <Combobox value={toCurrency} onChange={(value) => value && setToCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold text-right"
+                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[18px] md:text-[24px] rounded-md font-bold text-right"
                         defaultValue={toCurrency?.display_code}
                           placeholder={toCurrency?.display_code}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
-                        <p className="text-gray-300 text-[20px] mr-[10px] font-bold">▼</p>
+                        <p className="text-gray-300 text-[10px] md:text-[20px] mr-[10px] font-bold">▼</p>
                       </ComboboxButton>
                           <ComboboxOptions className="max-h-[200px] overflow-x-hidden overflow-y-auto absolute top-full right-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
                           {filtered.map((item) => (
@@ -450,8 +450,8 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCurrency?.display_code}</p>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCurrency?.display_code}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
                   <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
@@ -480,7 +480,6 @@ export default function HomePage() {
         transition={featuresAnimation.transition}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="w-full h-px bg-gray-200 mb-8 md:mb-12"></div> 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             {/* Security Experts Feature */}
             <motion.div 
@@ -540,185 +539,76 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
+        <div className="w-full h-px bg-gray-200 mt-8 md:mt-12"></div> 
       </motion.section>
+                      
+      <div className="flex justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-12 md:gap-[30px] mb-12">
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+          <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/send.png" alt="send" width={150} height={70} className="w-[150px] h-auto mt-10" />
+        </div>
+        <div></div>
+        <h2 className="text-center font-bold text-[18px] mt-8">Send</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">Money that moves<br />as fast as you.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Tap, send, and it’s there — across town or across the world.</p>
+        <div className="flex justify-center mt-7">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+        <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/receive.png" alt="send" width={150} height={70} className="w-[190px] h-auto mt-10" />
+        </div>
+        <h2 className="text-center font-bold text-[18px] mt-14">Receive</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">Funds that land<br /> where life happens.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Bank accounts, mobile wallets, or cash-out — instantly available.</p>
+        <div className="flex justify-center mt-8">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+        <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/instant.png" alt="send" width={150} height={70} className="w-[160px] h-auto mt-10" />
+        </div>
+        <h2 className="text-center font-bold text-[18px] mt-9">Instant</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">No waiting. <br />
+        No hidden fees.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Your money is always moving at the speed of life.</p>
+        <div className="flex justify-center mt-12">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+        <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/social.png" alt="send" width={200} height={70} className="w-[200px] h-auto mt-10" />
+        </div>
+        <h2 className="text-center font-bold text-[18px] mt-8">Social</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">Transfers with a<br /> personal touch.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Share, connect, and send with StellarTags — money made social.</p>
+        <div className="flex justify-center mt-8">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
       
-
-      {/* One app section */}
-      <motion.section 
-        className="bg-white px-4 md:px-12 py-8 md:py-5 flex items-center justify-center"
-        ref={appAnimation.ref}
-        initial={appAnimation.initial}
-        animate={appAnimation.animate}
-        transition={appAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 max-w-6xl py-8 md:py-12 pb-4 md:pb-8 mx-auto">
-          {/* Left - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full md:w-auto"
-          >
-            <Image
-              src="/images/oneapp.png" 
-              alt="Person with money and heart glasses"
-              width={470}
-              height={590}
-              className="w-full max-w-[470px] h-auto mx-auto"
-            />
-          </motion.div>
-
-          {/* Right - Text Section */}
-          <motion.div 
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              One app. Money transfers. Anywhere.
-            </h2>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
-              Send money to friends across the street or family across the ocean —
-              all from one StellarPay account.
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
-              Connect your account and make peer-to-peer or international payments
-              in seconds.
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">No paperwork.</p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-10">
-              No hidden fees. Just fast, connected money.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
-              <a href="/signup">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base font-semi">
-                Open an account
-              </button>
-              </a>
-              <a href="about" className="underline hover:text-blue-800 font-semibold text-sm md:text-base">
-                See how it works
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
-
-
-      {/* Instant availability section */}
-      <motion.section 
-        className="bg-white px-4 md:px-6 py-8 md:py-5 flex items-center justify-center"
-        ref={instantAnimation.ref}
-        initial={instantAnimation.initial}
-        animate={instantAnimation.animate}
-        transition={instantAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl w-full">
-          {/* Left - Text Section */}
-          <motion.div 
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Instant availability, everywhere.
-            </h2>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
-              When you send money with StellarPay, it's there — right away. 
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-20">
-              No waiting, no agents, and no guessing. Just tap, send, track, and done. 
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-20">
-              Whether it's $5 for takeout or $500 for school fees, we move at the speed of life. 
-            </p>
-
-            <div className="flex justify-center md:justify-start">
-              <a onClick={() => setShowPopup(true)}>
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
-                Try your first transfer
-              </button>
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Right - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="w-full md:w-auto"
-          >
-            <Image
-              src="/images/instant.png" 
-              alt="Peole eating outside"
-              width={450}
-              height={330}
-              className="w-full max-w-[450px] h-auto mx-auto"
-            />
-          </motion.div>
-        </div>
-      </motion.section>
-
-
-      {/* Mobile money section */}
-      <motion.section 
-        className="bg-white px-4 md:px-6 py-6 md:py-3 flex items-center justify-center"
-        ref={mobileAnimation.ref}
-        initial={mobileAnimation.initial}
-        animate={mobileAnimation.animate}
-        transition={mobileAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-12 max-w-6xl w-full py-2 md:py-2">
-          {/* Left - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full md:w-auto"
-          >
-            <Image
-              src="/images/mobile.png" 
-              alt="People eating outside"
-              width={400}
-              height={360}
-              className="w-full max-w-[440px] h-auto mx-auto"
-            />
-          </motion.div>
-
-          {/* Right - Text Section */}
-          <motion.div 
-            className="flex-1 text-center md:text-left mt-10"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Mobile money included. Just like it should be.
-            </h2>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2">
-              Connecting you directly with leading mobile money platforms like MTN Mobile Money, 
-              Orange Money, and others — so your loved ones can revieve funds instantly, no matter 
-              where they are or what device they use.</p>
-              <p className="font-medium text-gray-700 text-base md:text-lg mb-2"> Whether it's sending money to a village in 
-              Cameroon, paying school fees in Accra, or topping up a phone in Nairobi — StellarPay 
-              works where real life happens.
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-10">
-              No banks required. No complicated steps. Just tap, send, recieve — all on your phone.
-            </p>
-
-            <div className="flex justify-center md:justify-start">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
-                Send to mobile money
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
-
       
       {/* Security Section */}
       <motion.section 
@@ -795,13 +685,13 @@ export default function HomePage() {
             alt="Previous"
             width={1000}
             height={750}
-            className="w-[500px] md:w-[800px] h-[375px] md:h-[600px]"
+            className="w-[500px] md:w-[900px] h-[250px] md:h-[550px]"
           />
           </a>
          </div>
-         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[400px] h-[300px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
-                        <h2 className='text-[26px] text-white font-bold'>Contact our Stellar team</h2>
-                        <h2 className='text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
+         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[330px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
+                        <h2 className='text-[22px] xl:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
+                        <h2 className='text-[14px] md:text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
                         <a href='/meet-the-team'>
                         <div className='flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[45px]'><p className='text-white text-[18px] font-semibold'>Get in touch</p></div>
                         </a>
@@ -812,116 +702,172 @@ export default function HomePage() {
 
       {/* Footer */}
       <motion.footer 
-        className="bg-[#ffffff] text-[#000000] px-4 md:px-6 py-16 md:py-35"
+        className="bg-[#000000] text-[#ffffff] px-4 md:px-6 py-16"
         ref={footerAnimation.ref}
         initial={footerAnimation.initial}
         animate={footerAnimation.animate}
         transition={footerAnimation.transition}
       >
-        <div className="max-w-6xl mx-auto">
-          {/* Upper section with three columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 mb-12 md:mb-50">
-            {/* Company and team */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Company and team</h3>
-              <div className="space-y-1 md:space-y-2">
-                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Company and team
-                </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Service status
-                </Link>
-              </div>
-            </div>
 
-            {/* Stellar Products */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Stellar Products</h3>
-              <div className="space-y-1 md:space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  International money transfers
-                </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  StellarPay account
-                </Link>
-              </div>
-            </div>
-
-            {/* Follow us */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Follow us</h3>
-              <div className="flex justify-center sm:justify-start space-x-4">
+        <div className="ml-5 block sm:hidden max-w-[80%] text-center space-y-3 md:space-y-4 mb-10">
+          <div className="grid grid-cols-1 ">
+            <div className="lg:col-span-1 text-left">
+              <div className="flex flex-row">
+              <div className="text-[#ffffff] text-2xl md:text-3xl font-bold mb-[25px]">StellarPay</div>
+              <div className="flex flex-row ml-5 mt-[2px]">
+                <div className="flex justify-start space-x-[1px]">
                 <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
-                  <Facebook className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Facebook</span>
+                  <Image src="/images/fac-dark.png" alt='f' width={20} height={20} className="w-5 h-5 md:w-6 md:h-6 mt-[2px] mr-[2px]" />
                 </Link>
                 <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
-                  <Twitter className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Twitter</span>
+                  <Image src="/images/x-dark.png" alt='t' width={20} height={20} className="w-6 h-6 md:w-7 md:h-7 mt-[3px] mr-[1px]" />
                 </Link>
-                <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
-                  <Instagram className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Instagram</span>
+                <Link href="https://www.instagram.com/stellarpayapp" className="text-[#000000] hover:text-[#0065ff] mt-[1px]">
+                  <Image src="/images/ins-dark.png" alt='instagram' width={20} height={20} className="w-7 h-7 md:w-8 md:h-8" />
                 </Link>
-                <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
-                  <Linkedin className="w-6 h-6" />
-                  <span className="sr-only">Linkedin</span>
-                </Link>   
-              </div>
-            </div>
-          </div>
-
-          {/* Divider line */}
-          <div className="border-t border-[#000000] mb-6 md:mb-8"></div>
-
-          {/* Lower section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
-            {/* StellarPay logo */}
-            <div className="lg:col-span-1 text-center md:text-left">
-              <div className="text-[#0065ff] text-2xl md:text-3xl font-bold">StellarPay</div>
-            </div>
-
-            {/* Legal links columns */}
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
-                  Legal
-                </Link>
-                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
-                  Complaints
+                <Link href="https://www.linkedin.com/company/stellarpaytoday" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/lin-dark.png" alt='linkedin' width={20} height={20} className="w-7 h-7 md:w-8 md:h-8" />
                 </Link>
               </div>
-
-              <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Privacy policy
-                </Link>
-                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Terms of service
-                </Link>
               </div>
-
-              <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Cookie Policy
-                </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Country site map
-                </Link>
               </div>
-            </div>
-          </div>
-
-          {/* Bottom section */}
-          <div className="text-center space-y-3 md:space-y-4">
-            <p className="text-[#000000] text-xs md:text-sm">© Stellar Technologies Inc 2025</p>
-            <p className="text-[#000000] max-w-4xl mx-auto text-xs md:text-sm px-4">
+              <p className="text-[#ffffff] max-w-4xl mx-auto text-xs md:text-sm mb-[18px]">
               StellarPay is a Money Service Business authorized to operate in{" "}
               <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
               .
             </p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+                </div>
+          </div>
+          </div>
+
+        <div className="ml-5 sm:ml-0 mx-auto flex flex-col sm:flex-row justify-center">
+          {/* Upper section with three columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12">
+            {/* Company and team */}
+            <div className="text-left">
+              <h3 className="font-bold mb-3 md:mb-4 text-[#ffffff] text-sm md:text-base">Company</h3>
+              <div className="space-y-1 md:space-y-4">
+                <Link href="/meet-the-team" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Company and team
+                </Link>
+                <Link href="/features" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Products
+                </Link>
+                <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Service Status
+                </Link>
+                <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  News & Updates
+                </Link>
+                <div className="hidden lg:block flex flex-col mt-20">
+                <p className="block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] ml-[7px]">
+                  Follow us
+                </p>
+                <div className="flex flex-row">
+                <div className="flex justify-start space-x-[1px]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/fac-dark.png" alt='f' width={20} height={20} className="w-5 h-5 md:w-6 md:h-6 mt-[2px] mr-[2px]" />
+                </Link>
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/x-dark.png" alt='t' width={20} height={20} className="w-6 h-6 md:w-7 md:h-7 mt-[3px] mr-[1px]" />
+                </Link>
+                <Link href="https://www.instagram.com/stellarpayapp" className="text-[#000000] hover:text-[#0065ff] mt-[1px]">
+                  <Image src="/images/ins-dark.png" alt='instagram' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/lin-dark.png" alt='linkedin' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+              </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Stellar Products */}
+            <div className="text-left">
+            <h3 className="font-bold mb-3 md:mb-4 text-sm text-[#ffffff] md:text-base">Products</h3>
+              <div className="space-y-1 md:space-y-4">
+                <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  StellarPay
+                </Link>
+                <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Stellar for Business
+                </Link>
+                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  George
+                </Link>
+                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  APi
+                </Link>
+              </div>
+            </div>
+
+                        {/* Stellar Products */}
+                        <div className="text-left">
+            <h3 className="text-[#ffffff] font-bold mb-3 md:mb-4 text-sm md:text-base">Policies</h3>
+              <div className="space-y-1 md:space-y-4">
+                <Link href="/privacy-policy#your-rights" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Legal
+                </Link>
+                <Link href="/privacy-policy#contact-us" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Complaints
+                </Link>
+                <Link href="/privacy-policy" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms-of-service" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Terms & Conditions
+                </Link>
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Cookie Policy
+                </Link>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          {/* Bottom section */}
+          <div className="hidden sm:block ml-[80px] md:ml-[150px] max-w-[22%] text-center space-y-3 md:space-y-4">
+          <div className="grid grid-cols-1 ">
+            {/* StellarPay logo */}
+            <div className="lg:col-span-1 text-left">
+              <div className="text-[#ffffff] text-2xl md:text-3xl font-bold mb-[25px]">StellarPay</div>
+              <p className="text-[#ffffff] max-w-4xl mx-auto text-xs md:text-sm mb-[18px]">
+              StellarPay is a Money Service Business authorized to operate in{" "}
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
+                most states
+              </Link>
+              .
+            </p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+            </div>
+            <div className="hidden sm:block lg:hidden flex flex-col mt-20">
+                <p className="text-left block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] mx-[7px]">
+                  Follow us
+                </p>
+                <div className="flex flex-row">
+                <div className="flex justify-start space-x-[1px]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/fac-dark.png" alt='f' width={20} height={20} className="w-5 h-5 md:w-6 md:h-6 mt-[2px] mr-[2px]" />
+                </Link>
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/x-dark.png" alt='t' width={20} height={20} className="w-6 h-6 md:w-7 md:h-7 mt-[3px] mr-[1px]" />
+                </Link>
+                <Link href="https://www.instagram.com/stellarpayapp" className="text-[#000000] hover:text-[#0065ff] mt-[1px]">
+                  <Image src="/images/ins-dark.png" alt='instagram' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/lin-dark.png" alt='linkedin' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+              </div>
+                </div>
+                </div>
+          </div>
           </div>
         </div>
       </motion.footer>
