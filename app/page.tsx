@@ -351,13 +351,13 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
                 <div
-                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[600px] md:h-[650px] bg-white"
+                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[580px] sm:h-[600px] md:h-[650px] bg-white"
                   >
-                    <div className="mx-[25px] my-[25px]">
+                    <div className="mx-[15px] sm:mx-[25px] my-[30px]">
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
+                    <input type="text" className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
                       const value = e.target.value.replace(/[^0-9.]/g, '');
                       const parts = value.split('.');
                       e.target.value = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : value;
@@ -392,7 +392,8 @@ export default function HomePage() {
                       <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
                       <p className="text-black font-semibold text-[14px] md:text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[10px] md:text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
+                  <p className="hidden md:block text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
+                  <p className="block md:hidden text-[14px] text-[#0065ff] font-semibold">ACH fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
@@ -413,21 +414,25 @@ export default function HomePage() {
                     <p className="text-gray-600 mr-[5px] text-[14px] md:text-[18px] font-semibold">=</p>
                       <p className="text-black font-semibold text-[14px] md:text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[12px] md:text-[18px] text-[#454745]">Total amount we'll convert</p>
+                  <p className="hidden md:block text-[18px] text-[#454745]">Total amount we'll convert</p>
+                  <p className="block md:hidden text-[14px] text-[#454745] font-semibold">Total amount</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">*</p>
-                      <p className="text-[#0065ff] font-semibold text-[14px] md:text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="hidden md:block text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">*</p>
+                      <p className="block md:hidden text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">=</p>
+                      <p className="hidden md:block text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="block md:hidden text-[#0065ff] font-semibold text-[14px]">{Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
                     </div>
-                  <p className="text-[10px] md:text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
+                  <p className="hidden md:block text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
+                  <p className="block md:hidden text-[14px] text-[#0065ff] font-semibold">Guaranteed rate</p>
                   </div>
                   
                   <p className="text-[#454745] text-[13px] md:text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
+                    <p className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
                     <div className="relative">
                     <Combobox value={toCurrency} onChange={(value) => value && setToCurrency(value)}>
                       <ComboboxInput
@@ -618,10 +623,10 @@ export default function HomePage() {
         animate={securitySectionAnimation.animate}
         transition={securitySectionAnimation.transition}
       >
-            <h2 className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-200 mb-[10px]">Security you can feel.</h2>
-            <h2 className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-200 mb-4 md:mb-8">Protection you can trust.</h2>
-            <p className="text-gray-200 font-semibold text-base md:text-xl xl:text-2xl mb-4 md:mb-8 max-w-3xl xl:max-w-4xl">Your peace of mind is built into every transfer.<br /> We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
-            <p className="text-gray-200 font-semibold text-base md:text-xl xl:text-2xl mb-4 md:mb-12 max-w-3xl xl:max-w-4xl">No shady conversions. No surprise fees. Just total transparency.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-200 mb-[10px]">Security you can feel.</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-200 mb-4 md:mb-8">Protection you can trust.</h2>
+            <p className="text-gray-200 font-normal sm:font-semibold text-sm sm:text-base md:text-xl xl:text-2xl mb-4 md:mb-8 max-w-3xl xl:max-w-4xl">Your peace of mind is built into every transfer.<br /> We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
+            <p className="text-gray-200 font-normal sm:font-semibold text-sm sm:text-base md:text-xl xl:text-2xl mb-4 md:mb-12 max-w-3xl xl:max-w-4xl">No shady conversions. No surprise fees. Just total transparency.</p>
             <a href="/security">
             <Button className="text-black px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-gray-200 mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
             </a>
@@ -689,7 +694,7 @@ export default function HomePage() {
           />
           </a>
          </div>
-         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[330px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
+         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[280px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
                         <h2 className='text-[22px] xl:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
                         <h2 className='text-[14px] md:text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
                         <a href='/meet-the-team'>
