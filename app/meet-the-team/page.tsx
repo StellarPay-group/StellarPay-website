@@ -389,6 +389,9 @@ export default function MeetTheTeam() {
                 <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   George
                 </Link>
+                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  APi
+                </Link>
               </div>
             </div>
 

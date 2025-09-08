@@ -319,7 +319,7 @@ export default function HomePage() {
         transition={calculatorAnimation.transition}
       >
         <div className="bg-black text-white mx-auto py-8 md:py-16 px-4 md:px-10 w-full max-w-none">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Left Content */}
             <motion.div 
               className='pt-4 md:pt-6 pl-4 md:pl-6 lg:pl-12'
@@ -351,13 +351,13 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
                 <div
-                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[650px] bg-white"
+                    className="rounded-[25px] shadow-xl w-full max-w-[500px] h-[600px] md:h-[650px] bg-white"
                   >
                     <div className="mx-[25px] my-[25px]">
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
+                    <input type="text" className="w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md" defaultValue={amount || 0} inputMode="decimal" pattern="[0-9]*\.?[0-9]*" onChange={(e) => {
                       const value = e.target.value.replace(/[^0-9.]/g, '');
                       const parts = value.split('.');
                       e.target.value = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : value;
@@ -366,13 +366,13 @@ export default function HomePage() {
                     <div className="relative">
                     <Combobox value={fromCurrency} onChange={(value) => value && setFromCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold text-right"
+                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[18px] md:text-[24px] rounded-md font-bold text-right"
                         defaultValue={fromCurrency?.display_code || 'USD'}
                           placeholder={fromCurrency?.display_code || 'USD'}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
-                        <p className="text-gray-300 text-[20px] mr-[10px] font-bold">▼</p>
+                        <p className="text-gray-300 text-[10px] md:text-[20px] mr-[10px] font-bold">▼</p>
                       </ComboboxButton>
                           <ComboboxOptions className="max-h-[200px] overflow-x-hidden overflow-y-auto absolute top-full right-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
                         {filtered.map((item) => (
@@ -386,58 +386,58 @@ export default function HomePage() {
 </div>
 
                   </div>
-                  <p className="text-[#454745] text-[16px]">You send exactly</p>
+                  <p className="text-[#454745] text-[13px] md:text-[16px]">You send exactly</p>
                   <div className="flex flex-row justify-between items-center mt-[10px]">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
+                  <p className="text-[10px] md:text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-300 mr-[8px] text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#454745]">Our fee</p>
+                  <p className="text-[14px] md:text-[18px] text-[#454745]">Our fee</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                    <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">-</p>
-                      <p className="text-black font-semibold text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                    <p className="text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">-</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#454745]">Total fees</p>
+                  <p className="text-[14px] md:text-[18px] text-[#454745]">Total fees</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                    <p className="text-gray-600 mr-[5px] text-[18px] font-semibold">=</p>
-                      <p className="text-black font-semibold text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                    <p className="text-gray-600 mr-[5px] text-[14px] md:text-[18px] font-semibold">=</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="text-[18px] text-[#454745]">Total amount we'll convert</p>
+                  <p className="text-[12px] md:text-[18px] text-[#454745]">Total amount we'll convert</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-600 mr-[8px] text-[18px] font-semibold">*</p>
-                      <p className="text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">*</p>
+                      <p className="text-[#0065ff] font-semibold text-[14px] md:text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
                     </div>
-                  <p className="text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
+                  <p className="text-[10px] md:text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
                   </div>
                   
-                  <p className="text-[#454745] text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
+                  <p className="text-[#454745] text-[13px] md:text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[150px] p-2 text-black font-bold text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
+                    <p className="w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
                     <div className="relative">
                     <Combobox value={toCurrency} onChange={(value) => value && setToCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[24px] rounded-md font-bold text-right"
+                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[18px] md:text-[24px] rounded-md font-bold text-right"
                         defaultValue={toCurrency?.display_code}
                           placeholder={toCurrency?.display_code}
                         onChange={(event) => setQuery(event.target.value)}
                       />
                       <ComboboxButton>
-                        <p className="text-gray-300 text-[20px] mr-[10px] font-bold">▼</p>
+                        <p className="text-gray-300 text-[10px] md:text-[20px] mr-[10px] font-bold">▼</p>
                       </ComboboxButton>
                           <ComboboxOptions className="max-h-[200px] overflow-x-hidden overflow-y-auto absolute top-full right-0 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
                           {filtered.map((item) => (
@@ -450,8 +450,8 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCurrency?.display_code}</p>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCurrency?.display_code}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
                   <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
@@ -480,7 +480,6 @@ export default function HomePage() {
         transition={featuresAnimation.transition}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="w-full h-px bg-gray-200 mb-8 md:mb-12"></div> 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
             {/* Security Experts Feature */}
             <motion.div 
@@ -540,185 +539,76 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
+        <div className="w-full h-px bg-gray-200 mt-8 md:mt-12"></div> 
       </motion.section>
+                      
+      <div className="flex justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-12 md:gap-[30px] mb-12">
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+          <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/send.png" alt="send" width={150} height={70} className="w-[150px] h-auto mt-10" />
+        </div>
+        <div></div>
+        <h2 className="text-center font-bold text-[18px] mt-8">Send</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">Money that moves<br />as fast as you.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Tap, send, and it’s there — across town or across the world.</p>
+        <div className="flex justify-center mt-7">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+        <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/receive.png" alt="send" width={150} height={70} className="w-[190px] h-auto mt-10" />
+        </div>
+        <h2 className="text-center font-bold text-[18px] mt-14">Receive</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">Funds that land<br /> where life happens.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Bank accounts, mobile wallets, or cash-out — instantly available.</p>
+        <div className="flex justify-center mt-8">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+        <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/instant.png" alt="send" width={150} height={70} className="w-[160px] h-auto mt-10" />
+        </div>
+        <h2 className="text-center font-bold text-[18px] mt-9">Instant</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">No waiting. <br />
+        No hidden fees.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Your money is always moving at the speed of life.</p>
+        <div className="flex justify-center mt-12">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
+        <div className="">
+            <div className="flex flex-col mx-[30px] xl:mx-[40px]">
+              <div className="flex justify-center">
+        <Image src="/images/social.png" alt="send" width={200} height={70} className="w-[200px] h-auto mt-10" />
+        </div>
+        <h2 className="text-center font-bold text-[18px] mt-8">Social</h2>
+        <h2 className="text-center font-bold text-[20px] mt-8">Transfers with a<br /> personal touch.</h2>
+        <p className="text-center font-normal text-[15px] mt-8">Share, connect, and send with StellarTags — money made social.</p>
+        <div className="flex justify-center mt-8">
+        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
       
-
-      {/* One app section */}
-      <motion.section 
-        className="bg-white px-4 md:px-12 py-8 md:py-5 flex items-center justify-center"
-        ref={appAnimation.ref}
-        initial={appAnimation.initial}
-        animate={appAnimation.animate}
-        transition={appAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 max-w-6xl py-8 md:py-12 pb-4 md:pb-8 mx-auto">
-          {/* Left - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full md:w-auto"
-          >
-            <Image
-              src="/images/oneapp.png" 
-              alt="Person with money and heart glasses"
-              width={470}
-              height={590}
-              className="w-full max-w-[470px] h-auto mx-auto"
-            />
-          </motion.div>
-
-          {/* Right - Text Section */}
-          <motion.div 
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              One app. Money transfers. Anywhere.
-            </h2>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
-              Send money to friends across the street or family across the ocean —
-              all from one StellarPay account.
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
-              Connect your account and make peer-to-peer or international payments
-              in seconds.
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">No paperwork.</p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-10">
-              No hidden fees. Just fast, connected money.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
-              <a href="/signup">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base font-semi">
-                Open an account
-              </button>
-              </a>
-              <a href="about" className="underline hover:text-blue-800 font-semibold text-sm md:text-base">
-                See how it works
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
-
-
-      {/* Instant availability section */}
-      <motion.section 
-        className="bg-white px-4 md:px-6 py-8 md:py-5 flex items-center justify-center"
-        ref={instantAnimation.ref}
-        initial={instantAnimation.initial}
-        animate={instantAnimation.animate}
-        transition={instantAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl w-full">
-          {/* Left - Text Section */}
-          <motion.div 
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Instant availability, everywhere.
-            </h2>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-10">
-              When you send money with StellarPay, it's there — right away. 
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2 max-w-xl md:pr-20">
-              No waiting, no agents, and no guessing. Just tap, send, track, and done. 
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-20">
-              Whether it's $5 for takeout or $500 for school fees, we move at the speed of life. 
-            </p>
-
-            <div className="flex justify-center md:justify-start">
-              <a onClick={() => setShowPopup(true)}>
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base">
-                Try your first transfer
-              </button>
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Right - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="w-full md:w-auto"
-          >
-            <Image
-              src="/images/instant.png" 
-              alt="Peole eating outside"
-              width={450}
-              height={330}
-              className="w-full max-w-[450px] h-auto mx-auto"
-            />
-          </motion.div>
-        </div>
-      </motion.section>
-
-
-      {/* Mobile money section */}
-      <motion.section 
-        className="bg-white px-4 md:px-6 py-6 md:py-3 flex items-center justify-center"
-        ref={mobileAnimation.ref}
-        initial={mobileAnimation.initial}
-        animate={mobileAnimation.animate}
-        transition={mobileAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-12 max-w-6xl w-full py-2 md:py-2">
-          {/* Left - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full md:w-auto"
-          >
-            <Image
-              src="/images/mobile.png" 
-              alt="People eating outside"
-              width={400}
-              height={360}
-              className="w-full max-w-[440px] h-auto mx-auto"
-            />
-          </motion.div>
-
-          {/* Right - Text Section */}
-          <motion.div 
-            className="flex-1 text-center md:text-left mt-10"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              Mobile money included. Just like it should be.
-            </h2>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-2">
-              Connecting you directly with leading mobile money platforms like MTN Mobile Money, 
-              Orange Money, and others — so your loved ones can revieve funds instantly, no matter 
-              where they are or what device they use.</p>
-              <p className="font-medium text-gray-700 text-base md:text-lg mb-2"> Whether it's sending money to a village in 
-              Cameroon, paying school fees in Accra, or topping up a phone in Nairobi — StellarPay 
-              works where real life happens.
-            </p>
-            <p className="font-medium text-gray-700 text-base md:text-lg mb-6 md:mb-8 max-w-xl md:pr-10">
-              No banks required. No complicated steps. Just tap, send, recieve — all on your phone.
-            </p>
-
-            <div className="flex justify-center md:justify-start">
-              <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-full hover:bg-blue-700 transition text-sm md:text-base" onClick={() => setShowPopup(true)}>
-                Send to mobile money
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
-
       
       {/* Security Section */}
       <motion.section 
@@ -795,12 +685,12 @@ export default function HomePage() {
             alt="Previous"
             width={1000}
             height={750}
-            className="w-[500px] md:w-[900px] h-[250px] md:h-[500px]"
+            className="w-[500px] md:w-[900px] h-[250px] md:h-[550px]"
           />
           </a>
          </div>
          <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[330px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
-                        <h2 className='text-[22px] md:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
+                        <h2 className='text-[22px] xl:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
                         <h2 className='text-[14px] md:text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
                         <a href='/meet-the-team'>
                         <div className='flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[45px]'><p className='text-white text-[18px] font-semibold'>Get in touch</p></div>
@@ -908,6 +798,9 @@ export default function HomePage() {
                 </Link>
                 <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   George
+                </Link>
+                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  APi
                 </Link>
               </div>
             </div>
