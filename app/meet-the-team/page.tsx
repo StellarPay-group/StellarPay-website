@@ -288,118 +288,173 @@ export default function MeetTheTeam() {
       </motion.div>
      
      
+      
+
       {/* Footer */}
       <motion.footer 
-        className="bg-[#ffffff] text-[#000000] px-4 md:px-6 py-16 md:py-35"
+        className="bg-[#000000] text-[#ffffff] px-4 md:px-6 py-16"
         ref={footerAnimation.ref}
         initial={footerAnimation.initial}
         animate={footerAnimation.animate}
         transition={footerAnimation.transition}
       >
-        <div className="max-w-6xl mx-auto">
-          {/* Upper section with three columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 mb-12 md:mb-50">
-            {/* Company and team */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Company and team</h3>
-              <div className="space-y-1 md:space-y-2">
-                <Link href="/meet-the-team" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Company and team
-                </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Service status
-                </Link>
-              </div>
-            </div>
 
-            {/* Stellar Products */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Stellar Products</h3>
-              <div className="space-y-1 md:space-y-2">
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  International money transfers
-                </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  StellarPay account
-                </Link>
-              </div>
-            </div>
-
-            {/* Follow us */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-medium mb-3 md:mb-4 text-sm md:text-base">Follow us</h3>
-              <div className="flex justify-center sm:justify-start space-x-4">
+        <div className="ml-5 block sm:hidden max-w-[80%] text-center space-y-3 md:space-y-4 mb-10">
+          <div className="grid grid-cols-1 ">
+            <div className="lg:col-span-1 text-left">
+              <div className="flex flex-row">
+              <div className="text-[#ffffff] text-2xl md:text-3xl font-bold mb-[25px]">StellarPay</div>
+              <div className="flex flex-row ml-5 mt-[2px]">
+                <div className="flex justify-start space-x-[1px]">
                 <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
-                  <Facebook className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Facebook</span>
+                  <Image src="/images/fac-dark.png" alt='f' width={20} height={20} className="w-5 h-5 md:w-6 md:h-6 mt-[2px] mr-[2px]" />
                 </Link>
                 <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
-                  <Twitter className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Twitter</span>
+                  <Image src="/images/x-dark.png" alt='t' width={20} height={20} className="w-6 h-6 md:w-7 md:h-7 mt-[3px] mr-[1px]" />
                 </Link>
-                <Link href="https://www.instagram.com/stellarpay/" className="text-[#000000] hover:text-[#0065ff]">
-                  <Instagram className="w-5 h-5 md:w-6 md:h-6" />
-                  <span className="sr-only">Instagram</span>
+                <Link href="https://www.instagram.com/stellarpayapp" className="text-[#000000] hover:text-[#0065ff] mt-[1px]">
+                  <Image src="/images/ins-dark.png" alt='instagram' width={20} height={20} className="w-7 h-7 md:w-8 md:h-8" />
                 </Link>
-                <Link href="https://www.linkedin.com/company/stellarpaytoday/" className="text-[#000000] hover:text-[#0065ff]">
-                  <Linkedin className="w-6 h-6" />
-                  <span className="sr-only">Linkedin</span>
-                </Link>   
-              </div>
-            </div>
-          </div>
-
-          {/* Divider line */}
-          <div className="border-t border-[#000000] mb-6 md:mb-8"></div>
-
-          {/* Lower section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
-            {/* StellarPay logo */}
-            <div className="lg:col-span-1 text-center md:text-left">
-              <div className="text-[#0065ff] text-2xl md:text-3xl font-bold">StellarPay</div>
-            </div>
-
-            {/* Legal links columns */}
-            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy#your-rights" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
-                  Legal
-                </Link>
-                <Link href="/privacy-policy#contact-us" className="block text-[#000000] hover:text-[#0065ff] underline hover:no-underline text-xs md:text-sm">
-                  Complaints
+                <Link href="https://www.linkedin.com/company/stellarpaytoday" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/lin-dark.png" alt='linkedin' width={20} height={20} className="w-7 h-7 md:w-8 md:h-8" />
                 </Link>
               </div>
-
-              <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Privacy policy
-                </Link>
-                <Link href="/terms-of-service" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Terms of service
-                </Link>
               </div>
-
-              <div className="space-y-1 md:space-y-2 text-center sm:text-left">
-                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Cookie Policy
-                </Link>
-                <Link href="#" className="block text-[#000000] underline hover:no-underline text-xs md:text-sm">
-                  Country site map
-                </Link>
               </div>
-            </div>
-          </div>
-
-          {/* Bottom section */}
-          <div className="text-center space-y-3 md:space-y-4">
-            <p className="text-[#000000] text-xs md:text-sm">© Stellar Technologies Inc 2025</p>
-            <p className="text-[#000000] max-w-4xl mx-auto text-xs md:text-sm px-4">
+              <p className="text-[#ffffff] max-w-4xl mx-auto text-xs md:text-sm mb-[18px]">
               StellarPay is a Money Service Business authorized to operate in{" "}
               <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
                 most states
               </Link>
               .
             </p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+                </div>
+          </div>
+          </div>
+
+        <div className="ml-5 sm:ml-0 mx-auto flex flex-col sm:flex-row justify-center">
+          {/* Upper section with three columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12">
+            {/* Company and team */}
+            <div className="text-left">
+              <h3 className="font-bold mb-3 md:mb-4 text-[#ffffff] text-sm md:text-base">Company</h3>
+              <div className="space-y-1 md:space-y-4">
+                <Link href="/meet-the-team" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Company and team
+                </Link>
+                <Link href="/features" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Products
+                </Link>
+                <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Service Status
+                </Link>
+                <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  News & Updates
+                </Link>
+                <div className="hidden lg:block flex flex-col mt-20">
+                <p className="block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] ml-[7px]">
+                  Follow us
+                </p>
+                <div className="flex flex-row">
+                <div className="flex justify-start space-x-[1px]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/fac-dark.png" alt='f' width={20} height={20} className="w-5 h-5 md:w-6 md:h-6 mt-[2px] mr-[2px]" />
+                </Link>
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/x-dark.png" alt='t' width={20} height={20} className="w-6 h-6 md:w-7 md:h-7 mt-[3px] mr-[1px]" />
+                </Link>
+                <Link href="https://www.instagram.com/stellarpayapp" className="text-[#000000] hover:text-[#0065ff] mt-[1px]">
+                  <Image src="/images/ins-dark.png" alt='instagram' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/lin-dark.png" alt='linkedin' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+              </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Stellar Products */}
+            <div className="text-left">
+            <h3 className="font-bold mb-3 md:mb-4 text-sm text-[#ffffff] md:text-base">Products</h3>
+              <div className="space-y-1 md:space-y-4">
+                <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  StellarPay
+                </Link>
+                <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Stellar for Business
+                </Link>
+                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  George
+                </Link>
+              </div>
+            </div>
+
+                        {/* Stellar Products */}
+                        <div className="text-left">
+            <h3 className="text-[#ffffff] font-bold mb-3 md:mb-4 text-sm md:text-base">Policies</h3>
+              <div className="space-y-1 md:space-y-4">
+                <Link href="/privacy-policy#your-rights" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Legal
+                </Link>
+                <Link href="/privacy-policy#contact-us" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Complaints
+                </Link>
+                <Link href="/privacy-policy" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms-of-service" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Terms & Conditions
+                </Link>
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                  Cookie Policy
+                </Link>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          {/* Bottom section */}
+          <div className="hidden sm:block ml-[80px] md:ml-[150px] max-w-[22%] text-center space-y-3 md:space-y-4">
+          <div className="grid grid-cols-1 ">
+            {/* StellarPay logo */}
+            <div className="lg:col-span-1 text-left">
+              <div className="text-[#ffffff] text-2xl md:text-3xl font-bold mb-[25px]">StellarPay</div>
+              <p className="text-[#ffffff] max-w-4xl mx-auto text-xs md:text-sm mb-[18px]">
+              StellarPay is a Money Service Business authorized to operate in{" "}
+              <Link href="/privacy-policy#us-state-privacy-rights" className="underline hover:no-underline">
+                most states
+              </Link>
+              .
+            </p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+            </div>
+            <div className="hidden sm:block lg:hidden flex flex-col mt-20">
+                <p className="text-left block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] mx-[7px]">
+                  Follow us
+                </p>
+                <div className="flex flex-row">
+                <div className="flex justify-start space-x-[1px]">
+                <Link href="https://www.facebook.com/Stellarpaymain" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/fac-dark.png" alt='f' width={20} height={20} className="w-5 h-5 md:w-6 md:h-6 mt-[2px] mr-[2px]" />
+                </Link>
+                <Link href="https://x.com/JoinStellarPay" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/x-dark.png" alt='t' width={20} height={20} className="w-6 h-6 md:w-7 md:h-7 mt-[3px] mr-[1px]" />
+                </Link>
+                <Link href="https://www.instagram.com/stellarpayapp" className="text-[#000000] hover:text-[#0065ff] mt-[1px]">
+                  <Image src="/images/ins-dark.png" alt='instagram' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/stellarpaytoday" className="text-[#000000] hover:text-[#0065ff]">
+                  <Image src="/images/lin-dark.png" alt='linkedin' width={20} height={20} className="w-6 h-6 md:w-8 md:h-8" />
+                </Link>
+              </div>
+                </div>
+                </div>
+          </div>
           </div>
         </div>
       </motion.footer>
