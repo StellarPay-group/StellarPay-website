@@ -312,7 +312,7 @@ export default function HomePage() {
      
       {/* === StellarPay Section === */}
       <motion.section 
-        className="bg-white py-0 pb-1 px-4"
+        className="bg-white py-0 pb-1 px-0"
         ref={calculatorAnimation.ref}
         initial={calculatorAnimation.initial}
         animate={calculatorAnimation.animate}
@@ -546,9 +546,24 @@ export default function HomePage() {
         </div>
         <div className="w-full h-px bg-gray-200 mt-8 md:mt-12"></div> 
       </motion.section>
+
+      <div className="flex items-center justify-center mx-[20px]">
+        <div className='max-w-md md:max-w-3xl flex flex-col'>
+        <h1 className='text-black text-3xl md:text-5xl lg:text-6xl text-center font-bold mt-[10px]'>
+          Send more with StellarPay
+        </h1>
+        <h2 className='text-black text-lg md:text-2xl text-center font-bold mt-[40px]'>
+        Fast, secure, and borderless. 
+        </h2>
+        <h2 className='text-black text-lg md:text-2xl text-center font-bold mb-[48px]'>
+        StellarPay makes sending money simple—whether it’s across town or across the world.
+        </h2>
+        </div>
+      </div>
+
                       
       <div className="flex justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-12 md:gap-[30px] mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-12 md:gap-[30px] mb-18">
         <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
           <div className="">
             <div className="flex flex-col mx-[30px] xl:mx-[40px]">
@@ -684,17 +699,14 @@ export default function HomePage() {
         transition={georgeAnimation.transition}
       >
          <div>
-          <a href='http://www.meetgeorge.app'>
-         <Image
-            src="/images/george.png"
-            alt="Previous"
-            width={1000}
-            height={750}
-            className="w-[500px] md:w-[900px] h-[250px] md:h-[550px]"
-          />
-          </a>
+          <div className='relative w-[280px] md:w-[500px] lg:w-[650px] xl:w-[750px] h-[250px] md:h-[550px] bg-[#F55A2B] rounded-3xl py-[26px]'>
+                        <h2 className='absolute top-10/28 left-19/40 -translate-x-1/2 -translate-y-1/2 text-[80px] xl:text-[130px] text-white font-bold text-center z-10'>George</h2>
+                        <div className='absolute top-8/20 left-10/40 -translate-x-1/2 -translate-y-1/2 bg-white h-[240px] w-[220px] rounded-xl'></div>
+                        <div className='absolute top-8/20 right-10/40 translate-x-1/2 -translate-y-1/2 bg-white h-[180px] w-[220px] rounded-2xl'></div>
+                        <div className='absolute bottom-0 h-[150px] w-full bg-[#eff3fc] rounded-b-2xl'></div>
          </div>
-         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[280px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
+         </div>
+         <div className='mt-[30px] lg:mt-[0px] lg:mt-[0px] ml-[0px] md:ml-[40px] w-[280px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
                         <h2 className='text-[22px] xl:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
                         <h2 className='text-[14px] md:text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
                         <a href='/meet-the-team'>
