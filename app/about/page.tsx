@@ -142,7 +142,7 @@ export default function AboutPage() {
         transition={heroAnimation.transition}
       >
         <div className="max-w-xl mx-auto flex items-center md:-translate-x-24">
-          <h2 className="text-6xl md:text-8xl lg:text-[130px] font-bold leading-tight">
+          <h2 className="text-4xl md:text-8xl lg:text-[130px] font-bold leading-tight">
             Meet.<br />StellarPay.
           </h2>
         </div>
@@ -324,7 +324,7 @@ export default function AboutPage() {
             <Button
               variant="ghost"
               size="icon"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
+              className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
             >
               <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
             </Button>
@@ -332,7 +332,7 @@ export default function AboutPage() {
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
+              className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
             >
               <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
             </Button>

@@ -303,9 +303,9 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-                    <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
-                    <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
-                    <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
+                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
+                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
+                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
         </motion.div>
       </motion.section>
      
@@ -575,7 +575,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Money that moves<br />as fast as you.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Tap, send, and it’s there — across town or across the world.</p>
         <div className="flex justify-center mt-7">
-        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -590,7 +590,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Funds that land<br /> where life happens.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Bank accounts, mobile wallets, or cash-out — instantly available.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -606,7 +606,7 @@ export default function HomePage() {
         No hidden fees.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Your money is always moving at the speed of life.</p>
         <div className="flex justify-center mt-12">
-        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -621,7 +621,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Transfers with a<br /> personal touch.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Share, connect, and send with StellarTags — money made social.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open("https://c2s.app/q/hXL6WV7")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>

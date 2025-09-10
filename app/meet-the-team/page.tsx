@@ -117,7 +117,7 @@ export default function MeetTheTeam() {
         animate={traitsAnimation.animate}
         transition={traitsAnimation.transition}
       >
-        <div className="max-w-7xl mx-auto border px-10 py-10 rounded-2xl shadow-xl border-gray-200">
+        <div className="max-w-7xl mx-auto border px-8 md:px-10 py-10 rounded-2xl shadow-xl border-gray-200">
         <motion.h1 
               className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-2 font-semibold leading-tight"
               initial={{ opacity: 0, y: 30 }}
@@ -135,7 +135,7 @@ export default function MeetTheTeam() {
             Our team brings experience from global fintech, banking, technology, and driving innovation to make money move seamlessly worldwide. Stay tuned for more announcements.
           </motion.h2>
           <motion.div
-  className="flex flex-row gap-8"
+  className="flex flex-col md:flex-row gap-8"
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.3 }}
 >

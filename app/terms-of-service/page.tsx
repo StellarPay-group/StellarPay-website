@@ -210,24 +210,32 @@ Contact Address:<br />
 
 
 
-      {/* Store Badges */}
-      <div className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-50">
-        <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Main heading */}
-          <h1 className="text-[#fffffe] text-8xl font-bold tracking-tight">StellarPay</h1>
+ {/* Store Badges */}
+ <section 
+        className="bg-[#0363fe] flex flex-col items-center justify-center px-4 md:px-0 py-8 md:py-30 text-center"
+      >
+        <h1 
+          className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl text-white font-bold leading-tight mb-4 md:mb-6 max-w-4xl mx-auto"
+        >
+          Meet StellarPay
+        </h1>
+        <p 
+          className="text-base md:text-lg lg:text-xl xl:text-3xl text-white font-semibold mb-8 md:mb-10 max-w-2xl mx-auto"
+        >
+          A new way to money. 
+        </p>
 
-          {/* Subtitle */}
-          <p className="text-[#fffffe] text-xl md:text-2xl lg:text-3xl font-semibold">A new way to money</p>
-        </div>
-        <div className="w-full flex justify-center mt-12">
+        <div 
+          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-5 md:mb-5 px-4"
+        >
           <a href="https://apps.apple.com/ca/app/george/id6743195041">
-        <Image src="/images/appleStore.png" alt="apple" width={175} height={90} style={{marginRight: 20}} />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
-        <Image src="/images/googleStore.png" alt="google" width={193} height={95} />
-        </a>
+            <Image src="/images/appleStore.png" alt="apple" width={150} height={70} className="w-[120px] sm:w-[150px] h-auto" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
+            <Image src="/images/googleStore.png" alt="google" width={167} height={70} className="w-[134px] sm:w-[167px] h-auto" />
+          </a>
         </div>
-      </div>
+        </section>
      
      
       <footer 
