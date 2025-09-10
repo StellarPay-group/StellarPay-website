@@ -20,8 +20,15 @@ export function ExpandCard({ name, position, image, defaultOpen = false, onOpen 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             style={{
-                    width: defaultOpen ? 400 : 250,
-                    backgroundColor: defaultOpen ? '#e5e7eb' : '#b8bcbc'
+              height: defaultOpen ? 300: 100,
+              width: 220,
+              ...(typeof window !== "undefined" && window.innerWidth >= 768 &&
+                {
+                  height: 425,
+                  width: defaultOpen ? 400 : 250,
+                }
+              ),
+                backgroundColor: defaultOpen ? '#e5e7eb' : '#b8bcbc'
             }}
           >
            { defaultOpen &&  <p className="text-[#1b6ce8] text-sm md:text-base font-semibold leading-relaxed text-left mb-2">{position}</p> }
