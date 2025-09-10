@@ -20,10 +20,12 @@ export async function sendAppLink(
           channel: 'sms'
 ): Promise<void> {
           if (!validateCountryCode(countryCode) || !validatePhoneNumber(phoneNumber)) {
+                    alert('The country code or phone number you entered is invalid. Please check the format of the country code (must start with "+", like "+1", "+236", etc.) and phone number (digits only, like "8002223333"). ')
                     return;
           }
           try {
                     let to: string = countryCode + '' + phoneNumber;
+                    alert('A link will be sent to your phone number. Please check for a text message sent to ' + to + ' to download the app.');
                     const response = await fetch(`${SERVER}dev/message/sms`, {
                               method: 'POST',
                               headers: { 'Content-Type': 'application/json' },
@@ -35,7 +37,6 @@ export async function sendAppLink(
                     });
                     const data = await response.json();
                     if (response.ok && data.sid) {
-                              alert('Please check for a text message send to ' + to + ' to complete log in.');
                               return data.sid;
                     } else {
                               alert('Failed to send link SMS');
@@ -55,10 +56,12 @@ export async function sendLoginLink(
           channel: 'sms'
 ): Promise<void> {
           if (!validateCountryCode(countryCode) || !validatePhoneNumber(phoneNumber)) {
+                    alert('The country code or phone number you entered is invalid. Please check the format of the country code (must start with "+", like "+1", "+236", etc.) and phone number (digits only, like "8002223333"). ')
                     return;
           }
           try {
                     let to: string = countryCode + '' + phoneNumber;
+                    alert('A link will be sent to your phone number. Please check for a text message sent to ' + to + ' to complete log in.');
                     const response = await fetch(`${SERVER}dev/message/sms`, {
                               method: 'POST',
                               headers: { 'Content-Type': 'application/json' },
@@ -70,7 +73,6 @@ export async function sendLoginLink(
                     });
                     const data = await response.json();
                     if (response.ok && data.sid) {
-                              alert('Please check for a text message send to ' + to + ' to complete log in.');
                               return data.sid;
                     } else {
                               alert('Failed to send link SMS');
