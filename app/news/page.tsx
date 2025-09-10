@@ -138,11 +138,11 @@ export default function NewsPage() {
             </div>
           </div>
 
-          <div className="max-w-[1470px] w-xl rounded-[30px] mt-16 bg-blue-50 p-8 py-16 flex flex-col items-center justify-between gap-10">
+          <div className="max-w-[1470px] w-[280px] md:w-xl rounded-[30px] mt-16 bg-blue-50 p-8 py-12 md:py-16 flex flex-col items-center justify-between gap-10">
           <div className="flex-1 max-w-lg">
             <h2 className="text-4xl text-center font-semibold text-[#0E0F0C] mb-8 font-[500] ">Press inquiries</h2>
-            <p className="text-[#000000] text-xl font-[400] mb-4 text-center">Got a media enquiry? Get in touch with us at discovery@stellarpay.app. </p>
-            <p className="text-[#000000] text-xl font-[400] mb-8 text-center">
+            <p className="text-[#000000] text-xl font-[400] mb-4 text-start md:text-center">Got a media enquiry? Get in touch with us at discovery@stellarpay.app. </p>
+            <p className="text-[#000000] text-xl font-[400] mb-8 text-start md:text-center">
             Please note this email can’t respond to customer requests.</p>
             <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-5 rounded-full text-lg font-medium mx-auto block leading-none flex items-center justify-center" onClick={() => setShowPopup(true)}>Get in touch</Button>
           </div>
@@ -266,23 +266,31 @@ export default function NewsPage() {
       </section>
 
       {/* Store Badges */}
-      <div className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-50">
-        <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Main heading */}
-          <h1 className="text-[#fffffe] text-8xl font-bold tracking-tight">StellarPay</h1>
+      <section 
+        className="bg-[#0363fe] flex flex-col items-center justify-center px-4 md:px-0 py-8 md:py-30 text-center"
+      >
+        <h1 
+          className="text-3xl md:text-4xl lg:text-6xl xl:text-7xl text-white font-bold leading-tight mb-4 md:mb-6 max-w-4xl mx-auto"
+        >
+          Meet StellarPay
+        </h1>
+        <p 
+          className="text-base md:text-lg lg:text-xl xl:text-3xl text-white font-semibold mb-8 md:mb-10 max-w-2xl mx-auto"
+        >
+          A new way to money. 
+        </p>
 
-          {/* Subtitle */}
-          <p className="text-[#fffffe] text-xl md:text-2xl lg:text-3xl font-semibold">A new way to money</p>
-        </div>
-        <div className="w-full flex justify-center mt-12">
+        <div 
+          className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-5 md:mb-5 px-4"
+        >
           <a href="https://apps.apple.com/ca/app/george/id6743195041">
-        <Image src="/images/appleStore.png" alt="apple" width={175} height={90} style={{marginRight: 20}} />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
-        <Image src="/images/googleStore.png" alt="google" width={193} height={95} />
-        </a>
+            <Image src="/images/appleStore.png" alt="apple" width={150} height={70} className="w-[120px] sm:w-[150px] h-auto" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
+            <Image src="/images/googleStore.png" alt="google" width={167} height={70} className="w-[134px] sm:w-[167px] h-auto" />
+          </a>
         </div>
-      </div>
+        </section>
      
      
      {/* Footer */}
