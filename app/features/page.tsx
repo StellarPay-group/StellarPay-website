@@ -145,22 +145,22 @@ export default function Features() {
               </p>
 
               <div className="flex flex-col md:flex-row mt-[50px]">
-                <div className="rounded-2xl bg-white w-[360px] h-[525px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[360px] h-[480px] md:h-[525px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">StellarTags</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">No long account numbers. Just send to @james or @aisha</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <h2 className="font-bold text-white text-lg text-center">P2P</h2>
                 </div>
                 </div>
                 <Image src="/images/stellartags.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
                 </div>
 
-                <div className="rounded-2xl bg-white w-[400px]  md:w-[630px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px]  md:w-[630px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Send home. Send abroad. Send anywhere.</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px] md:mb-[18px]">North America ↔ Africa money transfers in seconds.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <h2 className="font-bold text-white text-lg text-center">Global</h2>
                 </div>
                 </div>
@@ -169,42 +169,42 @@ export default function Features() {
               </div>
 
               <div className="flex flex-col md:flex-row mt-[40px]">
-                <div className="rounded-2xl bg-white w-[530px] h-[450px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[530px] h-[550px] md:h-[450px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Deposit how they need</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px] mb-[60px]">Straight to mobile money, a bank account, their StellarPay Wallet and more.</p>
                 </div>
                 <div className="flex flex-row items-center justify-between mb-0">
                 <Image src="/images/deposit.png" alt="features" width={350} height={180} className="h-auto w-[300px]" />
-                <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                <div className="hidden md:block flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <h2 className="font-bold text-white text-lg text-center">Try it out!</h2>
                 </div>
                 </div>
                 </div>
 
-                <div className="rounded-2xl bg-white w-[430px] h-[450px] mt-[40px] md:mt-[0px] md:ml-[60px]">
+                <div className="hidden md:block mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[430px] h-[280px] md:h-[450px] mt-[40px] md:mt-[0px] md:ml-[60px]">
                 <Image src="/images/featuresBody.png" alt="features" width={500} height={500} className="h-auto mb-0 w-full" />
                 </div>
               </div>
 
               <div className="flex flex-col md:flex-row mt-[40px]">
-                <div className="rounded-2xl bg-white w-[400px] md:w-[580px] h-[525px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[400px] md:w-[580px] h-[480px] md:h-[525px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">It's all social</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Share a note, add an emoji, or keep it discreet with private mode.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[-10px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[30px] md:mb-[-10px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <h2 className="font-bold text-white text-lg text-center">@Friends and Family</h2>
                 </div>
                 </div>
                 <Image src="/images/socialwithpopup.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
                 </div>
 
-                <div className="rounded-2xl bg-white w-[400px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[400px] h-[525px] mt-[40px] md:mt-[0px] md:ml-[50px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Security You Can Trust</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Every transaction is protected with AES-256 and SSL/TLS encryption. 24/7.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[40px] justify-center items-center mt-[25px] mx-[25px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
-                  <h2 className="font-bold text-white text-lg text-center">Learn More</h2>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[35px] justify-center items-center mt-[25px] mx-[25px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
+                  <h2 className="font-bold text-white text-[16px] text-center">Learn More</h2>
                 </div>
                 </div>
                 <Image src="/images/security.png" alt="features" width={700} height={360} className="h-auto mb-0 w-full" />
@@ -212,11 +212,11 @@ export default function Features() {
               </div>
 
               <div className="flex flex-col md:flex-row mt-[40px]">
-                <div className="rounded-2xl bg-white w-[330px] h-[550px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[330px] h-[550px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Top up easily</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Link your bank, mobile money wallet or debit card and you're ready to go.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <h2 className="font-bold text-white text-[16px] text-center">Learn more</h2>
                 </div>
                 </div>
@@ -224,35 +224,35 @@ export default function Features() {
                 </div>
 
                 <div className="flex flex-col">
-                <div className="rounded-2xl bg-white w-[310px] h-[225px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[310px] h-[250px] md:h-[225px] mt-[40px] md:mt-[0px] md:ml-[20px]">
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Best in-class support</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Whether you want to browse our Help Centre for solutions or chat to us directly, we’ve got you — even on a Sunday.</p>
                 </div>
                 </div>
                 <div>
-                <Image src="/images/trustpilot.png" alt="features" width={320} height={200} className="w-[330px] h-auto " />
+                <Image src="/images/trustpilot.png" alt="features" width={320} height={200} className="mt-[25px] md:mt-[0px] w-[330px] h-auto ml-[-5px] md:ml-[0px]" />
                 </div>
-                <div className="flex justify-center items-center" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                <div className="flex justify-center items-center" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <Image
                     src="/images/review.png"
                     alt="features"
                     width={300}
                     height={100}
-                    className="h-auto mb-0 w-[300px] ml-[20px]"
+                    className="h-auto mb-0 w-[270px] md:w-[300px] ml-[10px] md:ml-[20px]"
                   />
                 </div>
                 </div>
 
-                <div className="rounded-2xl bg-white w-[350px] h-[550px] mt-[40px] md:mt-[0px] md:ml-[20px]">
+                <div className="mx-auto md:mx-[0px] rounded-2xl bg-white w-[280px] md:w-[350px] h-[570px] md:h-[550px] mt-[55px] md:mt-[0px] md:ml-[20px]">
                 <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Spend abroad like a local</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Use your Stellar card around the world with no hidden fees. Hold, transfer, and spend money in 10+ currencies</p>
-                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]" onClick={() => window.open("https://c2s.app/q/hXL6WV7")}>
+                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]" onClick={() => window.open("https://qrco.de/bgIGwE")}>
                   <h2 className="font-bold text-white text-[16px] text-center">Coming soon</h2>
                 </div>
                 </div>
-                <Image src="/images/stellarcard.png" alt="features" width={700} height={360} className="h-auto mb-0 w-[300px]" />
+                <Image src="/images/stellarcard.png" alt="features" width={700} height={360} className="h-auto mb-0 w-[250px] md:w-[300px]" />
                 </div>
               </div>
               
