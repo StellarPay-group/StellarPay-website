@@ -312,7 +312,7 @@ export default function HomePage() {
      
       {/* === StellarPay Section === */}
       <motion.section 
-        className="bg-white py-0 pb-1 px-4"
+        className="bg-white py-0 pb-1 px-0"
         ref={calculatorAnimation.ref}
         initial={calculatorAnimation.initial}
         animate={calculatorAnimation.animate}
@@ -546,9 +546,24 @@ export default function HomePage() {
         </div>
         <div className="w-full h-px bg-gray-200 mt-8 md:mt-12"></div> 
       </motion.section>
+
+      <div className="flex items-center justify-center mx-[20px]">
+        <div className='max-w-md md:max-w-3xl flex flex-col'>
+        <h1 className='text-black text-3xl md:text-5xl lg:text-6xl text-center font-bold mt-[10px]'>
+          Send more with StellarPay
+        </h1>
+        <h2 className='text-black text-lg md:text-2xl text-center font-bold mt-[40px]'>
+        Fast, secure, and borderless. 
+        </h2>
+        <h2 className='text-black text-lg md:text-2xl text-center font-bold mb-[48px]'>
+        StellarPay makes sending money simple—whether it’s across town or across the world.
+        </h2>
+        </div>
+      </div>
+
                       
       <div className="flex justify-center">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-12 md:gap-[30px] mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-12 md:gap-[30px] mb-18">
         <div className="w-[260px] xl:w-[300px] bg-[#e3e8ee] rounded-2xl h-[550px]">
           <div className="">
             <div className="flex flex-col mx-[30px] xl:mx-[40px]">
@@ -677,28 +692,48 @@ export default function HomePage() {
       </motion.section>
       {/* Meet George section */}
       <motion.section 
-        className="flex flex-col md:flex-row w-full px-4 sm:px-8 md:px-12 lg:px-[112px] xl:px-[120px] 2xl:px-[128px] py-12 md:py-20"
+        className="flex flex-col md:flex-row w-full px-0 sm:px-8 md:px-12 lg:px-[112px] xl:px-[120px] 2xl:px-[128px] py-12 md:py-20"
         ref={georgeAnimation.ref}
         initial={georgeAnimation.initial}
         animate={georgeAnimation.animate}
         transition={georgeAnimation.transition}
       >
          <div>
-          <a href='http://www.meetgeorge.app'>
-         <Image
-            src="/images/george.png"
-            alt="Previous"
-            width={1000}
-            height={750}
-            className="w-[500px] md:w-[900px] h-[250px] md:h-[550px]"
-          />
-          </a>
+          <div className='mx-auto md:mx-[0px] relative w-[280px] md:w-[500px] lg:w-[650px] xl:w-[750px] h-[350px] md:h-[550px] bg-[#F55A2B] rounded-3xl py-[26px]'>
+                        <h2 className='ml-[5px] md:ml-[0px] absolute top-10/28 left-19/40 -translate-x-1/2 -translate-y-1/2 text-[60px] md:text-[80px] xl:text-[100px] text-white font-bold text-center z-9'>George</h2>
+                        <div className='hidden md:block absolute top-8/20 left-10/40 -translate-x-1/2 -translate-y-1/2 bg-white h-[220px] lg:h-[230px] w-[170px] lg:w-[200px] rounded-xl z-10'>
+                        <h2 className='font-bold text-[18px] text-center mx-[10px] lg:mx-[20px] mt-[20px]'>All accounts in one place</h2>
+                        <p className='font-semibold text-[13px] text-center mx-[8px] lg:mx-[16px] mt-[4px] lg:mt-[8px]'>Connect unlimited banks, credit cards, and investment accounts completely free</p>
+                        <Image src="/images/accounts.png" alt='f' width={350} height={100} className="w-35 h-10 mt-[8px] lg:mt-[12px] mx-auto" />
+                        </div>
+                        <div className='hidden md:block absolute top-8/20 right-10/40 translate-x-1/2 -translate-y-1/2 bg-white h-[180px] w-[170px] lg:w-[200px] rounded-2xl z-10'>
+                        <div className='bg-white w-full h-[33%] rounded-t-2xl flex flex-col justify-center'>
+                          <h2 className='text-black font-semi text-[24px] ml-[28px]'>Sync</h2>
+                        </div>
+                        <div className='bg-[#005fff] w-full h-[34%] flex flex-col justify-center'>
+                        <h2 className='text-white font-semi text-[24px] ml-[28px]'>Plan</h2>
+                        </div>
+                        <div className='bg-white w-full h-[33%] rounded-b-2xl flex flex-col justify-center'>
+                        <h2 className='text-black font-semi text-[24px] ml-[28px]'>Breathe</h2>
+                        </div>
+                        </div>
+                        <div className='px-[10px] py-[10px] absolute bottom-0 h-[170px] md:h-[180px] lg:h-[190px] w-full bg-[#eff3fc] rounded-b-2xl'>
+                          <h2 className='font-bold text-black text-[18px] md:text-[22px] xl:text-[24px] text-center md:text-start ml-[0px] md:ml-[20px] mt-[0px] lg:mt-[8px] xl:mt-[14px]'>Money talks - George listens.</h2>
+                          <p className='block md:hidden font-normal text-black text-[12px] text-start ml-[0px] mt-[2px]'>Unlock financial clarity with an intelligent financial companion. 
+                          Understand your transactions, set goals and identify your unique needs with your personal fianncial AI.</p>
+                          <p className='hidden md:block font-normal text-gray-600 text-[13px] text-start ml-[20px] mr-[60px] mt-[5px]'>Unlock financial clarity with an intelligent financial companion. <br />
+                          Understand your transactions, set goals and identify your unique needs with your personal fianncial AI.</p>
+                          <div className='mx-auto md:mx-[20px] h-[30px] md:h-[35px] lg:h-[40px] w-[100px] md:w-[220px] lg:w-[240px] bg-black rounded-lg flex flex-col justify-center mt-[8px] md:mt-[14px]'>
+                            <a href='http://www.meetgeorge.app'><p className='text-[12px] md:text-[14px] lg:text-[15px] font-semibold text-white text-center'>Learn more</p></a>
+                          </div>
+                        </div>
          </div>
-         <div className='mt-[10px] md:mt-[0px] ml-[0px] md:ml-[40px] w-[280px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px]'>
+         </div>
+         <div className='mx-auto md:mx-[0px] mt-[40px] lg:mt-[0px] lg:mt-[0px] w-[280px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px] md:ml-[50px] xl:ml-[100px]'>
                         <h2 className='text-[22px] xl:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
-                        <h2 className='text-[14px] md:text-[18px] text-white font-semi mt-[10px]'>Discover how we can help your business.</h2>
+                        <h2 className='text-[14px] md:text-[18px] text-gray-200 font-semi mt-[10px]'>Discover how we can help your business.</h2>
                         <a href='/meet-the-team'>
-                        <div className='flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[45px]'><p className='text-white text-[18px] font-semibold'>Get in touch</p></div>
+                        <div className='mx-auto md:mx-0 flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[40px] md:h-[45px]'><p className='text-white text-[14px] md:text-[18px] font-semibold'>Get in touch</p></div>
                         </a>
          </div>
       </motion.section>
