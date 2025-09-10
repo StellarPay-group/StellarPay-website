@@ -40,11 +40,11 @@ export async function sendAppLink(
                               return data.sid;
                     } else {
                               alert('Failed to send link SMS');
-                              console.error('Failed to send link SMS:', data);
+                              console.error('Failed to send link to your phone number. Get StellarPay here: https://www.c2s.app/q/hXL6WV7:', data);
                               return;
                     }
           } catch (err) {
-                    alert('Error sending link SMS');
+                    alert('Error sending link to your phone number. Get StellarPay here: https://www.c2s.app/q/hXL6WV7');
                     console.error('Error sending link SMS:', err);
                     return;
           }
@@ -75,12 +75,12 @@ export async function sendLoginLink(
                     if (response.ok && data.sid) {
                               return data.sid;
                     } else {
-                              alert('Failed to send link SMS');
+                              alert('Failed to send link to your phone number. Get StellarPay and log in here: https://www.c2s.app/q/hXL6WV7');
                               console.error('Failed to send link SMS:', data);
                               return;
                     }
           } catch (err) {
-                    alert('Error sending link SMS');
+                    alert('Error sending link to your phone number. Get StellarPay and log in here: https://www.c2s.app/q/hXL6WV7');
                     console.error('Error sending link SMS:', err);
                     return;
           }

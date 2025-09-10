@@ -16,12 +16,12 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
         <h1 className="text-black text-[24px] md:text-[32px] lg:text-[40px] mb-[10px] font-bold">Get the StellarPay App</h1>
         <p className="text-black text-[16px] md:text-[18px] lg:text-[20px]">Scan the QR code to download the app</p>
         <div className="flex items-center justify-center w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] ">
-          <Image src="/images/qr-code-2.png" alt="QR Code" className="w-full h-full" width={400} height={400} />
+          <Image src="/images/qr-code-09-25.png" alt="QR Code" className="w-full h-full" width={400} height={400} />
         </div>
         <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or get a download link via SMS</p>
         <div className="flex flex-row items-center justify-center">
-          <input type="text" placeholder="+1" className="bg-[#e2edff] w-[60px] h-[40px] md:w-[60px] md:h-[50px] lg:w-[60px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setCountryCode(e.target.value)} maxLength={4} />
-          <input type="text" placeholder="Mobile number" className="bg-[#e2edff] w-[150px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[250px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setPhoneNumber(e.target.value)} maxLength={10} />
+          <input inputMode="tel" type="tel" placeholder="+1" className="bg-[#e2edff] w-[60px] h-[40px] md:w-[60px] md:h-[50px] lg:w-[60px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setCountryCode(e.target.value)} maxLength={4} />
+          <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="bg-[#e2edff] w-[150px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[250px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setPhoneNumber(e.target.value)} maxLength={10} />
           <button className="bg-[#aacaff] hover:bg-[#aacaff] text-black font-bold text-[24px] px-4 h-[40px] md:h-[50px] lg:h-[60px] rounded-full" onClick={async () => {
             if (validateCountryCode(countryCode) && validatePhoneNumber(phoneNumber)) {
               setCountryCode(countryCode);
