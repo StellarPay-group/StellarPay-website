@@ -29,7 +29,7 @@ export default function SignInPage() {
 
       <main className="flex flex-col justify-center items-center mb-[50px]">
 
-      <Image src="/images/stellarbanking_logo.png" alt="StellarPay" width={100} height={100} className="mt-[20px] mx-auto mb-[20px]" />
+      <Image src="/images/stellarbanking_logo.png" alt="StellarPay" width={100} height={100} className="mt-[20px] md:mt-[0px] mx-auto mb-[20px]" />
         <div className="flex flex-col md:flex-row justify-center items-center lg:translate-x-[-24px]">
           <div className="flex flex-col max-w-lg mr-[0px] lg:mr-[50px]">
             <h1 className="text-4xl font-semibold mb-4 text-center md:text-start">Welcome back</h1>
