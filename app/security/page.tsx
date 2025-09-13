@@ -112,7 +112,7 @@ export default function MeetTheTeam() {
   
 
       <motion.div 
-        className="py-10 md:py-20"
+        className="px-10 md:px-0 py-10 md:py-20"
         ref={traitsAnimation.ref}
         initial={traitsAnimation.initial}
         animate={traitsAnimation.animate}
@@ -128,7 +128,7 @@ export default function MeetTheTeam() {
       </motion.div>
 
       <motion.div 
-        className="py-10 md:py-10 md:mb-20"
+        className="px-10 md:px-0 py-10 md:py-10 md:mb-20"
         ref={traitsAnimation.ref}
         initial={traitsAnimation.initial}
         animate={traitsAnimation.animate}
@@ -145,17 +145,17 @@ export default function MeetTheTeam() {
       </motion.div>
 
       <motion.div 
-        className="py-10 md:py-10 md:mb-30"
+        className="px-10 md:px-0 py-10 md:py-10 md:mb-30"
         ref={traitsAnimation.ref}
         initial={traitsAnimation.initial}
         animate={traitsAnimation.animate}
         transition={traitsAnimation.transition}
       >
         <div className="flex flex-col md:flex-row items-center justify-center">
-        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mr-20 mb-20">
+        <div className="flex flex-col w-[280px] md:w-auto max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] md:mr-20 mb-20">
         <Image src="/images/two-step.png" alt="two-step" width={400} height={400} className="w-full h-full" />
         <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-180px]" >
-          <h3 className="font-semibold text-4xl mb-2">
+          <h3 className="font-bold text-2xl md:text-4xl mb-2">
           Two-step authentication
           </h3>
           <p className="font-semibold text-xl">
@@ -164,10 +164,10 @@ export default function MeetTheTeam() {
         </div>
         </div>
 
-        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mr-20 mb-20">
+        <div className="flex flex-col w-[280px] md:w-auto max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] md:mr-20 mb-20">
         <Image src="/images/biometrics.png" alt="two-step" width={400} height={400} className="w-full h-full" />
         <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-210px]" >
-          <h3 className="font-semibold text-4xl mb-2">
+          <h3 className="font-bold text-2xl md:text-4xl mb-2">
           Biometrics and ecryption
           </h3>
           <p className="font-semibold text-xl">
@@ -178,7 +178,7 @@ export default function MeetTheTeam() {
         <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mb-20">
         <Image src="/images/personalize.png" alt="two-step" width={400} height={400} className="w-full h-full mb-[20px] rounded-2xl" />
         <div className="bg-gray-200 rounded-2xl px-11 py-12 md:mt-[-260px]" >
-          <h3 className="font-semibold text-4xl mb-2">
+          <h3 className="font-bold text-2xl md:text-4xl mb-2">
           Personalize your experience
           </h3>
           <p className="font-semibold text-xl">
@@ -202,16 +202,16 @@ export default function MeetTheTeam() {
       >
 
       <motion.div 
-            className="bg-[#ffffff] flex flex-col items-center justify-center px-4 py-16 rounded-2xl max-w-5xl"
+            className="bg-[#ffffff] flex flex-col items-center justify-center px-4 py-16 rounded-2xl w-[300px] md:w-auto max-w-5xl"
             ref={storeAnimation.ref}
             initial={storeAnimation.initial}
             animate={storeAnimation.animate}
             transition={storeAnimation.transition}
           >
 
-            <h1 className="text-center text-6xl xl:text-7xl font-bold mb-15 mx-20 mt-5">Thousands of security experts protecting your money 24/7</h1>
+            <h1 className="text-center text-2xl md:text-6xl xl:text-7xl font-bold mb-15 mx-5 md:mx-20 mt-5">Thousands of security experts protecting your money 24/7</h1>
 
-            <p className="text-center text-xl font-semibold mx-30 mb-15">We’re building the best way to move and manage the world’s money. Min fees. Max ease. Full speed. Full security.</p>
+            <p className="text-center text-xl font-semibold mx-5 md:mx-30 mb-15">We’re building the best way to move and manage the world’s money. Min fees. Max ease. Full speed. Full security.</p>
 
             <a href="/meet-the-team#mission" className="px-8 sm:px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition text-sm sm:text-base mb-20">Learn about our mission</a>
             

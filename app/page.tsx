@@ -306,9 +306,9 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
-                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
-                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
+                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
+                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
+                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
         </motion.div>
       </motion.section>
      
@@ -578,7 +578,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Money that moves<br />as fast as you.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Tap, send, and it’s there — across town or across the world.</p>
         <div className="flex justify-center mt-7">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -593,7 +593,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Funds that land<br /> where life happens.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Bank accounts, mobile wallets, or cash-out — instantly available.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -609,7 +609,7 @@ export default function HomePage() {
         No hidden fees.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Your money is always moving at the speed of life.</p>
         <div className="flex justify-center mt-12">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -624,7 +624,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Transfers with a<br /> personal touch.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Share, connect, and send with StellarTags — money made social.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -646,7 +646,7 @@ export default function HomePage() {
             <p className="text-gray-200 font-normal sm:font-semibold text-sm sm:text-base md:text-xl xl:text-2xl mb-4 md:mb-8 max-w-3xl xl:max-w-4xl">Your peace of mind is built into every transfer.<br /> We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
             <p className="text-gray-200 font-normal sm:font-semibold text-sm sm:text-base md:text-xl xl:text-2xl mb-4 md:mb-12 max-w-3xl xl:max-w-4xl">No shady conversions. No surprise fees. Just total transparency.</p>
             <a href="/security">
-            <Button className="text-black px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-gray-200 mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
+            <Button className="text-black px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-gray-200 hover:bg-gray-400 mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
             </a>
       </motion.section>
 
