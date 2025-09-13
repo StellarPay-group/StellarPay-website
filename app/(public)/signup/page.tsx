@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import GetTheApp from "@/components/popup/getTheApp";
 import { sendAppLink } from "@/lib/message";
+import { getUrlForDevice } from "@/lib/device";
 
 
 export default function SignUpPage() {
@@ -43,7 +44,7 @@ export default function SignUpPage() {
                 </a>
                 <p className="text-center text-md text-[#191c1f] mt-[20px] mr-[0px] md:mr-[20px]">OR</p>
                 <div className="flex flex-col md:flex-row justify-between items-center border-gray mr-[0px] md:mr-[20px]">
-                <a onClick={() => setShowPopup(true)}>
+                <a onClick={() => window.open(getUrlForDevice())}>
                     <button className="mt-[20px] w-[300px] md:w-[210px] h-[50px] md:h-[60px] rounded-[10px] border 
                   border-gray-300 p-[10px] text-[18px] mr-[0px] md:mr-[10px]">
                     <div className="flex flex-row items-center justify-center">
@@ -52,7 +53,7 @@ export default function SignUpPage() {
                     </div>
                   </button>
                   </a>
-                  <a onClick={() => setShowPopup(true)}>
+                  <a onClick={() => window.open(getUrlForDevice())}>
                     <button className="mt-[20px] w-[300px] md:w-[200px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] mr-[0px] md:mr-[7px]">
                       <div className="flex flex-row items-center justify-center">
                         <Image src="/images/AppleLogo.png" alt="Apple" width={20} height={20} />

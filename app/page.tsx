@@ -13,7 +13,8 @@ import { useEffect, useMemo, useState } from 'react';
 import GetTheApp from '@/components/popup/getTheApp';
 import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
 import type { CurrencyListOption } from '@/lib/country.types';
-import { currencies } from '@/lib/country.types';
+import { getUrlForDevice } from '@/lib/device';
+import { currencies, convertLocal } from '@/lib/country.types';
 
 
 function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedAmount: any) {
@@ -24,7 +25,9 @@ function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedA
     true
   );
   
-  if (!conversionReceive || !toCurrency) return 0.00;
+  if (!conversionReceive || !toCurrency) {
+    return convertLocal(fromCurrency, toCurrency, debouncedAmount);
+  }
   const converted = conversionReceive[toCurrency]["amount"];
   return parseFloat(converted.toFixed(2)) || 0.00;
 }
@@ -267,7 +270,7 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <a onClick={() => setShowPopup(true)} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
+          <a onClick={() => window.open(getUrlForDevice())} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
         </motion.div>
         {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
         {/* Hero Illustration */}
@@ -338,7 +341,7 @@ export default function HomePage() {
                 payments or putting down deposits — over half our transfers get there in under 20 seconds. Use it
                 to believe it.
               </p>
-              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => setShowPopup(true)}>
+              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => window.open(getUrlForDevice())}>
                 Learn how to send money
               </button>
             </motion.div>
@@ -459,12 +462,12 @@ export default function HomePage() {
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
+                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => window.open(getUrlForDevice())}>
                     Compare price
                   </button>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
+                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => window.open(getUrlForDevice())}>
                     Send money now
                   </button>
                   </div>
