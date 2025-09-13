@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState } from "react";
 import GetTheApp from "@/components/popup/getTheApp";
+import { getUrlForDevice } from "@/lib/device";
 
 
 export default function NewsPage() {
@@ -144,7 +145,7 @@ export default function NewsPage() {
             <p className="text-[#000000] text-xl font-[400] mb-4 text-start md:text-center">Got a media enquiry? Get in touch with us at discovery@stellarpay.app. </p>
             <p className="text-[#000000] text-xl font-[400] mb-8 text-start md:text-center">
             Please note this email can’t respond to customer requests.</p>
-            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-5 rounded-full text-lg font-medium mx-auto block leading-none flex items-center justify-center" onClick={() => setShowPopup(true)}>Get in touch</Button>
+            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-5 rounded-full text-lg font-medium mx-auto block leading-none flex items-center justify-center" onClick={() => window.open(getUrlForDevice())}>Get in touch</Button>
           </div>
         </div>
         </div>
@@ -260,7 +261,7 @@ export default function NewsPage() {
               </p>
             </div>
 
-            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-7 rounded-full text-lg font-medium mx-auto block leading-none mb-10 flex items-center justify-center" onClick={() => setShowPopup(true)}>Get StellarPay</Button>
+            <Button className="bg-[#0065ff] hover:bg-[#0052cc] text-white px-8 py-7 rounded-full text-lg font-medium mx-auto block leading-none mb-10 flex items-center justify-center" onClick={() => window.open(getUrlForDevice())}>Get StellarPay</Button>
           </div>
         </div>
       </section>

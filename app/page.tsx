@@ -13,7 +13,8 @@ import { useEffect, useMemo, useState } from 'react';
 import GetTheApp from '@/components/popup/getTheApp';
 import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
 import type { CurrencyListOption } from '@/lib/country.types';
-import { currencies } from '@/lib/country.types';
+import { getUrlForDevice } from '@/lib/device';
+import { currencies, convertLocal } from '@/lib/country.types';
 
 
 function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedAmount: any) {
@@ -24,7 +25,9 @@ function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedA
     true
   );
   
-  if (!conversionReceive || !toCurrency) return 0.00;
+  if (!conversionReceive || !toCurrency) {
+    return convertLocal(fromCurrency, toCurrency, debouncedAmount);
+  }
   const converted = conversionReceive[toCurrency]["amount"];
   return parseFloat(converted.toFixed(2)) || 0.00;
 }
@@ -267,7 +270,7 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <a onClick={() => setShowPopup(true)} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
+          <a onClick={() => window.open(getUrlForDevice())} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
         </motion.div>
         {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
         {/* Hero Illustration */}
@@ -303,9 +306,9 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
-                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
-                    <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
+                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
+                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
+                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
         </motion.div>
       </motion.section>
      
@@ -338,7 +341,7 @@ export default function HomePage() {
                 payments or putting down deposits — over half our transfers get there in under 20 seconds. Use it
                 to believe it.
               </p>
-              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => setShowPopup(true)}>
+              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => window.open(getUrlForDevice())}>
                 Learn how to send money
               </button>
             </motion.div>
@@ -459,12 +462,12 @@ export default function HomePage() {
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
+                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => window.open(getUrlForDevice())}>
                     Compare price
                   </button>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => setShowPopup(true)}>
+                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => window.open(getUrlForDevice())}>
                     Send money now
                   </button>
                   </div>
@@ -575,7 +578,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Money that moves<br />as fast as you.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Tap, send, and it’s there — across town or across the world.</p>
         <div className="flex justify-center mt-7">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -590,7 +593,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Funds that land<br /> where life happens.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Bank accounts, mobile wallets, or cash-out — instantly available.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -606,7 +609,7 @@ export default function HomePage() {
         No hidden fees.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Your money is always moving at the speed of life.</p>
         <div className="flex justify-center mt-12">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -621,7 +624,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Transfers with a<br /> personal touch.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Share, connect, and send with StellarTags — money made social.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open("https://qrco.de/bgIGwE")} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -643,7 +646,7 @@ export default function HomePage() {
             <p className="text-gray-200 font-normal sm:font-semibold text-sm sm:text-base md:text-xl xl:text-2xl mb-4 md:mb-8 max-w-3xl xl:max-w-4xl">Your peace of mind is built into every transfer.<br /> We use bank-grade encryption, real-time fraud detection, and offer 24/7 in-app support — so your money is always in safe hands.</p>
             <p className="text-gray-200 font-normal sm:font-semibold text-sm sm:text-base md:text-xl xl:text-2xl mb-4 md:mb-12 max-w-3xl xl:max-w-4xl">No shady conversions. No surprise fees. Just total transparency.</p>
             <a href="/security">
-            <Button className="text-black px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-gray-200 mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
+            <Button className="text-black px-8 md:px-16 py-4 md:py-7 rounded-full text-sm md:text-lg font-semibold bg-gray-200 hover:bg-gray-400 mx-auto md:mx-0 block leading-none flex items-center justify-center">Learn more</Button>
             </a>
       </motion.section>
 
