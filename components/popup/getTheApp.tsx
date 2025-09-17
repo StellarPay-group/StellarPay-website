@@ -22,7 +22,7 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
         <div className="flex flex-row items-center justify-center">
           <input inputMode="tel" type="tel" placeholder="+1" className="bg-[#e2edff] w-[60px] h-[40px] md:w-[60px] md:h-[50px] lg:w-[60px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setCountryCode(e.target.value)} maxLength={4} />
           <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="bg-[#e2edff] w-[150px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[250px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[20px] mr-[10px]" onChange={(e) => setPhoneNumber(e.target.value)} maxLength={10} />
-          <button className="bg-[#aacaff] hover:bg-[#aacaff] text-black font-bold text-[24px] px-4 h-[40px] md:h-[50px] lg:h-[60px] rounded-full" onClick={async () => {
+          <button className="bg-[#0065ff] hover:bg-[#0065ff] text-black font-bold text-[25px] h-[40px] w-[40px] md:h-[50px] md:w-[50px] lg:h-[60px] lg:w-[60px] rounded-full" onClick={async () => {
             if (validateCountryCode(countryCode) && validatePhoneNumber(phoneNumber)) {
               setCountryCode(countryCode);
               setPhoneNumber("");
@@ -31,7 +31,7 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
             } else {
               alert("Please enter a valid country code and phone number");
             }
-          }}>→</button>
+          }}><p className='text-white'>&gt;</p></button>
         </div>
       </div>
     </div>
