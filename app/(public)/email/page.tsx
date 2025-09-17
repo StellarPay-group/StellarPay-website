@@ -6,12 +6,13 @@ import { useState } from "react";
 import GetTheApp from "@/components/popup/getTheApp";
 import { sendAppLink, validatePhoneNumber, validateCountryCode } from "@/lib/message";
 import { getUrlForDevice } from "@/lib/device";
+import { useSearchParams } from "next/navigation";
 
 export default function SignUpPage() {
 
       const [showPopup, setShowPopup] = useState(false);    
-      const [countryCode, setCountryCode] = useState('');
-      const [phoneNumber, setPhoneNumber] = useState('');
+      const searchParams = useSearchParams();
+      const email = searchParams.get("email");
 
       return (
         <div className="flex flex-col min-h-screen">
@@ -39,7 +40,7 @@ export default function SignUpPage() {
           <Image src="/images/email.png" alt="QR Code" className="w-full h-full rounded-2xl" width={400} height={400} />
         </div>
         <div className="flex flex-row items-center justify-center">
-          <button className="bg-white hover:bg-gray-100 text-black font-bold text-[18px] md:text-[25px] h-[40px] md:h-[60px] w-[270px] md:w-[350px] lg:w-[450px] rounded-[20px] border-1 border-gray-300" onClick={async () => {
+          <button className="mb-[100px] md:mb-[0px] bg-white hover:bg-gray-100 text-black font-bold text-[18px] md:text-[25px] h-[40px] md:h-[60px] w-[270px] md:w-[350px] lg:w-[450px] rounded-[20px] border-1 border-gray-300" onClick={async () => {
           }}><p className='text-black font-normal'>Resend email</p></button>
         </div>
       </div>

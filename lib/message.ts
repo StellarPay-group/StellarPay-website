@@ -18,10 +18,10 @@ export async function sendAppLink(
           countryCode: string,
           phoneNumber: string,
           channel: 'sms'
-): Promise<void> {
+): Promise<void | number> {
           if (!validateCountryCode(countryCode) || !validatePhoneNumber(phoneNumber)) {
                     alert('The country code or phone number you entered is invalid. Please check the format of the country code (must start with "+", like "+1", "+236", etc.) and phone number (digits only, like "8002223333"). ')
-                    return;
+                    return -3;
           }
           try {
                     let to: string = countryCode + '' + phoneNumber;
@@ -42,11 +42,11 @@ export async function sendAppLink(
                               console.log(response)
                               alert('Failed to send link to your phone number. Get StellarPay here: https://www.stellarpay.app/download');
                               console.error('Failed to send link SMS', data);
-                              return;
+                              return -2;
                     }
           } catch (err) {
                     console.error('Error sending link SMS:', err);
-                    return;
+                    return -1;
           }
 }
 
@@ -54,10 +54,10 @@ export async function sendLoginLink(
           countryCode: string,
           phoneNumber: string,
           channel: 'sms'
-): Promise<void> {
+): Promise<void | number> {
           if (!validateCountryCode(countryCode) || !validatePhoneNumber(phoneNumber)) {
                     alert('The country code or phone number you entered is invalid. Please check the format of the country code (must start with "+", like "+1", "+236", etc.) and phone number (digits only, like "8002223333"). ')
-                    return;
+                    return -3;
           }
           try {
                     let to: string = countryCode + '' + phoneNumber;
@@ -77,10 +77,10 @@ export async function sendLoginLink(
                     } else {
                               alert('Failed to send link to your phone number. Get StellarPay and log in here: https://www.stellarpay.app/download');
                               console.error('Failed to send link SMS:', data);
-                              return;
+                              return -2;
                     }
           } catch (err) {
                     console.error('Error sending link SMS:', err);
-                    return;
+                    return -1;
           }
 }

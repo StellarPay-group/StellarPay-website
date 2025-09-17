@@ -41,7 +41,12 @@ export default function SignInPage() {
               <input inputMode="tel" type="tel" placeholder="+1" className="mb-[20px] w-[60px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px] mr-[10px] md:mr-[20px]" onChange={(e) => {setCountryCode(e.target.value)}} maxLength={4} />
               <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="w-[228px] md:w-[340px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
             </div>
-            <div className='mx-auto md:mx-[0px]' onClick={() => {sendLoginLink(countryCode, phoneNumber, 'sms'); window.open('/response', '_self')}}>
+            <div className='mx-auto md:mx-[0px]' onClick={async () => {
+              const sid = await sendLoginLink(countryCode, phoneNumber, 'sms');
+              if (sid !== -3) {
+                window.open('/response', '_self')
+              }
+              }}>
               <button className="bg-[#000000] text-white px-4 py-2 rounded-[10px] border border-gray-300 h-[50px] md:h-[60px] w-[300px] md:w-[420px] text-[16px] md:text-[20px] mt-[5px]">Continue</button>
             </div>
             <p className="text-center text-md text-[#191c1f] mt-[20px] mr-[0px] md:mr-[20px]">OR</p>
