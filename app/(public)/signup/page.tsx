@@ -72,7 +72,7 @@ export default function SignUpPage() {
               </div>
     
               <div className="hidden lg:block flex flex-col justify-center items-center ml-[100px]">
-                <Image src="/images/qr-code-09-25.png" alt="QR Code" width={200} height={200} className="mb-[20px] border-gray-700 border-1 rounded-2xl shadow-xl ml-[25px]" />
+                <Image src="/images/frame.png" alt="QR Code" width={200} height={200} className="mb-[20px] border-gray-700 border-1 rounded-2xl shadow-xl ml-[25px]" />
                 <p className="text-center text-lg font-bold text-[#191c1f] mt-[20px]">Sign up with QR code</p>
                 <p className="text-center text-md text-gray-700 mt-[20px] w-[250px]">Scan this code with your phone camera to log in instantly</p>
               </div>
