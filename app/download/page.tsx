@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 function getUrl() {
           const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
           if (/android/i.test(userAgent)) {
@@ -13,5 +14,7 @@ function getUrl() {
           window.location.href = 'https://play.google.com/store/apps/details?id=com.stellar.stellarai.app';
 }
 export default function Download() {
-          getUrl()
+          useEffect(() => {
+                    getUrl()
+          }, [])
 }
