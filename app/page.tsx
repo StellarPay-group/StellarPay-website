@@ -270,7 +270,7 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
         >
-          <a onClick={() => window.open(getUrlForDevice())} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
+          <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="px-8 sm:px-12 py-3 lg:py-4 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Get the app</a>
         </motion.div>
         {showPopup && <GetTheApp onClose={() => setShowPopup(false)} onSubmit={() => {}} />}
         {/* Hero Illustration */}
@@ -306,9 +306,9 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
         >
-                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
-                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
-                    <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
+                    <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-[#0065ff] text-white shadow transition text-sm sm:text-base">Send</a>
+                    <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Receive</a>
+                    <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] lg:w-[150px] py-3 rounded-full font-semibold bg-black text-white shadow hover:bg-black transition text-sm sm:text-base">Spend</a>
         </motion.div>
       </motion.section>
      
@@ -341,7 +341,7 @@ export default function HomePage() {
                 payments or putting down deposits — over half our transfers get there in under 20 seconds. Use it
                 to believe it.
               </p>
-              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => window.open(getUrlForDevice())}>
+              <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white px-4 md:px-6 py-4 rounded-full font-semibold text-sm md:text-lg" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                 Learn how to send money
               </button>
             </motion.div>
@@ -462,12 +462,12 @@ export default function HomePage() {
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => window.open(getUrlForDevice())}>
+                  <button className="bg-[#ffffff] hover:bg-[#ffffff]/90 border border-[#0065ff] text-[#0065ff] rounded-full px-3 md:px-6 py-4 text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                     Compare price
                   </button>
                   </div>
                   <div className="flex items-center justify-center">
-                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => window.open(getUrlForDevice())}>
+                  <button className="bg-[#0065ff] hover:bg-[#0065ff]/90 border border-[#0065ff] text-white rounded-full px-3 md:px-6 py-4 mt-[20px] text-xs md:text-[18px] font-medium font-semibold w-[80%]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                     Send money now
                   </button>
                   </div>
@@ -578,7 +578,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Money that moves<br />as fast as you.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Tap, send, and it’s there — across town or across the world.</p>
         <div className="flex justify-center mt-7">
-        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -593,7 +593,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Funds that land<br /> where life happens.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Bank accounts, mobile wallets, or cash-out — instantly available.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -609,7 +609,7 @@ export default function HomePage() {
         No hidden fees.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Your money is always moving at the speed of life.</p>
         <div className="flex justify-center mt-12">
-        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>
@@ -624,7 +624,7 @@ export default function HomePage() {
         <h2 className="text-center font-bold text-[20px] mt-8">Transfers with a<br /> personal touch.</h2>
         <p className="text-center font-normal text-[15px] mt-8">Share, connect, and send with StellarTags — money made social.</p>
         <div className="flex justify-center mt-8">
-        <a onClick={() => window.open(getUrlForDevice())} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
+        <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})} className="w-[100px] py-2 rounded-full font-normal bg-[#0065ff] text-white shadow transition text-[15px] text-center">Try it out</a>
         </div>
         </div>
         </div>

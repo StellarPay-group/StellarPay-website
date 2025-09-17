@@ -150,7 +150,7 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">StellarTags</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">No long account numbers. Just send to @james or @aisha</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => window.open(getUrlForDevice())}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[65px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-lg text-center">P2P</h2>
                 </div>
                 </div>
@@ -161,7 +161,7 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Send home. Send abroad. Send anywhere.</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px] md:mb-[18px]">North America ↔ Africa money transfers in seconds.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]" onClick={() => window.open(getUrlForDevice())}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[85px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[60px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-lg text-center">Global</h2>
                 </div>
                 </div>
@@ -177,7 +177,7 @@ export default function Features() {
                 </div>
                 <div className="flex flex-row items-center justify-between mb-0">
                 <Image src="/images/deposit.png" alt="features" width={350} height={180} className="h-auto w-[300px]" />
-                <div className="hidden md:flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => window.open(getUrlForDevice())}>
+                <div className="hidden md:flex rounded-xl bg-[#0363fe] w-[120px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[25px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-lg text-center">Try it out!</h2>
                 </div>
                 </div>
@@ -193,7 +193,7 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">It's all social</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Share a note, add an emoji, or keep it discreet with private mode.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[30px] md:mb-[-10px]" onClick={() => window.open(getUrlForDevice())}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[240px] h-[40px] justify-center items-center mt-[25px] mx-[25px] mb-[30px] md:mb-[-10px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-lg text-center">@Friends and Family</h2>
                 </div>
                 </div>
@@ -204,7 +204,7 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[26px] mt-[30px] mx-[25px]">Security You Can Trust</h2>
                     <p className="text-gray-500 font-semi text-[18px] mt-[15px] mx-[25px]">Every transaction is protected with AES-256 and SSL/TLS encryption. 24/7.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[35px] justify-center items-center mt-[25px] mx-[25px]" onClick={() => window.open(getUrlForDevice())}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[130px] h-[35px] justify-center items-center mt-[25px] mx-[25px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-[16px] text-center">Learn More</h2>
                 </div>
                 </div>
@@ -217,7 +217,7 @@ export default function Features() {
                   <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Top up easily</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Link your bank, mobile money wallet or debit card and you're ready to go.</p>
-                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]" onClick={() => window.open(getUrlForDevice())}>
+                    <div className="flex rounded-xl bg-[#0363fe] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[80px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-[16px] text-center">Learn more</h2>
                 </div>
                 </div>
@@ -234,7 +234,7 @@ export default function Features() {
                 <div>
                 <Image src="/images/trustpilot.png" alt="features" width={320} height={200} className="mt-[25px] md:mt-[0px] w-[330px] h-auto ml-[-5px] md:ml-[0px]" />
                 </div>
-                <div className="flex justify-center items-center" onClick={() => window.open(getUrlForDevice())}>
+                <div className="flex justify-center items-center" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <Image
                     src="/images/review.png"
                     alt="features"
@@ -249,7 +249,7 @@ export default function Features() {
                 <div className="flex flex-col">
                     <h2 className="text-black font-bold text-[24px] mt-[30px] mx-[25px]">Spend abroad like a local</h2>
                     <p className="text-gray-500 font-semi text-[16px] mt-[15px] mx-[25px]">Use your Stellar card around the world with no hidden fees. Hold, transfer, and spend money in 10+ currencies</p>
-                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]" onClick={() => window.open(getUrlForDevice())}>
+                    <div className="flex rounded-xl bg-[#ff7700] w-[120px] h-[35px] justify-center items-center mt-[25px] mx-[25px] mb-[20px]" onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                   <h2 className="font-bold text-white text-[16px] text-center">Coming soon</h2>
                 </div>
                 </div>
