@@ -6,13 +6,11 @@ import { useState } from "react";
 import GetTheApp from "@/components/popup/getTheApp";
 import { sendAppLink, validatePhoneNumber, validateCountryCode } from "@/lib/message";
 import { getUrlForDevice } from "@/lib/device";
-import { useSearchParams } from "next/navigation";
 
-export default function SignUpPage() {
+export default function SignUpPage({ searchParams }: { searchParams: { phoneNumber?: string, countryCode?: string } }) {
 
-  const searchParams = useSearchParams();
-  const phoneNumber = searchParams.get("phoneNumber");
-  const countryCode = searchParams.get("countryCode");
+  const phoneNumber = searchParams.phoneNumber;
+  const countryCode = searchParams.countryCode;
 
       return (
         <div className="flex flex-col min-h-screen">
