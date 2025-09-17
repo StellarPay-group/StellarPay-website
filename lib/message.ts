@@ -32,7 +32,7 @@ export async function sendAppLink(
                               body: JSON.stringify({
                               to,
                               from: TWILIO_PHONE_NUMBER,
-                              body: "Your money moves with you 🌍. Download StellarPay now and start sending in seconds. https://apps.apple.com/ca/app/george/id6743195041"
+                              body: "Your money moves with you 🌍. Download StellarPay now and start sending in seconds. https://www.stellarpay.app/download"
                               })
                     });
                     const data = await response.json();
@@ -40,12 +40,12 @@ export async function sendAppLink(
                               return data.data.sid;
                     } else {
                               console.log(response)
-                              alert('Failed to send link to your phone number. Get StellarPay here: https://apps.apple.com/ca/app/george/id6743195041');
+                              alert('Failed to send link to your phone number. Get StellarPay here: https://www.stellarpay.app/download');
                               console.error('Failed to send link SMS', data);
                               return;
                     }
           } catch (err) {
-                    alert('Error sending link to your phone number. Get StellarPay here: https://apps.apple.com/ca/app/george/id6743195041');
+                    alert('Error sending link to your phone number. Get StellarPay here: https://www.stellarpay.app/download');
                     console.error('Error sending link SMS:', err);
                     return;
           }
@@ -69,19 +69,19 @@ export async function sendLoginLink(
                               body: JSON.stringify({
                               to,
                               from: TWILIO_PHONE_NUMBER,
-                              body: "Welcome back 👋. Tap below to log in and get moving with StellarPay. https://apps.apple.com/ca/app/george/id6743195041"
+                              body: "Welcome back 👋. Tap below to log in and get moving with StellarPay. https://www.stellarpay.app/download"
                               })
                     });
                     const data = await response.json();
                     if (response.ok && data.data && data.data.sid) {
                               return data.data.sid;
                     } else {
-                              alert('Failed to send link to your phone number. Get StellarPay and log in here: https://apps.apple.com/ca/app/george/id6743195041');
+                              alert('Failed to send link to your phone number. Get StellarPay and log in here: https://www.stellarpay.app/download');
                               console.error('Failed to send link SMS:', data);
                               return;
                     }
           } catch (err) {
-                    alert('Error sending link to your phone number. Get StellarPay and log in here: https://apps.apple.com/ca/app/george/id6743195041');
+                    alert('Error sending link to your phone number. Get StellarPay and log in here: https://www.stellarpay.app/download');
                     console.error('Error sending link SMS:', err);
                     return;
           }
