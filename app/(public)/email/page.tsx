@@ -7,14 +7,7 @@ import GetTheApp from "@/components/popup/getTheApp";
 import { sendAppLink, validatePhoneNumber, validateCountryCode } from "@/lib/message";
 import { getUrlForDevice } from "@/lib/device";
 
-export default function SignUpPage({
-  searchParams,
-}: {
-  searchParams?: { email?: string };
-}) {
-
-      const [showPopup, setShowPopup] = useState(false);    
-      const email = searchParams?.email;
+export default function SignUpPage() {
 
       return (
         <div className="flex flex-col min-h-screen">
