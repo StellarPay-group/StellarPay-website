@@ -39,7 +39,7 @@ export default function SignUpPage() {
           <Image src="/images/response.png" alt="QR Code" className="w-full h-full rounded-2xl" width={400} height={400} />
         </div>
         <div className="flex flex-row items-center justify-center">
-          <button className="bg-white hover:bg-gray-100 text-black font-bold text-[12px] md:text-[18px] h-[40px] md:h-[60px] w-[270px] md:w-[370px] lg:w-[450px] rounded-[20px] border-1 border-gray-300" onClick={async () => {
+          <button className="mb-[100px] md:mb-[0px] bg-white hover:bg-gray-100 text-black font-bold text-[12px] md:text-[18px] h-[40px] md:h-[60px] w-[270px] md:w-[370px] lg:w-[450px] rounded-[20px] border-1 border-gray-300" onClick={async () => {
           }}><p className='text-black font-normal'>I haven't received an approval request</p></button>
         </div>
       </div>
