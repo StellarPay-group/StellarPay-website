@@ -45,7 +45,6 @@ export async function sendAppLink(
                               return;
                     }
           } catch (err) {
-                    alert('Error sending link to your phone number. Get StellarPay here: https://www.stellarpay.app/download');
                     console.error('Error sending link SMS:', err);
                     return;
           }
@@ -81,7 +80,6 @@ export async function sendLoginLink(
                               return;
                     }
           } catch (err) {
-                    alert('Error sending link to your phone number. Get StellarPay and log in here: https://www.stellarpay.app/download');
                     console.error('Error sending link SMS:', err);
                     return;
           }

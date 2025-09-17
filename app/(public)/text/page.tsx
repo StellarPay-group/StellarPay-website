@@ -33,7 +33,7 @@ export default function SignUpPage() {
             <div className="relative fixed flex items-center justify-center rounded-[25px] mt-[10px] bg-white">
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="text-black text-[24px] md:text-[32px] lg:text-[40px] mb-[10px] font-bold">Check your text</h1>
-        <p className="max-w-[450px] text-center text-gray-700 text-[16px] md:text-[18px] lg:text-[20px]">Follow the link in the email we sent to (phone number). The text message can take up to 1 minute to arrive.
+        <p className="max-w-[300px] md:max-w-[450px] text-center text-gray-700 text-[16px] md:text-[18px] lg:text-[20px]">Follow the link in the email we sent to (phone number). The text message can take up to 1 minute to arrive.
 
         </p>
         <div className="mt-[20px] mb-[20px] flex items-center justify-center w-[300px] h-[225px] md:w-[400px] md:h-[300px]">

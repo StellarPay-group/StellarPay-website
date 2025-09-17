@@ -30,12 +30,12 @@ export default function SignUpPage() {
             <div className="relative fixed flex items-center justify-center rounded-[25px] mt-[10px] bg-white">
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="text-black text-[24px] md:text-[32px] lg:text-[40px] mb-[10px] font-bold">Reset password</h1>
-        <p className="max-w-[450px] text-center text-gray-700 text-[12px] md:text-[16px] lg:text-[18px]">Just enter the email address you registered with and we’ll send you a link to reset your password.
+        <p className="max-w-[300px] md:max-w-[450px] text-center text-gray-700 text-[12px] md:text-[16px] lg:text-[18px]">Just enter the email address you registered with and we’ll send you a link to reset your password.
 
         </p>
         <div className="flex flex-col items-center justify-center">
         <input placeholder="Email address" className="mt-[40px] mb-[40px] w-[300px] md:w-[450px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px]" onChange={(e) => {setEmail(e.target.value)}} maxLength={10} />
-          <button className="bg-[#0065ff] hover:bg-[#0065ff] text-white font-bold text-[12px] md:text-[18px] h-[40px] md:h-[60px] w-[270px] md:w-[350px] lg:w-[400px] rounded-[15px] border-1 border-gray-300" onClick={async () => {
+          <button className="bg-[#0065ff] hover:bg-[#0065ff] text-white font-bold text-[16px] md:text-[18px] h-[50px] md:h-[60px] w-[270px] md:w-[350px] lg:w-[400px] rounded-[15px] border-1 border-gray-300" onClick={async () => {
           }}><p className='text-white font-semibold'>{email}Send password reset link</p></button>
         </div>
       </div>
