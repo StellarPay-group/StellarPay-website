@@ -7,10 +7,13 @@ import GetTheApp from "@/components/popup/getTheApp";
 import { sendAppLink, validatePhoneNumber, validateCountryCode } from "@/lib/message";
 import { getUrlForDevice } from "@/lib/device";
 
-export default function SignUpPage({ searchParams }: { searchParams: { phoneNumber?: string, countryCode?: string } }) {
-
-  const phoneNumber = searchParams.phoneNumber;
-  const countryCode = searchParams.countryCode;
+export default function SignUpPage({
+  searchParams,
+}: {
+  searchParams?: { phoneNumber?: string; countryCode?: string };
+}) {
+  const phoneNumber = searchParams?.phoneNumber;
+  const countryCode = searchParams?.countryCode;
 
       return (
         <div className="flex flex-col min-h-screen">
