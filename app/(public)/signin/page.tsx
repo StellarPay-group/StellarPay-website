@@ -51,7 +51,7 @@ export default function SignInPage() {
             </div>
             <p className="text-center text-md text-[#191c1f] mt-[20px] mr-[0px] md:mr-[20px]">OR</p>
             <div className="flex flex-col md:flex-row justify-between items-center border-gray mr-[0px] md:mr-[20px]">
-            <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
+            <div onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                 <button className="mt-[20px] w-[300px] md:w-[200px] h-[50px] md:h-[60px] rounded-[10px] border 
               border-gray-300 p-[10px] text-[18px] mr-[0px] md:mr-[10px]">
                 <div className="flex flex-row items-center justify-center">
@@ -59,15 +59,15 @@ export default function SignInPage() {
                   <p className="text-[16px] ml-[10px]">Sign in with Google</p>
                 </div>
               </button>
-              </a>
-              <a onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
+              </div>
+              <div onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
                 <button className="mt-[20px] w-[300px] md:w-[200px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] mr-[0px] md:mr-[10px]">
                   <div className="flex flex-row items-center justify-center">
                     <Image src="/images/AppleLogo.png" alt="Apple" width={20} height={20} />
                     <p className="text-[16px] ml-[10px]">Sign in with Apple</p>
                   </div>
                 </button>
-              </a>
+              </div>
             </div>
             <p className="mt-[20px] text-center mr-[0px] md:mr-[20px] text-md">Don't have an account? </p>
             <Link href="/signup" className='mx-auto md:mx-[0px]'>
