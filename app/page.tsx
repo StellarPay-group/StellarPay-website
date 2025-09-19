@@ -202,9 +202,11 @@ export default function HomePage() {
           <div className='flex flex-row items-center'>
           <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowBanner(false)}/></div>
             <div><Image src="/images/stellarbanking-logo-3.png" alt='EN' width={600} height={600} className='w-[55px] h-[55px]'/></div>
-            <div className='flex flex-col ml-[3px]'>
+            <div className='flex flex-col ml-[8px]'>
               <div className='font-semibold text-[16px] sm:text-[18px] text-white'><p>StellarPay</p></div>
-              <div className='font-normal text-[12px] sm:text-[18px] text-gray-200'><p>Stellar Technologies</p></div>
+              <div className='flex flex-row items-center'><Image src="/images/rating.png" alt='EN' width={1260} height={200} className='w-[88px] h-[14px] mb-[1px] mr-[4px]'/>
+              <p className='font-normal text-[13px] sm:text-[15px] text-gray-300'>(4.5)</p>
+              </div>
             </div>
             </div>
             <a onClick={() => getUrl()} className="px-3 py-1 rounded-full font-semibold bg-white text-black shadow hover:bg-black transition text-[14px] sm:text-base">Download</a>
