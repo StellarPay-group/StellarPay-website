@@ -15,6 +15,7 @@ import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
 import type { CurrencyListOption } from '@/lib/country.types';
 import { getUrlForDevice } from '@/lib/device';
 import { currencies, convertLocal } from '@/lib/country.types';
+import Head from "next/head";
 
 
 function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedAmount: any) {
@@ -134,6 +135,7 @@ export default function HomePage() {
   const georgeAnimation = useScrollAnimation(0.2);
   const footerAnimation = useScrollAnimation(0.1);
 
+  const [showBanner, setShowBanner] = useState(true);
   const [query, setQuery] = useState('');
   const [amount, setAmount] = useState(100);
   const [debouncedAmount, setDebouncedAmount] = useState(0);
@@ -184,6 +186,10 @@ export default function HomePage() {
 
 
   return (
+    <>
+    <Head>
+    <meta name="apple-itunes-app" content="app-id=id6743195041"></meta>
+    </Head>
       <main>
 
       {/* Navigation/Header */}
@@ -195,6 +201,7 @@ export default function HomePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
+        
         <div className="px-4 py-4">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
@@ -915,5 +922,6 @@ export default function HomePage() {
         </div>
       </motion.footer>
       </main>
+      </>
   );
 }
