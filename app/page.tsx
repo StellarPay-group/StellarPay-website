@@ -205,7 +205,7 @@ export default function HomePage() {
             <div className='flex flex-col ml-[8px]'>
               <div className='font-semibold text-[16px] sm:text-[18px] text-white'><p>StellarPay</p></div>
               <div className='flex flex-row items-center'><Image src="/images/rating.png" alt='EN' width={1260} height={200} className='w-[88px] h-[14px] mb-[1px] mr-[4px]'/>
-              <p className='font-normal text-[13px] sm:text-[15px] text-[#9f9f9f]'>(4.5)</p>
+              <p className='font-normal text-[13px] sm:text-[15px] text-gray-300'>(4.5)</p>
               </div>
             </div>
             </div>
