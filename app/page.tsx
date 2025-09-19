@@ -13,7 +13,7 @@ import { useEffect, useMemo, useState } from 'react';
 import GetTheApp from '@/components/popup/getTheApp';
 import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
 import type { CurrencyListOption } from '@/lib/country.types';
-import { getUrlForDevice } from '@/lib/device';
+import { getUrlForDevice, getDeviceType, getUrl } from '@/lib/device';
 import { currencies, convertLocal } from '@/lib/country.types';
 import Head from "next/head";
 
@@ -135,7 +135,7 @@ export default function HomePage() {
   const georgeAnimation = useScrollAnimation(0.2);
   const footerAnimation = useScrollAnimation(0.1);
 
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState(false);
   const [query, setQuery] = useState('');
   const [amount, setAmount] = useState(100);
   const [debouncedAmount, setDebouncedAmount] = useState(0);
@@ -183,15 +183,33 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [amount]);
 
+  
+  useEffect(() => {
+    setTimeout(() => {
+      const a = getDeviceType();
+      console.log(a)
+      if (a !== 0) {
+        setShowBanner(true)
+      }
+    }, 1000);
+  }, []);
+
 
 
   return (
-    <>
-    <Head>
-    <meta name="apple-itunes-app" content="app-id=id6743195041"></meta>
-    </Head>
       <main>
-
+        {showBanner && (<motion.div className='pl-[5px] pr-[12px] z-100 flex flex-row items-center justify-between md:hidden fixed top-0 bg-[#0363fe] h-[85px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
+          <div className='flex flex-row items-center'>
+          <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowBanner(false)}/></div>
+            <div><Image src="/images/stellarbanking-logo-3.png" alt='EN' width={600} height={600} className='w-[55px] h-[55px]'/></div>
+            <div className='flex flex-col ml-[3px]'>
+              <div className='font-semibold text-[16px] sm:text-[18px] text-white'><p>StellarPay</p></div>
+              <div className='font-normal text-[12px] sm:text-[18px] text-gray-200'><p>Stellar Technologies</p></div>
+            </div>
+            </div>
+            <a onClick={() => getUrl()} className="px-3 py-1 rounded-full font-semibold bg-white text-black shadow hover:bg-black transition text-[14px] sm:text-base">Download</a>
+        </motion.div>)}
+        {showBanner && (<motion.div className='block md:hidden h-[90px] w-full'></motion.div>)}
       {/* Navigation/Header */}
       <motion.section 
         className="w-full bg-[#ffffff]" 
@@ -921,7 +939,6 @@ export default function HomePage() {
           </div>
         </div>
       </motion.footer>
-      </main>
-      </>
+      </main>      
   );
 }
