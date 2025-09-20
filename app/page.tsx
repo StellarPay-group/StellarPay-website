@@ -144,8 +144,8 @@ export default function HomePage() {
   const [totalFee, setTotalFee] = useState(0);
   const [amountWeWillConvert, setAmountWeWillConvert] = useState(0);
   const [guaranteedRate, setGuaranteedRate] = useState(0);
-  const [fromCurrency, setFromCurrency] = useState({ code: "USD", display_code: "USD", name: "United States Dollar" });
-  const [toCurrency, setToCurrency] = useState({ code: "XAF", display_code: "FCFA", name: "Central Africa" });
+  const [fromCurrency, setFromCurrency] = useState({ code: "USD", display_code: "USD", name: "United States Dollar", flag: 'https://flagcdn.com/w320/us.png'  });
+  const [toCurrency, setToCurrency] = useState({ code: "XAF", display_code: "FCFA", name: "Central Africa", flag: 'https://flagcdn.com/w320/cm.png'  });
   
   const filtered = useMemo(() => {
     if (!query) return currencies;
@@ -393,10 +393,19 @@ export default function HomePage() {
                       e.target.value = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : value;
                       setAmount(parseFloat(value));
                     }} placeholder="0" />
-                    <div className="relative">
+                    <div className="relative flex flex-row">
+                    <img
+            src={fromCurrency?.flag || ''}
+            alt={`flag`}
+            className="my-auto w-6 h-4 object-cover"
+          />
                     <Combobox value={fromCurrency} onChange={(value) => value && setFromCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[18px] md:text-[24px] rounded-md font-bold text-right"
+                        className={`max-w-[58px] md:max-w-[70px] mr-[5px] bg-transparent p-2 text-black placeholder-black rounded-md font-bold text-right ${
+                          fromCurrency.display_code === 'FCFA'
+                            ? 'text-[16px] md:text-[20px]'
+                            : 'text-[18px] md:text-[24px]'
+                        }`}
                         defaultValue={fromCurrency?.display_code || 'USD'}
                           placeholder={fromCurrency?.display_code || 'USD'}
                         onChange={(event) => setQuery(event.target.value)}
@@ -463,10 +472,19 @@ export default function HomePage() {
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
                     <p className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
-                    <div className="relative">
+                    <div className="relative flex flex-row">
+                    <img
+            src={toCurrency?.flag || ''}
+            alt={`flag`}
+            className="my-auto w-6 h-4 object-cover mr-[1px]"
+          />
                     <Combobox value={toCurrency} onChange={(value) => value && setToCurrency(value)}>
                       <ComboboxInput
-                        className="max-w-[80px] mr-[0px] bg-transparent p-2 text-black placeholder-black text-[18px] md:text-[24px] rounded-md font-bold text-right"
+                        className={`max-w-[58px] md:max-w-[70px] mr-[5px] bg-transparent p-2 text-black placeholder-black rounded-md font-bold text-right ${
+                          toCurrency.display_code === 'FCFA'
+                            ? 'text-[16px] md:text-[20px]'
+                            : 'text-[18px] md:text-[24px]'
+                        }`}
                         defaultValue={toCurrency?.display_code}
                           placeholder={toCurrency?.display_code}
                         onChange={(event) => setQuery(event.target.value)}
