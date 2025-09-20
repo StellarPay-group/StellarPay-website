@@ -1,6 +1,6 @@
 import { useQueries, useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { Country, Country_List, Country_Phone, CountryKeys_fetch } from './country.types';
-import { fetchCountryCodes, fetchCountryCurrency, fetchCountryName, getCountryFlag } from './country_fetch';
+import { fetchCountryCodes, fetchCountryCurrency, fetchCountryName, fetchCountryPhoneCode, getCountryFlag } from './country_fetch';
 import { EXPIRATION_TIME } from './cache';
 import { useMemo } from 'react';
 
@@ -102,6 +102,68 @@ export function useAllCountry_List(): {
 
     return countryList.sort((a, b) =>
       (a.name || '').localeCompare(b.name || '')
+    );
+  }, [codes, results]);
+
+  return {
+    data: sortedList,
+    isLoading,
+    isError,
+  };
+}
+
+
+export function useAllCountry_Phone(): {
+  data: Country_Phone[];
+  isLoading: boolean;
+  isError: boolean;
+} {
+  const {
+    data: codes,
+    isLoading: codesLoading,
+    isError: codesError,
+  } = useCountryCodes();
+
+  const results = useQueries({
+    queries: codes?.map((code) => ({
+      queryKey: ['countryName', code],
+      queryFn: () => fetchCountryPhoneCode(code),
+      enabled: !!code,
+      ...cacheParams,
+    })) ?? [],
+  });
+
+  const isLoading = codesLoading || results.some((r) => r.isLoading);
+  const isError = codesError || results.some((r) => r.isError);
+
+  const sortedList = useMemo(() => {
+    const allFetched = results.every((r) => r.status === 'success');
+    if (!codes || !allFetched) return [];
+
+    const countryList: Country_Phone[] = codes.map((code, i) => ({
+      areaCode: results[i]?.data ?? null,
+      flag: getCountryFlag(code),
+      code,
+    }));
+
+    return countryList.sort((a, b) => {
+      const codeA = a.areaCode || '';
+      const codeB = b.areaCode || '';
+      const priorityCountries = ['US', 'FR', 'UK', 'CA']
+      if (priorityCountries.includes(a.code) && !(priorityCountries.includes(b.code))) {
+        return -1;
+      }
+      if (priorityCountries.includes(b.code) && !(priorityCountries.includes(a.code))) {
+        return 1;
+      }
+      if (codeA < codeB) {
+        return -1;
+      }
+      if (codeA > codeB) {
+        return 1;
+      }
+      return 0;   
+    }
     );
   }, [codes, results]);
 

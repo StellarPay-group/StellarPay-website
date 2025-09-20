@@ -1,4 +1,5 @@
 export type Currency = { code: string; symbol: string };
+export type AreaCode = { root: string };
 export type CurrencyListOption = { code: string, display_code: string, name: string, rate: number }
 export type Country = { name: string | null; flag: string | null; areaCode: string | null; code: string; currency: Currency | null };
 export type Country_List = { name: Country["name"] | null; flag: Country["flag"] | null; code: Country["code"] };
