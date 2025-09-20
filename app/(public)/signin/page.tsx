@@ -6,13 +6,33 @@ import { useState } from "react";
 import GetTheApp from "@/components/popup/getTheApp";
 import { sendLoginLink } from "@/lib/message";
 import { getUrlForDevice } from "@/lib/device";
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
+import { getCountry_Phone } from "@/lib/country_fetch";
+import { useAllCountry_List, useAllCountry_Phone } from '@/lib/country_query';
+import { useMemo } from "react";
+import { Country_Phone, currencies } from "@/lib/country.types";
 
 
 export default function SignInPage() {
 
+  const {data: countries, isLoading} = useAllCountry_Phone();
   const [showPopup, setShowPopup] = useState(false);    
-  const [countryCode, setCountryCode] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+  const [countryCode, setCountryCode] = useState<Country_Phone | null>({ code: 'US', flag: 'https://flagcdn.com/w320/us.png', areaCode: '+1' });
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [query, setQuery] = useState('');
+
+  const filtered = useMemo(() => {
+    if (!query) return countries;
+  
+    const lowerQuery = query.toLowerCase();
+  
+    return countries.filter(
+      (c) =>
+        c.code.toLowerCase().includes(lowerQuery) ||
+        c.areaCode?.includes(lowerQuery)
+    );
+  }, [countries, query]);
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -37,17 +57,19 @@ export default function SignInPage() {
             <div className="max-w-md">
             <p className="text-md text-gray-700 mb-[40px] text-center md:text-start mx-[30px] md:mx-[0px]">Enter the phone number associated with your StellarPay account</p>
             </div>
-            <div className="flex flex-row mx-auto md:mx-[0px]">
-              <input inputMode="tel" type="tel" placeholder="+1" className="mb-[20px] w-[60px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px] mr-[10px] md:mr-[20px]" onChange={(e) => {setCountryCode(e.target.value)}} maxLength={4} />
-              <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="w-[228px] md:w-[340px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
+            <div className="flex flex-row items-center mx-auto md:mx-0">
+        
+
+              <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="ml-[8px] w-[175px] md:w-[277px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] md:text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
             </div>
             <div className='mx-auto md:mx-[0px]' onClick={async () => {
-              const sid = await sendLoginLink(countryCode, phoneNumber, 'sms');
+              const codeToUse = countryCode?.areaCode || '';
+              const sid = await sendLoginLink(codeToUse, phoneNumber, 'sms');
               if (sid !== -3) {
                 window.open('/response', '_self')
               }
               }}>
-              <button className="bg-[#000000] text-white px-4 py-2 rounded-[10px] border border-gray-300 h-[50px] md:h-[60px] w-[300px] md:w-[420px] text-[16px] md:text-[20px] mt-[5px]">Continue</button>
+              <button className="bg-[#000000] text-white px-4 py-2 rounded-[10px] border border-gray-300 h-[50px] md:h-[60px] w-[300px] md:w-[420px] text-[16px] md:text-[20px] mt-[10px]">Continue</button>
             </div>
             <p className="text-center text-md text-[#191c1f] mt-[20px] mr-[0px] md:mr-[20px]">OR</p>
             <div className="flex flex-col md:flex-row justify-between items-center border-gray mr-[0px] md:mr-[20px]">
