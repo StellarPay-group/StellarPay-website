@@ -11,7 +11,7 @@ export const validateCountryCode = (countryCode: string) => {
 }
 
 export const validatePhoneNumber = (phoneNumber: string) => {
-          return phoneNumber.match(/^[0-9]*$/) && phoneNumber.length === 10;
+          return phoneNumber.match(/^[0-9]*$/) && phoneNumber.length >= 8 && phoneNumber.length <= 11;
 }
 
 export async function sendAppLink(
