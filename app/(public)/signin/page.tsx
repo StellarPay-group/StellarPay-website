@@ -58,7 +58,52 @@ export default function SignInPage() {
             <p className="text-md text-gray-700 mb-[40px] text-center md:text-start mx-[30px] md:mx-[0px]">Enter the phone number associated with your StellarPay account</p>
             </div>
             <div className="flex flex-row items-center mx-auto md:mx-0">
-        
+            <Combobox value={countryCode} onChange={(value) => value && setCountryCode(value)}>
+  <div className="relative inline-block">
+    {/* Input + Button */}
+    <div className="flex flex-row items-center justify-between">
+      <div className='px-[10px] flex flex-row border border-gray-300 h-[50px] md:h-[60px] w-[115px] md:w-[135px] rounded-md'>
+      <img
+            src={countryCode?.flag || ''}
+            alt={`flag`}
+            className="my-auto w-6 h-4 mr-2 object-cover"
+          />
+      <ComboboxInput
+        className={`my-auto w-[55px] md:w-[65px] h-[40px] md:h-[50px] bg-transparent p-2 text-black placeholder:text-[18px] md:placeholder:text-[20px] font-normal text-right ${
+          isFocused ? 'placeholder:text-gray-300' : 'placeholder:text-black'
+        }`}
+        defaultValue={countryCode?.areaCode || '+1'}
+        placeholder={countryCode?.areaCode || '+1'}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        onChange={(event) => setQuery(event.target.value)}
+      />
+            <ComboboxButton className="ml-0">
+        <p className="text-gray-300 text-[10px] md:text-[20px] font-bold">▼</p>
+      </ComboboxButton>
+      </div>
+
+    </div>
+
+    {/* Dropdown positioned directly under input */}
+    <ComboboxOptions className="absolute top-full left-0 mt-1 w-[150px] max-h-[200px] overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-10">
+      {filtered.map((item) => (
+        <ComboboxOption
+          key={item.code}
+          value={item}
+          className="flex flex-row items-center px-3 py-2 text-black text-[14px] hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src={item.flag || ''}
+            alt={`${item.code} flag`}
+            className="w-6 h-4 mr-2 object-cover"
+          />
+          {item.areaCode || ''} ({item.code})
+        </ComboboxOption>
+      ))}
+    </ComboboxOptions>
+  </div>
+</Combobox>
 
               <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="ml-[8px] w-[175px] md:w-[277px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] md:text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
             </div>

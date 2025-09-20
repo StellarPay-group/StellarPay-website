@@ -135,7 +135,7 @@ export default function SignUpPage() {
               </div>
             </div>
             <p className="mt-[20px] text-center mr-[0px] md:mr-[20px] text-md">Already have an account? </p>
-            <Link href="/signup" className='mx-auto md:mx-[0px]'>
+            <Link href="/signin" className='mx-auto md:mx-[0px]'>
               <button className="mt-[20px] bg-[#000000] text-white px-4 py-2 rounded-[10px] border border-gray-300 h-[50px] md:h-[60px] w-[300px] md:w-[420px] text-[16px] md:text-[20px]">Log in</button>
             </Link>
             <Link href="/privacy-policy" className="block md:hidden text-[#000000] underline hover:no-underline text-sm text-center mt-[10px]">
