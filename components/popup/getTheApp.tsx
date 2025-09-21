@@ -30,7 +30,7 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
 
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-    <div className="relative z-50 fixed flex items-center justify-center rounded-[25px] shadow-xl w-[400px] h-[400px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] bg-white">
+    <div className="relative z-50 fixed flex items-center justify-center rounded-[25px] shadow-xl w-[380px] h-[400px] md:w-[480px] md:h-[600px] lg:w-[580px] lg:h-[700px] bg-white">
       <p className="absolute top-[10px] right-[20px] text-gray-500 text-[24px] font-semibold" onClick={onClose}>x</p>
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="text-black text-[24px] md:text-[32px] lg:text-[40px] mb-[10px] font-bold">Get the StellarPay App</h1>
@@ -40,16 +40,20 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
         </div>
         <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or get a download link via SMS</p>
         <div className="flex flex-row items-center justify-center">
+        <div className="border border-gray-300 rounded-xl border-2 flex flex-row items-center justify-center">
         <Combobox value={countryCode} onChange={(value) => value && setCountryCode(value)}>
   <div className="relative inline-block">
     {/* Input + Button */}
     <div className="flex flex-row items-center justify-between">
-      <div className='px-[10px] flex flex-row border border-gray-300 h-[40px] md:h-[50px] lg:h-[60px] w-[105px] md:w-[125px] rounded-md mr-[10px] bg-[#e2edff] '>
+      <div className='px-[10px] flex flex-row h-[40px] md:h-[50px] lg:h-[60px] w-[105px] md:w-[125px] mr-[0px] '>
       <img
             src={countryCode?.flag || ''}
             alt={`flag`}
             className="my-auto w-6 h-4 mr-2 object-cover"
           />
+                      <ComboboxButton className="ml-0">
+        <p className="text-black text-[8px] md:text-[12px] font-bold">▼</p>
+      </ComboboxButton>
       <ComboboxInput
         className={`my-auto w-[50px] md:w-[55px] h-[30px] md:h-[50px] bg-transparent pr-1 text-black placeholder:text-[18px] md:placeholder:text-[18px] font-normal text-right ${
           isFocused ? 'placeholder:text-gray-400' : 'placeholder:text-black'
@@ -60,9 +64,6 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
         onBlur={() => setIsFocused(false)}
         onChange={(event) => setQuery(event.target.value)}
       />
-            <ComboboxButton className="ml-0">
-        <p className="text-gray-300 text-[10px] md:text-[20px] font-bold">▼</p>
-      </ComboboxButton>
       </div>
 
     </div>
@@ -86,12 +87,13 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
     </ComboboxOptions>
   </div>
 </Combobox>
-          <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="bg-[#e2edff] w-[150px] h-[40px] md:w-[200px] md:h-[50px] lg:w-[250px] lg:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[16px] md:text-[18px] lg:text-[18px] mr-[10px]" onChange={(e) => setPhoneNumber(e.target.value)} maxLength={10} />
-          <button className="bg-[#0065ff] hover:bg-[#0065ff] text-black font-bold text-[25px] h-[40px] w-[40px] md:h-[50px] md:w-[50px] lg:h-[60px] lg:w-[60px] rounded-full" onClick={async () => {
+          <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="w-[150px] h-[30px] md:w-[180px] md:h-[40px] lg:w-[180px] lg:h-[50px] p-[5px] text-[16px] md:text-[18px] lg:text-[18px] mr-[10px]" onChange={(e) => setPhoneNumber(e.target.value)} maxLength={12} />
+          </div>
+          <button className="bg-[#0065ff] hover:bg-[#0065ff] ml-[10px] text-black font-bold h-[40px] w-[70px] md:h-[50px] md:w-[90px] lg:h-[60px] lg:w-[130px] rounded-full" onClick={async () => {
             if (countryCode && countryCode.areaCode) {
               await sendAppLink(countryCode?.areaCode, phoneNumber, 'sms');
             }
-          }}><p className='text-white'>&gt;</p></button>
+          }}><p className='text-[14px] md:text-[20px] text-white'>Send</p></button>
         </div>
       </div>
     </div>

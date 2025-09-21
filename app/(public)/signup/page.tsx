@@ -103,7 +103,7 @@ export default function SignUpPage() {
   </div>
 </Combobox>
 
-              <input inputMode="numeric" type="numeric" placeholder="Mobile number" className="ml-[8px] w-[175px] md:w-[277px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] md:text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
+              <input inputMode="numeric" type="numeric" placeholder="Phone number" className="ml-[8px] w-[175px] md:w-[277px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] md:text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
             </div>
             <div className='mx-auto md:mx-[0px]' onClick={async () => {
               const codeToUse = countryCode?.areaCode || '';
