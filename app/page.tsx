@@ -135,6 +135,7 @@ export default function HomePage() {
   const georgeAnimation = useScrollAnimation(0.2);
   const footerAnimation = useScrollAnimation(0.1);
 
+  const [showLinqAd, setShowLinqAd] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
   const [query, setQuery] = useState('');
   const [amount, setAmount] = useState(100);
@@ -190,6 +191,8 @@ export default function HomePage() {
       console.log(a)
       if (a !== 0) {
         setShowBanner(true)
+      } else {
+        setShowLinqAd(true);
       }
     }, 1000);
   }, []);
@@ -198,6 +201,16 @@ export default function HomePage() {
 
   return (
       <main>
+        {showLinqAd && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
+          <div className='flex justify-center w-full'>
+          <a href='/linq'>
+            <p className='text-white text-center mb-1'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
+          </a>
+          </div>
+          <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>
+        </motion.div>)}
+        {showLinqAd && (<motion.div className='hidden md:block h-[60px] w-full'></motion.div>)}
+
         {showBanner && (<motion.div className='pl-[5px] pr-[12px] z-100 flex flex-row items-center justify-between md:hidden fixed top-0 bg-[#0363fe] h-[85px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
           <div className='flex flex-row items-center'>
           <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowBanner(false)}/></div>
