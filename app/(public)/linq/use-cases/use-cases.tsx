@@ -95,7 +95,8 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
         </Link>
-        <Link href="/linq/use-cases">
+        <Link href="/linq#contact">
+        {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
@@ -120,7 +121,8 @@ const [field6, setField6] = useState("");
 
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-7">
-            <Link href="/linq/use-cases">
+            <Link href="/linq#contact">
+            {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row md:hidden items-center justify-center mr-1">
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
@@ -165,7 +167,7 @@ const [field6, setField6] = useState("");
             className="h-auto
     w-full
     xl:pt-5
-    xl:py-10
+    xl:pb-10
     flex flex-row
     justify-center
     items-center
@@ -370,7 +372,7 @@ Our prebuilt SDKs, quick start templates, and dashboard-guided
 configuration let you integrate and go live in hours, not weeks.</p>
             
             </div>
-            <div className='self-center md:ml-[100px] mt-[40px] md:mt-0 w-80 md:w-[548px] h-[650px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
+            <div className='self-center md:ml-[100px] mt-[40px] md:mt-0 w-70 md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
   <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
     Let's get started
   </h1>
