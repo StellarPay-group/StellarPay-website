@@ -90,7 +90,7 @@ const [field6, setField6] = useState("");
 
             <div className="flex items-center space-x-2 md:space-x-8">
               <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
-            <Link href="/linq">
+            <Link href="/features">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
@@ -100,17 +100,17 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="#contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Resources</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="#contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Pricing</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="#contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Releases</p>
           </div>
@@ -125,7 +125,7 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-            <Link href="/linq">
+            <Link href="#contact">
           <div className="border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[15px]'>Talk to sales</p>
           </div>
@@ -175,22 +175,26 @@ const [field6, setField6] = useState("");
     bg-top
     bg-no-repeat"
           >
-            <div className='relative top-[0px] self-center'>
+            <div className='relative mt-10 md:mt-0 self-center'>
             <div className="max-w-[300px] md:max-w-xl mx-auto flex flex-col items-start">
             <div className="border-1 shadow-md border-gray-300 bg-white py-1 w-[290px] rounded-[30px] mb-9">
             <h2 className="text-[18px] font-semibold text-black text-center">Billing & Recurring payments</h2>
             </div>
             <div>
-              <h1 className="text-start leading-tight md:tight text-black font-semibold text-[40px] md:text-[54px] mb-2">Make Mobile Money payments faster and more reliable
+              <h1 className="text-center md:text-start leading-tight md:tight text-black font-semibold text-[30px] md:text-[40px] md:text-[54px] mb-2">Make Mobile Money payments faster and more reliable
               </h1>
             </div>
-            <div className='flex flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-10 mt-10'>
+            <div className='flex flex-col self-center md:self-start md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-10 mt-10'>
+                    <a href='#contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[19px]'>Talk with our team</p>
           </div>
+          </a>
+          <a href='#contact'>
           <div className="border-1 border-gray-700 bg-black rounded-xl py-2 px-11 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[19px]'>Get on waitlist</p>
           </div>
+          </a>
             </div>
            
             </div>
@@ -207,21 +211,22 @@ const [field6, setField6] = useState("");
             className="flex flex-col items-start px-8 md:px-6 py-5 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-          <Image src="/images/companies-large.png" alt="companies" width={2560} height={120} className="w-full h-auto" />
+          <Image src="/images/companies-large.png" alt="companies" width={2560} height={120} className="hidden md:block w-full h-auto" />
+          <Image src="/images/companies-small.png" alt="companies mobile" width={2560} height={120} className="block md:hidden w-full h-auto" />
           </section>
 
 
             <section
-            className="pt-15 mt-0 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
+            className="pt-10 md:pt-15 mt-0 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <h2 className='max-w-2xl mt-5 text-center font-semibold text-[#111111] text-[40px] leading-tight mb-0'>Disconnection from Africa is costing you revenue</h2>
+            <h2 className='max-w-2xl mt-5 text-center font-semibold text-[#111111] text-[30px] md:text-[40px] leading-tight mb-0'>Disconnection from Africa is costing you revenue</h2>
            
             </section>
 
 
             <section
-            className="pt-20 flex flex-col pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
+            className="pt-5 md:pt-20 flex flex-col pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
             <div className='pl-0 md:pl-15 pt-0 pb-10 max-w-[1450px]'>
@@ -315,29 +320,29 @@ without touching your code base.</p>
             className="pt-20 flex flex-col pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <h2 className='mr-[30px] text-center self-center font-semibold text-[#000000] text-[30px] md:text-[40px] leading-tight mb-10 md:mb-15'>Why mobile money wins for bill pay</h2>
+            <h2 className='md:mr-[30px] text-center self-center font-semibold text-[#000000] text-[30px] md:text-[40px] leading-tight mb-10 md:mb-15'>Why mobile money wins for bill pay</h2>
 
-            <div className='max-w-[280px] md:max-w-7xl self-center flex flex-row mb-[150px]'>
-            <div className='self-center hidden md:flex rounded-3xl w-[472px] h-[341px] justify-center bg-[#0065ff]'>
-            <div className='self-center mr-20 flex flex-col justify-between w-[250px] md:w-80 h-[170px]'>
-            <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] ml-10'>
+            <div className='max-w-[280px] md:max-w-7xl self-center flex flex-col md:flex-row mb-[50px] md:mb-[150px]'>
+            <div className='self-center flex rounded-3xl w-[260px] md:w-[472px] h-[341px] justify-center bg-[#0065ff]'>
+            <div className='self-center md:mr-20 flex flex-col justify-between w-[230px] md:w-80 h-[170px]'>
+            <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] md:ml-10'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>M-Pesa</p>
               </div>
 
-              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] mr-10'>
+              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] md:mr-10'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>MTN Mobile Money</p>
               </div>
 
-              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] ml-10'>
+              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] md:ml-10'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>Airtel Money</p>
               </div>
 
             </div>
             </div>
 
-              <div className='ml-[200px] max-w-[450px] flex flex-col  self-center'>
-              <h2 className='text-start font-semibold text-[#000000] text-[24px] md:text-[36px] leading-tight mb-3'>Seamless account linking</h2>
-              <p className='text-start font-regular text-[#000000] text-[18px] md:text-[20px] leading-tight mb-10'>No friction, no drop-offs. LinQ makes it easy for customers to connect their mobile money wallets, bank accounts, or crypto wallets instantly—so every connection becomes a completed transfer.
+              <div className='md:ml-[200px] max-w-[450px] flex flex-col  self-center'>
+              <h2 className='text-center md:text-start font-semibold text-[#000000] text-[24px] md:text-[36px] leading-tight mb-3 mt-10 md:mt-0'>Seamless account linking</h2>
+              <p className='text-center md:text-start font-regular text-[#000000] text-[18px] md:text-[20px] leading-tight mb-10'>No friction, no drop-offs. LinQ makes it easy for customers to connect their mobile money wallets, bank accounts, or crypto wallets instantly—so every connection becomes a completed transfer.
               </p>
 
               </div>
@@ -348,14 +353,15 @@ without touching your code base.</p>
             </section>
 
             <section
-            className=" flex flex-col items-start pt-0 pb-[500px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
+            id='contact'
+            className=" flex flex-col items-start pt-0 pb-0 md:pb-[500px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
             <div className='px-[40px] py-20 flex flex-col md:flex-row justify-center bg-black w-full'>
             <div className='justify-center items-center flex flex-col'>
             <div className="self-center border-1 shadow-md border-gray-300 bg-white py-1 w-[140px] rounded-[30px] mb-10"> 
             <h2 className="text-[18px] font-medium text-black text-center">Integration</h2>
             </div>
-              <h1 className='ltext-center leading-tight text-[#fcfcfd] font-semibold text-[40px]'>
+              <h1 className='text-center leading-tight text-[#fcfcfd] font-semibold text-[40px]'>
               Build the billing stack that fits
               </h1>
               <p className='self-center max-w-xl text-center text-[#eeeeee] font-regular text-[18px] mt-10 mb-4'>Skip the complex infrastructure and lengthy set up.<br />
@@ -363,7 +369,7 @@ Our prebuilt SDKs, quick start templates, and dashboard-guided
 configuration let you integrate and go live in hours, not weeks.</p>
             
             </div>
-            <div className='ml-[100px] mt-[40px] md:mt-0 w-[250px] md:w-[548px] h-[700px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
+            <div className='self-center md:ml-[100px] mt-[40px] md:mt-0 w-80 md:w-[548px] h-[650px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
   <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
     Let's get started
   </h1>

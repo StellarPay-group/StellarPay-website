@@ -91,7 +91,7 @@ const [field6, setField6] = useState("");
 
             <div className="flex items-center space-x-2 md:space-x-8">
               <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
-            <Link href="/linq">
+            <Link href="/features">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
@@ -101,17 +101,17 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="/linq#contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Resources</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="/linq#contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Pricing</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="/linq#contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Releases</p>
           </div>
@@ -126,7 +126,7 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-            <Link href="/linq">
+            <Link href="/linq#contact">
           <div className="border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[15px]'>Talk to sales</p>
           </div>
@@ -180,12 +180,16 @@ const [field6, setField6] = useState("");
               <h1 className="text-center leading-tight md:leading-[27px] text-gray-500 font-regular text-[18px] md:text-[22px] md:mx-14 mb-12">Stellar LinQ securely connects your customer’s mobile money accounts to your app or service in seconds-delivering the highest conversion rates in the industry.</h1>
             </div>
             <div className='flex flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-18'>
+              <a href='/linq#contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[19px]'>Talk with our team</p>
           </div>
+          </a>
+          <a href='/linq#contact'>
           <div className="border-1 border-gray-700 bg-black rounded-xl py-2 px-11 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[19px]'>View API docs</p>
           </div>
+          </a>
             </div>
             <div className='flex flex-row justify-between rounded-3xl w-full md:w-[1200px] h-auto md:h-[526px] bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff] mb-[-23px] px-[20px] py-[20px] md:px-0 md:py-0'>
             
@@ -258,9 +262,11 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             <h2 className='font-semibold text-black text-[30px] md:text-[36px] leading-tight mb-4'>Flexible by design. <br /> Seamless when it ships.</h2>
             <p className='text-[#747860] font-regular text-[18px] mb-6'>Stellar LinQ is modular, instantly connecting customers to any financial use cade in a format that fits your experience - so they can move, manage and move money without disruption.</p>
+                      <a href='/linq/use-cases'>
             <div className="border-1 border-black bg-black py-2 w-[160px] rounded-[30px] mb-6 mt-4 md:mt-10">
             <h2 className="text-[15px] font-medium text-white text-center">Use cases</h2>
             </div>
+            </a>
                 </div>
                 <Image src="/images/phone-1.png" alt="phone 1" width={275} height={424} className="mt-10 md:mt-0 md:ml-[20px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
                 <Image src="/images/phone-2.png" alt="phone 2" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
@@ -632,6 +638,7 @@ We embed privacy controls directly into our products, empowering your customers 
             </section>
 
             <section
+            id='contact'
             className="mt-0 md:mt-10 flex flex-col items-start pt-0 px-8 md:px-20 pb-[200px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
             <div className='px-[40px] py-[27px] flex flex-col md:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
@@ -640,7 +647,7 @@ We embed privacy controls directly into our products, empowering your customers 
               Boost conversion with the highest standard in account linking
               </h1>
             </div>
-            <div className='mt-[40px] md:mt-0 w-[250px] md:w-[548px] h-[700px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
+            <div className='mt-[40px] md:mt-0 w-[250px] md:w-[548px] h-[650px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
   <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
     Let's get started
   </h1>
