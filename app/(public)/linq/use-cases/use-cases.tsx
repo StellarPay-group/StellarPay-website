@@ -162,9 +162,10 @@ const [field6, setField6] = useState("");
 
       {/* Hero Section */}
       <section
-            className="    aspect-[2/1]
+            className="h-auto
     w-full
-    xl:mt-[-100px]
+    xl:pt-5
+    xl:py-10
     flex flex-row
     justify-center
     items-center
@@ -172,7 +173,7 @@ const [field6, setField6] = useState("");
     px-8 md:px-6
     bg-[url('/images/background-use-cases.png')]
     bg-cover
-    bg-top
+    bg-bottom
     bg-no-repeat"
           >
             <div className='relative mt-10 md:mt-0 self-center'>
