@@ -8,10 +8,10 @@ import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
-import { act, useState } from "react";
+import { act, useEffect, useState } from "react";
 import Head from "next/head";
 import GetTheApp from "@/components/popup/getTheApp";
-import { getUrlForDevice } from "@/lib/device";
+import { getDeviceType, getUrlForDevice } from "@/lib/device";
 
 
 export default function Features() {
@@ -40,7 +40,7 @@ const [field3, setField3] = useState("");
 const [field4, setField4] = useState("");
 const [field5, setField5] = useState("");
 const [field6, setField6] = useState("");
-
+const [showLinqAd, setShowLinqAd] = useState(false);
 
 
   // needed for blog component
@@ -50,6 +50,17 @@ const [field6, setField6] = useState("");
     onClick?: () => void;
     carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      const a = getDeviceType();
+      console.log(a)
+      if (a !== 0) {
+      } else {
+        setShowLinqAd(true);
+      }
+    }, 1000);
+  }, []);
   
 
   return (
@@ -62,6 +73,16 @@ const [field6, setField6] = useState("");
         />
       </Head>
     <main className="bg-[#ffffff]">
+
+    {showLinqAd && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
+          <div className='flex justify-center w-full'>
+          <a href='/linq'>
+            <p className='text-white text-center mb-1'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
+          </a>
+          </div>
+          <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>
+        </motion.div>)}
+        {showLinqAd && (<motion.div className='hidden md:block h-[65px] w-full'></motion.div>)}
 
       {/* Navigation/Header */}
       <section 
@@ -96,7 +117,8 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
         </Link>
-        <Link href="/linq/use-cases">
+        <Link href="/linq#contact">
+        {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
@@ -121,7 +143,8 @@ const [field6, setField6] = useState("");
 
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-7">
-            <Link href="/linq/use-cases">
+            <Link href="/linq#contact">
+            {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row md:hidden items-center justify-center mr-1">
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
@@ -262,7 +285,8 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             <h2 className='font-semibold text-black text-[30px] md:text-[36px] leading-tight mb-4'>Flexible by design. <br /> Seamless when it ships.</h2>
             <p className='text-[#747860] font-regular text-[18px] mb-6'>Stellar LinQ is modular, instantly connecting customers to any financial use cade in a format that fits your experience - so they can move, manage and move money without disruption.</p>
-                      <a href='/linq/use-cases'>
+                      <a href='/linq#contact'>
+                      {/* <a href='/linq/use-cases'> */}
             <div className="border-1 border-black bg-black py-2 w-[160px] rounded-[30px] mb-6 mt-4 md:mt-10">
             <h2 className="text-[15px] font-medium text-white text-center">Use cases</h2>
             </div>
@@ -641,13 +665,13 @@ We embed privacy controls directly into our products, empowering your customers 
             id='contact'
             className="mt-0 md:mt-10 flex flex-col items-start pt-0 px-8 md:px-20 pb-[200px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
-            <div className='px-[40px] py-[27px] flex flex-col md:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
-            <div className='w-[280px] md:w-[344px] flex md:ml-[100px]'>
-              <h1 className='leading-tight text-[#fcfcfd] font-regular text-[30px] md:text-[46px] mt-[10px] md:mt-[70px]'>
+            <div className='px-[10px] sm:px-[40px] py-[27px] flex flex-col md:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
+            <div className='w-[240px] md:w-[344px] flex md:ml-[100px]'>
+              <h1 className='leading-tight text-[#fcfcfd] font-regular text-[24px] sm:text-[30px] md:text-[46px] mt-[10px] md:mt-[70px]'>
               Boost conversion with the highest standard in account linking
               </h1>
             </div>
-            <div className='mt-[40px] md:mt-0 w-[250px] md:w-[548px] h-[650px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
+            <div className='self-center mt-[40px] md:mt-0 w-[230px] md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
   <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
     Let's get started
   </h1>
