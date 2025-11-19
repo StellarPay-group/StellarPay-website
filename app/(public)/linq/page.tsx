@@ -69,20 +69,20 @@ const [field6, setField6] = useState("");
         aria-label="Main navigation"
       >
          <div className="px-4 py-4">
-          <div className="py-2 px-8 border-gray-100 border-2 rounded-3xl flex items-center justify-between max-w-7xl mx-auto">
+          <div className="py-2 md:px-8 border-gray-100 md:border-1 rounded-3xl flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
             <div className="flex items-center space-x-2 md:space-x-8">
-              <nav className="hidden md:flex items-center space-x-1">
+              <nav className="flex items-center space-x-1">
             <Link href="/">
           <div className="flex flex-row items-center justify-center space-x-2">
             <Image
-              className="w-[28px] h-[30px]"
+              className="mt-[-4px] md:mt-0 w-[26px] md:w-[28px] h-[28px] md:h-[30px]"
               src="/images/sp-transparent.png"
               alt="logo"
               width={100}
               height={100}
             />
-            <p className='font-bold text-sm md:text-[18px]'>Stellar</p>
+            <p className='hidden md:flex font-bold text-sm md:text-[18px]'>Stellar</p>
           </div>
         </Link>
               </nav>
@@ -121,6 +121,11 @@ const [field6, setField6] = useState("");
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-7">
             <Link href="/">
+          <div className="flex flex-row md:hidden items-center justify-center mr-1">
+            <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
+          </div>
+        </Link>
+            <Link href="/">
           <div className="border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[15px]'>Talk to sales</p>
           </div>
@@ -130,7 +135,7 @@ const [field6, setField6] = useState("");
             <p className='text-black font-medium text-xs md:text-[15px]'>Log In</p>
           </div>
         </Link>
-          <div className="flex flex-row items-center justify-center space-x-1">
+          <div className="hidden md:flex flex-row items-center justify-center space-x-1">
           <Image
               className="w-[22px] h-[20px]"
               src="/images/en.png"
@@ -139,7 +144,7 @@ const [field6, setField6] = useState("");
               height={100}
             />
             <p className='text-black font-medium text-xs md:text-[15px]'>English</p>
-            <Link href=''>
+            {/* <Link href=''>
             <Image
               className="mb-[4px] ml-[4px] w-[20px] h-[20px]"
               src="/images/ar.png"
@@ -147,7 +152,7 @@ const [field6, setField6] = useState("");
               width={100}
               height={100}
             />
-            </Link>
+            </Link> */}
           </div>
             </div>
           </div>
@@ -157,22 +162,23 @@ const [field6, setField6] = useState("");
 
       {/* Hero Section */}
       <section
-            className="mt-10 flex flex-col items-start pt-0 mb-30 px-8 md:px-6 bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
+            className="mt-[-30px] md:mt-0 flex flex-col items-start pt-0 mb-30 px-8 md:px-6 bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
-            <div className="max-w-3xl mx-auto flex flex-col items-center">
-            <div className="bg-[#0065ff] py-1 w-[70px] rounded-[8px] mb-5">
+            <div className='relative top-[60px] self-center'>
+            <div className="max-w-[300px] md:max-w-3xl mx-auto flex flex-col items-center">
+            <div className="bg-[#0065ff] py-1 w-[70px] rounded-[8px] mb-2">
             <h2 className="text-[18px] font-semibold text-white text-center">Beta</h2>
             </div>
-            <div className="border-1 shadow-md border-gray-300 bg-white py-1 w-[140px] rounded-[30px] mb-10">
+            <div className="border-1 shadow-md border-gray-300 bg-white py-1 w-[140px] rounded-[30px] mb-7">
             <h2 className="text-[18px] font-semibold text-black text-center">Meet LinQ</h2>
             </div>
             <div>
-              <h1 className="text-center leading-[75px] text-black font-semibold text-[65px] mb-10">The highest standard in account linking</h1>
+              <h1 className="text-center leading-tight md:leading-[75px] text-black font-semibold text-[40px] md:text-[65px] mb-7">The highest standard in account linking</h1>
             </div>
             <div>
-              <h1 className="text-center leading-[27px] text-gray-500 font-regular text-[22px] mx-14 mb-12">Stellar LinQ securely connects your customer’s mobile money accounts to your app or service in seconds-delivering the highest conversion rates in the industry.</h1>
+              <h1 className="text-center leading-tight md:leading-[27px] text-gray-500 font-regular text-[18px] md:text-[22px] md:mx-14 mb-12">Stellar LinQ securely connects your customer’s mobile money accounts to your app or service in seconds-delivering the highest conversion rates in the industry.</h1>
             </div>
-            <div className='flex flex-row space-x-5 mb-18'>
+            <div className='flex flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-18'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[19px]'>Talk with our team</p>
           </div>
@@ -180,9 +186,9 @@ const [field6, setField6] = useState("");
             <p className='text-white font-medium text-xs md:text-[19px]'>View API docs</p>
           </div>
             </div>
-            <div className='flex flex-row justify-between rounded-3xl w-[1200px] h-[526px] bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff] mb-[-23px]'>
+            <div className='flex flex-row justify-between rounded-3xl w-full md:w-[1200px] h-auto md:h-[526px] bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff] mb-[-23px] px-[20px] py-[20px] md:px-0 md:py-0'>
             
-            <div className='ml-[75px] mt-[75px] max-w-[450px]'>
+            <div className='flex flex-col items-center md:items-start md:ml-[75px] md:mt-[75px] max-w-[450px]'>
             <Image src="/images/left-window.png" alt="left icon" width={75} height={75} className="w-[75px] h-[75px]" />
             <h2 className='font-medium mt-[16px] text-[32px] text-white'>
               Apps & sites
@@ -192,10 +198,11 @@ const [field6, setField6] = useState("");
 Stellar LinQ links your users’ accounts in seconds, so they can pay, get paid, or subscribe without friction — anywhere.
 Unify your access to bank and mobile money accounts through a single API.
             </p>
-            <Image src="/images/examples.png" alt="examples" width={600} height={150} className="mt-[8px] w-[375px] h-[100px]" />
+            <Image src="/images/examples.png" alt="examples" width={600} height={150} className="mt-[8px] w-[250px] md:w-[375px] h-auto md:h-[100px]" />
             </div>
             <div>
-            <Image src="/images/right-window.png" alt="right window" width={440} height={512} className="w-[350px] h-[512px] mb-0" />
+            <Image src="/images/right-window.png" alt="right window" width={440} height={512} className="hidden md:block w-[350px] h-[512px] mb-0" />
+            </div>
             </div>
             </div>
             </div>
@@ -206,29 +213,29 @@ Unify your access to bank and mobile money accounts through a single API.
         className="bg-[#ffffff] flex items-center"
         ref={betterAnimation.ref}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
+        <div className="mt-5 max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="">
             <h1 
-              className="text-[#000000] text-center text-2xl md:text-[54px] lg:text-[54px] xl:text-[54px] font-medium"
+              className="text-[#000000] text-center text-[30px] md:text-[54px] lg:text-[54px] xl:text-[54px] font-medium"
             >
               Access the largest mobile money ecosystem
             </h1>
 
 
-            <div className='mt-15 flex flex-row justify-between'>
-              <div className='w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-[54px] font-medium'>100+</h2>
+            <div className='mx-2 md:mx-0 mt-15 flex flex-row justify-between'>
+              <div className='w-[100px] md:w-[320px] flex flex-col'>
+                <h2 className='text-[#0065ff] text-[30px] md:text-[54px] font-medium'>100+</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Mobile money operators across Africa, Asia, and Latin America
                 </p>
               </div>
-              <div className='w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-[54px] font-medium'>50M+ Users</h2>
+              <div className='w-[100px] md:w-[320px] flex flex-col'>
+                <h2 className='text-[#0065ff] text-[30px] md:text-[54px] font-medium'>50M+ Users</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Active mobile money accounts across Africa, Asia, and Latin America
 
                 </p>
               </div>
-              <div className='w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-[54px] font-medium'>&lt;1 Day</h2>
+              <div className='w-[100px] md:w-[320px] flex flex-col'>
+                <h2 className='text-[#0065ff] text-[30px] md:text-[54px] font-medium'>&lt;1 Day</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Average time to go live with LinQ
                 </p>
               </div>
@@ -240,24 +247,24 @@ Unify your access to bank and mobile money accounts through a single API.
       </section>
 
       <section
-            className="mt-20 flex flex-col items-start pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
+            className="mt-15 flex flex-col items-start pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <div className='max-w-7xl self-center pt-20 pb-5 flex flex-row'>
-                <div className="w-[500px] flex flex-col">
+            <div className='max-w-7xl self-center pt-15 md:pt-20 pb-5 flex flex-col md:flex-row'>
+                <div className="w-[280px] md:w-[500px] flex flex-col items-center md:items-start">
                 <div className="border-1 shadow-md border-gray-300 bg-white py-1 w-[160px] rounded-[30px] mb-6">
             <h2 className="text-[18px] font-regular text-black text-center">See it in action</h2>
             </div>
-            <h2 className='font-semibold text-black text-[36px] leading-tight mb-4'>Flexible by design. <br /> Seamless when it ships.</h2>
+            <h2 className='font-semibold text-black text-[30px] md:text-[36px] leading-tight mb-4'>Flexible by design. <br /> Seamless when it ships.</h2>
             <p className='text-[#747860] font-regular text-[18px] mb-6'>Stellar LinQ is modular, instantly connecting customers to any financial use cade in a format that fits your experience - so they can move, manage and move money without disruption.</p>
-            <div className="border-1 border-black bg-black py-2 w-[160px] rounded-[30px] mb-6 mt-10">
+            <div className="border-1 border-black bg-black py-2 w-[160px] rounded-[30px] mb-6 mt-4 md:mt-10">
             <h2 className="text-[15px] font-medium text-white text-center">Use cases</h2>
             </div>
                 </div>
-                <Image src="/images/phone-1.png" alt="phone 1" width={275} height={424} className="ml-[20px] w-[302] h-[466px]" />
-                <Image src="/images/phone-2.png" alt="phone 2" width={275} height={424} className="ml-[-40px] w-[302] h-[466px]" />
-                <Image src="/images/phone-3b.png" alt="phone 3" width={275} height={424} className="ml-[-40px] w-[302] h-[466px]" />
-                <Image src="/images/phone-4b.png" alt="phone 4" width={275} height={424} className="ml-[-40px] w-[302] h-[466px] mr-[-100px]" />
+                <Image src="/images/phone-1.png" alt="phone 1" width={275} height={424} className="mt-10 md:mt-0 md:ml-[20px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
+                <Image src="/images/phone-2.png" alt="phone 2" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
+                <Image src="/images/phone-3b.png" alt="phone 3" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
+                <Image src="/images/phone-4b.png" alt="phone 4" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px] mr-[-100px]" />
             </div>
             </section>
 
@@ -268,11 +275,11 @@ Unify your access to bank and mobile money accounts through a single API.
             <div className="self-center border-1 shadow-md border-gray-300 bg-white py-1 w-[160px] rounded-[30px] mb-10">
             <h2 className="text-[18px] font-regular text-black text-center">How it works</h2>
             </div>
-            <h2 className='self-center font-semibold text-[#292932] text-[36px] leading-tight mb-4'>See LinQ in action</h2>
+            <h2 className='self-center font-semibold text-[#292932] text-[30px] text-[36px] leading-tight mb-4'>See LinQ in action</h2>
             
-            <div className='max-w-7xl self-center pt-15 pb-5 flex flex-row'>
+            <div className='max-w-7xl self-center pt-5 md:pt-15 pb-5 flex flex-col md:flex-row'>
             
-            <div className="w-[500px] flex flex-col mr-[60px] mt-[20px]">
+            <div className="w-[280px] md:w-[500px] flex flex-col md:mr-[60px] md:mt-[20px]">
               <div onClick={() => setActionItemShown(0)} className={`pl-[20px]  ${
       actionItemShown === 0 ? "border-l-2 border-[#0065ff]" : "border-l-2 border-gray-200"
     }`}>
@@ -296,7 +303,7 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             </div>
 
-            <div className='flex flex-col items-center px-[40px] py-[40px] rounded-[50px] shadow-sm bg-[#fdfdfd] w-[500px] h-[400px]'>
+            <div className='flex flex-col items-center mt-[40px] md:mt-0 px-[20px] md:px-[40px] py-[40px] rounded-[50px] shadow-sm bg-[#fdfdfd] w-[300px] md:w-[500px] h-[350px] md:h-[400px]'>
             <div className="flex items-center justify-center w-[55px] h-[55px] rounded-[55px] bg-[#0065ff]">
   <h1 className="text-center font-medium text-[26px] text-white">
     {actionItemShown + 1}
@@ -311,23 +318,23 @@ Unify your access to bank and mobile money accounts through a single API.
               </div>
 
             <div className='flex flex-row justify-start ml-7 mr-5'>
-              <div className='flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-75'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>+254 712 354 678 |</p>
+              <div className='flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[200px] md:w-75'>
+              <p className='ml-[20px] text-black font-regular text-[14px] md:text-[16px]'>+254 712 354 678 |</p>
               </div>
 
               <div className='ml-2 flex flex-row items-center rounded-xl shadow-sm bg-white border-black border-2 h-[44px] w-[44px] justify-center'>
-              <Image src="/images/send1.png" alt="send" width={44} height={44} className="self-center w-[28px] h-auto" />
+              <Image src="/images/send1.png" alt="send" width={44} height={44} className="self-center w-[22px] md:w-[28px] h-auto" />
               </div>
               </div>
             </div></>)}
 
 
-          {(actionItemShown === 1) && (<div className='mr-20 flex flex-col justify-between w-80 mt-[30px] h-[190px]'>
+          {(actionItemShown === 1) && (<div className='mr-20 flex flex-col justify-between w-[250px] md:w-80 mt-[30px] h-[160px] md:h-[190px]'>
             <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] ml-10'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>M-Pesa</p>
               </div>
 
-              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] mr-10'>
+              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] ml-10'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>MTN Mobile Money</p>
               </div>
 
@@ -338,7 +345,7 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>)}
 
             {actionItemShown === 2 && (
- <div className='py-[20px] flex flex-col justify-between bg-white w-full mt-10 mx-10 rounded-[30px] h-[185px]'>
+ <div className='py-[20px] flex flex-col justify-between bg-white w-full mt-5 md:mt-10 mx-10 rounded-[30px] h-[185px]'>
             
  <div className='rounded-xl self-center flex flex-row items-center bg-white w-[120px] border-gray-200 border-2 h-[35px]'>
    <p className='ml-[20px] text-black font-medium font-[20px]'>Enter PIN</p>
@@ -351,7 +358,7 @@ Unify your access to bank and mobile money accounts through a single API.
    <div className="flex items-center justify-center rounded-md self-center bg-white w-[120px] h-[30px] border-2 border-gray-200">
   <div className="flex items-center space-x-1">
     <p className="text-center text-[#37cf15] font-medium text-[14px]">Connected</p>
-    <p className="text-gray-600 text-[13px]">▼</p>
+    <p className="hidden md:block text-gray-600 text-[13px]">▼</p>
   </div>
 </div>
 
@@ -370,15 +377,15 @@ Unify your access to bank and mobile money accounts through a single API.
             className="pt-20 mt-0 flex flex-col items-start pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <div className='max-w-7xl self-center pt-10 pb-5 flex flex-row'>
-                <div className="w-[450px] flex flex-col mr-[350px]">
-                <div className="mt-[20px] border-1 shadow-md border-gray-300 bg-white py-1 w-[320px] rounded-[30px] mb-10">
+            <div className='max-w-[280px] md:max-w-7xl self-center pt-5 md:pt-10 pb-5 flex flex-col md:flex-row'>
+                <div className="w-[280px] md:w-[450px] flex flex-col md:mr-[350px]">
+                <div className="mt-0 md:mt-[20px] border-1 shadow-md border-gray-300 bg-white py-1 w-[290px] md:w-[320px] rounded-[30px] mb-10">
             <h2 className="text-[18px] font-regular text-black text-center">Industry-leading performance</h2>
             </div>
-            <h2 className='font-semibold text-black text-[36px] leading-tight mb-10'>Built for simplicity. <br /> Engineered for scale.</h2>
+            <h2 className='font-semibold text-black text-[30px] md:text-[36px] leading-tight mb-4 md:mb-10'>Built for simplicity. <br /> Engineered for scale.</h2>
             <p className='text-[#000000] font-regular text-[18px]'>Stellar LinQ adapts to any use case, connecting customers to mobile money accounts in a format that fits seamlessly into your experience - enabling payments without friction.</p>
                 </div>
-                <div className='flex flex-col justify-between bg-[#0669ff] rounded-2xl w-[370px] h-[370px] pt-[30px] pb-[30px] px-[30px]'>
+                <div className='mt-[40px] md:mt-0 flex flex-col justify-between bg-[#0669ff] rounded-2xl w-[290px] md:w-[370px] h-[350px] md:h-[370px] pt-[30px] pb-[30px] px-[30px]'>
                 <Image src="/images/plug.png" alt="apple" width={286} height={96.9} className="w-full h-auto" />
                 <div className='flex flex-col'>
                 <h2 className='font-medium text-white text-[33px] leading-tight mb-[10px] mx-[5px]'>Plug-n-play</h2>
@@ -402,7 +409,7 @@ configuration.
             </section>
 
             <section
-            className="pt-10 mt-0 flex flex-col items-center pt-0 bg-[#FCFCFD] bg-cover"
+            className="pt-0 md:pt-10 mt-0 flex flex-col items-center pt-0 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
         <Image src="/images/flags3.png" alt="flags" width={1425} height={208} className="w-full h-auto" />
@@ -416,13 +423,13 @@ configuration.
             <div className="self-center border-1 shadow-md border-gray-300 bg-white py-1 w-[160px] rounded-[30px] mb-8">
             <h2 className="text-[18px] font-regular text-black text-center">Integration</h2>
             </div>
-            <h2 className='self-center font-semibold text-[#292932] text-[36px] leading-tight mb-10'>Set up fast. Ship faster.</h2>
+            <h2 className='text-center md:text-start self-center font-semibold text-[#292932] text-[30px] md:text-[36px] leading-tight mb-10'>Set up fast. Ship faster.</h2>
 
             <p className='self-center max-w-xl text-center text-[#747860] font-regular text-[18px] mb-4'>Skip the complex infrastructure and lengthy set up.<br />
 Our prebuilt SDKs, quick start templates, and dashboard-guided 
 configuration let you integrate and go live in hours, not weeks.</p>
             
-            <div className='pl-15 pt-8 pb-10 max-w-[1450px]'>
+            <div className='pl-0 md:pl-15 pt-8 pb-10 max-w-[1450px]'>
             <Carousel
             showDots={true}
             responsive={responsive}
@@ -435,8 +442,8 @@ configuration let you integrate and go live in hours, not weeks.</p>
             renderButtonGroupOutside={false}
             arrows={true}
           >
-              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[440px] pt-[30px] pb-[10px]'>
-              <div className='rounded-xl self-center flex flex-row items-start bg-white w-[380px] border-gray-200 border-2 h-[220px] px-[20px] py-[15px]'>
+              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[280px] md:w-[440px] pt-[30px] pb-[10px]'>
+              <div className='rounded-xl self-center flex flex-row items-start bg-white w-[250px] md:w-[380px] border-gray-200 border-2 h-[140px] md:h-[220px] px-[20px] py-[15px]'>
                 <div>
               <Image src="/images/link-response.png" alt="link response" width={804} height={64} className="w-100 h-auto" />
                  <div className='mt-[10px]'><hr /></div>
@@ -448,14 +455,14 @@ configuration let you integrate and go live in hours, not weeks.</p>
                 </div>
               </div>
 
-              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[440px] pt-[15px] pb-[10px]'>
+              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[280px] md:w-[440px] pt-[15px] pb-[10px]'>
               <div className='flex flex-col justify-between mt-[30px] h-[160px]'>
-            <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[280px]'>
+            <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[220px] md:w-[280px]'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>Primary color</p>
               </div>
 
               <div className="flex flex-row">
-              <div className='flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[280px]'>
+              <div className='flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[150px] md:w-[280px]'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>Logo</p>
               </div>
               <div className='justify-center flex flex-row items-center rounded-lg bg-white border-gray-200 border-2 h-[44px] w-[76px] ml-[10px]'>
@@ -463,7 +470,7 @@ configuration let you integrate and go live in hours, not weeks.</p>
               </div>
               </div>
 
-              <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[280px]'>
+              <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[220px] md:w-[280px]'>
               <p className='ml-[20px] text-black font-regular font-[20px]'>Account Selection</p>
               </div>
 
@@ -476,24 +483,24 @@ without touching your code base.</p>
                 </div>
               </div>
 
-              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[440px] pt-[30px] pb-[10px]'>
+              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[280px] md:w-[440px] pt-[30px] pb-[10px]'>
 
-              <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[320px]'>
+              <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[260px] md:w-[320px]'>
               <div className="flex flex-row justify-between w-full">
-              <p className='ml-[20px] text-black font-regular font-[20px]'>http://hosted.stellarlinq.com</p>
+              <p className='ml-[20px] text-black font-regular text-[14px] md:text-[16px]'>http://hosted.stellarlinq.com</p>
                <p className="text-gray-600 text-[13px] mr-[20px] self-center mt-[2px]">| ▼</p>
              </div>
             
               </div>
 
               
- <div className='pt-[30px] border-2 border-gray-200 flex flex-col justify-between bg-white mx-10 rounded-t-[30px] h-[185px] w-[380px]'>
+ <div className='pt-[10px] md:pt-[30px] border-2 border-gray-200 flex flex-col justify-between bg-white  mx-10 rounded-t-[30px] mt-[20px] md:mt-0 h-[120px] md:h-[185px] w-[270px] md:w-[380px]'>
             
 
             <Image src="/images/deploy.png" alt="link response" width={120} height={58} className="self-center w-[60px] h-auto" />
-              <p className='self-center w-[320px] text-center text-black font-regular font-[12px]'>Eneo uses <b>Stellar</b> to connect your financial accounts</p>
+              <p className='self-center w-[250px] md:w-[320px] text-center text-black font-regular mx-[20px] md:mx-0 font-[12px] mb-[20px] md:mb-0'>Eneo uses <b>Stellar</b> to connect your financial accounts</p>
   
-              <div className="flex rounded-t-md self-center bg-white w-[300px] h-[50px] border-t-2 border-l-2 border-r-2 border-gray-200 mb-0">
+              <div className="hidden md:flex rounded-t-md self-center bg-white w-[300px] h-[50px] border-t-2 border-l-2 border-r-2 border-gray-200 mb-0">
 
            </div>
            
@@ -516,12 +523,12 @@ without touching your code base.</p>
             <div className="mr-[30px] self-center border-1 shadow-md border-gray-300 bg-white py-1 w-[160px] rounded-[30px] mb-12">
             <h2 className="text-[18px] font-regular text-black text-center">Security</h2>
             </div>
-            <h2 className='mr-[30px] text-center self-center font-semibold text-[#292932] text-[36px] leading-tight mb-15'>Security and compliance<br  />you can count on</h2>
+            <h2 className='mr-[30px] text-center self-center font-semibold text-[#292932] text-[30px] md:text-[36px] leading-tight mb-10 md:mb-15'>Security and compliance<br  />you can count on</h2>
 
-            <div className='max-w-7xl self-center flex flex-row mb-[300px]'>
-              <div className='max-w-xl flex flex-col  mr-[70px] self-center'>
-              <h2 className='text-start font-semibold text-[#000000] text-[30px] leading-tight mb-3'>Built for the new era of open banking</h2>
-              <p className='text-start font-semibold text-[#000000] text-[22px] leading-tight mb-10'>Stellar’s security is always evolving to meet or exceed rigorous industry standards—from creating customer-facing privacy tools to using unique insights from the Stellar Network to stop fraud before it happens.</p>
+            <div className='max-w-[280px] md:max-w-7xl self-center flex flex-row mb-[300px]'>
+              <div className='max-w-xl flex flex-col  md:mr-[70px] self-center'>
+              <h2 className='text-start font-semibold text-[#000000] text-[24px] md:text-[30px] leading-tight mb-3'>Built for the new era of open banking</h2>
+              <p className='text-start font-semibold text-[#000000] text-[18px] md:text-[22px] leading-tight mb-10'>Stellar’s security is always evolving to meet or exceed rigorous industry standards—from creating customer-facing privacy tools to using unique insights from the Stellar Network to stop fraud before it happens.</p>
 
             <motion.div 
                         initial={{ opacity: 0, y: 30 }}
@@ -530,7 +537,7 @@ without touching your code base.</p>
                         >
               <hr />
               <div className='flex flex-row justify-between mb-5 '>
-              <p onClick={() => setDrop1(!drop1)} className='text-start font-semibold text-[#000000] text-[22px] leading-tight mt-2'>Limit the risk of fraud in real time
+              <p onClick={() => setDrop1(!drop1)} className='text-start font-semibold text-[#000000] text-[22px] leading-tight mt-2 mr-2 mx:mr-0'>Limit the risk of fraud in real time
               </p>
              { drop1 === true && (<Image src="/images/up.png" alt="up" width={24} height={13} onClick={() => setDrop1(false)}className="w-[24px] h-[13px] mt-4 mr-1" />)}
              { drop1 === false && (<Image src="/images/down.png" alt="up" width={24} height={13} onClick={() => setDrop1(true)}className="w-[24px] h-[13px] mt-4 mr-1" />)}
@@ -544,7 +551,7 @@ without touching your code base.</p>
         animate={{ opacity: 1, height: "auto", y: 0 }}
         exit={{ opacity: 0, height: 0, y: -10 }}
         transition={{ duration: 0.35 }}
-        className="text-start font-regular text-[#000000] text-[22px] leading-tight mb-10 overflow-hidden"
+        className="text-start font-regular text-[#000000] text-[18px] md:text-[22px] leading-tight mb-10 overflow-hidden"
       >
         Stellar LinQ monitors device IDs, SIM details, mobile carrier
         signals, and more—identifying suspicious activity in real-time
@@ -575,7 +582,7 @@ without touching your code base.</p>
         animate={{ opacity: 1, height: "auto", y: 0 }}
         exit={{ opacity: 0, height: 0, y: -10 }}
         transition={{ duration: 0.35 }}
-        className="text-start font-regular text-[#000000] text-[22px] leading-tight mb-10 overflow-hidden"
+        className="text-start font-regular text-[#000000] text-[18px] md:text-[22px] leading-tight mb-10 overflow-hidden"
       >
 Stellar LinQ meets internationally recognised security certifications, including ISO 27001, ISO 27701, and SSAE18 SOC 2 compliance.
       </motion.p>
@@ -604,7 +611,7 @@ Stellar LinQ meets internationally recognised security certifications, including
         animate={{ opacity: 1, height: "auto", y: 0 }}
         exit={{ opacity: 0, height: 0, y: -10 }}
         transition={{ duration: 0.35 }}
-        className="text-start font-regular text-[#000000] text-[22px] leading-tight mb-10 overflow-hidden"
+        className="text-start font-regular text-[#000000] text-[18px] md:text-[22px] leading-tight mb-10 overflow-hidden"
       >
 We embed privacy controls directly into our products, empowering your customers to manage their data while we work industry-wide to raise privacy standards.
       </motion.p>
@@ -614,7 +621,7 @@ We embed privacy controls directly into our products, empowering your customers 
 
               </div>
 
-              <div className='self-center flex rounded-3xl w-[549px] h-[511px] justify-center bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff]'>
+              <div className='self-center hidden md:flex rounded-3xl w-[549px] h-[511px] justify-center bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff]'>
               <Image src="/images/right-window.png" alt="right window" width={440} height={512} className="w-[440px] h-[511px] mb-0" />
               </div>
             </div>
@@ -624,24 +631,24 @@ We embed privacy controls directly into our products, empowering your customers 
             </section>
 
             <section
-            className="mt-10 flex flex-col items-start pt-0 px-8 md:px-20 pb-[200px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
+            className="mt-0 md:mt-10 flex flex-col items-start pt-0 px-8 md:px-20 pb-[200px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
-            <div className='px-[40px] py-[27px] flex flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
-            <div className='w-[344px] flex ml-[100px]'>
-              <h1 className='leading-tight text-[#fcfcfd] font-regular text-[46px] mt-[70px]'>
+            <div className='px-[40px] py-[27px] flex flex-col md:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
+            <div className='w-[280px] md:w-[344px] flex md:ml-[100px]'>
+              <h1 className='leading-tight text-[#fcfcfd] font-regular text-[30px] md:text-[46px] mt-[10px] md:mt-[70px]'>
               Boost conversion with the highest standard in account linking
               </h1>
             </div>
-            <div className='w-[548px] h-[523px] bg-white rounded-2xl px-[50px] py-[70px]'>
+            <div className='mt-[40px] md:mt-0 w-[250px] md:w-[548px] h-[700px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
   <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
     Let's get started
   </h1>
 
   {/* Fields */}
-  <div className="space-y-8">
+  <div className="space-y-4 md:space-y-8">
 
     {/* Row 1 */}
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <input
         type="text"
         placeholder="First name"
@@ -657,7 +664,7 @@ We embed privacy controls directly into our products, empowering your customers 
     </div>
 
     {/* Row 2 */}
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <input
         type="text"
         placeholder="Company name"
@@ -673,7 +680,7 @@ We embed privacy controls directly into our products, empowering your customers 
     </div>
 
     {/* Row 3 */}
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <input
         type="text"
         placeholder="Country"
@@ -717,7 +724,7 @@ We embed privacy controls directly into our products, empowering your customers 
 
         <div className="ml-5 sm:ml-0 mx-auto flex flex-col sm:flex-row justify-center">
           {/* Upper section with three columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12 md:mr-[200px]">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12 md:mr-[200px]">
             {/* Company and team */}
             <div className="text-left">
               <h3 className="font-bold mb-3 md:mb-4 text-[#ffffff] text-sm md:text-base">Company</h3>
@@ -744,16 +751,16 @@ We embed privacy controls directly into our products, empowering your customers 
             <div className="text-left">
             <h3 className="font-bold mb-3 md:mb-4 text-sm text-[#ffffff] md:text-base">Products</h3>
               <div className="space-y-1 md:space-y-4">
-                <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="#" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   StellarPay
                 </Link>
-                <Link href="/linq" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/linq" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Stellar for Business
                 </Link>
-                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="http://www.meetgeorge.app" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   George
                 </Link>
-                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="http://www.meetgeorge.app" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   APi
                 </Link>
               </div>
@@ -763,19 +770,19 @@ We embed privacy controls directly into our products, empowering your customers 
                         <div className="text-left">
             <h3 className="text-[#ffffff] font-bold mb-3 md:mb-4 text-sm md:text-base">Policies</h3>
               <div className="space-y-1 md:space-y-4">
-                <Link href="/privacy-policy#your-rights" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#your-rights" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Legal
                 </Link>
-                <Link href="/privacy-policy#contact-us" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#contact-us" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Complaints
                 </Link>
-                <Link href="/privacy-policy" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Privacy Policy
                 </Link>
-                <Link href="/terms-of-service" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/terms-of-service" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Terms & Conditions
                 </Link>
-                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Cookie Policy
                 </Link>
               </div>
