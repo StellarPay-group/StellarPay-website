@@ -776,7 +776,7 @@ individually responsible for implementing retention schedules within their separ
                 <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   StellarPay
                 </Link>
-                <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/linq" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Stellar for Business
                 </Link>
                 <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
