@@ -209,12 +209,12 @@ export default function LinqUseCases() {
             <div className='flex flex-col self-center md:self-start md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-10 mt-10'>
                     <a href='#contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
-            <p className='text-white font-medium text-xs md:text-[19px]'>Talk with our team</p>
+            <p className='text-white font-medium md:text-[19px]'>Talk with our team</p>
           </div>
           </a>
           <a href='#contact'>
           <div className="border-1 border-gray-700 bg-black rounded-xl py-2 px-11 flex flex-row items-center justify-center space-x-2">
-            <p className='text-white font-medium text-xs md:text-[19px]'>Get on waitlist</p>
+            <p className='text-white font-medium md:text-[19px]'>Get on waitlist</p>
           </div>
           </a>
             </div>
@@ -290,20 +290,20 @@ export default function LinqUseCases() {
 
             
             <div className='mx-2 md:mx-0 mt-5 md:mt-15 flex flex-col md:flex-row items-center justify-between'>
-              <div className='w-[100px] md:w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-center text-[30px] md:text-[50px] font-medium'>40%</h2>
+              <div className='w-[200px] md:w-[320px] flex flex-col'>
+               <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] text-center md:text-[50px] font-semibold">40%</h2>
                 <p className='text-[16px] text-center text-[#454545] font-regular'>Instant account verification cuts return rates by up to 40%
 
                 </p>
               </div>
-              <div className='mt-10 md:mt-0 w-[100px] md:w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-center text-[30px] md:text-[50px] font-medium'>7 Seconds</h2>
+              <div className='mt-10 md:mt-0 w-[200px] md:w-[320px] flex flex-col'>
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] text-center md:text-[50px] font-semibold">7 Seconds</h2>
                 <p className='text-[16px] text-center text-[#454545] font-regular'>Link a mobile money account in an average of 7 seconds
 
                 </p>
               </div>
-              <div className='mt-10 md:mt-0 w-[100px] md:w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-center text-[30px] md:text-[50px] font-medium'>40% savings</h2>
+              <div className='mt-10 md:mt-0 w-[200px] md:w-[320px] flex flex-col'>
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] text-center md:text-[50px] font-semibold">40% savings</h2>
                 <p className='text-[16px] text-center text-[#454545] font-regular'>Pay by mobile money reduces payment costs by an average of 40%
                 </p>
               </div>

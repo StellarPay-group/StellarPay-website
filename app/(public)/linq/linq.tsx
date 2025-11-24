@@ -205,12 +205,12 @@ const [showLinqAd, setShowLinqAd] = useState(false);
             <div className='flex flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-18'>
               <a href='/linq#contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
-            <p className='text-white font-medium text-xs md:text-[19px]'>Talk with our team</p>
+            <p className='text-white font-medium text-[19px]'>Talk with our team</p>
           </div>
           </a>
           <a href='/linq#contact'>
           <div className="border-1 border-gray-700 bg-black rounded-xl py-2 px-11 flex flex-row items-center justify-center space-x-2">
-            <p className='text-white font-medium text-xs md:text-[19px]'>View API docs</p>
+            <p className='text-white font-medium text-[19px]'>View API docs</p>
           </div>
           </a>
             </div>
@@ -244,7 +244,7 @@ Unify your access to bank and mobile money accounts through a single API.
         <div className="mt-5 max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="">
             <h1 
-              className="text-[#000000] text-center text-[30px] md:text-[54px] lg:text-[54px] xl:text-[54px] font-medium"
+              className="text-[#000000] text-center text-[30px] md:text-[54px] lg:text-[54px] xl:text-[54px] font-semibold"
             >
               Access the largest mobile money ecosystem
             </h1>
@@ -252,18 +252,20 @@ Unify your access to bank and mobile money accounts through a single API.
 
             <div className='mx-2 md:mx-0 mt-15 flex flex-row justify-between'>
               <div className='w-[100px] md:w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-[30px] md:text-[54px] font-medium'>100+</h2>
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] md:text-[54px] font-semibold">
+  100+
+</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Mobile money operators across Africa, Asia, and Latin America
                 </p>
               </div>
               <div className='w-[100px] md:w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-[30px] md:text-[54px] font-medium'>50M+ Users</h2>
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] md:text-[54px] font-semibold">50M+ Users</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Active mobile money accounts across Africa, Asia, and Latin America
 
                 </p>
               </div>
               <div className='w-[100px] md:w-[320px] flex flex-col'>
-                <h2 className='text-[#0065ff] text-[30px] md:text-[54px] font-medium'>&lt;1 Day</h2>
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] md:text-[54px] font-semibold">&lt;1 Day</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Average time to go live with LinQ
                 </p>
               </div>
@@ -666,13 +668,15 @@ We embed privacy controls directly into our products, empowering your customers 
             className="mt-0 md:mt-10 flex flex-col items-start pt-0 px-8 md:px-20 pb-[200px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
             <div className='px-[10px] sm:px-[40px] py-[27px] flex flex-col md:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
-            <div className='w-[240px] md:w-[344px] flex md:ml-[100px]'>
-              <h1 className='leading-tight text-[#fcfcfd] font-regular text-[24px] sm:text-[30px] md:text-[46px] mt-[10px] md:mt-[70px]'>
+            <div className='w-[240px] md:w-[344px] flex flex-col mx-auto md:ml-[100px]'>
+              <h1 className='leading-tight text-center md:text-start text-[#fcfcfd] font-semibold text-[24px] sm:text-[30px] md:text-[40px] mt-[10px] md:mt-[70px]'>
               Boost conversion with the highest standard in account linking
               </h1>
+              <div className="mt-5 w-[250px] md:w-[300px] h-[6px] bg-[linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(2,132,199,0.65)_50%,rgba(0,0,0,0)_100%)]"></div>
             </div>
-            <div className='self-center mt-[40px] md:mt-0 w-[230px] md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
-  <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
+         
+            <div className='self-center mt-[40px] md:mt-0 mx-5 md:mx-auto w-auto md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
+  <h1 className='leading-tight text-black font-semibold text-[30px] mb-6'>
     Let's get started
   </h1>
 
