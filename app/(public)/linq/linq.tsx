@@ -117,7 +117,7 @@ const [showLinqAd, setShowLinqAd] = useState(false);
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
         </Link>
-        <Link href="/linq#contact">
+        <Link href="/linq/use-cases">
         {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
@@ -143,7 +143,7 @@ const [showLinqAd, setShowLinqAd] = useState(false);
 
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-7">
-            <Link href="/linq#contact">
+            <Link href="/linq/use-cases">
             {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row md:hidden items-center justify-center mr-1">
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
@@ -285,7 +285,7 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             <h2 className='font-semibold text-black text-[30px] md:text-[36px] leading-tight mb-4'>Flexible by design. <br /> Seamless when it ships.</h2>
             <p className='text-[#747860] font-regular text-[18px] mb-6'>Stellar LinQ is modular, instantly connecting customers to any financial use cade in a format that fits your experience - so they can move, manage and move money without disruption.</p>
-                      <a href='/linq#contact'>
+                      <a href='/linq/use-cases'>
                       {/* <a href='/linq/use-cases'> */}
             <div className="border-1 border-black bg-black py-2 w-[160px] rounded-[30px] mb-6 mt-4 md:mt-10">
             <h2 className="text-[15px] font-medium text-white text-center">Use cases</h2>

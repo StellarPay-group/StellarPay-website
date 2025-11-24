@@ -8,10 +8,10 @@ import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
-import { act, useState } from "react";
+import { act, useEffect, useState } from "react";
 import Head from "next/head";
 import GetTheApp from "@/components/popup/getTheApp";
-import { getUrlForDevice } from "@/lib/device";
+import { getDeviceType, getUrlForDevice } from "@/lib/device";
 
 export default function LinqUseCases() {
 
@@ -28,17 +28,21 @@ export default function LinqUseCases() {
   const betterAnimation = useScrollAnimation(0.3);
   const storeAnimation = useScrollAnimation(0.5);
   const footerAnimation = useScrollAnimation(0.5);
-
+  const [showSPad, setShowSPad] = useState(false);
   const [actionItemShown, setActionItemShown] = useState(0);
-  const [drop1, setDrop1] = useState(false);
-  const [drop2, setDrop2] = useState(false);
-  const [drop3, setDrop3] = useState(false);
-  const [field1, setField1] = useState("");
-const [field2, setField2] = useState("");
-const [field3, setField3] = useState("");
-const [field4, setField4] = useState("");
-const [field5, setField5] = useState("");
-const [field6, setField6] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      const a = getDeviceType();
+      console.log(a)
+      if (a !== 0) {
+      } else {
+        setShowSPad(true);
+      }
+    }, 1000);
+  }, []);
+  
 
 
 
@@ -61,6 +65,21 @@ const [field6, setField6] = useState("");
         />
       </Head>
     <main className="bg-[#ffffff]">
+
+    {showSPad && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
+          <div className='flex flex-row items-center justify-center w-full'>
+          <a href='/'>
+            <p className='text-white text-center'>🎉 Meet StellarPay! True bilateral money movement at your fingertips →</p>
+          </a>
+          <Link href="/">
+          <div className="ml-5 border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
+            <p className='text-white font-medium text-xs md:text-[15px]'>See what's new</p>
+          </div>
+        </Link>
+          </div>
+          <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowSPad(false)}/></div>
+        </motion.div>)}
+        {showSPad && (<motion.div className='hidden md:block h-[65px] w-full'></motion.div>)}
 
       {/* Navigation/Header */}
       <section 
@@ -95,7 +114,7 @@ const [field6, setField6] = useState("");
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
         </Link>
-        <Link href="/linq#contact">
+        <Link href="/linq/use-cases">
         {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
@@ -121,7 +140,7 @@ const [field6, setField6] = useState("");
 
             {/* Right side - About us, language, auth */}
             <div className="flex items-center space-x-2 md:space-x-7">
-            <Link href="/linq#contact">
+            <Link href="/linq/use-cases">
             {/* <Link href="/linq/use-cases"> */}
           <div className="flex flex-row md:hidden items-center justify-center mr-1">
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
@@ -220,135 +239,140 @@ const [field6, setField6] = useState("");
 
 
             <section
-            className="pt-10 md:pt-15 mt-0 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
+            className="pt-0 md:pt-15 pb-10 mt-0 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <h2 className='max-w-2xl mt-5 text-center font-semibold text-[#111111] text-[30px] md:text-[40px] leading-tight mb-0'>Disconnection from Africa is costing you revenue</h2>
-           
-            </section>
+                        <h1 className='max-w-[300px] md:max-w-7xl mt-15 text-left md:text-center font-bold text-[#0065ff] text-[18px] md:text-[30px] leading-tight mb-10 md:mb-0'>Why LinQ</h1>
+            <h2 className='max-w-7xl mx-auto mt-0 md:mt-5 text-start font-semibold text-[#111111] text-[30px] md:text-[40px] leading-tight mb-0'>A technology-first approach to payments and finance</h2>
 
 
-            <section
-            className="pt-5 md:pt-20 flex flex-col pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
-            ref={heroAnimation.ref}
-          >
-            <div className='pl-0 md:pl-15 pt-0 pb-10 max-w-[1450px]'>
-            <Carousel
-            showDots={true}
-            responsive={responsive}
-            ssr={false} 
-            infinite={false}
-            autoPlay={false}
-            dotListClass="mt-10"
-            itemClass="px-4"  
-            containerClass="pb-16"
-            renderButtonGroupOutside={false}
-            arrows={true}
-          >
-              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-2 h-[483px] w-[280px] md:w-[440px] pt-[30px] pb-[10px]'>
-              <div className='rounded-xl self-center flex flex-row items-start bg-white w-[250px] md:w-[380px] border-gray-200 border-3 h-[140px] md:h-[220px] px-[20px] py-[15px]'>
-                <div>
-              <Image src="/images/link-response.png" alt="link response" width={804} height={64} className="w-100 h-auto" />
-                 <div className='mt-[10px]'><hr /></div>
-                 </div>
+            <div className='mt-10 md:mt-40 ml-0 md:ml-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-x-5 space-y-10'>
+                <div className='w-[260px] md:w-[320px]'>
+                <Image src="/images/spf.png" alt="stop payment failures" width={100} height={100} className="ml-10 w-16 h-auto" />
+                <div className='border-[#5f5bff] border-l-2'>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Stop payment failures</h1>
                 </div>
-                <div className='flex flex-col mx-[25px]'>
-                <p className='text-[#292932] font-semibold text-[20px] mb-3'>Go live in hours, not days.</p>
-                <p className='text-[#747680] font-regular text-[16px] mb-4 mr-5'>With ready-made UI components and backend code, you only need a developer and an afternoon - integrate Stellar LinQ before lunch and launch by dinner</p>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>LinQ pulls account and routing numbers directly from the bank—no more typos.<br />
+                We operate on and optimise at every level of the financial stack.</p>
                 </div>
-              </div>
-
-              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-3 h-[483px] w-[280px] md:w-[440px] pt-[15px] pb-[10px]'>
-              <div className='flex flex-col justify-between mt-[30px] h-[160px]'>
-            <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[220px] md:w-[280px]'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>Primary color</p>
-              </div>
-
-              <div className="flex flex-row">
-              <div className='flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[150px] md:w-[280px]'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>Logo</p>
-              </div>
-              <div className='justify-center flex flex-row items-center rounded-lg bg-white border-gray-200 border-2 h-[44px] w-[76px] ml-[10px]'>
-              <p className='text-center text-black font-medium font-[20px]'>Update</p>
-              </div>
-              </div>
-
-              <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[220px] md:w-[280px]'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>Account Selection</p>
-              </div>
-
+                <div className='w-[260px] md:w-[320px]'>
+                <Image src="/images/krp.png" alt="keep recurring payments" width={100} height={100} className="ml-10 w-16 h-auto" />
+                <div className='border-[#5f5bff] border-l-2'>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Keep recurring payments</h1>
+                </div>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Easy linking, balance checks, and recovery tools keep bill payments on schedule with less churn.</p>
+                </div>
+                <div className='w-[260px] md:w-[320px]'>
+                <Image src="/images/bcc.png" alt="boost customer conversion" width={100} height={100} className="ml-10 w-16 h-auto" />
+                <div className='border-[#5f5bff] border-l-2'>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Boost customer conversion</h1>
+                </div>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>With coverage across 95% of accounts, more customers know LinQ and complete sign-up.Our systems operate with 99.99%+ uptime and are highly scalable and redundant. </p>
+                </div>
+                <div className='w-[260px] md:w-[320px]'>
+                <Image src="/images/spf.png" alt="intelligent optimization" width={100} height={100} className="ml-10 w-16 h-auto" />
+                <div className='border-[#5f5bff] border-l-2'>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Intelligent Optimisation</h1>
+                </div>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Our machine learning models train on millions of data points and help increase revenue across conversion, fraud, revenue recovery, and more.</p>
+                </div>
             </div>
-                <div className='flex flex-col mx-[25px]'>
-                <p className='text-[#292932] font-semibold text-[20px] mb-3'>Configure without writing code</p>
-                <p className='text-[#747680] font-regular text-[16px] mb-4 mr-5'>Our dashboard provides intuitive tools for configuration -
-add users, set up webhooks and customise settings 
-without touching your code base.</p>
-                </div>
-              </div>
 
-              <div className='flex flex-col justify-between items-center shadow-md rounded-2xl border-white border-3 h-[483px] w-[280px] md:w-[440px] pt-[30px] pb-[10px]'>
 
-              <div className='self-center flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] w-[260px] md:w-[320px]'>
-              <div className="flex flex-row justify-between w-full">
-              <p className='ml-[20px] text-black font-regular text-[14px] md:text-[16px]'>http://hosted.stellarlinq.com</p>
-               <p className="text-gray-600 text-[13px] mr-[20px] self-center mt-[2px]">| ▼</p>
-             </div>
-            
-              </div>
-
-              
- <div className='pt-[10px] md:pt-[30px] border-2 border-gray-200 flex flex-col justify-between bg-white  mx-10 rounded-t-[30px] mt-[20px] md:mt-0 h-[120px] md:h-[185px] w-[270px] md:w-[380px]'>
-            
-
-            <Image src="/images/deploy.png" alt="link response" width={120} height={58} className="self-center w-[60px] h-auto" />
-              <p className='self-center w-[250px] md:w-[320px] text-center text-black font-regular mx-[20px] md:mx-0 font-[12px] mb-[20px] md:mb-0'>Eneo uses <b>Stellar</b> to connect your financial accounts</p>
-  
-              <div className="hidden md:flex rounded-t-md self-center bg-white w-[300px] h-[50px] border-t-2 border-l-2 border-r-2 border-gray-200 mb-0">
-
-           </div>
-           
-            </div>
-                <div className='flex flex-col mx-[25px]'>
-                <p className='text-[#292932] font-semibold text-[20px] mb-3'>Deploy without building infrastructure</p>
-                <p className='text-[#747680] font-regular text-[16px] mb-4 mr-10'>Stellar LinQ can host the complete linking flow for you, providing a secure URL to embed directly into your web or mobile applcation.</p>
-                </div>
-              </div>
-</Carousel>
-                </div>
-      
             </section>
 
             
             <section
-            className="pt-20 flex flex-col pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
+            className="max-w-[300px] md:max-w-7xl mx-auto pt-10 md:pt-40 flex flex-col bg-[#ffffff] bg-cover"
             ref={heroAnimation.ref}
           >
-            <h2 className='md:mr-[30px] text-center self-center font-semibold text-[#000000] text-[30px] md:text-[40px] leading-tight mb-10 md:mb-15'>Why mobile money wins for bill pay</h2>
+            <h2 className='md:mr-[30px] text-center self-center font-semibold text-[#000000] text-[30px] md:text-[54px] leading-tight mb-0 md:mb-15'>Turn every setup into success</h2>
 
-            <div className='max-w-[280px] md:max-w-7xl self-center flex flex-col md:flex-row mb-[50px] md:mb-[150px]'>
-            <div className='self-center flex rounded-3xl w-[260px] md:w-[472px] h-[341px] justify-center bg-[#0065ff]'>
-            <div className='self-center md:mr-20 flex flex-col justify-between w-[230px] md:w-80 h-[170px]'>
-            <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] md:ml-10'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>M-Pesa</p>
+            
+            <div className='mx-2 md:mx-0 mt-5 md:mt-15 flex flex-col md:flex-row items-center justify-between'>
+              <div className='w-[100px] md:w-[320px] flex flex-col'>
+                <h2 className='text-[#0065ff] text-center text-[30px] md:text-[50px] font-medium'>40%</h2>
+                <p className='text-[16px] text-center text-[#454545] font-regular'>Instant account verification cuts return rates by up to 40%
+
+                </p>
               </div>
+              <div className='mt-10 md:mt-0 w-[100px] md:w-[320px] flex flex-col'>
+                <h2 className='text-[#0065ff] text-center text-[30px] md:text-[50px] font-medium'>7 Seconds</h2>
+                <p className='text-[16px] text-center text-[#454545] font-regular'>Link a mobile money account in an average of 7 seconds
 
-              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] md:mr-10'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>MTN Mobile Money</p>
+                </p>
               </div>
-
-              <div className='w-full flex flex-row items-center rounded-xl shadow-sm bg-white border-purple-500 border-2 h-[44px] md:ml-10'>
-              <p className='ml-[20px] text-black font-regular font-[20px]'>Airtel Money</p>
+              <div className='mt-10 md:mt-0 w-[100px] md:w-[320px] flex flex-col'>
+                <h2 className='text-[#0065ff] text-center text-[30px] md:text-[50px] font-medium'>40% savings</h2>
+                <p className='text-[16px] text-center text-[#454545] font-regular'>Pay by mobile money reduces payment costs by an average of 40%
+                </p>
               </div>
-
             </div>
-            </div>
 
-              <div className='md:ml-[200px] max-w-[450px] flex flex-col  self-center'>
-              <h2 className='text-center md:text-start font-semibold text-[#000000] text-[24px] md:text-[36px] leading-tight mb-3 mt-10 md:mt-0'>Seamless account linking</h2>
-              <p className='text-center md:text-start font-regular text-[#000000] text-[18px] md:text-[20px] leading-tight mb-10'>No friction, no drop-offs. LinQ makes it easy for customers to connect their mobile money wallets, bank accounts, or crypto wallets instantly—so every connection becomes a completed transfer.
+            </section>
+
+
+<section
+className="pt-20 mt-20 pb-80 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
+ref={heroAnimation.ref}
+>
+
+            <div className='max-w-[280px] md:max-w-7xl self-center flex flex-col md:flex-row'>
+           
+           <Image
+              className="mb-10 md:mb-0 self-center w-[280px] md:w-[726px] h-[160px] md:h-[383px]"
+              src="/images/graph.png"
+              alt="graph"
+              width={726}
+              height={383}
+            />
+
+
+              <div className='md:ml-[50px] max-w-[450px] flex flex-col  self-center'>
+              <div className="self-center shadow-md border-gray-300 bg-white py-1 w-[150px] rounded-[30px] mb-5">
+            <h2 className="text-[18px] font-semibold text-black text-center">Integration</h2>
+            </div>
+              <h2 className='text-center md:text-start font-semibold text-[#000000] text-[36px] leading-tight mb-10 mt-0'>Effortless account linking</h2>
+              <p className='text-center md:text-start font-regular text-gray-500 text-[16px] leading-tight mb-10'>No delays or drop-offs. LinQ makes it easy for customers to connect their accounts instantly—so every connection has a chance to become a paying customer.
               </p>
-
+                <div className='flex flex-row'>
+                <Image
+              className="w-[25px] h-[25px] mt-1 mr-3"
+              src="/images/instantLogin.png"
+              alt="instant login"
+              width={25}
+              height={25}
+            />
+            <h2 className='font-bold text-[20px] text-[#242424]'>Instant login or fallback</h2>
+                </div>
+                <p className='max-w-[300px] text-start font-regular text-gray-600 text-[16px] leading-tight mt-2 mb-6'> Biometrics, credentials, and manual entry are all validated in real time.
+              </p>
+              <div className='flex flex-row'>
+                <Image
+              className="w-[25px] h-[25px] mt-1 mr-3"
+              src="/images/status.png"
+              alt="status"
+              width={25}
+              height={25}
+            />
+            <h2 className='font-bold text-[20px] text-[#242424]'>Status checked instantly</h2>
+                </div>
+                <p className='max-w-[300px] text-start font-regular text-gray-600 text-[16px] leading-tight mt-2 mb-6'>Accounts are confirmed open and active before bill payments begin.
+              </p>
+              <div className='flex flex-row'>
+                <Image
+              className="w-[25px] h-[25px] mt-1 mr-3"
+              src="/images/oneClick.png"
+              alt="one click"
+              width={25}
+              height={25}
+            />
+            <h2 className='font-bold text-[20px] text-[#242424]'>One-click for returning users</h2>
+                </div>
+                <p className='max-w-[300px] text-start font-regular text-gray-600 text-[16px] leading-tight mt-2 mb-10'>Remembered customers can link instantly without re-entering details.
+              </p>
               </div>
+
             </div>
 
  
@@ -356,101 +380,122 @@ without touching your code base.</p>
             </section>
 
             <section
-            id='contact'
-            className=" flex flex-col items-start pt-0 pb-0 md:pb-[500px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
-          >
-            <div className='px-[40px] py-20 flex flex-col md:flex-row justify-center bg-black w-full'>
-            <div className='justify-center items-center flex flex-col'>
-            <div className="self-center border-1 shadow-md border-gray-300 bg-white py-1 w-[140px] rounded-[30px] mb-10"> 
-            <h2 className="text-[18px] font-medium text-black text-center">Integration</h2>
+  className="relative flex flex-col items-start mt-[-200px] pl-[20px] md:pl-[100px] pt-[100px] md:pt-[280px] pb-[180px] bg-[url('/images/backbone.png')] bg-cover bg-top bg-no-repeat"
+>
+  <h2 className="font-semibold text-[18px] text-[#9fe870] mt-25 md:mt-5 mb-10">Global scale</h2>
+  <h2 className="w-[280px] md:w-[440px] font-semibold text-[25px] md:text-[40px] text-[#ffffff] leading-tight mb-5">
+    The backbone for internet business
+  </h2>
+  <h2 className="w-[280px] md:w-[550px] font-regular text-[18px] text-[#ffffff] mb-10">
+    For ambitious companies around the world, LinQ makes moving money in and out of mobile money zones as simple,
+    borderless and programmable as the rest of the internet.
+  </h2>
+
+  <div className='z-10 mt-0 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 space-x-20'>
+                <div className='w-[280px]'>
+                <div className='border-[#00d4ff] border-l-1'>
+                <h1 className='ml-5 text-white font-bold text-[16px] mt-5'>250M+</h1>
+                </div>
+                <p className='ml-3 text-[#ffffff] font-medium text-[16px] mt-5'>PossibleAPI requests per day, peaking at 13,000 requests a second.</p>
+                </div>
+                
+                <div className='w-[280px]'>
+                <div className='border-[#00d4ff] border-l-1'>
+                <h1 className='ml-5 text-white font-bold text-[16px] mt-5'>90%</h1>
+                </div>
+                <p className='ml-3 text-[#ffffff] font-medium text-[16px] mt-5'>of African adults have a mobile money wallet in their pocket.</p>
+                </div>
+                <div className='w-[280px]'>
+                <div className='border-[#00d4ff] border-l-1'>
+                <h1 className='ml-5 text-white font-bold text-[16px] mt-5'>135+</h1>
+                </div>
+                <p className='ml-3 text-[#ffffff] font-medium text-[16px] mt-5'>currencies and payment methods supported.</p>
+                </div>
+                <div className='w-[280px]'>
+                <div className='border-[#00d4ff] border-l-1'>
+                <h1 className='ml-5 text-white font-bold text-[16px] mt-5'>35+</h1>
+                </div>
+                <p className='ml-3 text-[#ffffff] font-medium text-[16px] mt-5'>countries with local acquiring, optimising acceptance rates.</p>
+                </div>
             </div>
-              <h1 className='text-center leading-tight text-[#fcfcfd] font-semibold text-[40px]'>
-              Build the billing stack that fits
-              </h1>
-              <p className='self-center max-w-xl text-center text-[#eeeeee] font-regular text-[18px] mt-10 mb-4'>Skip the complex infrastructure and lengthy set up.<br />
-Our prebuilt SDKs, quick start templates, and dashboard-guided 
-configuration let you integrate and go live in hours, not weeks.</p>
-            
+
+
+  <Image
+    className="absolute hidden md:block right-[0] top-[100px] w-[377px] h-[745px] pointer-events-none"
+    src="/images/globe-1.png"
+    alt="logo"
+    width={739}
+    height={745}
+  />
+</section>
+
+<section
+className="pt-20 pb-80 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover relative"
+ref={heroAnimation.ref}
+>
+
+            <div className='max-w-[280px] md:max-w-7xl self-center flex flex-col md:flex-row'>
+           
+
+              <div className='items-center flex flex-col  self-center'>
+              <div className="self-center shadow-sm border-gray-300 border-1 bg-white py-1 w-[150px] rounded-[10px] mb-10">
+            <h2 className="text-[18px] font-semibold text-black text-center">Get a demo</h2>
             </div>
-            <div className='self-center md:ml-[100px] mt-[40px] md:mt-0 w-70 md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
-  <h1 className='leading-tight text-black font-medium text-[30px] mb-6'>
-    Let's get started
-  </h1>
+            <h2 className="text-[14px] font-bold text-[#74748B] text-center mb-10">EXPERIENCE OUR PRODUCTS</h2>
+              <h2 className='max-w-[300px] md:max-w-6xl text-center md:text-start font-bold text-[#000000] text-[25px] md:text-[36px] leading-tight mb-10 md:mb-5 mt-0'>See how LinQ API works</h2>
+              <p className='max-w-[300px] md:max-w-[600px] text-center font-regular text-gray-500 text-[20px] leading-tight mb-10'>See how our solutions can transform your business. Experience firsthand the power of our financial infrastructure with a live demonstration tailored to your needs.
 
-  {/* Fields */}
-  <div className="space-y-4 md:space-y-8">
+              </p>
 
-    {/* Row 1 */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input
+              <div className="flex flex-row justify-between w-[280px] md:w-[450px] border border-gray-300 rounded-lg mb-10 p-3 ">
+              <input
         type="text"
-        placeholder="First name"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField1(e.target.value)}
+        placeholder="Enter your email"
+        className="w-full placeholder-[#1A1A1A]"
+        onChange={(e) => setEmail(e.target.value)}
       />
-      <input
-        type="text"
-        placeholder="Last name"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField2(e.target.value)}
-      />
-    </div>
+        <Image
+              className="ml-5 mt-0 w-[30px] h-[25px]"
+              src="/images/mail.png"
+              alt="logo"
+              width={30}
+              height={25}
+            />
+      </div>
 
-    {/* Row 2 */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input
-        type="text"
-        placeholder="Company name"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField3(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Company email"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField4(e.target.value)}
-      />
-    </div>
-
-    {/* Row 3 */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input
-        type="text"
-        placeholder="Country"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField5(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Phone number"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField6(e.target.value)}
-      />
-    </div>
-
-  </div>
-
-  <div className='mt-6'>By submitting this form, I confirm that I have read and understood Stellar's <u><a href='https://www.stellarpay.app/privacy-policy'>Privacy Statement</a></u> </div>
-
-  {/* Submit Button */}
-  <button
-    onClick={() => {
-      alert(
-        `Field 1: ${field1}\nField 2: ${field2}\nField 3: ${field3}\nField 4: ${field4}\nField 5: ${field5}\nField 6: ${field6}`
-      );
-    }}
-    className="mt-3 bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-6 py-2 text-md"
+      <button
+onClick={() => {
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!isValid) {
+    alert('Please enter a valid email address')
+    setEmail('')
+  } else { 
+    alert(`Email entered: ${email}`);
+    setEmail('')
+  }
+}}
+    className="bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-3 py-2 text-md mb-0 md:mb-35"
   >
     Talk with our team
   </button>
-</div>
-            </div>
+
+              </div>
+              </div>
+              <Image
+    className="absolute bottom-[0px] w-[280px] md:w-[739px] h-[140px] md:h-[350px] pointer-events-none"
+    src="/images/globe-2.png"
+    alt="logo"
+    width={739}
+    height={745}
+  />
+
             </section>
-      
+
+       
 
       {/* Footer */}
       <footer 
-        className="bg-[#000000] text-[#ffffff] px-4 md:px-6 py-16"
+        className="z-10 bg-[#000000] text-[#ffffff] px-4 md:px-6 py-16"
       >
 
       
