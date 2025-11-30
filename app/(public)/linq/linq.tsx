@@ -437,7 +437,7 @@ configuration.
             className="pt-30 mt-0 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <h2 className='max-w-4xl text-center font-semibold text-[#111111] text-[38px] leading-tight mb-10'>Tap into the fasted growing financial ecosystems</h2>
+            <h2 className='max-w-4xl text-center font-semibold text-[#111111] text-[38px] leading-tight mb-10'>Tap into the fastest growing financial ecosystems</h2>
            
             </section>
 
