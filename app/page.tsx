@@ -204,7 +204,7 @@ export default function HomePage() {
         {showLinqAd && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
           <div className='flex justify-center w-full'>
           <a href='/linq'>
-            <p className='text-white text-center mb-1'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
+            <p className='text-white text-center text-[15px]'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
           </a>
           </div>
           <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>

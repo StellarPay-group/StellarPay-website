@@ -69,11 +69,11 @@ export default function LinqUseCases() {
     {showSPad && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
           <div className='flex flex-row items-center justify-center w-full'>
           <a href='/'>
-            <p className='text-white text-center'>🎉 Meet StellarPay! True bilateral money movement at your fingertips →</p>
+            <p className='text-white text-center text-xs md:text-[15px]'>🎉 Meet StellarPay! True bilateral money movement at your fingertips →</p>
           </a>
           <Link href="/">
-          <div className="ml-5 border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
-            <p className='text-white font-medium text-xs md:text-[15px]'>See what's new</p>
+          <div className="ml-15 border-t-1 border-gray-700 bg-black rounded-lg py-2 px-5 flex flex-row items-center justify-center space-x-2">
+            <p className='text-white font-medium text-xs md:text-[16px]'>See what's new</p>
           </div>
         </Link>
           </div>
