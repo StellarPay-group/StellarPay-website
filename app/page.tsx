@@ -238,14 +238,14 @@ export default function HomePage() {
       >
         
         <div className="px-4 py-4">
-          <div className="mt-2 flex items-center justify-between max-w-7xl mx-auto">
+          <div className="md:mt-2 flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
-            <div onMouseLeave={() => setShowDropdown(false)} className="flex items-center space-x-2 md:space-x-8">
+            <div onMouseLeave={() => setShowDropdown(false)} className="flex items-center space-x-2 md:space-x-6">
               <Link href="/">
                 <Button variant="ghost" className="hover:bg-[#fbfbfb] text-xl md:text-[30px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
               </Link>
               <nav className="hidden md:flex items-center space-x-1">
-              <Link href="/">
+              <div>
               <Button onMouseEnter={() => setShowDropdown(true)} variant="ghost" className="border border-1 border-[#1b6ce8] flex flex-row hover:bg-[#f7f7f7] rounded-full px-4 md:pl-5 md:pr-4 py-2 ">
                 <h1 className='text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold'>
                   Personal
@@ -259,7 +259,7 @@ export default function HomePage() {
               </Link>
         </div>
       )}
-              </Link>
+              </div>
               <Link href="/features">
                 <Button variant="ghost" className="ml-4 px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold mb-[1px]">Features</Button>
               </Link>
@@ -280,7 +280,7 @@ export default function HomePage() {
               </Link>
               <div className="hidden md:flex items-center">
               <div>
-              <Button onMouseEnter={() => setShowLanguageDropdown(true)} variant="ghost" className="flex flex-row hover:bg-[#f7f7f7] rounded-full px-4 md:pl-5 md:pr-4 py-2 ">
+              <Button onMouseEnter={() => setShowLanguageDropdown(true)} variant="ghost" className="flex flex-row hover:bg-[#f7f7f7] rounded-full px-4 md:pl-4 md:pr-4 py-2 ">
               <Image src="/images/us-flag.png" alt='EN' width={25} height={25} />
                 <h1 className='text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold'>
                   EN
@@ -303,7 +303,7 @@ export default function HomePage() {
                 <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold">Log in</Button>
               </Link>
               <Link href="/signup">
-                <Button variant="default" className="ml-2 bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
+                <Button variant="default" className="ml-2 bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-semibold">Sign Up</Button>
               </Link>
             </div>
           </div>
