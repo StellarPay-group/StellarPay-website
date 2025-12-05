@@ -75,10 +75,15 @@ const [showLinqAd, setShowLinqAd] = useState(false);
     <main className="bg-[#ffffff]">
 
     {showLinqAd && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
-          <div className='flex justify-center w-full'>
-          <a href='/linq'>
-            <p className='text-white text-center mb-1'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
+          <div className='flex flex-row items-center justify-center w-full'>
+          <a href='/'>
+            <p className='text-white text-center text-xs md:text-[15px]'>🎉 Meet StellarPay! True bilateral money movement at your fingertips →</p>
           </a>
+          <Link href="/">
+          <div className="ml-15 border-t-1 border-gray-700 bg-black rounded-lg py-2 px-5 flex flex-row items-center justify-center space-x-2">
+            <p className='text-white font-medium text-xs md:text-[16px]'>See what's new</p>
+          </div>
+        </Link>
           </div>
           <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>
         </motion.div>)}
@@ -437,7 +442,7 @@ configuration.
             className="pt-30 mt-0 flex flex-col items-center pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <h2 className='max-w-4xl text-center font-semibold text-[#111111] text-[38px] leading-tight mb-10'>Tap into the fasted growing financial ecosystems</h2>
+            <h2 className='max-w-4xl text-center font-semibold text-[#111111] text-[38px] leading-tight mb-10'>Tap into the fastest growing financial ecosystems</h2>
            
             </section>
 
