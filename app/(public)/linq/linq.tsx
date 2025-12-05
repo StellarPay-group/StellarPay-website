@@ -12,9 +12,12 @@ import { act, useEffect, useState } from "react";
 import Head from "next/head";
 import GetTheApp from "@/components/popup/getTheApp";
 import { getDeviceType, getUrlForDevice } from "@/lib/device";
-
+import { useRouter } from "next/navigation";
+import { routerServerGlobal } from "next/dist/server/lib/router-utils/router-server-context";
 
 export default function Features() {
+
+  const router = useRouter();
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1400 }, items: 3, slidesToSlide: 1 },
@@ -128,17 +131,17 @@ const [showLinqAd, setShowLinqAd] = useState(false);
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-        <Link href="/linq#contact">
+        <Link href="/linq/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Resources</p>
           </div>
         </Link>
-        <Link href="/linq#contact">
+        <Link href="/linq/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Pricing</p>
           </div>
         </Link>
-        <Link href="/linq#contact">
+        <Link href="/linq/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Releases</p>
           </div>
@@ -154,7 +157,7 @@ const [showLinqAd, setShowLinqAd] = useState(false);
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-            <Link href="/linq#contact">
+            <Link href="/linq/contact">
           <div className="border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[15px]'>Talk to sales</p>
           </div>
@@ -208,12 +211,12 @@ const [showLinqAd, setShowLinqAd] = useState(false);
               <h1 className="text-center leading-tight md:leading-[27px] text-gray-500 font-regular text-[18px] md:text-[22px] md:mx-14 mb-12">Stellar LinQ securely connects your customer’s mobile money accounts to your app or service in seconds-delivering the highest conversion rates in the industry.</h1>
             </div>
             <div className='flex flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-18'>
-              <a href='/linq#contact'>
+              <a href='/linq/contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-[19px]'>Talk with our team</p>
           </div>
           </a>
-          <a href='/linq#contact'>
+          <a href='/linq/contact'>
           <div className="border-1 border-gray-700 bg-black rounded-xl py-2 px-11 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-[19px]'>View API docs</p>
           </div>
@@ -743,9 +746,7 @@ We embed privacy controls directly into our products, empowering your customers 
   {/* Submit Button */}
   <button
     onClick={() => {
-      alert(
-        `Field 1: ${field1}\nField 2: ${field2}\nField 3: ${field3}\nField 4: ${field4}\nField 5: ${field5}\nField 6: ${field6}`
-      );
+      router.replace('/linq/thankyou')
     }}
     className="mt-6 bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-6 py-2 text-md"
   >
