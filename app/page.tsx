@@ -887,7 +887,7 @@ export default function HomePage() {
                 <Link href="/meet-the-team" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Company and team
                 </Link>
-                <Link href="/features" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="http://meetgeorge.app/products" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
                   Products
                 </Link>
                 <Link href="#" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">

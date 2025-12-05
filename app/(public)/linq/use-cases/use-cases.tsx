@@ -9,11 +9,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
 import { act, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Head from "next/head";
 import GetTheApp from "@/components/popup/getTheApp";
 import { getDeviceType, getUrlForDevice } from "@/lib/device";
 
 export default function LinqUseCases() {
+
+  const router = useRouter();
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1400 }, items: 3, slidesToSlide: 1 },
@@ -30,6 +33,10 @@ export default function LinqUseCases() {
   const footerAnimation = useScrollAnimation(0.5);
   const [showSPad, setShowSPad] = useState(false);
   const [actionItemShown, setActionItemShown] = useState(0);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [country, setCountry] = useState('');
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -120,17 +127,17 @@ export default function LinqUseCases() {
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-        <Link href="#contact">
+        <Link href="/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Resources</p>
           </div>
         </Link>
-        <Link href="#contact">
+        <Link href="/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Pricing</p>
           </div>
         </Link>
-        <Link href="#contact">
+        <Link href="/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Releases</p>
           </div>
@@ -146,7 +153,7 @@ export default function LinqUseCases() {
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-            <Link href="#contact">
+            <Link href="/contact">
           <div className="border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[15px]'>Talk to sales</p>
           </div>
@@ -207,12 +214,12 @@ export default function LinqUseCases() {
               </h1>
             </div>
             <div className='flex flex-col self-center md:self-start lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0 mb-10 mt-10'>
-                    <a href='#contact'>
+                    <a href='/linq/contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium md:text-[19px]'>Talk with our team</p>
           </div>
           </a>
-          <a href='#contact'>
+          <a href='/linq/contact'>
           <div className="border-1 border-gray-700 bg-black rounded-xl py-2 px-11 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium md:text-[19px]'>Get on waitlist</p>
           </div>
@@ -440,9 +447,39 @@ ref={heroAnimation.ref}
             </div>
             <h2 className="text-[14px] font-bold text-[#74748B] text-center mb-10">EXPERIENCE OUR PRODUCTS</h2>
               <h2 className='max-w-[300px] md:max-w-6xl text-center md:text-start font-bold text-[#000000] text-[25px] md:text-[36px] leading-tight mb-10 md:mb-5 mt-0'>See how LinQ API works</h2>
-              <p className='max-w-[300px] md:max-w-[600px] text-center font-regular text-gray-500 text-[20px] leading-tight mb-10'>See how our solutions can transform your business. Experience firsthand the power of our financial infrastructure with a live demonstration tailored to your needs.
+              <p className='max-w-[300px] md:max-w-[600px] text-center font-regular text-gray-800 text-[20px] leading-medium mb-10'>See how our solutions can transform your business. Experience firsthand the power of our financial infrastructure with a live demonstration tailored to your needs.
 
               </p>
+
+        <div className="flex flex-col md:flex-row justify-between w-[280px] md:w-[450px]">
+              <input
+        type="text"
+        placeholder="First name"
+        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg mb-7 p-3"
+        onChange={(e) => setFirstName(e.target.value)}
+      />
+                    <input
+        type="text"
+        placeholder="Last name"
+        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg mb-7 p-3"
+        onChange={(e) => setLastName(e.target.value)}
+      />
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-between w-[280px] md:w-[450px]">
+              <input
+        type="text"
+        placeholder="Company name"
+        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg mb-7 p-3"
+        onChange={(e) => setCompanyName(e.target.value)}
+      />
+                    <input
+        type="text"
+        placeholder="Country"
+        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg mb-7 p-3"
+        onChange={(e) => setCountry(e.target.value)}
+      />
+      </div>
 
               <div className="flex flex-row justify-between w-[280px] md:w-[450px] border border-gray-300 rounded-lg mb-10 p-3 ">
               <input
@@ -462,14 +499,17 @@ ref={heroAnimation.ref}
 
       <button
 onClick={() => {
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!isValid) {
-    alert('Please enter a valid email address')
-    setEmail('')
-  } else { 
-    alert(`Email entered: ${email}`);
-    setEmail('')
-  }
+  router.replace('/linq/thankyou')
+  // const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  // if (!isValid) {
+  //   alert('Please enter a valid email address')
+  //   setEmail('')
+  // } else if (firstName === '' || lastName === '' || companyName === '' || country === '') { 
+  //   alert('The information you entered is not valid')
+  // } else {
+  //   alert(`Email entered: ${email}`);
+  //   setEmail('')
+  // }
 }}
     className="bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-3 py-2 text-md mb-0 md:mb-35"
   >
