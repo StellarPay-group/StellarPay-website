@@ -18,8 +18,8 @@ export default function Features() {
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1400 }, items: 3, slidesToSlide: 1 },
-    tablet:  { breakpoint: { max: 1023.98, min: 464 }, items: 2, slidesToSlide: 1 },
-    mobile:  { breakpoint: { max: 463.98,  min: 0 }, items: 1, slidesToSlide: 1 }
+    tablet:  { breakpoint: { max: 1399.99, min: 800 }, items: 2, slidesToSlide: 1 },
+    mobile:  { breakpoint: { max: 799.99,  min: 0 }, items: 1, slidesToSlide: 1 }
   };
 
   // Animation hooks
@@ -116,8 +116,8 @@ const [showLinqAd, setShowLinqAd] = useState(false);
             </div>
 
             <div className="flex items-center space-x-2 md:space-x-8">
-              <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
-            <Link href="/features">
+              <nav className="hidden lg:flex items-center space-x-4 md:space-x-6">
+            <Link href="http://meetgeorge.app/products">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
@@ -150,7 +150,7 @@ const [showLinqAd, setShowLinqAd] = useState(false);
             <div className="flex items-center space-x-2 md:space-x-7">
             <Link href="/linq/use-cases">
             {/* <Link href="/linq/use-cases"> */}
-          <div className="flex flex-row md:hidden items-center justify-center mr-1">
+          <div className="flex flex-row lg:hidden items-center justify-center mr-1">
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
@@ -219,7 +219,7 @@ const [showLinqAd, setShowLinqAd] = useState(false);
           </div>
           </a>
             </div>
-            <div className='flex flex-row justify-between rounded-3xl w-full md:w-[1200px] h-auto md:h-[526px] bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff] mb-[-23px] px-[20px] py-[20px] md:px-0 md:py-0'>
+            <div className='flex flex-row justify-between rounded-3xl w-full lg:w-[900px] xl:w-[1200px] h-auto md:h-[526px] bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff] mb-[-23px] px-[20px] py-[20px] md:px-0 md:py-0'>
             
             <div className='flex flex-col items-center md:items-start md:ml-[75px] md:mt-[75px] max-w-[450px]'>
             <Image src="/images/left-window.png" alt="left icon" width={75} height={75} className="w-[75px] h-[75px]" />
@@ -256,20 +256,20 @@ Unify your access to bank and mobile money accounts through a single API.
 
 
             <div className='mx-2 md:mx-0 mt-15 flex flex-row justify-between'>
-              <div className='w-[100px] md:w-[320px] flex flex-col'>
+              <div className='w-[100px] md:w-[200px] lg:w-[320px] flex flex-col'>
               <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] md:text-[54px] font-semibold">
   100+
 </h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Mobile money operators across Africa, Asia, and Latin America
                 </p>
               </div>
-              <div className='w-[100px] md:w-[320px] flex flex-col'>
+              <div className='w-[100px] md:w-[200px] lg:w-[320px] flex flex-col'>
               <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] md:text-[54px] font-semibold">50M+ Users</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Active mobile money accounts across Africa, Asia, and Latin America
 
                 </p>
               </div>
-              <div className='w-[100px] md:w-[320px] flex flex-col'>
+              <div className='w-[100px] md:w-[200px] lg:w-[320px] flex flex-col'>
               <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-[#4BB4B1] via-[#0065FF] to-[#0065FF] text-[30px] md:text-[54px] font-semibold">&lt;1 Day</h2>
                 <p className='text-[16px] text-[#454545] font-regular'>Average time to go live with LinQ
                 </p>
@@ -285,7 +285,7 @@ Unify your access to bank and mobile money accounts through a single API.
             className="mt-15 flex flex-col items-start pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <div className='max-w-7xl self-center pt-15 md:pt-20 pb-5 flex flex-col md:flex-row'>
+            <div className='max-w-7xl self-center pt-15 md:pt-20 pb-5 flex flex-col lg:flex-row'>
                 <div className="w-[280px] md:w-[500px] flex flex-col items-center md:items-start">
                 <div className="border-1 shadow-md border-gray-300 bg-white py-1 w-[160px] rounded-[30px] mb-6">
             <h2 className="text-[18px] font-regular text-black text-center">See it in action</h2>
@@ -299,10 +299,10 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             </a>
                 </div>
-                <Image src="/images/phone-1.png" alt="phone 1" width={275} height={424} className="mt-10 md:mt-0 md:ml-[20px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
-                <Image src="/images/phone-2.png" alt="phone 2" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
-                <Image src="/images/phone-3b.png" alt="phone 3" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
-                <Image src="/images/phone-4b.png" alt="phone 4" width={275} height={424} className="md:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px] mr-[-100px]" />
+                <Image src="/images/phone-1.png" alt="phone 1" width={275} height={424} className="mt-10 lg:mt-0 lg:ml-[20px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
+                <Image src="/images/phone-2.png" alt="phone 2" width={275} height={424} className="lg:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
+                <Image src="/images/phone-3b.png" alt="phone 3" width={275} height={424} className="lg:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px]" />
+                <Image src="/images/phone-4b.png" alt="phone 4" width={275} height={424} className="lg:ml-[-40px] w-[255px] md:w-[302px] h-[454px] md:h-[466px] mr-[-100px]" />
             </div>
             </section>
 
@@ -315,9 +315,9 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             <h2 className='self-center font-semibold text-[#292932] text-[30px] text-[36px] leading-tight mb-4'>See LinQ in action</h2>
             
-            <div className='max-w-7xl self-center pt-5 md:pt-15 pb-5 flex flex-col md:flex-row'>
+            <div className='max-w-7xl self-center pt-5 md:pt-15 pb-5 flex flex-col lg:flex-row'>
             
-            <div className="w-[280px] md:w-[500px] flex flex-col md:mr-[60px] md:mt-[20px]">
+            <div className="w-[280px] md:w-[500px] flex flex-col lg:mr-[60px] lg:mt-[20px]">
               <div onClick={() => setActionItemShown(0)} className={`pl-[20px]  ${
       actionItemShown === 0 ? "border-l-2 border-[#0065ff]" : "border-l-2 border-gray-200"
     }`}>
@@ -341,7 +341,7 @@ Unify your access to bank and mobile money accounts through a single API.
             </div>
             </div>
 
-            <div className='flex flex-col items-center mt-[40px] md:mt-0 px-[20px] md:px-[40px] py-[40px] rounded-[50px] shadow-sm bg-[#fdfdfd] w-[300px] md:w-[500px] h-[350px] md:h-[400px]'>
+            <div className='flex flex-col items-center mt-[40px] lg:mt-0 px-[20px] md:px-[40px] py-[40px] rounded-[50px] shadow-sm bg-[#fdfdfd] w-[300px] md:w-[500px] h-[350px] md:h-[400px]'>
             <div className="flex items-center justify-center w-[55px] h-[55px] rounded-[55px] bg-[#0065ff]">
   <h1 className="text-center font-medium text-[26px] text-white">
     {actionItemShown + 1}
@@ -415,15 +415,15 @@ Unify your access to bank and mobile money accounts through a single API.
             className="pt-20 mt-0 flex flex-col items-start pt-0 px-8 md:px-6 bg-[#FCFCFD] bg-cover"
             ref={heroAnimation.ref}
           >
-            <div className='max-w-[280px] md:max-w-7xl self-center pt-5 md:pt-10 pb-5 flex flex-col md:flex-row'>
-                <div className="w-[280px] md:w-[450px] flex flex-col md:mr-[350px]">
+            <div className='max-w-[280px] md:max-w-xl lg:md:max-w-4xl md:max-w-7xl self-center pt-5 md:pt-10 pb-5 flex flex-col md:flex-row'>
+                <div className="w-[280px] md:w-[450px] flex flex-col md:mr-[50px] lg:mr-[350px]">
                 <div className="mt-0 md:mt-[20px] border-1 shadow-md border-gray-300 bg-white py-1 w-[290px] md:w-[320px] rounded-[30px] mb-10">
             <h2 className="text-[18px] font-regular text-black text-center">Industry-leading performance</h2>
             </div>
             <h2 className='font-semibold text-black text-[30px] md:text-[36px] leading-tight mb-4 md:mb-10'>Built for simplicity. <br /> Engineered for scale.</h2>
             <p className='text-[#000000] font-regular text-[18px]'>Stellar LinQ adapts to any use case, connecting customers to mobile money accounts in a format that fits seamlessly into your experience - enabling payments without friction.</p>
                 </div>
-                <div className='mt-[40px] md:mt-0 flex flex-col justify-between bg-[#0669ff] rounded-2xl w-[290px] md:w-[370px] h-[350px] md:h-[370px] pt-[30px] pb-[30px] px-[30px]'>
+                <div className='mt-[40px] md:mt-0 flex flex-col justify-between bg-[#0669ff] rounded-2xl w-[290px] md:w-[370px] h-[350px] md:h-auto lg:h-[370px] pt-[30px] pb-[30px] px-[30px]'>
                 <Image src="/images/plug.png" alt="apple" width={286} height={96.9} className="w-full h-auto" />
                 <div className='flex flex-col'>
                 <h2 className='font-medium text-white text-[33px] leading-tight mb-[10px] mx-[5px]'>Plug-n-play</h2>
@@ -659,7 +659,7 @@ We embed privacy controls directly into our products, empowering your customers 
 
               </div>
 
-              <div className='self-center hidden md:flex rounded-3xl w-[549px] h-[511px] justify-center bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff]'>
+              <div className='self-center hidden lg:flex rounded-3xl w-[549px] h-[511px] justify-center bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff]'>
               <Image src="/images/center-window.png" alt=" window" width={440} height={512} className="w-[440px] h-[511px] mb-0" />
               </div>
             </div>
@@ -672,7 +672,7 @@ We embed privacy controls directly into our products, empowering your customers 
             id='contact'
             className="mt-0 md:mt-10 flex flex-col items-start pt-0 px-8 md:px-20 pb-[200px] bg-[url('/images/main-background.png')] bg-cover bg-top bg-no-repeat"
           >
-            <div className='px-[10px] sm:px-[40px] py-[27px] flex flex-col md:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
+            <div className='px-[10px] sm:px-[40px] py-[27px] flex flex-col lg:flex-row justify-between bg-black rounded-2xl w-full mt-[-160px]'>
             <div className='w-[240px] md:w-[344px] flex flex-col mx-auto md:ml-[100px]'>
               <h1 className='leading-tight text-center md:text-start text-[#fcfcfd] font-semibold text-[24px] sm:text-[30px] md:text-[40px] mt-[10px] md:mt-[70px]'>
               Boost conversion with the highest standard in account linking
@@ -680,7 +680,7 @@ We embed privacy controls directly into our products, empowering your customers 
               <div className="mt-5 w-[250px] md:w-[300px] h-[6px] bg-[linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(2,132,199,0.65)_50%,rgba(0,0,0,0)_100%)]"></div>
             </div>
          
-            <div className='self-center mt-[40px] md:mt-0 mx-5 md:mx-auto w-auto md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[70px]'>
+            <div className='self-center mt-[40px] md:mt-0 mx-5 md:mx-auto w-auto md:w-[548px] md:h-[523px] bg-white rounded-2xl px-[20px] md:px-[50px] py-[20px] md:py-[60px]'>
   <h1 className='leading-tight text-black font-semibold text-[30px] mb-6'>
     Let's get started
   </h1>
@@ -747,7 +747,7 @@ We embed privacy controls directly into our products, empowering your customers 
         `Field 1: ${field1}\nField 2: ${field2}\nField 3: ${field3}\nField 4: ${field4}\nField 5: ${field5}\nField 6: ${field6}`
       );
     }}
-    className="mt-3 bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-6 py-2 text-md"
+    className="mt-6 bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-6 py-2 text-md"
   >
     Talk with our team
   </button>

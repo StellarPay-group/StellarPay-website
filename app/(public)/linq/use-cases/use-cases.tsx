@@ -72,7 +72,7 @@ export default function LinqUseCases() {
             <p className='text-white text-center text-xs md:text-[15px]'>🎉 Meet StellarPay! True bilateral money movement at your fingertips →</p>
           </a>
           <Link href="/">
-          <div className="ml-15 border-t-1 border-gray-700 bg-black rounded-lg py-2 px-5 flex flex-row items-center justify-center space-x-2">
+          <div className="ml-15 border-t-1 border-gray-700 bg-black rounded-lg py-2 px-5 hidden lg:flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[16px]'>See what's new</p>
           </div>
         </Link>
@@ -108,8 +108,8 @@ export default function LinqUseCases() {
             </div>
 
             <div className="flex items-center space-x-2 md:space-x-8">
-              <nav className="hidden md:flex items-center space-x-4 md:space-x-6">
-            <Link href="/features">
+              <nav className="hidden lg:flex items-center space-x-4 md:space-x-6">
+            <Link href="http://meetgeorge.app/products">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Products</p>
           </div>
@@ -142,7 +142,7 @@ export default function LinqUseCases() {
             <div className="flex items-center space-x-2 md:space-x-7">
             <Link href="/linq/use-cases">
             {/* <Link href="/linq/use-cases"> */}
-          <div className="flex flex-row md:hidden items-center justify-center mr-1">
+          <div className="flex flex-row lg:hidden items-center justify-center mr-1">
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
@@ -197,16 +197,16 @@ export default function LinqUseCases() {
     bg-bottom
     bg-no-repeat"
           >
-            <div className='relative mt-10 md:mt-0 self-center'>
-            <div className="max-w-[300px] md:max-w-xl mx-auto flex flex-col items-start">
+            <div className='relative mt-10 md:mt-10 self-center md:self-start'>
+            <div className="max-w-[300px] lg:max-w-xl mx-auto flex flex-col items-start">
             <div className="border-1 shadow-md border-gray-300 bg-white py-1 w-[290px] rounded-[30px] mb-9">
             <h2 className="text-[18px] font-semibold text-black text-center">Billing & Recurring payments</h2>
             </div>
             <div>
-              <h1 className="text-center md:text-start leading-tight md:tight text-black font-semibold text-[30px] md:text-[40px] md:text-[54px] mb-2">Make Mobile Money payments faster and more reliable
+              <h1 className="text-center md:text-start leading-tight md:tight text-black font-semibold text-[30px] md:text-[40px] lg:text-[54px] mb-2">Make Mobile Money payments faster and more reliable
               </h1>
             </div>
-            <div className='flex flex-col self-center md:self-start md:flex-row md:space-x-5 space-y-5 md:space-y-0 mb-10 mt-10'>
+            <div className='flex flex-col self-center md:self-start lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0 mb-10 mt-10'>
                     <a href='#contact'>
             <div className="border-1 border-gray-700 bg-gray-900 rounded-xl py-2 px-7 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium md:text-[19px]'>Talk with our team</p>
@@ -222,11 +222,7 @@ export default function LinqUseCases() {
             </div>
             
             </div>
-            <div className='hidden lg:flex flex-row self-center mt-[50px] justify-center rounded-3xl w-full md:w-[650px] h-auto md:h-[482px] bg-gradient-to-br from-[#0065ff] via-[#0084FF] via-[#0065ff] to-[#0065ff] px-[20px] py-[20px] md:px-0 md:py-0'>
-            <div>
-            <Image src="/images/center-window.png" alt="center window" width={744} height={908} className="hidden md:block w-auto h-full mb-0" />
-            </div>
-            </div>
+            <Image src="/images/use-cases-top.png" alt="use cases example" width={546} height={820} className="hidden md:block mt-10 mb-15 w-[300px] h-auto md:ml-20 lg:ml-57 lg:mr-3" />
           </section>
 
           <section
@@ -250,31 +246,32 @@ export default function LinqUseCases() {
                 <div className='w-[260px] md:w-[320px]'>
                 <Image src="/images/spf.png" alt="stop payment failures" width={100} height={100} className="ml-10 w-16 h-auto" />
                 <div className='border-[#5f5bff] border-l-2'>
-                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Stop payment failures</h1>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Increase conversion
+                </h1>
                 </div>
-                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>LinQ pulls account and routing numbers directly from the bank—no more typos.<br />
-                We operate on and optimise at every level of the financial stack.</p>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Enable your customers to check out in seconds with the optimised Link experience, 3x faster than non-LinQ customers.</p>
                 </div>
                 <div className='w-[260px] md:w-[320px]'>
                 <Image src="/images/krp.png" alt="keep recurring payments" width={100} height={100} className="ml-10 w-16 h-auto" />
                 <div className='border-[#5f5bff] border-l-2'>
-                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Keep recurring payments</h1>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Speed up checkout</h1>
                 </div>
-                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Easy linking, balance checks, and recovery tools keep bill payments on schedule with less churn.</p>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Reach over 200 million consumers worldwide. Built into our ecosystem of Stellar powered users, LinQ helps you tap into a fast-growing customer base and drive higher conversion across 54 African countries.</p>
                 </div>
                 <div className='w-[260px] md:w-[320px]'>
                 <Image src="/images/bcc.png" alt="boost customer conversion" width={100} height={100} className="ml-10 w-16 h-auto" />
                 <div className='border-[#5f5bff] border-l-2'>
-                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Boost customer conversion</h1>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Activate quickly</h1>
                 </div>
-                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>With coverage across 95% of accounts, more customers know LinQ and complete sign-up.Our systems operate with 99.99%+ uptime and are highly scalable and redundant. </p>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Turn on LinQ directly in Stellar’s payment integrations – it’s available in Checkout with no code required and will match your customized UI in Elements.</p>
                 </div>
                 <div className='w-[260px] md:w-[320px]'>
                 <Image src="/images/spf.png" alt="intelligent optimization" width={100} height={100} className="ml-10 w-16 h-auto" />
                 <div className='border-[#5f5bff] border-l-2'>
-                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Intelligent Optimisation</h1>
+                <h1 className='ml-10 text-black font-bold text-[20px] mt-5'>Intelligent Structure</h1>
                 </div>
-                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Our machine learning models train on millions of data points and help increase revenue across conversion, fraud, revenue recovery, and more.</p>
+                <p className='ml-10 text-[#414141] font-medium text-[18px] mt-5'>Instant Mobile Money Payments deliver the cost savings of bank payments with the confirmation and confirmation speed of cards.
+                </p>
                 </div>
             </div>
 
@@ -320,11 +317,11 @@ ref={heroAnimation.ref}
             <div className='max-w-[280px] md:max-w-7xl self-center flex flex-col md:flex-row'>
            
            <Image
-              className="mb-10 md:mb-0 self-center w-[280px] md:w-[726px] h-[160px] md:h-[383px]"
-              src="/images/graph.png"
+              className="mb-10 md:mb-0 self-center w-[280px] md:w-[320px] lg:w-[480px] md:mr-[20px] lg:mr-[50px] h-auto"
+              src="/images/effortless.png"
               alt="graph"
-              width={726}
-              height={383}
+              width={800}
+              height={800}
             />
 
 
@@ -357,7 +354,7 @@ ref={heroAnimation.ref}
             />
             <h2 className='font-bold text-[20px] text-[#242424]'>Status checked instantly</h2>
                 </div>
-                <p className='max-w-[300px] text-start font-regular text-gray-600 text-[16px] leading-tight mt-2 mb-6'>Accounts are confirmed open and active before bill payments begin.
+                <p className='max-w-[350px] text-start font-regular text-gray-600 text-[16px] leading-tight mt-2 mb-6'>LinQ verifies and auto-fills your customers’ payment information to create an easy and secure checkout experience.
               </p>
               <div className='flex flex-row'>
                 <Image
@@ -391,7 +388,7 @@ ref={heroAnimation.ref}
     borderless and programmable as the rest of the internet.
   </h2>
 
-  <div className='z-10 mt-0 md:mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 space-x-20'>
+  <div className='z-10 mt-0 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 space-x-20'>
                 <div className='w-[280px]'>
                 <div className='border-[#00d4ff] border-l-1'>
                 <h1 className='ml-5 text-white font-bold text-[16px] mt-5'>250M+</h1>
@@ -421,7 +418,7 @@ ref={heroAnimation.ref}
 
 
   <Image
-    className="absolute hidden md:block right-[0] top-[100px] w-[377px] h-[745px] pointer-events-none"
+    className="absolute hidden lg:block right-[0] top-[100px] w-[377px] h-[745px] pointer-events-none"
     src="/images/globe-1.png"
     alt="logo"
     width={739}
