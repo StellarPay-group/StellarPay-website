@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
+import { useState } from "react";
 
 
 export default function AboutPage() {
@@ -27,6 +28,8 @@ export default function AboutPage() {
   const blogAnimation = useScrollAnimation(1.8);
   const connectAnimation = useScrollAnimation(2.1);
   const storeAnimation = useScrollAnimation(2.4);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const footerAnimation = useScrollAnimation(2.7);
 
   // needed for blog component
@@ -90,42 +93,73 @@ export default function AboutPage() {
         animate={navAnimation.animate}
         transition={navAnimation.transition}
       >
-         <div className="px-4 py-4">
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
+<div className="px-4 py-4">
+          <div className="md:mt-1 flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
-            <div className="flex items-center space-x-2 md:space-x-8">
+            <div onMouseLeave={() => setShowDropdown(false)} className="flex items-center space-x-2 md:space-x-6">
               <Link href="/">
-                <Button variant="ghost" className="text-xl md:text-[24px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
+                <Button variant="ghost" className="hover:bg-[#fbfbfb] text-xl md:text-[30px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
               </Link>
-              <nav className="hidden md:flex items-center space-x-1">
-              <Link href="/">
-              <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Personal</Button>
-              </Link>
+              <nav className="hidden md:flex items-center space-x-2">
+              <div>
+              <Button onMouseEnter={() => setShowDropdown(true)} variant="ghost" className="flex flex-row hover:bg-[#f7f7f7] rounded-full px-4 md:pl-5 md:pr-4 py-2 mb-[1px]">
+                <h1 className='text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold'>
+                  Personal
+                </h1>
+                <div><Image src="/images/chevron-down.png" alt='v' className='mt-[1px]' width={11} height={5} /></div>
+              </Button>
+              {showDropdown && (
+        <div className="flex justify-center absolute mt-0 w-32 bg-white shadow-lg border py-2 border-gray-200 rounded-lg z-50">
               <Link href="/features">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Features</Button>
+                <Button variant="ghost" className="text-start text-[#000000] hover:bg-[#f7f7f7] rounded-full px-4 md:px-3 py-2 text-xs md:text-[17px] font-medium font-semibold">Features</Button>
+              </Link>
+        </div>
+      )}
+              </div>
+              <Link href="/features">
+                <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold mb-[1px]">Features</Button>
+              </Link>
+              <Link href="/linq">
+                <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] mt-[1px] text-xs md:text-[17px] font-semibold">API</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] rounded-full px-4 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">George</Button>
+                <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold">George</Button>
                 </Link>
+
               </nav>
             </div>
 
             {/* Right side - About us, language, auth */}
-            <div className="flex items-center space-x-2 md:space-x-6">
+            <div onMouseLeave={() => setShowLanguageDropdown(false)} className="flex items-center space-x-2 md:space-x-2">
               <Link href="\about" className="hidden sm:block">
-                <Button variant="ghost" className="text-[#1b6ce8] hover:text-[#1b6ce8] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-bold">About us</Button>
+                <Button variant="ghost" className="border-[#1b6cd8] ml-3 px-2 md:px-5 py-2 hover:bg-[#f7f7f7] rounded-full text-[#1b6ce8] hover:text-[#1b6ce8] text-xs md:text-[17px] font-bold">About us</Button>
               </Link>
-              <div className="hidden md:flex items-center space-x-2">
+              <div className="hidden md:flex items-center">
               <div>
-                  <Image src="/images/us-flag.png" alt='EN' width={20} height={20} />
+              <Button onMouseEnter={() => setShowLanguageDropdown(true)} variant="ghost" className="flex flex-row hover:bg-[#f7f7f7] rounded-full px-4 md:pl-4 md:pr-4 py-2 ">
+              <Image src="/images/us-flag.png" alt='EN' width={25} height={25} />
+                <h1 className='text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold'>
+                  EN
+                </h1>
+                <div><Image src="/images/chevron-down.png" alt='v' className='mt-[1px]' width={11} height={5} /></div>
+              </Button>
+              {showLanguageDropdown && (
+        <div className="mt-0 flex justify-center absolute mt-0 w-28 bg-white border py-2 border-gray-200 rounded-lg z-50">
+                <Button onClick={() => setShowLanguageDropdown(false)} variant="ghost" className="flex items-center text-start text-[#000000] hover:bg-[#ffffff] rounded-full px-4 md:px-3 py-1 text-xs md:text-[17px] font-medium font-semibold">
+                <Image src="/images/us-flag.png" alt='EN' width={25} height={25} />
+                <h1 className='mr-2 text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold'>
+                  EN
+                </h1>
+                </Button>
+        </div>
+      )}
                   </div>
-                    <span className="text-[#191c1f] text-xs md:text-[17px] font-medium font-semibold">EN</span>
               </div>
               <Link href="/signin">
-                <Button variant="ghost" className="text-[#191c1f] hover:bg-[#f7f7f7] text-xs md:text-[17px] font-medium font-semibold">Log in</Button>
+                <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold">Log in</Button>
               </Link>
               <Link href="/signup">
-                <Button variant="default" className="bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-medium font-semibold">Sign Up</Button>
+                <Button variant="default" className="ml-2 bg-[#0065ff] hover:bg-[#0065ff]/90 text-white rounded-full px-3 md:px-6 py-2 text-xs md:text-[17px] font-semibold">Sign Up</Button>
               </Link>
             </div>
           </div>
