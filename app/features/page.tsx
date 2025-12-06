@@ -78,9 +78,6 @@ export default function Features() {
         </div>
       )}
               </div>
-              <Link href="/features">
-                <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#1b6ce8] hover:text-[#1b6ce8] text-xs md:text-[17px] font-bold mb-[1px]">Features</Button>
-              </Link>
               <Link href="/linq">
                 <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] mt-[1px] text-xs md:text-[17px] font-semibold">API</Button>
               </Link>
