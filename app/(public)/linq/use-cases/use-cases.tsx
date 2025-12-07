@@ -8,12 +8,15 @@ import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
-import { act, useEffect, useState } from "react";
+import { act, useEffect, useState, useMemo } from "react";
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
 import GetTheApp from "@/components/popup/getTheApp";
+import { Country_List } from "@/lib/country.types";
+import { useAllCountry_List } from "@/lib/country_query";
 import { getDeviceType, getUrlForDevice } from "@/lib/device";
-import { saveContactInfo } from "../contact/save_contact_info";
+import { saveContactInfo, saveContactInfoEmailOnly } from "../contact/save_contact_info";
 
 export default function LinqUseCases() {
 
@@ -32,12 +35,28 @@ export default function LinqUseCases() {
   const betterAnimation = useScrollAnimation(0.3);
   const storeAnimation = useScrollAnimation(0.5);
   const footerAnimation = useScrollAnimation(0.5);
+  const [isFocused, setIsFocused] = useState(false);
   const [showSPad, setShowSPad] = useState(false);
   const [actionItemShown, setActionItemShown] = useState(0);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [country, setCountry] = useState('');
+  const [countryCode, setCountryCode] = useState<Country_List | null>(null);
+  const {data: countries, isLoading} = useAllCountry_List();
+  
+  const [query, setQuery] = useState('');
+  
+  const filtered = useMemo(() => {
+    if (!query) return countries;
+  
+    const lowerQuery = query.toLowerCase();
+  
+    return countries.filter(
+      (c) =>
+        c.code.toLowerCase().includes(lowerQuery) ||
+        c.name?.toLowerCase().includes(lowerQuery)
+    );
+  }, [countries, query]);
   const [email, setEmail] = useState("");
 
   useEffect(() => {
@@ -467,19 +486,64 @@ ref={heroAnimation.ref}
       />
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between w-[280px] md:w-[450px]">
+      <div className="mb-7 flex flex-col md:flex-row justify-between w-[280px] md:w-[450px]">
               <input
         type="text"
         placeholder="Company name"
-        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg mb-7 p-3"
+        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg p-3"
         onChange={(e) => setCompanyName(e.target.value)}
       />
-                    <input
-        type="text"
-        placeholder="Country"
-        className="placeholder-[#1A1A1A] flex flex-row justify-between w-[280px] md:w-[215px] border border-gray-300 rounded-lg mb-7 p-3"
-        onChange={(e) => setCountry(e.target.value)}
+    <Combobox value={countryCode} onChange={(value) => value && setCountryCode(value)}>
+  <div className="relative inline-block">
+    {/* Input + Button */}
+    <div className="flex flex-row items-center">
+      <div className='pl-[5px] h-[50px] pr-[20px] border flex flex-row w-[280px] md:w-[215px] border-gray-300 rounded-lg justify-start'>
+        <div className='flex flex-row items-center min-w-0 w-auto'>
+     {countryCode && (
+      <img
+            src={countryCode?.flag || ''}
+            alt={`flag`}
+            className="my-auto w-6 h-4 mr-1 ml-2 object-cover"
+          />
+     )} 
+      <ComboboxInput
+        className={`my-auto bg-transparent flex-1 p-2 min-w-0 w-auto text-black text-[16px] max-w-[150px] md:max-w-[200px] font-normal text-left ${
+          isFocused ? (countryCode === null ? 'placeholder:text-gray-300' : 'placeholder-text-[#1a1a1a]') : 'placeholder:text-[#1a1a1a]'
+        }
+        `}
+        defaultValue={countryCode?.name || countryCode?.code || 'Choose country'}
+        placeholder={countryCode?.name || countryCode?.code || 'Choose country'}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        onChange={(event) => setQuery(event.target.value)}
       />
+            <ComboboxButton className="ml-0">
+        <p className="mt-1 md:mt-0 text-gray-500 text-[14px] md:text-[18px] xl:text-[18px] font-bold">▼</p>
+      </ComboboxButton>
+      </div>
+      </div>
+
+    </div>
+
+    {/* Dropdown positioned directly under input */}
+    <ComboboxOptions className="absolute top-full left-0 mt-0 w-full max-h-[200px] overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-10">
+      {filtered.map((item) => (
+        <ComboboxOption
+          key={item.code}
+          value={item}
+          className="flex flex-row items-center px-3 py-2 text-black text-[14px] hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src={item.flag || ''}
+            alt={`${item.code} flag`}
+            className="w-6 h-4 mr-2 object-cover"
+          />
+          {item?.name || item?.code}
+        </ComboboxOption>
+      ))}
+    </ComboboxOptions>
+  </div>
+</Combobox>
       </div>
 
               <div className="flex flex-row justify-between w-[280px] md:w-[450px] border border-gray-300 rounded-lg mb-10 p-3 ">
@@ -500,7 +564,7 @@ ref={heroAnimation.ref}
 
       <button
 onClick={() => {
-  saveContactInfo(firstName, lastName, companyName, email, country, '');
+  saveContactInfoEmailOnly(firstName, lastName, companyName, email, countryCode ? countryCode.code : '', '', '');
   // const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   // if (!isValid) {
   //   alert('Please enter a valid email address')
