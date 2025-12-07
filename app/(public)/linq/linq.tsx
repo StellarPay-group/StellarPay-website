@@ -14,6 +14,7 @@ import GetTheApp from "@/components/popup/getTheApp";
 import { getDeviceType, getUrlForDevice } from "@/lib/device";
 import { useRouter } from "next/navigation";
 import { routerServerGlobal } from "next/dist/server/lib/router-utils/router-server-context";
+import { saveContactInfo } from "./contact/save_contact_info";
 
 export default function Features() {
 
@@ -746,7 +747,7 @@ We embed privacy controls directly into our products, empowering your customers 
   {/* Submit Button */}
   <button
     onClick={() => {
-      router.replace('/linq/thankyou')
+      saveContactInfo(field1, field2, field3, field4, field5, field6);
     }}
     className="mt-6 bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-6 py-2 text-md"
   >
@@ -762,47 +763,53 @@ We embed privacy controls directly into our products, empowering your customers 
         className="bg-[#000000] text-[#ffffff] px-4 md:px-6 py-16"
       >
 
-      
+
 
         <div className="ml-5 sm:ml-0 mx-auto flex flex-col sm:flex-row justify-center">
           {/* Upper section with three columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12 md:mr-[200px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12">
             {/* Company and team */}
             <div className="text-left">
-              <h3 className="font-bold mb-3 md:mb-4 text-[#ffffff] text-sm md:text-base">Company</h3>
+              <Link href='/about'>
+              <h3 className="font-bold mb-3 md:mb-4 text-[#ffffff] text-sm md:text-[17px]">Company</h3>
+              </Link>
               <div className="space-y-1 md:space-y-4">
-                <Link href="/meet-the-team" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/meet-the-team" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Company and team
                 </Link>
-                <Link href="/features" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
-                  Products
+                <Link href="/linq/contact" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
+                  Pricing
                 </Link>
-                <Link href="#" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/linq/contact" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Service Status
                 </Link>
-                <Link href="/news" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   News & Updates
                 </Link>
                 <div className="hidden lg:block flex flex-col mt-20">
-                <p className="text-[#ffffff] opacity-100 text-xs md:text-xs">© 2025 Stellar Technologies, inc.</p>
+                <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">
+                © 2025 Stellar Technologies, inc.
+                </p>
                 </div>
               </div>
             </div>
 
             {/* Stellar Products */}
             <div className="text-left">
-            <h3 className="font-bold mb-3 md:mb-4 text-sm text-[#ffffff] md:text-base">Products</h3>
+              <Link href='http://www.meetgeorge.app/products'>
+            <h3 className="font-bold mb-3 md:mb-4 text-sm md:text-[17px] text-[#ffffff] md:text-base">Products</h3>
+            </Link>
               <div className="space-y-1 md:space-y-4">
-                <Link href="#" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="http://www.stellarpay.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   StellarPay
                 </Link>
-                <Link href="/linq" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/linq" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Stellar for Business
                 </Link>
-                <Link href="http://www.meetgeorge.app" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="http://www.meetgeorge.app" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   George
                 </Link>
-                <Link href="http://www.meetgeorge.app" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/linq" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   APi
                 </Link>
               </div>
@@ -810,34 +817,47 @@ We embed privacy controls directly into our products, empowering your customers 
 
                         {/* Stellar Products */}
                         <div className="text-left">
-            <h3 className="text-[#ffffff] font-bold mb-3 md:mb-4 text-sm md:text-base">Policies</h3>
+                          <Link href='/privacy-policy'>
+            <h3 className="text-[#ffffff] font-bold mb-3 md:mb-4 text-sm md:text-[17px]">Policies</h3>
+            </Link>
               <div className="space-y-1 md:space-y-4">
-                <Link href="/privacy-policy#your-rights" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#your-rights" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Legal
                 </Link>
-                <Link href="/privacy-policy#contact-us" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#contact-us" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Complaints
                 </Link>
-                <Link href="/privacy-policy" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Privacy Policy
                 </Link>
-                <Link href="/terms-of-service" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/terms-of-service" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Terms & Conditions
                 </Link>
-                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="font-light block text-[#ffffff] opacity-80 no-underline text-xs md:text-sm">
+                <Link href="/privacy-policy#cookies-and-tracking-technologies" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   Cookie Policy
                 </Link>
               </div>
-
-
-
             </div>
+
+            <div className="block lg:hidden text-center space-y-3 md:space-y-4 mt-10 md:mt-0 mb-10">
+          <div className="grid grid-cols-1 ">
+            <div className="lg:col-span-1 text-left">
+              <div className="flex flex-row">
+              </div>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+                </div>
+          </div>
+          </div>
 
 
           </div>
 
+          
 
-    
+
+          {/* Bottom section */}
+          <div className="hidden sm:block ml-[80px] md:ml-[150px] max-w-[22%] text-center space-y-3 md:space-y-4">
+          </div>
         </div>
       </footer>
     </main>
