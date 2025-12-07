@@ -7,13 +7,16 @@ import Carousel from "react-multi-carousel";
 import { useRouter } from "next/navigation";
 import "react-multi-carousel/lib/styles.css";
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAllCountry_Phone } from "@/lib/country_query";
+import { Country_Phone } from "@/lib/country.types";
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { ExpandCard } from "@/components/ui/expandCard";
-import { act, useEffect, useState } from "react";
+import { act, useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import GetTheApp from "@/components/popup/getTheApp";
 import { getDeviceType, getUrlForDevice } from "@/lib/device";
 import { saveContactInfo } from "./save_contact_info";
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
 
 
 export default function Contact() {
@@ -26,6 +29,22 @@ export default function Contact() {
     mobile:  { breakpoint: { max: 799.99,  min: 0 }, items: 1, slidesToSlide: 1 }
   };
 
+  const {data: countries, isLoading} = useAllCountry_Phone();
+
+  const [query, setQuery] = useState('');
+
+  const filtered = useMemo(() => {
+    if (!query) return countries;
+  
+    const lowerQuery = query.toLowerCase();
+  
+    return countries.filter(
+      (c) =>
+        c.code.toLowerCase().includes(lowerQuery) ||
+        c.areaCode?.includes(lowerQuery)
+    );
+  }, [countries, query]);
+
   // Animation hooks
   const navAnimation = useScrollAnimation(0);
   const heroAnimation = useScrollAnimation(0.1);
@@ -37,12 +56,14 @@ export default function Contact() {
   const [actionItemShown, setActionItemShown] = useState(0);
   const [drop1, setDrop1] = useState(false);
   const [drop2, setDrop2] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isPhoneFocused, setIsPhoneFocused] = useState(false);
   const [drop3, setDrop3] = useState(false);
   const [field1, setField1] = useState("");
 const [field2, setField2] = useState("");
 const [field3, setField3] = useState("");
 const [field4, setField4] = useState("");
-const [field5, setField5] = useState("");
+const [countryCode, setCountryCode] = useState<Country_Phone | null>({ code: 'US', flag: 'https://flagcdn.com/w320/us.png', areaCode: '+1' });
 const [field6, setField6] = useState("");
 const [showLinqAd, setShowLinqAd] = useState(false);
 
@@ -247,17 +268,66 @@ const [showLinqAd, setShowLinqAd] = useState(false);
 
     {/* Row 3 */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input
-        type="text"
-        placeholder="Country"
-        className="border border-gray-300 rounded-lg p-3 w-full"
-        onChange={(e) => setField5(e.target.value)}
+    <Combobox value={countryCode} onChange={(value) => value && setCountryCode(value)}>
+  <div className="relative inline-block">
+    {/* Input + Button */}
+    <div className="flex flex-row items-center">
+      <div className='pl-[15px] h-[50px] border flex flex-row border-gray-300 w-full rounded-lg justify-start'>
+        <div className='flex flex-row items-center min-w-0 w-auto max-w-[150px]'>
+      <img
+            src={countryCode?.flag || ''}
+            alt={`flag`}
+            className="my-auto w-6 h-4 mr-2 object-cover"
+          />
+      <ComboboxInput
+        className={`my-auto bg-transparent flex-1 p-2 min-w-0 w-auto text-black text-[16px] font-normal text-right ${
+          isFocused ? 'placeholder:text-gray-300' : 'placeholder:text-black'
+        }
+        ${
+          (countryCode !== null && countryCode?.areaCode?.length !== undefined &&countryCode?.areaCode?.length > 2) ? 'max-w-[100px]' : 'max-w-[80px]'
+        }
+        `}
+        defaultValue={countryCode?.code + ' (' + countryCode?.areaCode + ')' || '+1'}
+        placeholder={countryCode?.code + ' (' + countryCode?.areaCode + ')' || '+1'}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        onChange={(event) => setQuery(event.target.value)}
       />
+            <ComboboxButton className="ml-0">
+        <p className="text-gray-300 text-[10px] md:text-[16px] xl:text-[18px] font-bold">▼</p>
+      </ComboboxButton>
+      </div>
+      </div>
+
+    </div>
+
+    {/* Dropdown positioned directly under input */}
+    <ComboboxOptions className="absolute top-full left-0 mt-1 w-[150px] max-h-[200px] overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-10">
+      {filtered.map((item) => (
+        <ComboboxOption
+          key={item.code}
+          value={item}
+          className="flex flex-row items-center px-3 py-2 text-black text-[14px] hover:bg-gray-100 cursor-pointer"
+        >
+          <img
+            src={item.flag || ''}
+            alt={`${item.code} flag`}
+            className="w-6 h-4 mr-2 object-cover"
+          />
+          {item.areaCode || ''} ({item.code})
+        </ComboboxOption>
+      ))}
+    </ComboboxOptions>
+  </div>
+</Combobox>
       <input
         type="text"
-        placeholder="Phone number"
+        inputMode="numeric"
+        placeholder={isPhoneFocused ? 'Phone (no country code)' : 'Phone number'}
         className="border border-gray-300 rounded-lg p-3 w-full"
         onChange={(e) => setField6(e.target.value)}
+        onFocus={() => setIsPhoneFocused(true)}
+        onBlur={() => setIsPhoneFocused(false)}
       />
     </div>
 
@@ -268,7 +338,7 @@ const [showLinqAd, setShowLinqAd] = useState(false);
   {/* Submit Button */}
   <button
     onClick={() => {
-      saveContactInfo(field1, field2, field3, field4, field5, field6);
+      saveContactInfo(field1, field2, field3, field4, countryCode?.code || '', countryCode?.areaCode || '', field6);
     }}
     className="mt-6 bg-gradient-to-b from-[#232323] to-[#494949] text-white rounded-lg px-6 py-2 text-md"
   >

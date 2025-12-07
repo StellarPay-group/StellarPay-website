@@ -6,13 +6,101 @@ export const saveContactInfo = (
   companyName: string,
   companyEmail: string,
   country: string,
+  areaCode: string,
   phoneNumber: string
 ): void => {
-          console.log('firstName: ' + firstName)
-          console.log('lastName: ' + lastName)
-          console.log('companyName: ' + companyName)
-          console.log('companyEmail: ' + companyEmail)
-          console.log('country: ' + country)
-          console.log('phoneNumber: ' + phoneNumber)
+  if (!firstName || firstName.length < 2) {
+    alert("First name must be at least 2 characters");
+    return
+  }
+  if (!lastName || lastName.length < 2) {
+    alert("Last name must be at least 2 characters");
+    return;
+  }
+  if (!companyName || companyName.length < 2) {
+    alert("Company name must be at least 2 characters");
+    return;
+  }
+
+  if (
+    !companyEmail ||
+    companyEmail.indexOf("@") <= 0 ||
+    companyEmail.lastIndexOf(".") < companyEmail.indexOf("@") + 2 ||
+    companyEmail.lastIndexOf(".") === companyEmail.length - 1
+  ) {
+    alert('Email address is invalid')
+    return;
+  }
+
+  if (!country || country === '') {
+    alert('Please select country code')
+    return;
+  }
+  if (!areaCode || areaCode === '') {
+    alert('Please select phone country code');
+    return;
+  }
+
+  const cleaned = phoneNumber.replace(/[()\-\*\+#]/g, "");
+  if (!/^[0-9]+$/.test(cleaned) || cleaned === '' || cleaned.length < 5) {
+    alert ('Phone number is invalid. Phone number must be at least 5 digits long, contain only digits, and NOT include the area code (e.g. +1)');
+    return;
+  }
+
+  console.log("firstName: " + firstName);
+  console.log("lastName: " + lastName);
+  console.log("companyName: " + companyName);
+  console.log("companyEmail: " + companyEmail);
+  console.log("country: " + country);
+  console.log("areaCode" + areaCode);
+  console.log("phoneNumber: " + phoneNumber);
+
+  redirect("/linq/thankyou");
+};
+
+
+export const saveContactInfoEmailOnly = (
+  firstName: string,
+  lastName: string,
+  companyName: string,
+  companyEmail: string,
+  country: string,
+  areaCode: string,
+  phoneNumber: string
+): void => {
+  if (!firstName || firstName.length < 2) {
+    alert("First name must be at least 2 characters");
+    return
+  }
+  if (!lastName || lastName.length < 2) {
+    alert("Last name must be at least 2 characters");
+    return;
+  }
+  if (!companyName || companyName.length < 2) {
+    alert("Company name must be at least 2 characters");
+    return;
+  }
+
+  if (
+    !companyEmail ||
+    companyEmail.indexOf("@") <= 0 ||
+    companyEmail.lastIndexOf(".") < companyEmail.indexOf("@") + 2 ||
+    companyEmail.lastIndexOf(".") === companyEmail.length - 1
+  ) {
+    alert('Email address is invalid')
+    return;
+  }
+
+  if (!country || country === '') {
+    alert('Please select country')
+    return;
+  }
+
+  console.log("firstName: " + firstName);
+  console.log("lastName: " + lastName);
+  console.log("companyName: " + companyName);
+  console.log("companyEmail: " + companyEmail);
+  console.log("country: " + country);
+
   redirect("/linq/thankyou");
 };
