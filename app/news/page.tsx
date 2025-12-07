@@ -83,7 +83,7 @@ export default function NewsPage() {
               <Link href="/">
                 <Button variant="ghost" className="hover:bg-[#fbfbfb] text-xl md:text-[30px] mb-1 font-bold text-[#191c1f]">StellarPay</Button>
               </Link>
-              <nav className="hidden md:flex items-center space-x-2">
+              <nav className="hidden lg:flex items-center space-x-2">
               <div>
               <Button onMouseEnter={() => setShowDropdown(true)} variant="ghost" className="flex flex-row hover:bg-[#f7f7f7] rounded-full px-4 md:pl-5 md:pr-4 py-2 mb-[1px]">
                 <h1 className='text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold'>
@@ -370,7 +370,7 @@ export default function NewsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12 md:gap-20 mb-12">
             {/* Company and team */}
             <div className="text-left">
-              <Link href='#'>
+              <Link href='/about'>
               <h3 className="font-bold mb-3 md:mb-4 text-[#ffffff] text-sm md:text-[17px]">Company</h3>
               </Link>
               <div className="space-y-1 md:space-y-4">
