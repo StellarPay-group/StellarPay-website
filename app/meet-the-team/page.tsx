@@ -140,7 +140,7 @@ export default function MeetTheTeam() {
 
   
 
-      <motion.div 
+      {/* <motion.div 
         className="py-20 md:py-36 px-4 md:px-8"
         ref={traitsAnimation.ref}
         initial={traitsAnimation.initial}
@@ -214,7 +214,44 @@ export default function MeetTheTeam() {
            />
 </motion.div>
         </div>
-      </motion.div>
+      </motion.div> */}
+
+      {/* meet our team section */}
+      <motion.section 
+        id="team"
+        className="bg-white flex items-center"
+        ref={betterAnimation.ref}
+        initial={betterAnimation.initial}
+        animate={betterAnimation.animate}
+        transition={betterAnimation.transition}
+      >
+        <div className="max-w-6xl mx-auto px-4 md:px-6 mt-16 py-8 md:py-10 w-full">
+          <div className="space-y-6 md:space-y-8">
+            <motion.h1 
+              className="text-[#000000] text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              Meet Our Team
+            </motion.h1>
+
+            <motion.div 
+              className="max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+                <p className="text-[#6c6c6c] text-lg md:text-xl leading-relaxed font-semibold mt-10 mb-5">
+                {
+                  "Our team brings experience from global fintech, banking, technology, and driving innovation to make money move seamlessly worldwide. Stay tuned for more announcements."
+                }
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
 
       {/* Getting Better Section */}
       <motion.section 
