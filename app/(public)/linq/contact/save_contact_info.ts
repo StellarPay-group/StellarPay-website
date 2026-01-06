@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { DASHBOARD_SYNC_URL } from "@/backend_urls";
 
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
+
 export const saveContactInfo = async (
   firstName: string,
   lastName: string,
@@ -60,11 +62,16 @@ export const saveContactInfo = async (
 
   window.location.href = "/linq/thankyou";
 
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+  };
+  if (API_KEY) {
+    headers["x-api-key"] = API_KEY;
+  }
+
   await fetch(`${DASHBOARD_SYNC_URL}create-signup`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify(signupData),
     keepalive: true,
   })
