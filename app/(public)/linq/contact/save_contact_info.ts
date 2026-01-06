@@ -58,7 +58,7 @@ export const saveContactInfo = async (
     country: country || '',
   };
 
-  window.location.href = "/linq/thankyou";
+  // window.location.href = "/linq/thankyou";
 
   await fetch(`${DASHBOARD_SYNC_URL}create-signup`, {
     method: 'POST',
@@ -75,7 +75,7 @@ export const saveContactInfo = async (
     })
     .catch((error) => {
       console.error('Error creating signup:', error);
-      window.location.href = "/linq/contact";
+      // window.location.href = "/linq/contact";
     });
 };
 
