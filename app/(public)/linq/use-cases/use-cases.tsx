@@ -147,17 +147,17 @@ export default function LinqUseCases() {
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-        <Link href="/contact">
+        <Link href="/linq/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Resources</p>
           </div>
         </Link>
-        <Link href="/contact">
+        <Link href="/linq/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Pricing</p>
           </div>
         </Link>
-        <Link href="/contact">
+        <Link href="/linq/contact">
           <div className="flex flex-row items-center justify-center space-x-2">
             <p className='text-gray-600 font-regular text-xs md:text-[15px]'>Releases</p>
           </div>
@@ -173,12 +173,12 @@ export default function LinqUseCases() {
             <p className='text-gray-600 font-medium text-xs md:text-[15px]'>Use Cases</p>
           </div>
         </Link>
-            <Link href="/contact">
+            <Link href="/linq/contact">
           <div className="border-2 border-gray-700 bg-black rounded-lg py-1 px-3 flex flex-row items-center justify-center space-x-2">
             <p className='text-white font-medium text-xs md:text-[15px]'>Talk to sales</p>
           </div>
         </Link>
-        <Link href="/linq">
+        <Link href="/linq/contact">
           <div className="shadow-sm border-2 border-gray-300 bg-white rounded-lg py-1 px-4 flex flex-row items-center justify-center space-x-2">
             <p className='text-black font-medium text-xs md:text-[15px]'>Log In</p>
           </div>

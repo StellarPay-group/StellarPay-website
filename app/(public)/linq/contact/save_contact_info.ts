@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
+import { DASHBOARD_SYNC_URL } from "@/backend_urls";
 
-export const saveContactInfo = (
+export const saveContactInfo = async (
   firstName: string,
   lastName: string,
   companyName: string,
@@ -8,7 +9,7 @@ export const saveContactInfo = (
   country: string,
   areaCode: string,
   phoneNumber: string
-): void => {
+): Promise<void> => {
   if (!firstName || firstName.length < 2) {
     alert("First name must be at least 2 characters");
     return
@@ -47,19 +48,39 @@ export const saveContactInfo = (
     return;
   }
 
-  console.log("firstName: " + firstName);
-  console.log("lastName: " + lastName);
-  console.log("companyName: " + companyName);
-  console.log("companyEmail: " + companyEmail);
-  console.log("country: " + country);
-  console.log("areaCode" + areaCode);
-  console.log("phoneNumber: " + phoneNumber);
+  const signupData = {
+    email: companyEmail,
+    name: `${firstName} ${lastName}`,
+    product: "Linq",
+    areaCode: areaCode || '',
+    phoneNumber: cleaned || '',
+    companyName: companyName || '',
+    country: country || '',
+  };
 
-  redirect("/linq/thankyou");
+  window.location.href = "/linq/thankyou";
+
+  await fetch(`${DASHBOARD_SYNC_URL}create-signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(signupData),
+    keepalive: true,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`API call failed with status ${response.status}`);
+      }
+    })
+    .catch((error) => {
+      console.error('Error creating signup:', error);
+      window.location.href = "/linq/contact";
+    });
 };
 
 
-export const saveContactInfoEmailOnly = (
+export const saveContactInfoEmailOnly = async (
   firstName: string,
   lastName: string,
   companyName: string,
@@ -67,7 +88,7 @@ export const saveContactInfoEmailOnly = (
   country: string,
   areaCode: string,
   phoneNumber: string
-): void => {
+): Promise<void> => {
   if (!firstName || firstName.length < 2) {
     alert("First name must be at least 2 characters");
     return
@@ -96,11 +117,33 @@ export const saveContactInfoEmailOnly = (
     return;
   }
 
-  console.log("firstName: " + firstName);
-  console.log("lastName: " + lastName);
-  console.log("companyName: " + companyName);
-  console.log("companyEmail: " + companyEmail);
-  console.log("country: " + country);
+  const signupData = {
+    email: companyEmail,
+    name: `${firstName} ${lastName}`,
+    product: "Linq",
+    areaCode: areaCode || '',
+    phoneNumber: phoneNumber || '',
+    companyName: companyName || '',
+    country: country || '',
+  };
 
-  redirect("/linq/thankyou");
+  window.location.href = "/linq/thankyou";
+
+  await fetch(`${DASHBOARD_SYNC_URL}create-signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(signupData),
+    keepalive: true,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`API call failed with status ${response.status}`);
+      }
+    })
+    .catch((error) => {
+      console.error('Error creating signup:', error);
+      window.location.href = "/linq/contact";
+    });
 };
