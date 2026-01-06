@@ -60,9 +60,7 @@ export const saveContactInfo = async (
     country: country || '',
   };
 
-  // window.location.href = "/linq/thankyou";
-
-  console.log(DASHBOARD_SYNC_URL)
+  window.location.href = "/linq/thankyou";
 
   const headers: HeadersInit = {
     "Content-Type": "application/json",
@@ -78,14 +76,13 @@ export const saveContactInfo = async (
     keepalive: true,
   })
     .then((response) => {
-      console.log(response)
       if (!response.ok) {
         throw new Error(`API call failed with status ${response.status}`);
       }
     })
     .catch((error) => {
       console.error('Error creating signup:', error);
-      // window.location.href = "/linq/contact";
+      window.location.href = "/linq/contact";
     });
 };
 
