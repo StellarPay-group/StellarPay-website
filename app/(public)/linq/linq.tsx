@@ -857,7 +857,7 @@ We embed privacy controls directly into our products, empowering your customers 
                 </Link>
                 <div className="hidden lg:block flex flex-col mt-20">
                 <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">
-                © 2025 Stellar Technologies, inc.
+                © 2026 Stellar Technologies, inc.
                 </p>
                 </div>
               </div>
@@ -913,7 +913,7 @@ We embed privacy controls directly into our products, empowering your customers 
             <div className="lg:col-span-1 text-left">
               <div className="flex flex-row">
               </div>
-            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2026 Stellar Technologies, inc.</p>
                 </div>
           </div>
           </div>

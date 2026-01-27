@@ -374,7 +374,7 @@ export default function Features() {
               </Link>
               .
             </p>
-            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2026 Stellar Technologies, inc.</p>
                 </div>
           </div>
           </div>
@@ -486,7 +486,7 @@ export default function Features() {
               </Link>
               .
             </p>
-            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">© 2025 Stellar Technologies, inc.</p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">© 2026 Stellar Technologies, inc.</p>
             </div>
             <div className="hidden sm:block lg:hidden flex flex-col mt-20">
                 <p className="text-left block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] mx-[7px]">
