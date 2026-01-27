@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
         <br />
         <span className="font-normal">Effective Date: January 2025 </span>
         <br />
-        <span className="font-normal">Last Updated: April 2025</span></p>
+        <span className="font-normal">Last Updated: January 2026</span></p>
 
         <h2 className="text-[#191c1f] text-2xl font-bold mt-[20px]">Introduction</h2>
         <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
@@ -753,7 +753,7 @@ individually responsible for implementing retention schedules within their separ
               </Link>
               .
             </p>
-            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2025 Stellar Technologies, inc.</p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm">© 2026 Stellar Technologies, inc.</p>
                 </div>
           </div>
           </div>
@@ -865,7 +865,7 @@ individually responsible for implementing retention schedules within their separ
               </Link>
               .
             </p>
-            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">© 2025 Stellar Technologies, inc.</p>
+            <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">© 2026 Stellar Technologies, inc.</p>
             </div>
             <div className="hidden sm:block lg:hidden flex flex-col mt-20">
                 <p className="text-left block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] mx-[7px]">
