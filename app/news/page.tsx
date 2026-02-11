@@ -315,10 +315,10 @@ export default function NewsPage() {
         <div 
           className="w-full flex flex-col sm:flex-row justify-center items-center gap-4 mb-5 md:mb-5 px-4"
         >
-          <a href="https://apps.apple.com/ca/app/george/id6743195041">
+          <a href="https://apps.apple.com/app/stellarpay/id6450455712">
             <Image src="/images/appleStore.png" alt="apple" width={150} height={70} className="w-[120px] sm:w-[150px] h-auto" />
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.stellar.stellarai.app">
+          <a href="https://play.google.com/store/apps/dev?id=8934712149181103165">
             <Image src="/images/googleStore.png" alt="google" width={167} height={70} className="w-[134px] sm:w-[167px] h-auto" />
           </a>
         </div>
