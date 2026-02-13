@@ -481,7 +481,7 @@ export default function HomePage() {
                   <div className="flex flex-row justify-between items-center mt-[10px]">
                     <div className="flex flex-row items-center mb-[5px]">
                       <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
+                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{achFee !== null ? `${achFee.toFixed(2)} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
                     <p className="hidden md:block text-[18px] text-[#454745]">Estimated fees</p>
                     <p className="block md:hidden text-[14px] text-[#454745]">Fees</p>
@@ -490,8 +490,8 @@ export default function HomePage() {
                     <div className="flex flex-row items-center mb-[5px]">
                     <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
                       <p className="block md:hidden text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">=</p>
-                      <p className="hidden md:block text-[#0065ff] font-semibold text-[18px]">{Math.round(amountWeWillConvert * 100) / 100} {fromCurrency?.display_code}</p>
-                      <p className="block md:hidden text-[#0065ff] font-semibold text-[14px]">{Math.round(amountWeWillConvert * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="hidden md:block text-[#0065ff] font-semibold text-[18px]">{amountWeWillConvert.toFixed(2)} {fromCurrency?.display_code}</p>
+                      <p className="block md:hidden text-[#0065ff] font-semibold text-[14px]">{amountWeWillConvert.toFixed(2)} {fromCurrency?.display_code}</p>
                     </div>
                   <p className="hidden md:block text-[18px] text-[#0065ff] font-semibold">Total amount we'll convert</p>
                   <p className="block md:hidden text-[14px] text-[#0065ff] font-semibold">Amount converted</p>
