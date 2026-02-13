@@ -11,10 +11,11 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
 import { useEffect, useMemo, useState } from 'react';
 import GetTheApp from '@/components/popup/getTheApp';
-import { useCurrencyConversion, useExchangeRate } from '@/lib/payment_queries';
+import { useCurrencyConversion } from '@/lib/payment_queries';
 import type { CurrencyListOption } from '@/lib/country.types';
 import { getUrlForDevice, getDeviceType, getUrl } from '@/lib/device';
 import { currencies, convertLocal } from '@/lib/country.types';
+import { calculateTransferFees, getTotalFeesFromAlternative } from '@/lib/payment_fetch';
 import Head from "next/head";
 
 
@@ -45,18 +46,7 @@ const getSavings = (inputAmount: number) => {
   return Math.round((inputAmount * 0.040387) * 100) / 100;
 }
 
-const getFees = (amountInUSD: number) => {
-  if (!amountInUSD || amountInUSD <= 0) {
-    return { ACHFee: 0, ourFee: 0, totalFee: 0, amountWeWillConvert: 0 };
-  }
-
-  const ACHFee = Math.round(amountInUSD * 0.00279 * 100) / 100;
-  const ourFee = Math.round(amountInUSD * 0.00427 * 100) / 100;
-  const totalFee = Math.round((ACHFee + ourFee) * 100) / 100;
-  const amountWeWillConvert = Math.round((amountInUSD - totalFee) * 100) / 100;
-
-  return { ACHFee, ourFee, totalFee, amountWeWillConvert };
-};
+const DEFAULT_TRANSFER_TYPE = 'standard';
 
 export default function HomePage() {
 
@@ -146,9 +136,8 @@ export default function HomePage() {
   const [ourFee, setOurFee] = useState(0);
   const [totalFee, setTotalFee] = useState(0);
   const [amountWeWillConvert, setAmountWeWillConvert] = useState(0);
-  const [guaranteedRate, setGuaranteedRate] = useState(0);
-  const [fromCurrency, setFromCurrency] = useState({ code: "USD", display_code: "USD", name: "United States Dollar", flag: 'https://flagcdn.com/w320/us.png'  });
-  const [toCurrency, setToCurrency] = useState({ code: "XAF", display_code: "FCFA", name: "Central Africa", flag: 'https://flagcdn.com/w320/cm.png'  });
+  const [fromCurrency, setFromCurrency] = useState<CurrencyListOption>(() => currencies.find((c) => c.code === 'USD') ?? currencies[0]);
+  const [toCurrency, setToCurrency] = useState<CurrencyListOption>(() => currencies.find((c) => c.code === 'XAF') ?? currencies[currencies.length - 1]);
   
   const filtered = useMemo(() => {
     if (!query) return currencies;
@@ -164,18 +153,38 @@ export default function HomePage() {
   }, [currencies, query]);
 
   useEffect(() => {
-    async function fetchFees() {
-
-      const fees = getFees(amount);
-      setAchFee(fees.ACHFee);
-      setOurFee(fees.ourFee);
-      setTotalFee(fees.totalFee);
-      setAmountWeWillConvert(fees.amountWeWillConvert);
-      setGuaranteedRate(fees.amountWeWillConvert * 0.9319);
+    async function fetchFeesAndAmount() {
+      if (!amount || amount <= 0) {
+        setAchFee(0);
+        setOurFee(0);
+        setTotalFee(0);
+        setAmountWeWillConvert(0);
+        return;
+      }
+      const res = await calculateTransferFees({
+        amount,
+        sourceCurrency: fromCurrency.code,
+        destinationCurrency: toCurrency.code,
+        sourceCountry: fromCurrency.country,
+        destinationCountry: toCurrency.country,
+        transferType: DEFAULT_TRANSFER_TYPE,
+      });
+      if (res.success && res.data) {
+        const alt = res.data;
+        const estimatedFees = getTotalFeesFromAlternative(alt);
+        const totalToConvert = alt.destinationAmount ?? amount;
+        setAchFee(estimatedFees);
+        setOurFee(0);
+        setTotalFee(estimatedFees);
+        setAmountWeWillConvert(totalToConvert);
+      } else {
+        setAchFee(0);
+        setOurFee(0);
+        setTotalFee(0);
+        setAmountWeWillConvert(amount);
+      }
     }
-    if (amount && amount > 0) {
-      fetchFees();
-    }
+    fetchFeesAndAmount();
   }, [amount, fromCurrency, toCurrency]);
 
 
@@ -474,47 +483,25 @@ export default function HomePage() {
                       <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
                       <p className="text-black font-semibold text-[14px] md:text-[18px]">{achFee !== null ? `${achFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
                     </div>
-                  <p className="hidden md:block text-[18px] text-[#0065ff] font-semibold">Connected bank account (ACH) fee</p>
-                  <p className="block md:hidden text-[14px] text-[#0065ff] font-semibold">ACH fee</p>
+                    <p className="hidden md:block text-[18px] text-[#454745]">Estimated fees</p>
+                    <p className="block md:hidden text-[14px] text-[#454745]">Fees</p>
                   </div>
                   <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-row items-center mb-[5px]">
-                      <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
-                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{ourFee !== null ? `${ourFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
-                    </div>
-                  <p className="text-[14px] md:text-[18px] text-[#454745]">Our fee</p>
-                  </div>
-                  <div className="flex flex-row justify-between items-center">
-                    <div className="flex flex-row items-center mb-[5px]">
-                    <p className="text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">-</p>
-                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{totalFee !== null ? `${totalFee} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
-                    </div>
-                  <p className="text-[14px] md:text-[18px] text-[#454745]">Total fees</p>
-                  </div>
-                  <div className="flex flex-row justify-between items-center">
-                    <div className="flex flex-row items-center mb-[5px]">
-                    <p className="text-gray-600 mr-[5px] text-[14px] md:text-[18px] font-semibold">=</p>
-                      <p className="text-black font-semibold text-[14px] md:text-[18px]">{amountWeWillConvert !== null ? `${amountWeWillConvert} ${fromCurrency?.display_code ?? "USD"}` : "Loading..."}</p>
-                    </div>
-                  <p className="hidden md:block text-[18px] text-[#454745]">Total amount we'll convert</p>
-                  <p className="block md:hidden text-[14px] text-[#454745] font-semibold">Total amount</p>
-                  </div>
-                  <div className="flex flex-row justify-between items-center">
-                    <div className="flex flex-row items-center mb-[5px]">
-                      <p className="hidden md:block text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">*</p>
+                    <p className="text-gray-300 mr-[8px] text-[14px] md:text-[18px]">•</p>
                       <p className="block md:hidden text-gray-600 mr-[8px] text-[14px] md:text-[18px] font-semibold">=</p>
-                      <p className="hidden md:block text-[#0065ff] font-semibold text-[18px]">0.9319 = {Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
-                      <p className="block md:hidden text-[#0065ff] font-semibold text-[14px]">{Math.round(guaranteedRate * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="hidden md:block text-[#0065ff] font-semibold text-[18px]">{Math.round(amountWeWillConvert * 100) / 100} {fromCurrency?.display_code}</p>
+                      <p className="block md:hidden text-[#0065ff] font-semibold text-[14px]">{Math.round(amountWeWillConvert * 100) / 100} {fromCurrency?.display_code}</p>
                     </div>
-                  <p className="hidden md:block text-[18px] text-[#0065ff] font-semibold">Guaranteed rate (8h)</p>
-                  <p className="block md:hidden text-[14px] text-[#0065ff] font-semibold">Guaranteed rate</p>
+                  <p className="hidden md:block text-[18px] text-[#0065ff] font-semibold">Total amount we'll convert</p>
+                  <p className="block md:hidden text-[14px] text-[#0065ff] font-semibold">Amount converted</p>
                   </div>
                   
                   <p className="text-[#454745] text-[13px] md:text-[16px] mt-[10px] mb-[5px]">Recipient gets</p>
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, guaranteedRate) * 100) / 100}</p>
+                    <p className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, amountWeWillConvert) * 100) / 100}</p>
                     <div className="relative flex flex-row">
                     <img
             src={toCurrency?.flag || ''}
@@ -546,7 +533,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert * 0.9319)} {fromCurrency?.display_code}</p>
+                      <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[10px]`}>You could save up to {getSavings(amountWeWillConvert)} {fromCurrency?.display_code}</p>
                       <p className={`text-[${amount > 0 ? '#454745' : '#ffffff'}] text-[14px] md:text-[18px] mt-[5px] mb-[5px]`}>Should arrive by {getArrivalDay()}</p>
                   </div>
                   <div className="flex items-center justify-center">

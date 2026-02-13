@@ -1,10 +1,12 @@
 import { SERVER } from '@/backend_urls';
-import axios, { isAxiosError } from 'axios';
-import { ADMIN_TOKEN } from '@/middleware/adminToken';
 
-const API_BASE_URL = `${SERVER}dev/conversion/`; // Replace with your actual base URL
+const CONVERSION_BASE = `${SERVER}dev/conversion/convert`;
+const API_BASE_URL = `${SERVER}dev/conversion/`;
+const CALCULATE_FEES_ENDPOINT = `${SERVER}dev/transfer/calculate-fees`;
 
-type CurrencyConversionDetail = {
+// --- Currency conversion (no headers/token/body) ---
+
+export type CurrencyConversionDetail = {
   amount: number;
   code: string;
   name: string;
@@ -12,51 +14,120 @@ type CurrencyConversionDetail = {
   symbol: string;
 };
 
-type CurrencyConversionResponse = Record<string, CurrencyConversionDetail>;
+export type CurrencyConversionResponseData = Record<string, CurrencyConversionDetail>;
+
+type ConversionSuccessJson = {
+  requestId?: string;
+  data: CurrencyConversionResponseData;
+};
+
+type ConversionErrorJson = {
+  error: string;
+  requestId?: string;
+  details?: unknown;
+};
 
 export async function fetchCurrencyConversion(params: {
   base: string;
   amount: number;
   targets: string[];
-}): Promise<CurrencyConversionResponse> {
+}): Promise<CurrencyConversionResponseData> {
   const { base, amount, targets } = params;
+  const url = new URL(CONVERSION_BASE);
+  url.searchParams.set('base', base);
+  url.searchParams.set('targets', targets.join(','));
+  url.searchParams.set('amount', String(amount));
 
-  console.log({
-        base,
-        amount,
-        targets: targets.join(','),
-      });
+  const response = await fetch(url.toString());
 
-  try {
-    let response = await axios.get(`${SERVER}dev/conversion/convert`, {
-      headers: {
-        'x-request-id': Date.now().toString(),
-        'x-auth-token': `Bearer ${ADMIN_TOKEN}`
-      },
-      params: {
-        base,
-        amount,
-        targets: targets.join(','),
-      },
-    });
+  const json = (await response.json()) as ConversionSuccessJson | ConversionErrorJson;
 
-    return response.data.data;
-  } catch (error: any) {
-    if (isAxiosError(error)) {
-      console.error('Axios error:', error.response?.data || error.message);
-    } else {
-      console.error('Unexpected error:', error);
-    }
-
-    throw error;
+  if (!response.ok) {
+    const err = json as ConversionErrorJson;
+    console.error('Conversion error:', err.error ?? response.status, err.details);
+    throw new Error(err.error ?? `Request failed with status ${response.status}`);
   }
+
+  const success = json as ConversionSuccessJson;
+  if (!success.data) {
+    throw new Error('Invalid conversion response: missing data');
+  }
+  return success.data;
 }
 
+// --- Calculate transfer fees (use only CalculateTransferFeesDataAlternative) ---
+
+export interface CalculateTransferFeesRequest {
+  amount: number;
+  sourceCurrency: string;
+  destinationCurrency: string;
+  sourceCountry: string;
+  destinationCountry: string;
+  transferType: string;
+}
+
+export interface CalculateTransferFeesDataAlternative {
+  sourceAmount?: number;
+  sourceCountry?: string;
+  destinationCountry?: string;
+  sourceCurrency: string;
+  destinationCurrency?: string;
+  collectedAmount?: number;
+  destinationAmount?: number;
+  effectiveExchangeRate?: number;
+  estimatedDeliveryTime?: string;
+  available?: boolean;
+  message?: string;
+}
+
+export interface CalculateTransferFeesResponse {
+  success: boolean;
+  data?: CalculateTransferFeesDataAlternative;
+  message?: string;
+}
+
+/** Estimated total fees in source currency: sourceAmount - destinationAmount (on error returns 0). */
+export function getTotalFeesFromAlternative(alt: CalculateTransferFeesDataAlternative): number {
+  const src = alt.sourceAmount ?? 0;
+  const dest = alt.destinationAmount ?? 0;
+  return Math.max(0, src - dest);
+}
+
+export async function calculateTransferFees(
+  params: CalculateTransferFeesRequest,
+): Promise<CalculateTransferFeesResponse> {
+  const response = await fetch(CALCULATE_FEES_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      amount: params.amount,
+      sourceCurrency: params.sourceCurrency,
+      destinationCurrency: params.destinationCurrency,
+      sourceCountry: params.sourceCountry,
+      destinationCountry: params.destinationCountry,
+      transferType: params.transferType,
+    }),
+  });
+
+  const json = (await response.json()) as CalculateTransferFeesResponse;
+
+  if (!response.ok) {
+    return {
+      success: false,
+      message: json.message ?? `Request failed with status ${response.status}`,
+    };
+  }
+
+  return json;
+}
+
+// --- Exchange rates (fetch, no Axios) ---
+
 export type CurrencyInfo = {
-  currency: string;        // e.g. "EUR"
-  rate: number;            // e.g. 1.0845
-  baseCurrency: string;    // e.g. "USD"
-  date: string;            // e.g. "2025-07-24" or "latest"
+  currency: string;
+  rate: number;
+  baseCurrency: string;
+  date: string;
 };
 
 export async function fetchExchangeRates(params: {
@@ -65,27 +136,18 @@ export async function fetchExchangeRates(params: {
   date?: string;
 }): Promise<CurrencyInfo[]> {
   const { baseCurrency, currencies, date = 'latest' } = params;
+  const url = new URL(`${API_BASE_URL}exchange-rates`);
+  url.searchParams.set('baseCurrency', baseCurrency);
+  url.searchParams.set('date', date);
+  url.searchParams.set('currencies', currencies.join(','));
 
-  try {
-    const response = await axios.get(`${API_BASE_URL}exchange-rates`, {
-      headers: {
-        'x-request-id': Date.now().toString(),
-        'x-auth-token': `Bearer ${ADMIN_TOKEN}`
-      },
-      params: {
-        baseCurrency,
-        date,
-        currencies: currencies.join(','),
-      },
-    });
+  const response = await fetch(url.toString());
+  const data = await response.json();
 
-    return response.data;
-  } catch (error: any) {
-    if (isAxiosError(error)) {
-      console.error('Axios error:', error.response?.data || error.message);
-    } else {
-      console.error('Unexpected error:', error);
-    }
-    throw error;
+  if (!response.ok) {
+    console.error('Exchange rates error:', data);
+    throw new Error((data as { message?: string }).message ?? `Request failed with status ${response.status}`);
   }
+
+  return data as CurrencyInfo[];
 }
