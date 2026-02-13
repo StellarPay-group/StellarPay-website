@@ -348,7 +348,7 @@ export default function MeetTheTeam() {
           <a href="https://apps.apple.com/app/stellarpay/id6450455712">
         <Image src="/images/appleStore.png" alt="apple" width={175} height={90} className="w-[140px] sm:w-[175px] h-auto" />
         </a>
-        <a href="https://play.google.com/store/apps/dev?id=8934712149181103165">
+        <a href="https://play.google.com/store/apps/details?id=com.stellar.mobile">
         <Image src="/images/googleStore.png" alt="google" width={193} height={95} className="w-[154px] sm:w-[193px] h-auto" />
         </a>
         </motion.div>

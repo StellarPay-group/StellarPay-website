@@ -1,7 +1,7 @@
 export function getUrlForDevice(showPopup: () => void) {
           const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
           if (/android/i.test(userAgent)) {
-            window.open('https://play.google.com/store/apps/dev?id=8934712149181103165');
+            window.open('https://play.google.com/store/apps/details?id=com.stellar.mobile');
             return;
           }
           if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
@@ -25,7 +25,7 @@ export function getDeviceType(): number {
 export function getUrl() {
           const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
           if (/android/i.test(userAgent)) {
-            window.open('https://play.google.com/store/apps/dev?id=8934712149181103165');
+            window.open('https://play.google.com/store/apps/details?id=com.stellar.mobile');
             return;
           }
           if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
