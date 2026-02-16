@@ -386,6 +386,9 @@ export default function NewsPage() {
                 <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   News & Updates
                 </Link>
+                <Link href="/contact-us" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
+                  Contact us
+                </Link>
                 <div className="hidden lg:block flex flex-col mt-20">
                 <p className="block text-[#ffffff] no-underline text-xs md:text-sm mb-[3px] ml-[7px]">
                   Follow us
