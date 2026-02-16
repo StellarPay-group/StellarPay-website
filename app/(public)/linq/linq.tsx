@@ -855,6 +855,9 @@ We embed privacy controls directly into our products, empowering your customers 
                 <Link href="/news" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
                   News & Updates
                 </Link>
+                <Link href="/linq/contact" className="block text-[#ffffff] opacity-80 no-underline text-xs md:text-[16px] font-light">
+                  Contact us
+                </Link>
                 <div className="hidden lg:block flex flex-col mt-20">
                 <p className="text-[#ffffff] opacity-80 text-xs md:text-sm font-light">
                 © 2026 Stellar Technologies, inc.

@@ -7,11 +7,10 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/lib/useScrollAnimation';
-import { ExpandCard } from "@/components/ui/expandCard";
 import { useState } from "react";
 
 
-export default function MeetTheTeam() {
+export default function AboutPage() {
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3, slidesToSlide: 1 },
@@ -21,10 +20,17 @@ export default function MeetTheTeam() {
 
   // Animation hooks
   const navAnimation = useScrollAnimation(0);
-  const heroAnimation = useScrollAnimation(0);
-  const traitsAnimation = useScrollAnimation(0);
-  const storeAnimation = useScrollAnimation(0);
-  const footerAnimation = useScrollAnimation(0);
+  const heroAnimation = useScrollAnimation(0.3);
+  const aboutAnimation = useScrollAnimation(0.6);
+  const traitsAnimation = useScrollAnimation(0.9);
+  const betterAnimation = useScrollAnimation(1.2);
+  const timelineAnimation = useScrollAnimation(1.5);
+  const blogAnimation = useScrollAnimation(1.8);
+  const connectAnimation = useScrollAnimation(2.1);
+  const storeAnimation = useScrollAnimation(2.4);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const footerAnimation = useScrollAnimation(2.7);
 
   // needed for blog component
   type ArrowProps = {
@@ -33,9 +39,46 @@ export default function MeetTheTeam() {
     onClick?: () => void;
     carouselState?: { currentSlide: number; totalItems: number; slidesToShow: number };
   };
-  
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const ButtonGroup = ({ next, previous, carouselState, ...rest }: ArrowProps) => {
+    if (!carouselState) return null;
+    const leftDisabled = carouselState?.currentSlide === 0;
+    const rightDisabled = carouselState?.currentSlide + carouselState?.slidesToShow >= carouselState?.totalItems;
+    return (
+      <div className="flex justify-center gap-4 mt-0">
+        <button
+          onClick={previous}
+          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+            leftDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+          }`}
+          aria-label="Previous"
+          disabled={leftDisabled}
+        >
+        <Image
+            src="/images/leftArrow.png"
+            alt="Previous"
+            width={50}
+            height={50}
+          />
+          
+        </button>
+        <button
+          onClick={next}
+          className={`text-black font-bold py-2 px-4 rounded-full transition-opacity ${
+            rightDisabled ? 'opacity-40' : 'opacity-100 hover:opacity-80'
+          }`}
+          aria-label="Next"
+          disabled={rightDisabled}
+        >
+        <Image
+            src="/images/rightArrow.png"
+            alt="Previous"
+            width={50}
+            height={50}
+          />
+        </button>
+      </div>
+    );
+  };
 
   return (
     <main>
@@ -50,7 +93,7 @@ export default function MeetTheTeam() {
         animate={navAnimation.animate}
         transition={navAnimation.transition}
       >
- <div className="px-4 py-4">
+<div className="px-4 py-4">
           <div className="md:mt-1 flex items-center justify-between max-w-7xl mx-auto">
             {/* Left side - Logo and navigation */}
             <div onMouseLeave={() => setShowDropdown(false)} className="flex items-center space-x-2 md:space-x-6">
@@ -86,7 +129,7 @@ export default function MeetTheTeam() {
             {/* Right side - About us, language, auth */}
             <div onMouseLeave={() => setShowLanguageDropdown(false)} className="flex items-center space-x-2 md:space-x-2">
               <Link href="\about" className="hidden sm:block">
-                <Button variant="ghost" className="border-[#1b6cd8] ml-3 px-2 md:px-5 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold">About us</Button>
+                <Button variant="ghost" className="border-[#1b6cd8] ml-3 px-2 md:px-5 py-2 hover:bg-[#f7f7f7] rounded-full text-[#1b6ce8] hover:text-[#1b6ce8] text-xs md:text-[17px] font-bold">About us</Button>
               </Link>
               <div className="hidden md:flex items-center">
               <div>
@@ -123,136 +166,74 @@ export default function MeetTheTeam() {
 
       {/* Hero Section */}
       <motion.section 
-        className="bg-[#0065ff] text-white py-16 md:py-30 px-4 md:px-6"
+        className="bg-[#0065ff] flex flex-row justify-center text-white py-16 md:py-30 px-12 md:px-6"
         ref={heroAnimation.ref}
         initial={heroAnimation.initial}
         animate={heroAnimation.animate}
         transition={heroAnimation.transition}
       >
-        <div className="max-w-5xl text-center mx-auto flex flex-col items-center">
-          <h2 className="text-6xl md:text-8xl lg:text-[96px] py-10 font-bold leading-tight">
-            Security your money deserves
-          </h2>
-          <h2 className="max-w-2xl md:max-w-3xl text-[20px] md:text-[20px] lg:text-[20px] py-10 font-semibold leading-tight">
-          Every day, people across North America, Africa, and beyond move millions through StellarPay. Thousands of new users join us each week, trusting us to power their cross-border payments. <br />
-          Our promise is simple: to keep your money secure with cutting-edge technology, real-time monitoring, and support whenever you need it.
+        <div className="self-center max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto flex items-center">
+          <h2 className="text-3xl md:text-6xl lg:text-[75px] font-bold leading-tight py-10">
+            How do I get help from StellarPay?
           </h2>
         </div>
       </motion.section>  
 
-  
-
-      <motion.div 
-        className="px-10 md:px-0 py-10 md:py-20"
-        ref={traitsAnimation.ref}
-        initial={traitsAnimation.initial}
-        animate={traitsAnimation.animate}
-        transition={traitsAnimation.transition}
+      {/* Getting Better Section */}
+      <motion.section 
+        className="bg-white flex items-center"
+        ref={betterAnimation.ref}
+        initial={betterAnimation.initial}
+        animate={betterAnimation.animate}
+        transition={betterAnimation.transition}
       >
-        <div className="flex flex-row items-center justify-center">
-        <div className="flex flex-col max-w-lg md:max-w-xl md:mr-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-10">Protection Without Gaps</h2>
-          <h3 className="text-xl md:text-2xl lg:text-2xl font-base">Security is at the core of everything we build. Our engineers continually strengthen our systems, leveraging advanced machine learning to keep StellarPay protected against fraud and threats.</h3>
-        </div>
-        <Image src="/images/lock.png" alt="apple" width={400} height={400} className="hidden md:block" />
-        </div>
-      </motion.div>
+        <div className="max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto py-12 md:py-20">
+          <div className="ml-5 space-y-6 md:space-y-8">
 
-      <motion.div 
-        className="px-10 md:px-0 py-10 md:py-10 md:mb-20"
-        ref={traitsAnimation.ref}
-        initial={traitsAnimation.initial}
-        animate={traitsAnimation.animate}
-        transition={traitsAnimation.transition}
-      >
-        <div className="flex flex-row items-center justify-center">
-        <Image src="/images/phone.png" alt="apple" width={400} height={400} className="hidden md:block md:mr-20" />
-        <div className="flex flex-col max-w-lg md:max-w-xl">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-10">Always on - all the time</h2>
-          <h3 className="text-xl md:text-2xl lg:text-2xl font-base">Our customer support teams are always within reach — whether by phone, email, or live chat. <br />
-          Available 24/7 in English, and other languages, they’re here to answer your questions, resolve issues quickly, and ensure your money always moves with confidence.</h3>
-        </div>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        className="px-10 md:px-0 py-10 md:py-10 md:mb-30"
-        ref={traitsAnimation.ref}
-        initial={traitsAnimation.initial}
-        animate={traitsAnimation.animate}
-        transition={traitsAnimation.transition}
-      >
-        <div className="flex flex-col md:flex-row items-center justify-center">
-        <div className="flex flex-col w-[280px] md:w-auto max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] md:mr-20 mb-20">
-        <Image src="/images/two-step.png" alt="two-step" width={400} height={400} className="w-full h-full" />
-        <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-180px]" >
-          <h3 className="font-bold text-2xl md:text-4xl mb-2">
-          Two-step authentication
-          </h3>
-          <p className="font-semibold text-xl">
-          Stay protected at every step — from signing up to sending money, we verify it’s really you.
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-medium mb-[30px]">The fastest way to get help is to first check our <b><u>FAQ</u></b> — most answers are already here.
+              </p>
+              <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-medium mb-[30px]">Most common topics
+              </p>
+              <ul className="ml-5 mb-[30px] list-disc list-inside">
+                    <li className="text-lg md:text-[20px]"><b><u><a href="https://www.stellarpay.app/">How long will my transfer take?</a></u></b></li>
+                    <li className="text-lg md:text-[20px]"><b><u><a href="https://www.stellarpay.app/">How do I make a complaint?</a></u></b></li>
+                    <li className="text-lg md:text-[20px]"><b><u><a href="https://www.stellarpay.app/">How does StellarPay verify my address?</a></u></b></li>
+          </ul>
+          <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-medium mb-[30px]">If you can't find an answer, the best way to contact us is by logging in. This way, we know who you are and can give you faster, more personalized support.
           </p>
-        </div>
-        </div>
-
-        <div className="flex flex-col w-[280px] md:w-auto max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] md:mr-20 mb-20">
-        <Image src="/images/biometrics.png" alt="two-step" width={400} height={400} className="w-full h-full" />
-        <div className="bg-gray-200 rounded-2xl px-14 py-12 md:mt-[-210px]" >
-          <h3 className="font-bold text-2xl md:text-4xl mb-2">
-          Biometrics and ecryption
-          </h3>
-          <p className="font-semibold text-xl">
-          Your device’s built-in tech and our advanced encryption keep your account extra secure.
+          <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-bold">If you can log in
           </p>
-        </div>
-        </div>
-        <div className="flex flex-col max-w-[400px] lg:max-w-[350px] xl:max-w-[380px] mb-20">
-        <Image src="/images/personalize.png" alt="two-step" width={400} height={400} className="w-full h-full mb-[20px] rounded-2xl" />
-        <div className="bg-gray-200 rounded-2xl px-11 py-12 md:mt-[-260px]" >
-          <h3 className="font-bold text-2xl md:text-4xl mb-2">
-          Personalize your experience
-          </h3>
-          <p className="font-semibold text-xl">
-          Take control of your privacy with hidden balances, location settings, and auto-logout features.
+          <ol className="ml-5 mb-[30px] list-decimal list-inside">
+          <li className="text-lg md:text-[20px]">Click the <b>Help</b> or ? button on our website or in the app</li>
+          <li className="text-lg md:text-[20px]">This takes you to our smart Help Centre. It will suggest articles that might solve your issue</li>
+          <li className="text-lg md:text-[20px]">If you still need help, choose the <b>Contact us</b> option to see the best ways to get in touch, like email or chat</li>
+          </ol>
+          <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-bold mb-[30px]">What if you can't log in?
           </p>
+          <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-medium">If you're having trouble logging in, you can still get in touch with us.
+          </p>
+          <ol className="ml-5 mb-[30px] list-decimal list-inside">
+          <li className="text-lg md:text-[20px]">Go to the <u><a href="https://www.stellarpay.app/">Website</a></u></li>
+          <li className="text-lg md:text-[20px]">On any article page, scroll to the bottom and click <b>Contact us</b></li>
+          <li className="text-lg md:text-[20px]">We'll ask a few questions to understand your problem. This helps us get your email to the right team</li>
+          </ol>
+          <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-bold mb-[30px]">Contact Us by Whatsapp
+          </p>
+          <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-medium">For the best experience, we recommend logging in first. This helps us direct you to the right regional team and phone number.<br/>
+If you're in the US and can't log in, you can reach out at our WhatsApp number: +1 289 541 4041.<br/>
+If you're outside the US, you can talk to us by <a href="https://wise.com/help/contact/channels/phone?supportLanguage=en"><b>clicking here</b></a>.<br/>
+Note that our phone lines are not open 24/7. Please be aware that your phone provider may charge you for the call.<br />
+          </p>
+            </motion.div> 
+          </div>
         </div>
-        </div>
-        </div>
-      </motion.div>
-
-    
-
-
-      {/* Store Badges */}
-      <motion.div 
-        className="bg-[#0065ff] flex flex-col items-center justify-center px-4 py-20"
-        ref={storeAnimation.ref}
-        initial={storeAnimation.initial}
-        animate={storeAnimation.animate}
-        transition={storeAnimation.transition}
-      >
-
-      <motion.div 
-            className="bg-[#ffffff] flex flex-col items-center justify-center px-4 py-16 rounded-2xl w-[300px] md:w-auto max-w-5xl"
-            ref={storeAnimation.ref}
-            initial={storeAnimation.initial}
-            animate={storeAnimation.animate}
-            transition={storeAnimation.transition}
-          >
-
-            <h1 className="text-center text-2xl md:text-6xl xl:text-7xl font-bold mb-15 mx-5 md:mx-20 mt-5">Thousands of security experts protecting your money 24/7</h1>
-
-            <p className="text-center text-xl font-semibold mx-5 md:mx-30 mb-15">We’re building the best way to move and manage the world’s money. Min fees. Max ease. Full speed. Full security.</p>
-
-            <a href="/meet-the-team#mission" className="px-8 sm:px-12 py-3 rounded-full font-semibold bg-blue-600 text-white shadow hover:bg-blue-700 transition text-sm sm:text-base mb-20">Learn about our mission</a>
-            
-          </motion.div>
-        
-      </motion.div>
+      </motion.section>
      
-     
-      
-
     
   {/* Footer */}
   <footer 
