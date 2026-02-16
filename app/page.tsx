@@ -15,7 +15,7 @@ import { useCurrencyConversion } from '@/lib/payment_queries';
 import type { CurrencyListOption } from '@/lib/country.types';
 import { getUrlForDevice, getDeviceType, getUrl } from '@/lib/device';
 import { currencies, convertLocal } from '@/lib/country.types';
-import { calculateTransferFees, getTotalFeesFromAlternative } from '@/lib/payment_fetch';
+import { calculateTransferFees, getTotalFeesFromAlternative, fetchCurrencyConversion } from '@/lib/payment_fetch';
 import Head from "next/head";
 
 
@@ -136,6 +136,7 @@ export default function HomePage() {
   const [ourFee, setOurFee] = useState(0);
   const [totalFee, setTotalFee] = useState(0);
   const [amountWeWillConvert, setAmountWeWillConvert] = useState(0);
+  const [recipientAmount, setRecipientAmount] = useState(0);
   const [fromCurrency, setFromCurrency] = useState<CurrencyListOption>(() => currencies.find((c) => c.code === 'USD') ?? currencies[0]);
   const [toCurrency, setToCurrency] = useState<CurrencyListOption>(() => currencies.find((c) => c.code === 'XAF') ?? currencies[currencies.length - 1]);
   
@@ -159,29 +160,115 @@ export default function HomePage() {
         setOurFee(0);
         setTotalFee(0);
         setAmountWeWillConvert(0);
+        setRecipientAmount(0);
         return;
       }
-      const res = await calculateTransferFees({
-        amount,
-        sourceCurrency: fromCurrency.code,
-        destinationCurrency: toCurrency.code,
-        sourceCountry: fromCurrency.country,
-        destinationCountry: toCurrency.country,
-        transferType: DEFAULT_TRANSFER_TYPE,
-      });
-      if (res.success && res.data) {
-        const alt = res.data;
-        const estimatedFees = getTotalFeesFromAlternative(alt);
-        const totalToConvert = alt.destinationAmount ?? amount;
-        setAchFee(estimatedFees);
-        setOurFee(0);
-        setTotalFee(estimatedFees);
-        setAmountWeWillConvert(totalToConvert);
-      } else {
+      
+      try {
+        const res = await calculateTransferFees({
+          amount,
+          sourceCurrency: fromCurrency.code,
+          destinationCurrency: toCurrency.code,
+          sourceCountry: fromCurrency.country,
+          destinationCountry: toCurrency.country,
+          transferType: DEFAULT_TRANSFER_TYPE,
+        });
+        
+        if (res.success && res.data) {
+          const alt = res.data;
+          
+          // Check if available is true and we have all required fields
+          if (alt.available === true && 
+              alt.effectiveExchangeRate !== undefined && 
+              alt.marketRate !== undefined && 
+              alt.sourceAmount !== undefined &&
+              alt.destinationAmount !== undefined &&
+              alt.marketRate > 0) {
+            
+            try {
+              // Calculate "Total amount we'll convert" = effectiveExchangeRate / marketRate * sourceAmount
+              const totalToConvert = (alt.effectiveExchangeRate / alt.marketRate) * alt.sourceAmount;
+              
+              // Calculate "Estimated fees" = sourceAmount - (effectiveExchangeRate / marketRate * sourceAmount)
+              const estimatedFees = alt.sourceAmount - totalToConvert;
+              
+              // "Recipient gets" = destinationAmount
+              setRecipientAmount(alt.destinationAmount);
+              setAmountWeWillConvert(totalToConvert);
+              setAchFee(Math.max(0, estimatedFees));
+              setOurFee(0);
+              setTotalFee(Math.max(0, estimatedFees));
+              return;
+            } catch (error) {
+              console.error('Error calculating fees from calculate-fees response:', error);
+              // Fall through to fallback logic
+            }
+          }
+          
+          // If available is false or calculation failed, fallback to conversion endpoint
+          // Set fees to zero and use conversion endpoint
+          setAchFee(0);
+          setOurFee(0);
+          setTotalFee(0);
+          setAmountWeWillConvert(amount);
+          
+          try {
+            const conversionData = await fetchCurrencyConversion({
+              base: fromCurrency.code,
+              amount: amount,
+              targets: [toCurrency.code],
+            });
+            
+            if (conversionData && conversionData[toCurrency.code]) {
+              setRecipientAmount(conversionData[toCurrency.code].amount);
+            } else {
+              // Fallback to hard-coded rate
+              const fallbackAmount = convertLocal(fromCurrency.code, toCurrency.code, amount);
+              setRecipientAmount(fallbackAmount);
+            }
+          } catch (conversionError) {
+            console.error('Error fetching conversion:', conversionError);
+            // Fallback to hard-coded rate
+            const fallbackAmount = convertLocal(fromCurrency.code, toCurrency.code, amount);
+            setRecipientAmount(fallbackAmount);
+          }
+        } else {
+          // Calculate fees endpoint failed, use conversion endpoint
+          setAchFee(0);
+          setOurFee(0);
+          setTotalFee(0);
+          setAmountWeWillConvert(amount);
+          
+          try {
+            const conversionData = await fetchCurrencyConversion({
+              base: fromCurrency.code,
+              amount: amount,
+              targets: [toCurrency.code],
+            });
+            
+            if (conversionData && conversionData[toCurrency.code]) {
+              setRecipientAmount(conversionData[toCurrency.code].amount);
+            } else {
+              // Fallback to hard-coded rate
+              const fallbackAmount = convertLocal(fromCurrency.code, toCurrency.code, amount);
+              setRecipientAmount(fallbackAmount);
+            }
+          } catch (conversionError) {
+            console.error('Error fetching conversion:', conversionError);
+            // Fallback to hard-coded rate
+            const fallbackAmount = convertLocal(fromCurrency.code, toCurrency.code, amount);
+            setRecipientAmount(fallbackAmount);
+          }
+        }
+      } catch (error) {
+        console.error('Error in fetchFeesAndAmount:', error);
+        // On any error, set fees to zero and use hard-coded conversion
         setAchFee(0);
         setOurFee(0);
         setTotalFee(0);
         setAmountWeWillConvert(amount);
+        const fallbackAmount = convertLocal(fromCurrency.code, toCurrency.code, amount);
+        setRecipientAmount(fallbackAmount);
       }
     }
     fetchFeesAndAmount();
@@ -501,7 +588,7 @@ export default function HomePage() {
                 
                   <div className="items-center p-1 rounded-md border border-gray-300">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(useConvertedAmount(fromCurrency?.code, toCurrency?.code, amountWeWillConvert) * 100) / 100}</p>
+                    <p className="w-[70px] sm:w-[100px] md:w-[150px] p-2 text-black font-bold text-[18px] md:text-[24px] rounded-md">{Math.round(recipientAmount * 100) / 100}</p>
                     <div className="relative flex flex-row">
                     <img
             src={toCurrency?.flag || ''}

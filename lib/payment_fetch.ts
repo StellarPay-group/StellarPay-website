@@ -75,6 +75,7 @@ export interface CalculateTransferFeesDataAlternative {
   collectedAmount?: number;
   destinationAmount?: number;
   effectiveExchangeRate?: number;
+  marketRate?: number;
   estimatedDeliveryTime?: string;
   available?: boolean;
   message?: string;
