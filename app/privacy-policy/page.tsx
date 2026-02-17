@@ -254,6 +254,14 @@ we may collect:<br />
 You can revoke permissions at any time via your device settings.<br /><br />
         </p>
 
+        <h2 className="text-[#191c1f] text-2xl font-bold mt-[20px]">Face Data Collection and Use</h2>
+        <p className="text-[#191c1f] text-xl font-normal mt-[20px]">
+        We collect and process facial recognition data solely for identity verification and fraud prevention purposes when you use our identity verification features. This biometric data is processed in real-time during verification sessions and is not retained by StellarPay after the verification is complete. The face data is temporarily processed for immediate comparison with your identity document and is deleted immediately upon completion of the verification session, typically within seconds.
+We share face data with our third-party identity verification service providers (including Persona) who process this information on our behalf to verify your identity and prevent fraudulent account creation. These service providers may temporarily store face data for up to 90 days to comply with regulatory requirements for identity verification and fraud prevention under applicable financial services regulations, including anti-money laundering (AML) and know-your-customer (KYC) obligations. After this retention period, all biometric data is permanently deleted from their systems. Our service providers operate under strict contractual obligations that require them to process face data in accordance with applicable data protection laws, including GDPR, CCPA, and other relevant privacy regulations, and they are prohibited from using your face data for any purpose other than identity verification and fraud prevention on our behalf.<br /><br />
+ 
+You have the right to access, delete, or request information about your biometric data at any time by contacting us at privacy@stellarpay.app. By using our identity verification features, you provide explicit consent to the collection and processing of your face data as described in this policy.<br /><br />
+        </p>
+
         <br /><br />
 
         <h2 className="text-[#191c1f] text-4xl font-bold mt-[20px]">How We Process Your Information</h2>
