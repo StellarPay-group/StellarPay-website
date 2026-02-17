@@ -226,7 +226,7 @@ export default function AboutPage() {
           </p>
           <p className="text-[#000000] text-lg md:text-[20px] leading-relaxed font-medium">For the best experience, we recommend logging in first. This helps us direct you to the right regional team and phone number.<br/>
 If you're in the US and can't log in, you can reach out at our WhatsApp number: +1 289 541 4041.<br/>
-If you're outside the US, you can talk to us by <a href="https://wise.com/help/contact/channels/phone?supportLanguage=en"><b>clicking here</b></a>.<br/>
+If you're outside the US, you can talk to us by <a href="https://www.stellarpay.app/"><b>clicking here</b></a>.<br/>
 Note that our phone lines are not open 24/7. Please be aware that your phone provider may charge you for the call.<br />
           </p>
             </motion.div> 
