@@ -4,7 +4,7 @@ import { ADMIN_TOKEN } from '@/middleware/adminToken';
 import { count } from 'console';
 import { TWILIO_PHONE_NUMBER } from '@/middleware/twilioPhoneNumber';
 
-const API_BASE_URL = `${SERVER}dev/conversion/`;
+const API_BASE_URL = `${SERVER}/conversion/`;
 
 export const validateCountryCode = (countryCode: string) => {
           return countryCode.match(/^\+[0-9](?:[0-9]{0,2})$/);
@@ -26,7 +26,7 @@ export async function sendAppLink(
           try {
                     let to: string = countryCode + '' + phoneNumber;
                     alert('A link will be sent to your phone number. Please check for a text message sent to ' + to + ' to download the app.');
-                    const response = await fetch(`${SERVER}dev/message/sms`, {
+                    const response = await fetch(`${SERVER}/message/sms`, {
                               method: 'POST',
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({
@@ -62,7 +62,7 @@ export async function sendLoginLink(
           try {
                     let to: string = countryCode + '' + phoneNumber;
                     alert('A link will be sent to your phone number. Please check for a text message sent to ' + to + ' to complete log in.');
-                    const response = await fetch(`${SERVER}dev/message/sms`, {
+                    const response = await fetch(`${SERVER}/message/sms`, {
                               method: 'POST',
                               headers: { 'Content-Type': 'application/json' },
                               body: JSON.stringify({

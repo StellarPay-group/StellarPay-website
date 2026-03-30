@@ -1,8 +1,8 @@
 import { SERVER } from '@/backend_urls';
 
-const CONVERSION_BASE = `${SERVER}dev/conversion/convert`;
-const API_BASE_URL = `${SERVER}dev/conversion/`;
-const CALCULATE_FEES_ENDPOINT = `${SERVER}dev/transfer/calculate-fees`;
+const CONVERSION_BASE = `${SERVER}/conversion/convert`;
+const API_BASE_URL = `${SERVER}/conversion/`;
+const CALCULATE_FEES_ENDPOINT = `${SERVER}/transfer/calculate-fees`;
 
 // --- Currency conversion (no headers/token/body) ---
 
