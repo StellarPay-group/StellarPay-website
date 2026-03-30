@@ -34,6 +34,8 @@ function useConvertedAmount(fromCurrency: string, toCurrency: string, debouncedA
   return parseFloat(converted.toFixed(2)) || 0.00;
 }
 
+// testing Github actions
+
 const getArrivalDay = () => {
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const today = new Date();
