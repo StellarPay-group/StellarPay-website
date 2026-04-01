@@ -301,14 +301,29 @@ export default function HomePage() {
 
   return (
       <main>
-        {showLinqAd && (<motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
-          <div className='flex justify-center w-full'>
-          <a href='/linq'>
-            <p className='text-white text-center text-[15px]'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
+        {showLinqAd && (
+        //   <motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
+        //   <div className='flex justify-center w-full'>
+        //   <a href='/linq'>
+        //     <p className='text-white text-center text-[15px]'>🎉 Meet LinQ for Mobile Money! Integrate mobile money users into your company →</p>
+        //   </a>
+        //   </div>
+        //   <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>
+        // </motion.div>
+        <motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
+          <div className='flex flex-row items-center justify-between w-full'>
+          <p> . </p>
+          <a href='/' className='flex flex-row items-center justify-center'>
+            <p className='text-white text-center text-xs md:text-[15px]'>🎉 Meet StellarPay! True bilateral money movement at your fingertips</p>
+            <div className="ml-10 border-t-1 border-gray-700 bg-black rounded-lg py-2 px-5 flex flex-row items-center justify-center space-x-2">
+            <p className='text-white font-medium text-xs md:text-[16px]'>See what's new</p>
+          </div>
           </a>
+        <p> . </p>
           </div>
           <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>
-        </motion.div>)}
+        </motion.div>
+      )}
         {showLinqAd && (<motion.div className='hidden md:block h-[50px] w-full'></motion.div>)}
 
         {showBanner && (<motion.div className='pl-[5px] pr-[12px] z-100 flex flex-row items-center justify-between md:hidden fixed top-0 bg-[#0363fe] h-[85px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
@@ -358,12 +373,12 @@ export default function HomePage() {
         </div>
       )}
               </div>
-              <Link href="/linq">
+              {/* <Link href="/linq">
                 <Button variant="ghost" className="ml-2 px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] mt-[1px] text-xs md:text-[17px] font-semibold">API</Button>
               </Link>
                 <Link href="https://www.meetgeorge.app/">
                 <Button variant="ghost" className="px-2 md:px-4 py-2 hover:bg-[#f7f7f7] rounded-full text-[#000000] hover:text-[#000000] text-xs md:text-[17px] font-semibold">George</Button>
-                </Link>
+                </Link> */}
 
               </nav>
             </div>
@@ -865,7 +880,7 @@ export default function HomePage() {
         animate={georgeAnimation.animate}
         transition={georgeAnimation.transition}
       >
-         <div>
+         {/* <div>
           <div className='mx-auto md:mx-[0px] relative w-[280px] md:w-[500px] lg:w-[650px] xl:w-[750px] h-[350px] md:h-[550px] bg-[#F55A2B] rounded-3xl py-[26px]'>
                         <h2 className='ml-[5px] md:ml-[0px] absolute top-10/28 left-19/40 -translate-x-1/2 -translate-y-1/2 text-[60px] md:text-[80px] xl:text-[100px] text-white font-bold text-center z-9'>George</h2>
                         <div className='hidden md:block absolute top-8/20 left-10/40 -translate-x-1/2 -translate-y-1/2 bg-white h-[220px] lg:h-[230px] w-[170px] lg:w-[200px] rounded-xl z-10'>
@@ -895,12 +910,12 @@ export default function HomePage() {
                           </div>
                         </div>
          </div>
-         </div>
-         <div className='mx-auto md:mx-[0px] mt-[40px] lg:mt-[0px] lg:mt-[0px] w-[280px] md:w-[370px] h-[240px] md:h-[300px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px] md:ml-[50px] xl:ml-[100px]'>
+         </div> */}
+         <div className='mx-auto md:mx-[0px] mt-[40px] lg:mt-[0px] lg:mt-[0px] w-[280px] md:w-full h-[240px] md:h-[200px] bg-[#0363fe] rounded-3xl py-[26px] px-[26px] md:ml-[0px] xl:ml-[0px] text-center'>
                         <h2 className='text-[22px] xl:text-[26px] text-white font-bold'>Contact our Stellar team</h2>
                         <h2 className='text-[14px] md:text-[18px] text-gray-200 font-semi mt-[10px]'>Discover how we can help your business.</h2>
                         <a href='/meet-the-team'>
-                        <div className='mx-auto md:mx-0 flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[40px] md:h-[45px]'><p className='text-white text-[14px] md:text-[18px] font-semibold'>Get in touch</p></div>
+                        <div className='mx-auto flex flex-row items-center justify-center mt-[20px] rounded-2xl bg-black w-[140px] h-[40px] md:h-[45px]'><p className='text-white text-[14px] md:text-[18px] font-semibold'>Get in touch</p></div>
                         </a>
          </div>
       </motion.section>

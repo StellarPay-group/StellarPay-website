@@ -30,20 +30,19 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
 
   return (
     <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-    <div className="relative z-50 fixed flex items-center justify-center rounded-[25px] shadow-xl w-[380px] h-[400px] md:w-[480px] md:h-[600px] lg:w-[580px] lg:h-[700px] bg-white">
+    <div className="relative z-50 fixed flex items-center justify-center rounded-[25px] shadow-xl w-[380px] h-[350px] md:w-[480px] md:h-[550px] lg:w-[580px] lg:h-[650px] bg-white">
       <p className="absolute top-[10px] right-[20px] text-gray-500 text-[24px] font-semibold" onClick={onClose}>x</p>
       <div className="flex flex-col items-center justify-center text-center">
         <h1 className="text-black text-[24px] md:text-[32px] lg:text-[40px] mb-[10px] font-bold">Get the StellarPay App</h1>
         <p className="text-black text-[16px] md:text-[18px] lg:text-[20px]">Scan the QR code to download the app</p>
-        <div className="flex items-center justify-center w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] ">
+        <div className="flex items-center justify-center w-[200px] h-[200px] md:w-[300px] md:h-[250px] lg:w-[400px] lg:h-[400px] ">
           <Image src="/images/frame.png" alt="QR Code" className="w-full h-full" width={400} height={400} />
         </div>
-        <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or get a download link via SMS</p>
-        <div className="flex flex-row items-center justify-center">
+        <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or <b><a href="https://stellarpay.app/download" className="text-blue-500 hover:text-blue-700">click here</a></b> for a download link</p>
+        {/* <div className="flex flex-row items-center justify-center">
         <div className="border border-gray-300 rounded-xl border-2 flex flex-row items-center justify-center">
         <Combobox value={countryCode} onChange={(value) => value && setCountryCode(value)}>
   <div className="relative inline-block">
-    {/* Input + Button */}
     <div className="flex flex-row items-center justify-between">
       <div className='px-[10px] flex flex-row h-[40px] md:h-[50px] lg:h-[60px] w-[105px] md:w-[125px] mr-[0px] '>
       <img
@@ -67,8 +66,6 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
       </div>
 
     </div>
-
-    {/* Dropdown positioned directly under input */}
     <ComboboxOptions className="absolute bottom-full left-0 mt-1 w-[150px] max-h-[200px] overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-10">
       {filtered.map((item) => (
         <ComboboxOption
@@ -94,7 +91,7 @@ export default function GetTheApp({ onClose, onSubmit }: { onClose: () => void, 
               await sendAppLink(countryCode?.areaCode, phoneNumber, 'sms');
             }
           }}><p className='text-[14px] md:text-[20px] text-white'>Send</p></button>
-        </div>
+        </div> */}
       </div>
     </div>
     </div>

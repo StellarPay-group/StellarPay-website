@@ -33,6 +33,21 @@ export default function SignInPage() {
         c.areaCode?.includes(lowerQuery)
     );
   }, [countries, query]);
+
+  const isMobilePlatform = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    if (/android/i.test(userAgent)) return true;
+    if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) return true;
+    return false;
+  };
+
+  const handleDownloadOrPopup = () => {
+    if (isMobilePlatform()) {
+      window.location.href = "/download";
+      return;
+    }
+    setShowPopup(true);
+  };
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -107,18 +122,23 @@ export default function SignInPage() {
 
               <input inputMode="numeric" type="numeric" placeholder="Phone number" className="ml-[8px] w-[175px] md:w-[277px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] md:text-[20px]" onChange={(e) => {setPhoneNumber(e.target.value)}} maxLength={10} />
             </div>
-            <div className='mx-auto md:mx-[0px]' onClick={async () => {
-              const codeToUse = countryCode?.areaCode || '';
-              const sid = await sendLoginLink(codeToUse, phoneNumber, 'sms');
-              if (sid !== -3) {
-                window.open('/response', '_self')
+            <div className='mx-auto md:mx-[0px]' onClick={
+              () => {
+                handleDownloadOrPopup();
               }
-              }}>
+                            // async () => {
+              // const codeToUse = countryCode?.areaCode || '';
+              // const sid = await sendLoginLink(codeToUse, phoneNumber, 'sms');
+              // if (sid !== -3) {
+              //   window.open('/response', '_self')
+              // }
+              // }
+              }>
               <button className="bg-[#000000] text-white px-4 py-2 rounded-[10px] border border-gray-300 h-[50px] md:h-[60px] w-[300px] md:w-[420px] text-[16px] md:text-[20px] mt-[10px]">Continue</button>
             </div>
             <p className="text-center text-md text-[#191c1f] mt-[20px] mr-[0px] md:mr-[20px]">OR</p>
             <div className="flex flex-col md:flex-row justify-between items-center border-gray mr-[0px] md:mr-[20px]">
-            <div onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
+            <div onClick={() => handleDownloadOrPopup()}>
                 <button className="mt-[20px] w-[300px] md:w-[200px] h-[50px] md:h-[60px] rounded-[10px] border 
               border-gray-300 p-[10px] text-[18px] mr-[0px] md:mr-[10px]">
                 <div className="flex flex-row items-center justify-center">
@@ -127,7 +147,7 @@ export default function SignInPage() {
                 </div>
               </button>
               </div>
-              <div onClick={() => getUrlForDevice(() => {setShowPopup(true)})}>
+              <div onClick={() => handleDownloadOrPopup()}>
                 <button className="mt-[20px] w-[300px] md:w-[200px] h-[50px] md:h-[60px] rounded-[10px] border border-gray-300 p-[10px] text-[18px] mr-[0px] md:mr-[10px]">
                   <div className="flex flex-row items-center justify-center">
                     <Image src="/images/AppleLogo.png" alt="Apple" width={20} height={20} />

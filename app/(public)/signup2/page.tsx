@@ -56,12 +56,11 @@ export default function SignUpPage() {
         <div className="mt-[20px] mb-[20px]  flex items-center justify-center w-[200px] h-[200px] md:w-[300px] md:h-[300px]">
           <Image src="/images/frame.png" alt="QR Code" className="w-full h-full border-2 border-gray-400 rounded-2xl shadow-xl" width={400} height={400} />
         </div>
-        <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or get a download link via SMS</p>
-        <div className="flex flex-row items-center justify-center">
+        <p className="text-black text-[16px] md:text-[18px] lg:text-[20px] mb-[25px]">or <b><a href="https://stellarpay.app/download" className="text-blue-500 hover:text-blue-700">click here</a></b> for a download link</p>
+        {/* <div className="flex flex-row items-center justify-center">
         <div className="border border-gray-300 rounded-xl border-2 flex flex-row items-center justify-center mr-[0px] md:mr-[10px]">
         <Combobox value={countryCode} onChange={(value) => value && setCountryCode(value)}>
   <div className="relative inline-block">
-    {/* Input + Button */}
     <div className="flex flex-row items-center justify-between">
       <div className='px-[10px] flex flex-row h-[40px] md:h-[50px] lg:h-[60px] w-[105px] md:w-[125px] mr-[0px] '>
       <img
@@ -86,7 +85,6 @@ export default function SignUpPage() {
 
     </div>
 
-    {/* Dropdown positioned directly under input */}
     <ComboboxOptions className="absolute bottom-full left-0 mt-1 w-[150px] max-h-[200px] overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-10">
       {filtered.map((item) => (
         <ComboboxOption
@@ -113,7 +111,7 @@ export default function SignUpPage() {
             }
           }}><p className='hidden md:block text-[14px] md:text-[20px] text-white'>Send</p>
           <p className='block md:hidden text-[14px] md:text-[20px] text-white'>&gt;</p></button>
-        </div>
+        </div> */}
       </div>
     </div>
     
