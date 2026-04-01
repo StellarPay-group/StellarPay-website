@@ -313,12 +313,12 @@ export default function HomePage() {
         <motion.div className='pl-[5px] pr-[12px] z-100 flex-row items-center justify-between hidden md:flex fixed top-0 bg-[#0363fe] h-[55px] w-full' transition={{ duration: 0.2, ease: "easeOut" }} initial={{top: '-80px'}} animate={{top: '0px'}}>
           <div className='flex flex-row items-center justify-between w-full'>
           <p> . </p>
-          <a href='/' className='flex flex-row items-center justify-center'>
-            <p className='text-white text-center text-xs md:text-[15px]'>🎉 Meet StellarPay! True bilateral money movement at your fingertips</p>
+          <div className='flex flex-row items-center justify-center'>
+            <a href='/'><p className='text-white text-center text-xs md:text-[15px]'>🎉 Meet StellarPay! True bilateral money movement at your fingertips</p></a>
             <div className="ml-10 border-t-1 border-gray-700 bg-black rounded-lg py-2 px-5 flex flex-row items-center justify-center space-x-2">
-            <p className='text-white font-medium text-xs md:text-[16px]'>See what's new</p>
+            <a href='/features'><p className='text-white font-medium text-xs md:text-[16px]'>See what's new</p></a>
           </div>
-          </a>
+          </div>
         <p> . </p>
           </div>
           <div><Image src="/images/close.png" alt='EN' width={600} height={600} className='w-[30px] h-[30px]' onClick={() => setShowLinqAd(false)}/></div>
