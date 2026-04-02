@@ -357,7 +357,7 @@ export default function AboutPage() {
               size="icon"
               className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
             >
-              <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
+              <ChevronLeft className="mx-auto h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
             </Button>
 
             <Button
@@ -365,11 +365,11 @@ export default function AboutPage() {
               size="icon"
               className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 z-10 h-8 w-8 md:h-12 md:w-12 rounded-full bg-white shadow-md hover:bg-gray-50"
             >
-              <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
+              <ChevronRight className="mx-auto h-4 w-4 md:h-6 md:w-6 text-[#000000]" />
             </Button>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 mx-5">
             {/* Card 1 - June 2024 */}
             <motion.div 
               className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden"
@@ -382,7 +382,7 @@ export default function AboutPage() {
               </div>
               <div className="px-6 md:px-12 py-6 md:py-8">
                 <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">June 2024</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
+                <p className="text-[#000000] text-lg md:text-[22px] leading-[1.15]">
                   Survey website reaches 70k signups validating our idea
                 </p>
               </div>
@@ -398,9 +398,9 @@ export default function AboutPage() {
               <div className="bg-[#005b13] h-64 md:h-96 flex items-center justify-center">
                 <span className="text-white text-4xl md:text-6xl font-bold">2024</span>
               </div>
-              <div className="px-6 md:px-12 py-6 md:py-8">
-                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">August 2024</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">
+              <div className="px-2 md:px-12 py-6 md:py-8">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">Aug 2024</h3>
+                <p className="text-[#000000] text-lg md:text-[22px] leading-[1.15]">
                   Our founders Christian Atangana and Hamza Hussain begin building
                 </p>
               </div>
@@ -418,7 +418,22 @@ export default function AboutPage() {
               </div>
               <div className="px-6 md:px-12 py-6 md:py-8">
                 <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">July 2025</h3>
-                <p className="text-[#000000] text-lg md:text-2xl leading-[1.05]">Launch of StellarPay & George</p>
+                <p className="text-[#000000] text-lg md:text-[22px] leading-[1.15] md:mt-3">Beta launch of George with 2000 beta testers</p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="bg-white rounded-2xl shadow-sm border border-[#d9d9d9] overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+            >
+              <div className="bg-[#e39530] h-64 md:h-96 flex items-center justify-center">
+                <span className="text-white text-4xl md:text-6xl font-bold">2026</span>
+              </div>
+              <div className="px-6 md:px-12 py-6 md:py-8">
+                <h3 className="text-xl md:text-2xl font-bold text-[#000000] mb-2">May 2026</h3>
+                <p className="text-[#000000] md:mt-5 text-lg md:text-[22px] leading-[1.15]">Official StellarPay launch</p>
               </div>
             </motion.div>
           </div>
